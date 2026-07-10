@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Routes, Route } from 'react-router';
 import '../lib/i18n';
@@ -107,8 +107,9 @@ describe('UnitPage', () => {
     await userEvent.click(screen.getByTestId('unit-start'));
     await userEvent.click(await screen.findByTestId('unit-vocab-continue')); // card 1 → card 2
     const finalContinue = await screen.findByTestId('unit-vocab-continue');
-    await userEvent.click(finalContinue);
-    await userEvent.click(finalContinue).catch(() => {});
+    fireEvent.click(finalContinue);
+    fireEvent.click(finalContinue); // second tap lands before enterPractice's await resolves
+    await screen.findAllByTestId(/exercise-(option|tile)-/); // practice phase reached
     expect(seedNewCards).toHaveBeenCalledTimes(1);
   });
 });

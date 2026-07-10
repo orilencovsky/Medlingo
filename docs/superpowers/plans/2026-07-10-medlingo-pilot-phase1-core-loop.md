@@ -3146,7 +3146,7 @@ Expected: PASS (3 tests).
 `src/pages/UnitPage.test.tsx`:
 ```tsx
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Routes, Route } from 'react-router';
 import '../lib/i18n';
@@ -3242,6 +3242,22 @@ describe('UnitPage', () => {
     const glossButtons = screen.getAllByTestId('unit-gloss');
     await userEvent.click(glossButtons[0]);
     expect(await screen.findByTestId('unit-gloss-panel')).toHaveTextContent('pain');
+  });
+
+  it('double-clicking the final vocab Continue seeds cards exactly once', async () => {
+    render(
+      <MemoryRouter initialEntries={['/unit/unit-01-intake']}>
+        <Routes><Route path="/unit/:slug" element={<UnitPage />} /></Routes>
+      </MemoryRouter>,
+    );
+    await screen.findByText('Do you have pain?');
+    await userEvent.click(screen.getByTestId('unit-start'));
+    await userEvent.click(await screen.findByTestId('unit-vocab-continue')); // card 1 → card 2
+    const finalContinue = await screen.findByTestId('unit-vocab-continue');
+    fireEvent.click(finalContinue);
+    fireEvent.click(finalContinue); // second tap lands before enterPractice's await resolves
+    await screen.findAllByTestId(/exercise-(option|tile)-/); // practice phase reached
+    expect(seedNewCards).toHaveBeenCalledTimes(1);
   });
 });
 ```
