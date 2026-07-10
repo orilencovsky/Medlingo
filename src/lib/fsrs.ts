@@ -1,0 +1,98 @@
+import {
+  fsrs, generatorParameters, createEmptyCard,
+  Rating as FsrsRating, State, type Card, type Grade,
+} from 'ts-fsrs';
+import type { CardState, CardStateName, PracticeForm, Rating } from './types';
+
+export const FSRS_DESIRED_RETENTION = 0.9;
+
+export const EASY_LATENCY_MS: Record<Exclude<PracticeForm, 'drill'>, number> = {
+  flashcard_recognition: 4000,
+  cloze: 8000,
+  flashcard_recall: 8000,
+};
+
+export const FORM_BANDS = { recognitionMaxStabilityDays: 3, clozeMaxStabilityDays: 10 };
+
+const scheduler = fsrs(generatorParameters({
+  enable_fuzz: false,
+  request_retention: FSRS_DESIRED_RETENTION,
+}));
+
+const STATE_TO_NAME: Record<State, CardStateName> = {
+  [State.New]: 'new',
+  [State.Learning]: 'learning',
+  [State.Review]: 'review',
+  [State.Relearning]: 'relearning',
+};
+const NAME_TO_STATE: Record<CardStateName, State> = {
+  new: State.New,
+  learning: State.Learning,
+  review: State.Review,
+  relearning: State.Relearning,
+};
+const RATING_TO_FSRS: Record<Rating, FsrsRating> = {
+  again: FsrsRating.Again,
+  good: FsrsRating.Good,
+  easy: FsrsRating.Easy,
+};
+
+function fromCard(entryId: string, c: Card): CardState {
+  return {
+    entryId,
+    due: new Date(c.due),
+    stability: c.stability,
+    difficulty: c.difficulty,
+    reps: c.reps,
+    lapses: c.lapses,
+    state: STATE_TO_NAME[c.state],
+    lastReview: c.last_review ? new Date(c.last_review) : null,
+  };
+}
+
+function toCard(cs: CardState): Card {
+  // elapsed_days/scheduled_days/learning_steps are reconstructed — not persisted in user_card_state
+  const scheduledDays = cs.lastReview
+    ? Math.max(0, Math.round((cs.due.getTime() - cs.lastReview.getTime()) / 86_400_000))
+    : 0;
+  // learning_steps is 1 only when in learning state, 0 otherwise
+  const learningSteps = cs.state === 'learning' ? 1 : 0;
+  return {
+    due: cs.due,
+    stability: cs.stability,
+    difficulty: cs.difficulty,
+    elapsed_days: 0,
+    scheduled_days: scheduledDays,
+    learning_steps: learningSteps,
+    reps: cs.reps,
+    lapses: cs.lapses,
+    state: NAME_TO_STATE[cs.state],
+    last_review: cs.lastReview ?? undefined,
+  } as Card;
+}
+
+export function newCardState(entryId: string, now: Date): CardState {
+  return fromCard(entryId, createEmptyCard(now));
+}
+
+export function deriveRating(
+  correct: boolean, latencyMs: number, form: Exclude<PracticeForm, 'drill'>,
+): Rating {
+  if (!correct) return 'again';
+  return latencyMs <= EASY_LATENCY_MS[form] ? 'easy' : 'good';
+}
+
+export function applyReview(card: CardState, rating: Rating, now: Date): CardState {
+  const result = scheduler.next(toCard(card), now, RATING_TO_FSRS[rating] as Grade);
+  return fromCard(card.entryId, result.card);
+}
+
+export function selectForm(card: CardState): Exclude<PracticeForm, 'drill'> {
+  if (card.stability < FORM_BANDS.recognitionMaxStabilityDays) return 'flashcard_recognition';
+  if (card.stability < FORM_BANDS.clozeMaxStabilityDays) return 'cloze';
+  return 'flashcard_recall';
+}
+
+export function isDue(card: CardState, now: Date): boolean {
+  return card.due.getTime() <= now.getTime();
+}
