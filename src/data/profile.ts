@@ -33,3 +33,7 @@ export async function completeOnboarding(displayName: string): Promise<Profile> 
   if (error) throw error;
   return mapProfileRow(data as ProfileRow);
 }
+
+export async function touchStreak(): Promise<void> {
+  // implemented in Task 13 (streak logic); no-op stub so ReviewPage can ship first
+}
