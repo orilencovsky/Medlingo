@@ -12,7 +12,7 @@ export function Recall({ entry, distractors, onResult }: ExerciseProps) {
     <div className="p-4">
       <p className="text-center text-2xl font-semibold">{entry.translations.en}</p>
       {entry.gender && (
-        <p className="text-center text-sm text-gray-600">{t('unit.gender')}: {entry.gender}</p>
+        <p className="text-center text-sm text-gray-600">{t('unit.gender')}: <He>{entry.gender}</He></p>
       )}
       <div className="mt-6 grid grid-cols-2 gap-2">
         {tiles.map((o, i) => (
