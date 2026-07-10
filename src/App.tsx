@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 function Landing() {
-  return <h1 className="p-4 text-2xl font-semibold">MedLingo</h1>;
+  const { t } = useTranslation();
+  return <h1 className="p-4 text-2xl font-semibold">{t('app.title')}</h1>;
 }
 
 export default function App() {

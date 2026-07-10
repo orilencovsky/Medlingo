@@ -1,0 +1,62 @@
+{
+  "app": { "title": "MedLingo" },
+  "common": {
+    "continue": "Continue",
+    "loading": "Loading…",
+    "retry": "Try again",
+    "back": "Back"
+  },
+  "auth": {
+    "title": "Sign in to MedLingo",
+    "emailLabel": "Email address",
+    "sendLink": "Send me a sign-in link",
+    "checkEmail": "Check your email for a sign-in link.",
+    "error": "Could not send the link. Try again."
+  },
+  "onboarding": {
+    "title": "Welcome to MedLingo",
+    "nameLabel": "Your display name",
+    "consent": "By continuing you agree that MedLingo stores your email, display name, and learning history to run this pilot (hosted in the EU). You can request deletion at any time.",
+    "start": "Start learning"
+  },
+  "home": {
+    "unitTitle": "Your unit",
+    "start": "Start",
+    "continue": "Continue",
+    "completed": "Completed",
+    "reviewTitle": "Reviews",
+    "due_one": "{{count}} word due — review now",
+    "due_other": "{{count}} words due — review now",
+    "caughtUp": "All caught up — next review {{time}}",
+    "extraPractice": "Extra practice",
+    "firstRun": "Start your first unit to begin learning.",
+    "streak": "{{count}}-day streak",
+    "wordsLearned": "{{count}} learned",
+    "wordsKnown": "{{count}} known"
+  },
+  "unit": {
+    "scenario": "Scenario",
+    "vocab": "New words",
+    "practice": "Practice",
+    "done": "Unit completed!",
+    "start": "Start unit",
+    "meaning": "Meaning",
+    "gender": "Gender",
+    "plural": "Plural",
+    "root": "Root",
+    "everyday": "Patients say"
+  },
+  "review": {
+    "title": "Review",
+    "correct": "Correct!",
+    "wrong": "Not quite",
+    "answer": "Answer",
+    "summary": "Session complete",
+    "reviewed": "{{count}} reviewed",
+    "accuracy": "{{pct}}% correct",
+    "caughtUp": "All caught up!",
+    "nextDue": "Next review {{time}}",
+    "extra": "Extra practice (doesn't affect your schedule)",
+    "empty": "Nothing to review yet — learn the unit first."
+  }
+}
