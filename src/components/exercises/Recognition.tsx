@@ -15,12 +15,15 @@ export function useExercise(onResult: (r: ExerciseResult) => void) {
   const startedAt = useRef(performance.now());
   const [answered, setAnswered] = useState<null | boolean>(null);
   const latency = useRef(0);
+  const finished = useRef(false); // double-tap on Continue must not re-fire onResult (duplicate review writes)
   function answer(correct: boolean) {
     if (answered !== null) return;
     latency.current = performance.now() - startedAt.current;
     setAnswered(correct);
   }
   function finish() {
+    if (finished.current) return;
+    finished.current = true;
     onResult({ correct: answered!, latencyMs: latency.current });
   }
   return { answered, answer, finish };

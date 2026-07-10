@@ -45,6 +45,15 @@ describe('Recognition', () => {
     await answerAndContinue('pain', true);
     expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ correct: false }));
   });
+  it('double-clicking Continue fires onResult exactly once', async () => {
+    const onResult = vi.fn();
+    render(<Recognition entry={answer} contextSentences={context} distractors={distractors} onResult={onResult} />);
+    await userEvent.click(screen.getAllByTestId(/exercise-option-/).find((b) => b.textContent === 'pain')!);
+    const cont = screen.getByTestId('exercise-continue');
+    await userEvent.click(cont);
+    await userEvent.click(cont);
+    expect(onResult).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('Cloze', () => {

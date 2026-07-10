@@ -28,11 +28,15 @@ export function ReviewPage() {
   const [phase, setPhase] = useState<Phase>({ kind: 'loading' });
 
   async function startExtra() {
-    const upcoming = await loadUpcomingCards(EXTRA_LIMIT);
-    setPhase({
-      kind: 'running', queue: upcoming, index: 0, requeued: new Set(),
-      correct: 0, total: 0, extra: true,
-    });
+    try {
+      const upcoming = await loadUpcomingCards(EXTRA_LIMIT);
+      setPhase({
+        kind: 'running', queue: upcoming, index: 0, requeued: new Set(),
+        correct: 0, total: 0, extra: true,
+      });
+    } catch {
+      setPhase({ kind: 'error' });
+    }
   }
 
   useEffect(() => {

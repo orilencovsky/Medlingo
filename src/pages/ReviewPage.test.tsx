@@ -26,6 +26,7 @@ function reviewCard(id: string, hebrew: string, en: string): ReviewCard {
 const db = {
   due: [] as ReviewCard[],
   upcoming: [] as ReviewCard[],
+  upcomingError: null as Error | null,
   pool: [
     entry('keev', 'כאב', 'pain'), entry('chom', 'חום', 'fever'),
     entry('dofek', 'דופק', 'pulse'), entry('bchila', 'בחילה', 'nausea'),
@@ -36,7 +37,7 @@ const db = {
 
 vi.mock('../data/cards', () => ({
   loadDueCards: () => Promise.resolve(db.due),
-  loadUpcomingCards: () => Promise.resolve(db.upcoming),
+  loadUpcomingCards: () => (db.upcomingError ? Promise.reject(db.upcomingError) : Promise.resolve(db.upcoming)),
   loadEntryPool: () => Promise.resolve(db.pool),
   submitReview: (input: { entryId: string; countsForScheduling?: boolean }) => {
     db.submitted.push(input);
@@ -62,6 +63,7 @@ describe('ReviewPage', () => {
   beforeEach(() => {
     db.due = [];
     db.upcoming = [];
+    db.upcomingError = null;
     db.submitted = [];
     touchStreak.mockClear();
   });
@@ -92,5 +94,14 @@ describe('ReviewPage', () => {
     await answerCurrent(true, 'fever');
     expect(await screen.findByTestId('review-summary')).toBeInTheDocument();
     expect(db.submitted[0].countsForScheduling).toBe(false);
+  });
+
+  it('extra practice failure reaches the error state', async () => {
+    db.upcoming = [reviewCard('chom', 'חום', 'fever')];
+    render(<MemoryRouter><ReviewPage /></MemoryRouter>);
+    await screen.findByTestId('review-caught-up');
+    db.upcomingError = new Error('network down');
+    await userEvent.click(screen.getByTestId('review-extra-practice'));
+    expect(await screen.findByRole('alert')).toBeInTheDocument();
   });
 });
