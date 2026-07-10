@@ -34,6 +34,10 @@ A handful of real target users (immigrant clinicians) **complete the unit and re
 
 The pilot unit itself — the intake/anamnesis dialogue, its 10–15 dictionary entries with all required fields, and English translations — is a **load-bearing deliverable** authored by the owner/language professional in the git-versioned spreadsheets (§6). Definition of ready: dialogue lines complete, every referenced entry fully filled (required fields of §4), English translations present, reviewed once by a clinician-level Hebrew speaker. Authoring proceeds in parallel with the Phase 1 build and gates launch, not development.
 
+### Rollout & partner review
+
+The app deploys **continuously to a public Cloudflare Pages URL from the first working slice**, so the owner's partner — the language professional — can follow progress online throughout the build. The partner receives an account with `is_admin`, letting him preview draft units and vocabulary in the live app before publication (§4 access rules, §6 draft/published workflow).
+
 ### Explicitly out of pilot scope (roadmap, seams designed in)
 
 - Audio/listening exercises and voice simulation
@@ -58,6 +62,7 @@ The pilot unit itself — the intake/anamnesis dialogue, its 10–15 dictionary 
 | Dictionary entry fields | + grammatical info (gender/plural), + everyday/patient-facing synonym, + root (שורש, where meaningful); no transliteration |
 | Pilot translations | `en` required; `ar`/`ru`/`fr` columns exist from day 1 but are nullable and populated later (no pilot screen renders them) |
 | Implementation phasing | Phase 1 core loop → Phase 2 AI drill fast-follow |
+| Partner demo | Continuous public deployment from the first slice; language-expert partner gets an `is_admin` preview account |
 | Repo | github.com/orilencovsky/Medlingo, local clone on Desktop |
 
 ## 3. Architecture
