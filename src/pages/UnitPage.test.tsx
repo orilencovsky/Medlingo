@@ -96,4 +96,19 @@ describe('UnitPage', () => {
     await userEvent.click(glossButtons[0]);
     expect(await screen.findByTestId('unit-gloss-panel')).toHaveTextContent('pain');
   });
+
+  it('double-clicking the final vocab Continue seeds cards exactly once', async () => {
+    render(
+      <MemoryRouter initialEntries={['/unit/unit-01-intake']}>
+        <Routes><Route path="/unit/:slug" element={<UnitPage />} /></Routes>
+      </MemoryRouter>,
+    );
+    await screen.findByText('Do you have pain?');
+    await userEvent.click(screen.getByTestId('unit-start'));
+    await userEvent.click(await screen.findByTestId('unit-vocab-continue')); // card 1 → card 2
+    const finalContinue = await screen.findByTestId('unit-vocab-continue');
+    await userEvent.click(finalContinue);
+    await userEvent.click(finalContinue).catch(() => {});
+    expect(seedNewCards).toHaveBeenCalledTimes(1);
+  });
 });
