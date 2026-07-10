@@ -1,0 +1,52 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+const calls: Array<{ table: string; op: string; payload?: unknown }> = [];
+const responses: Record<string, unknown[]> = {};
+
+vi.mock('../lib/supabase', () => ({
+  supabase: {
+    auth: { getUser: () => Promise.resolve({ data: { user: { id: 'u1' } } }) },
+    from: (table: string) => {
+      const chain = {
+        select: () => chain,
+        eq: () => chain,
+        order: () => Promise.resolve({ data: responses[table] ?? [], error: null }),
+        maybeSingle: () => Promise.resolve({ data: (responses[table] ?? [])[0] ?? null, error: null }),
+        in: () => Promise.resolve({ data: responses[table] ?? [], error: null }),
+        upsert: (payload: unknown) => {
+          calls.push({ table, op: 'upsert', payload });
+          return Promise.resolve({ data: payload, error: null });
+        },
+        then: (res: (v: { data: unknown[]; error: null }) => void) =>
+          Promise.resolve({ data: responses[table] ?? [], error: null }).then(res),
+      };
+      return chain;
+    },
+  },
+}));
+
+import { loadUnitProgress, startUnit, completeUnit } from './units';
+
+describe('units data layer', () => {
+  beforeEach(() => {
+    calls.length = 0;
+    for (const k of Object.keys(responses)) delete responses[k];
+  });
+
+  it('loadUnitProgress defaults to not_started', async () => {
+    expect(await loadUnitProgress('unit-01-intake')).toBe('not_started');
+  });
+
+  it('startUnit upserts in_progress', async () => {
+    await startUnit('unit-01-intake');
+    const call = calls.find((c) => c.table === 'unit_progress')!;
+    expect(call.payload).toMatchObject({ status: 'in_progress', unit_slug: 'unit-01-intake', user_id: 'u1' });
+  });
+
+  it('completeUnit upserts completed with a timestamp', async () => {
+    await completeUnit('unit-01-intake');
+    const call = calls.find((c) => c.table === 'unit_progress')!;
+    expect(call.payload).toMatchObject({ status: 'completed' });
+    expect((call.payload as { completed_at: string }).completed_at).toBeTruthy();
+  });
+});
