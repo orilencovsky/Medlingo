@@ -391,6 +391,7 @@ create table public.user_card_state (
   difficulty real not null,
   reps int not null default 0,
   lapses int not null default 0,
+  learning_steps int not null default 0,
   state text not null check (state in ('new','learning','review','relearning')),
   last_review timestamptz,
   updated_at timestamptz not null default now(),
@@ -1672,6 +1673,7 @@ export interface CardState {
   difficulty: number;
   reps: number;
   lapses: number;
+  learningSteps: number; // ts-fsrs internal step counter — must round-trip or lapsed learning cards graduate early
   state: CardStateName;
   lastReview: Date | null;
 }
@@ -1835,6 +1837,7 @@ function fromCard(entryId: string, c: Card): CardState {
     difficulty: c.difficulty,
     reps: c.reps,
     lapses: c.lapses,
+    learningSteps: c.learning_steps ?? 0,
     state: STATE_TO_NAME[c.state],
     lastReview: c.last_review ? new Date(c.last_review) : null,
   };
@@ -1851,7 +1854,7 @@ function toCard(cs: CardState): Card {
     difficulty: cs.difficulty,
     elapsed_days: 0,
     scheduled_days: scheduledDays,
-    learning_steps: 0,
+    learning_steps: cs.learningSteps,
     reps: cs.reps,
     lapses: cs.lapses,
     state: NAME_TO_STATE[cs.state],
@@ -2057,7 +2060,8 @@ const QUEUE_KEY = 'medlingo.pendingReviews';
 
 type CardRow = {
   entry_id: string; due: string; stability: number; difficulty: number;
-  reps: number; lapses: number; state: CardState['state']; last_review: string | null;
+  reps: number; lapses: number; learning_steps?: number;
+  state: CardState['state']; last_review: string | null;
 };
 type EntryRow = {
   id: string; hebrew: string; hebrew_nikud: string; part_of_speech: DictionaryEntry['partOfSpeech'];
@@ -2068,7 +2072,8 @@ type EntryRow = {
 function mapCardRow(r: CardRow): CardState {
   return {
     entryId: r.entry_id, due: new Date(r.due), stability: r.stability,
-    difficulty: r.difficulty, reps: r.reps, lapses: r.lapses, state: r.state,
+    difficulty: r.difficulty, reps: r.reps, lapses: r.lapses,
+    learningSteps: r.learning_steps ?? 0, state: r.state,
     lastReview: r.last_review ? new Date(r.last_review) : null,
   };
 }
@@ -2085,6 +2090,7 @@ function cardStateToRow(userId: string, c: CardState) {
   return {
     user_id: userId, entry_id: c.entryId, due: c.due.toISOString(),
     stability: c.stability, difficulty: c.difficulty, reps: c.reps, lapses: c.lapses,
+    learning_steps: c.learningSteps,
     state: c.state, last_review: c.lastReview ? c.lastReview.toISOString() : null,
     updated_at: new Date().toISOString(),
   };
@@ -2670,7 +2676,7 @@ function reviewCard(id: string, hebrew: string, en: string): ReviewCard {
   return {
     card: {
       entryId: id, due: new Date('2026-07-10T00:00:00Z'), stability: 1, difficulty: 5,
-      reps: 1, lapses: 0, state: 'learning', lastReview: null,
+      reps: 1, lapses: 0, learningSteps: 0, state: 'learning', lastReview: null,
     },
     entry: entry(id, hebrew, en),
     contextSentences: [{ he: `משפט עם ${hebrew}.`, translations: { en: `sentence with ${en}` } }],
@@ -3571,7 +3577,8 @@ import { HomePage } from './HomePage';
 
 function card(entryId: string, state: CardState['state'], stability: number, reps: number): CardState {
   return {
-    entryId, due: new Date(), stability, difficulty: 5, reps, lapses: 0, state, lastReview: null,
+    entryId, due: new Date(), stability, difficulty: 5, reps, lapses: 0,
+    learningSteps: 0, state, lastReview: null,
   };
 }
 

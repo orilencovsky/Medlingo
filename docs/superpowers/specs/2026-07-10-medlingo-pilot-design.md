@@ -133,7 +133,7 @@ Joins a unit to its dictionary entries: `unit_id`, `entry_id`, order, and the en
 
 ### `user_card_state`
 
-Per user × entry: FSRS memory state — due date, stability, difficulty, reps, lapses, state, last review. PK `(user_id, entry_id)`. RLS: owner only. Client-maintained cache; source of truth is `review_logs`.
+Per user × entry: FSRS memory state — due date, stability, difficulty, reps, lapses, learning-step counter, state, last review. PK `(user_id, entry_id)`. RLS: owner only. Client-maintained cache; source of truth is `review_logs`. (The learning-step counter must be persisted: without it, a card that lapses during its initial learning phase graduates one step early — found in implementation review 2026-07-10.)
 
 ### `review_logs` (append-only)
 
