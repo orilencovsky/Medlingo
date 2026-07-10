@@ -110,4 +110,23 @@ describe('cards data layer', () => {
     expect(due[0].entry.translations.en).toBe('pain');
     expect(due[0].contextSentences[0].he).toBe('יש לי כאב');
   });
+
+  it('drops a queued review after 3 failed flush attempts so it cannot block the queue', async () => {
+    await seedNewCards(['keev', 'chom'], T0);
+    tables.review_logs.insertError = new Error('fetch failed');
+    await submitReview({ entryId: 'keev', form: 'cloze', correct: true, latencyMs: 5000 }, T0);
+    await submitReview({ entryId: 'chom', form: 'cloze', correct: true, latencyMs: 5000 }, T0);
+    expect(JSON.parse(localStorage.getItem('medlingo.pendingReviews')!)).toHaveLength(2);
+
+    // three flushes while still failing: head item accumulates attempts, then drops
+    expect(await flushPendingReviews()).toBe(0);
+    expect(await flushPendingReviews()).toBe(0);
+    expect(await flushPendingReviews()).toBe(0);
+    expect(JSON.parse(localStorage.getItem('medlingo.pendingReviews')!)).toHaveLength(1);
+
+    // queue unblocked: the surviving item flushes once the network is back
+    tables.review_logs.insertError = null;
+    expect(await flushPendingReviews()).toBe(1);
+    expect(JSON.parse(localStorage.getItem('medlingo.pendingReviews')!)).toHaveLength(0);
+  });
 });

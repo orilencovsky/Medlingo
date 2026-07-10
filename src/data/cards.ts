@@ -145,7 +145,7 @@ async function writeReview(input: ReviewInput, now: Date): Promise<CardState> {
   return next;
 }
 
-type QueuedReview = { input: ReviewInput; at: string };
+type QueuedReview = { input: ReviewInput; at: string; attempts?: number };
 
 function readQueue(): QueuedReview[] {
   return JSON.parse(localStorage.getItem(QUEUE_KEY) ?? '[]') as QueuedReview[];
@@ -164,17 +164,32 @@ export async function submitReview(input: ReviewInput, now: Date = new Date()): 
   }
 }
 
+const MAX_FLUSH_ATTEMPTS = 3;
+
 export async function flushPendingReviews(): Promise<number> {
   const queue = readQueue();
+  const remaining: QueuedReview[] = [];
   let flushed = 0;
+  let stopped = false;
   for (const q of queue) {
+    if (stopped) {
+      remaining.push(q);
+      continue;
+    }
     try {
       await writeReview(q.input, new Date(q.at));
       flushed++;
     } catch {
-      break; // still offline — keep remaining items
+      const attempts = (q.attempts ?? 0) + 1;
+      if (attempts >= MAX_FLUSH_ATTEMPTS) {
+        // permanently-failing item (e.g. validation error) must not block the queue forever
+        console.warn('medlingo: dropping review that failed to flush', q.input.entryId);
+      } else {
+        remaining.push({ ...q, attempts });
+      }
+      stopped = true; // preserve order — retry the rest on the next flush
     }
   }
-  writeQueue(queue.slice(flushed));
+  writeQueue(remaining);
   return flushed;
 }
