@@ -3671,7 +3671,7 @@ Expected: FAIL — `./HomePage` not found.
 
 `src/pages/HomePage.tsx`:
 ```tsx
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { loadUnits, loadUnitProgress } from '../data/units';
@@ -3693,6 +3693,7 @@ interface HomeState {
 export function HomePage() {
   const { t } = useTranslation();
   const [state, setState] = useState<HomeState | null>(null);
+  const touched = useRef(false); // StrictMode double-invokes mount effects — streak must touch once
 
   useEffect(() => {
     (async () => {
@@ -3703,7 +3704,10 @@ export function HomePage() {
       const progress = unit ? await loadUnitProgress(unit.slug) : 'not_started';
       let nextDue: Date | null = null;
       if (due.length === 0 && cards.length > 0) {
-        await touchStreak(); // caught-up visit maintains the streak
+        if (!touched.current) {
+          touched.current = true;
+          await touchStreak(); // caught-up visit maintains the streak
+        }
         const upcoming = await loadUpcomingCards(1);
         nextDue = upcoming[0]?.card.due ?? null;
       }
