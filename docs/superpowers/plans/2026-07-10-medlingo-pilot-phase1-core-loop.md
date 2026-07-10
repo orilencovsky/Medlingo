@@ -3253,7 +3253,7 @@ Expected: FAIL — `./UnitPage` not found.
 
 `src/pages/UnitPage.tsx`:
 ```tsx
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { He } from '../components/He';
@@ -3318,7 +3318,11 @@ export function UnitPage() {
 
   const items = useMemo(() => data?.items ?? [], [data]);
 
+  const seeding = useRef(false); // double-tap on the last vocab Continue must not seed twice
+
   async function enterPractice() {
+    if (seeding.current) return;
+    seeding.current = true;
     await seedNewCards(items.map((i) => i.entryId));
     setPhase({ kind: 'practice', index: 0 });
   }
@@ -3357,7 +3361,7 @@ export function UnitPage() {
             onClick={() => setGloss(null)}
           >
             <p><He className="text-xl font-bold">{gloss.entry.hebrewNikud}</He> — {gloss.entry.translations.en}</p>
-            {gloss.entry.gender && <p className="text-sm">{t('unit.gender')}: {gloss.entry.gender}</p>}
+            {gloss.entry.gender && <p className="text-sm">{t('unit.gender')}: <He>{gloss.entry.gender}</He></p>}
             {gloss.entry.everydaySynonym && (
               <p className="text-sm">{t('unit.everyday')}: <He>{gloss.entry.everydaySynonym}</He></p>
             )}
@@ -3384,7 +3388,7 @@ export function UnitPage() {
           <p className="mt-2 text-xl">{item.entry.translations.en}</p>
           {item.entry.gender && (
             <p className="mt-1 text-sm text-gray-600">
-              {t('unit.gender')}: {item.entry.gender}
+              {t('unit.gender')}: <He>{item.entry.gender}</He>
               {item.entry.plural && <> · {t('unit.plural')}: <He>{item.entry.plural}</He></>}
             </p>
           )}
