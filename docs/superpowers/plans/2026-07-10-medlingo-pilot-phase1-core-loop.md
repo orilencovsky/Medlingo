@@ -3582,6 +3582,7 @@ Expected: PASS (5 tests).
 `src/pages/HomePage.test.tsx`:
 ```tsx
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { StrictMode } from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import '../lib/i18n';
@@ -3660,6 +3661,20 @@ describe('HomePage', () => {
     expect(await screen.findByTestId('home-review-card')).toHaveTextContent('All caught up');
     expect(touchStreak).toHaveBeenCalledOnce();
     expect(screen.getByText('Extra practice')).toBeInTheDocument();
+  });
+
+  it('caught-up visit touches the streak exactly once under StrictMode', async () => {
+    db.progress = 'completed';
+    db.due = [];
+    db.cards = [card('a', 'review', 8, 5)];
+    db.upcoming = [{ card: card('a', 'review', 8, 5) }];
+    render(
+      <StrictMode>
+        <MemoryRouter><HomePage /></MemoryRouter>
+      </StrictMode>,
+    );
+    await screen.findByTestId('home-review-card');
+    expect(touchStreak).toHaveBeenCalledTimes(1);
   });
 });
 ```
