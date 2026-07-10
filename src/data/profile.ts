@@ -34,6 +34,39 @@ export async function completeOnboarding(displayName: string): Promise<Profile> 
   return mapProfileRow(data as ProfileRow);
 }
 
+export function localDateString(d: Date = new Date()): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+export function computeStreak(
+  prev: { current: number; longest: number; lastActiveDate: string | null },
+  todayLocal: string,
+): { current: number; longest: number; lastActiveDate: string } {
+  if (prev.lastActiveDate === todayLocal) {
+    return { current: prev.current, longest: prev.longest, lastActiveDate: todayLocal };
+  }
+  const yesterday = localDateString(new Date(new Date(`${todayLocal}T12:00:00`).getTime() - 86_400_000));
+  const current = prev.lastActiveDate === yesterday ? prev.current + 1 : 1;
+  return { current, longest: Math.max(prev.longest, current), lastActiveDate: todayLocal };
+}
+
 export async function touchStreak(): Promise<void> {
-  // implemented in Task 13 (streak logic); no-op stub so ReviewPage can ship first
+  const profile = await getProfile();
+  if (!profile) return;
+  const next = computeStreak(
+    { current: profile.streakCurrent, longest: profile.streakLongest, lastActiveDate: profile.lastActiveDate },
+    localDateString(),
+  );
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      streak_current: next.current,
+      streak_longest: next.longest,
+      last_active_date: next.lastActiveDate,
+    })
+    .eq('user_id', profile.userId);
+  if (error) throw error;
 }
