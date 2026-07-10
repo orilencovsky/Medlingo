@@ -50,6 +50,7 @@ export interface CardState {
   difficulty: number;
   reps: number;
   lapses: number;
+  learningSteps: number; // ts-fsrs internal step counter — must round-trip or lapsed learning cards graduate early
   state: CardStateName;
   lastReview: Date | null;
 }

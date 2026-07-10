@@ -45,6 +45,7 @@ function fromCard(entryId: string, c: Card): CardState {
     difficulty: c.difficulty,
     reps: c.reps,
     lapses: c.lapses,
+    learningSteps: c.learning_steps ?? 0,
     state: STATE_TO_NAME[c.state],
     lastReview: c.last_review ? new Date(c.last_review) : null,
   };
@@ -55,15 +56,13 @@ function toCard(cs: CardState): Card {
   const scheduledDays = cs.lastReview
     ? Math.max(0, Math.round((cs.due.getTime() - cs.lastReview.getTime()) / 86_400_000))
     : 0;
-  // learning_steps is 1 only when in learning state, 0 otherwise
-  const learningSteps = cs.state === 'learning' ? 1 : 0;
   return {
     due: cs.due,
     stability: cs.stability,
     difficulty: cs.difficulty,
     elapsed_days: 0,
     scheduled_days: scheduledDays,
-    learning_steps: learningSteps,
+    learning_steps: cs.learningSteps,
     reps: cs.reps,
     lapses: cs.lapses,
     state: NAME_TO_STATE[cs.state],

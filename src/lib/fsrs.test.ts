@@ -93,4 +93,13 @@ describe('fsrs module', () => {
     expect(rebuilt).toEqual(live);
     expect(rebuilt.due.getTime()).toBe(live.due.getTime());
   });
+
+  it('a lapse during learning does not graduate the card early', () => {
+    let c = newCardState('keev', T0);
+    c = applyReview(c, 'good', T0);          // step 1 of learning
+    c = applyReview(c, 'again', days(2));    // lapse — internal step counter resets
+    c = applyReview(c, 'good', days(2.01));  // must repeat the learning step, not graduate
+    expect(c.state).toBe('learning');
+    expect(c.due.getTime() - days(2.01).getTime()).toBeLessThan(86_400_000);
+  });
 });
