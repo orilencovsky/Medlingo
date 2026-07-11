@@ -32,6 +32,8 @@ export default defineConfig({
     // e2e/ holds Playwright specs (run via `npm run test:e2e`), not Vitest specs —
     // without this, Vitest's default *.spec.ts glob also picks up e2e/pilot.spec.ts
     // and fails to import Playwright's test() outside a Playwright runner.
-    exclude: [...configDefaults.exclude, 'e2e/**'],
+    // supabase/functions/ holds Deno Edge Function specs (run via `deno test`) — they use
+    // jsr:/npm: specifiers and the Deno.test global that Vitest/Node can't resolve.
+    exclude: [...configDefaults.exclude, 'e2e/**', 'supabase/functions/**'],
   },
 });
