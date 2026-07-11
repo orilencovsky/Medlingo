@@ -79,7 +79,7 @@ async function entriesReviewedToday(): Promise<Set<string>> {
 }
 
 export async function applyDrillVerdicts(
-  verdicts: Array<{ entryId: string; verdict: string }>,
+  verdicts: Array<{ entryId: string; verdict: string; hebrew: string; en: string }>,
 ): Promise<void> {
   const reviewedToday = await entriesReviewedToday();
   for (const v of verdicts) {

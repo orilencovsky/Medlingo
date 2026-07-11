@@ -32,11 +32,28 @@ function sse(controller: ReadableStreamDefaultController, event: string, data: u
   controller.enqueue(new TextEncoder().encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
 }
 
+type RawVerdict = { entryId: string; verdict: string };
+type EnrichedVerdict = RawVerdict & { hebrew: string; en: string };
+
+/**
+ * Enriches each verdict with the hebrew/en of its target word so the client never has to
+ * render a raw entryId slug. `entryId` is untrusted model output, so an id Claude hallucinates
+ * (not in `wordsById`) falls back to the entryId itself as `hebrew` and an empty `en` rather
+ * than throwing.
+ */
+function enrichVerdicts(verdicts: RawVerdict[], wordsById: Map<string, TargetWord>): EnrichedVerdict[] {
+  return verdicts.map((v) => {
+    const word = wordsById.get(v.entryId);
+    return { ...v, hebrew: word?.hebrew ?? v.entryId, en: word?.en ?? '' };
+  });
+}
+
 export async function runDrill(
   body: DrillBody, userId: string, service: SupabaseClient,
 ): Promise<Response> {
   const words = await loadTargetWords(service, userId);
   if (words.length === 0) return new Response('no words to drill', { status: 400, headers: corsHeaders });
+  const wordsById = new Map(words.map((w) => [w.id, w]));
 
   const forceEnd = countLearnerTurns(body.messages) >= 8;
   const claudeReq = {
@@ -96,7 +113,9 @@ export async function runDrill(
             } else if (payload.type === 'content_block_stop' && toolName) {
               const input = JSON.parse(toolJson || '{}');
               if (toolName === 'give_feedback') sse(controller, 'feedback', input);
-              if (toolName === 'end_session') sse(controller, 'verdicts', input.verdicts ?? []);
+              if (toolName === 'end_session') {
+                sse(controller, 'verdicts', enrichVerdicts(input.verdicts ?? [], wordsById));
+              }
               toolName = '';
             }
           }

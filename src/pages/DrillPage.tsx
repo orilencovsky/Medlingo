@@ -7,7 +7,7 @@ import {
 } from '../data/drill';
 
 type Feedback = { right: string; correction: string; tip: string };
-type Verdict = { entryId: string; verdict: string };
+type Verdict = { entryId: string; verdict: string; hebrew: string; en: string };
 type Phase = 'intro' | 'running' | 'summary' | 'quota' | 'unavailable';
 
 export function DrillPage() {
@@ -87,7 +87,8 @@ export function DrillPage() {
           {verdicts.filter((v) => v.verdict !== 'not_attempted').map((v) => (
             <li key={v.entryId}>
               {v.verdict === 'used_correctly' ? '✅' : '✍️'}{' '}
-              {v.entryId} — {v.verdict === 'used_correctly' ? t('drill.usedCorrectly') : t('drill.usedIncorrectly')}
+              <He>{v.hebrew}</He>{' — '}{v.en}{' — '}
+              {v.verdict === 'used_correctly' ? t('drill.usedCorrectly') : t('drill.usedIncorrectly')}
             </li>
           ))}
         </ul>

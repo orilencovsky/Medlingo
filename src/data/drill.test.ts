@@ -48,10 +48,12 @@ describe('applyDrillVerdicts', () => {
   });
 
   it('maps verdicts to drill reviews and skips not_attempted', async () => {
+    // hebrew/en ride along on every verdict (server enriches them for display) but
+    // applyDrillVerdicts itself must still key purely off entryId + verdict.
     await applyDrillVerdicts([
-      { entryId: 'keev', verdict: 'used_correctly' },
-      { entryId: 'chom', verdict: 'used_incorrectly' },
-      { entryId: 'dofek', verdict: 'not_attempted' },
+      { entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' },
+      { entryId: 'chom', verdict: 'used_incorrectly', hebrew: 'חום', en: 'fever' },
+      { entryId: 'dofek', verdict: 'not_attempted', hebrew: 'דופק', en: 'pulse' },
     ]);
     expect(submitReview).toHaveBeenCalledTimes(2);
     expect(submitReview).toHaveBeenCalledWith(
@@ -64,7 +66,7 @@ describe('applyDrillVerdicts', () => {
 
   it('marks entries already reviewed today as analytics-only', async () => {
     todaysCountingLogs.push('keev');
-    await applyDrillVerdicts([{ entryId: 'keev', verdict: 'used_correctly' }]);
+    await applyDrillVerdicts([{ entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' }]);
     expect(submitReview).toHaveBeenCalledWith(
       expect.objectContaining({ entryId: 'keev', countsForScheduling: false }),
     );
