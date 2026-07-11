@@ -4183,6 +4183,10 @@ Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
 - [ ] Gloss popover: mixed Hebrew–English line (`כְּאֵב — pain`) reads correctly.
 - [ ] Numbers adjacent to Hebrew (e.g. "פעם ביום" next to dosage numerals) don't reorder.
 
+## Deployment note (2026-07-11)
+
+The first Cloudflare Pages Git-integration build failed: `tsc -b` type-checks `scripts/` and `e2e/` (per `include` in `tsconfig.json`), which use Node globals (`process`, `node:fs`). `@types/node` was present locally only as an accidental side effect of other installs — never a real project dependency — so Cloudflare's clean `npm ci` didn't have it. Fixed by adding `@types/node` as a real devDependency and `"node"` to `tsconfig.json`'s `types` array. Verified with a full `rm -rf node_modules && npm ci && npm run build` locally before pushing.
+
 ## Phase 2
 
 The AI drill (Edge Function + coaching UI) is planned separately in `docs/superpowers/plans/2026-07-10-medlingo-pilot-phase2-drill.md` and builds on Tasks 3, 4, 9, and 13 of this plan.
