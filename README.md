@@ -1,5 +1,7 @@
 # MedLingo
 
+_[קרא בעברית](README.he.md)_
+
 Teaches medical Hebrew to immigrant clinicians (olim physicians/nurses) working in Israeli
 healthcare. Learners work through realistic clinical scenarios ("units"), then keep vocabulary
 fresh with spaced-repetition review (FSRS) on a daily streak.
