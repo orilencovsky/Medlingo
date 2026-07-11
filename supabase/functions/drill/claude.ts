@@ -2,23 +2,27 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { DrillBody } from './lib.ts';
 import { buildSystemPrompt, TOOLS, type TargetWord } from './prompt.ts';
 import { countLearnerTurns } from './lib.ts';
+import { corsHeaders } from './cors.ts';
 
 const MODEL = 'claude-haiku-4-5';
 
 async function loadTargetWords(service: SupabaseClient, userId: string): Promise<TargetWord[]> {
   const now = new Date().toISOString();
-  const { data: due } = await service.from('user_card_state')
+  const { data: due, error: dueError } = await service.from('user_card_state')
     .select('entry_id').eq('user_id', userId).lte('due', now).limit(15);
+  if (dueError) throw dueError;
   let ids = (due ?? []).map((r) => r.entry_id);
   if (ids.length === 0) {
-    const { data: recent } = await service.from('review_logs')
+    const { data: recent, error: recentError } = await service.from('review_logs')
       .select('entry_id').eq('user_id', userId)
       .order('reviewed_at', { ascending: false }).limit(50);
+    if (recentError) throw recentError;
     ids = [...new Set((recent ?? []).map((r) => r.entry_id))].slice(0, 15);
   }
   if (ids.length === 0) return [];
-  const { data: entries } = await service.from('dictionary_entries')
+  const { data: entries, error: entriesError } = await service.from('dictionary_entries')
     .select('id, hebrew, translations').in('id', ids);
+  if (entriesError) throw entriesError;
   return (entries ?? []).map((e) => ({
     id: e.id, hebrew: e.hebrew, en: (e.translations as { en: string }).en,
   }));
@@ -32,7 +36,7 @@ export async function runDrill(
   body: DrillBody, userId: string, service: SupabaseClient,
 ): Promise<Response> {
   const words = await loadTargetWords(service, userId);
-  if (words.length === 0) return new Response('no words to drill', { status: 400 });
+  if (words.length === 0) return new Response('no words to drill', { status: 400, headers: corsHeaders });
 
   const forceEnd = countLearnerTurns(body.messages) >= 8;
   const claudeReq = {
@@ -62,7 +66,7 @@ export async function runDrill(
     body: JSON.stringify(claudeReq),
   });
   if (!upstream.ok || !upstream.body) {
-    return new Response('coach unavailable', { status: 502 });
+    return new Response('coach unavailable', { status: 502, headers: corsHeaders });
   }
 
   const stream = new ReadableStream({
@@ -110,6 +114,7 @@ export async function runDrill(
     headers: {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
+      ...corsHeaders,
     },
   });
 }

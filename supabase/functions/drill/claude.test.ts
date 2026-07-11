@@ -1,4 +1,4 @@
-import { assert, assertEquals } from 'jsr:@std/assert';
+import { assert, assertEquals, assertRejects } from 'jsr:@std/assert';
 import { runDrill } from './claude.ts';
 import type { DrillBody } from './lib.ts';
 
@@ -18,6 +18,12 @@ function fakeService(opts: {
   recent?: Array<{ entry_id: string }>;
   entries?: Entry[];
   onDictionaryIds?: (ids: string[]) => void;
+  /** Simulates a real DB/network failure on the user_card_state ("due") query, distinct from data: []. */
+  dueError?: { message: string };
+  /** Simulates a real DB/network failure on the review_logs ("recent", fallback) query. */
+  recentError?: { message: string };
+  /** Simulates a real DB/network failure on the dictionary_entries lookup. */
+  entriesError?: { message: string };
   // deno-lint-ignore no-explicit-any
 }): any {
   const due = opts.due ?? [];
@@ -30,7 +36,10 @@ function fakeService(opts: {
           select: (_cols: string) => ({
             eq: (_col: string, _val: string) => ({
               lte: (_col: string, _val: string) => ({
-                limit: (_n: number) => Promise.resolve({ data: due }),
+                limit: (_n: number) =>
+                  Promise.resolve(
+                    opts.dueError ? { data: null, error: opts.dueError } : { data: due },
+                  ),
               }),
             }),
           }),
@@ -41,7 +50,10 @@ function fakeService(opts: {
           select: (_cols: string) => ({
             eq: (_col: string, _val: string) => ({
               order: (_col: string, _opts: { ascending: boolean }) => ({
-                limit: (_n: number) => Promise.resolve({ data: recent }),
+                limit: (_n: number) =>
+                  Promise.resolve(
+                    opts.recentError ? { data: null, error: opts.recentError } : { data: recent },
+                  ),
               }),
             }),
           }),
@@ -52,6 +64,7 @@ function fakeService(opts: {
           select: (_cols: string) => ({
             in: (_col: string, ids: string[]) => {
               opts.onDictionaryIds?.(ids);
+              if (opts.entriesError) return Promise.resolve({ data: null, error: opts.entriesError });
               return Promise.resolve({ data: entries.filter((e) => ids.includes(e.id)) });
             },
           }),
@@ -144,6 +157,7 @@ Deno.test('runDrill returns 400 and never calls Claude when there are no target 
     assertEquals(res.status, 400);
     assertEquals(await res.text(), 'no words to drill');
     assertEquals(fetchStub.calls.length, 0);
+    assertEquals(res.headers.get('Access-Control-Allow-Origin'), '*');
   } finally {
     fetchStub.restore();
   }
@@ -207,6 +221,55 @@ Deno.test('runDrill falls back to recent review_logs, dedupes entry ids, and cap
   }
 });
 
+// ---- DB error surfacing (Finding 2) --------------------------------------
+//
+// loadTargetWords must distinguish "no words found" (data: [], legitimate
+// empty state -> 400 "no words to drill") from "the query itself failed"
+// (error set -> must throw, so the caller can surface a 5xx instead of
+// silently treating a DB outage as an empty word list).
+
+Deno.test('runDrill rejects instead of silently treating it as zero due cards when the user_card_state query errors', async () => {
+  const service = fakeService({ dueError: { message: 'connection refused' } });
+  const fetchStub = stubFetch(() => {
+    throw new Error('fetch must not be called when loadTargetWords fails');
+  });
+  try {
+    const body: DrillBody = { sessionId: sessionId(), messages: [{ role: 'user', content: '' }] };
+    await assertRejects(() => runDrill(body, 'user-1', service));
+    assertEquals(fetchStub.calls.length, 0);
+  } finally {
+    fetchStub.restore();
+  }
+});
+
+Deno.test('runDrill rejects when the review_logs fallback query errors', async () => {
+  const service = fakeService({ due: [], recentError: { message: 'timeout' } });
+  const fetchStub = stubFetch(() => {
+    throw new Error('fetch must not be called when loadTargetWords fails');
+  });
+  try {
+    const body: DrillBody = { sessionId: sessionId(), messages: [{ role: 'user', content: '' }] };
+    await assertRejects(() => runDrill(body, 'user-1', service));
+    assertEquals(fetchStub.calls.length, 0);
+  } finally {
+    fetchStub.restore();
+  }
+});
+
+Deno.test('runDrill rejects when the dictionary_entries lookup errors', async () => {
+  const service = fakeService({ due: [{ entry_id: 'keev' }], entriesError: { message: 'timeout' } });
+  const fetchStub = stubFetch(() => {
+    throw new Error('fetch must not be called when loadTargetWords fails');
+  });
+  try {
+    const body: DrillBody = { sessionId: sessionId(), messages: [{ role: 'user', content: '' }] };
+    await assertRejects(() => runDrill(body, 'user-1', service));
+    assertEquals(fetchStub.calls.length, 0);
+  } finally {
+    fetchStub.restore();
+  }
+});
+
 // ---- prompt / request construction --------------------------------------
 
 Deno.test('runDrill forces tool_choice to end_session once the learner has sent 8 messages', async () => {
@@ -262,6 +325,7 @@ Deno.test('runDrill streams a delta event per text_delta chunk, ending with done
   try {
     const body: DrillBody = { sessionId: sessionId(), messages: [{ role: 'user', content: '' }] };
     const res = await runDrill(body, 'user-1', service);
+    assertEquals(res.headers.get('Access-Control-Allow-Origin'), '*', 'the streaming 200 response must carry CORS headers too');
     const events = await collectSse(res);
 
     assertEquals(events, [
@@ -401,6 +465,7 @@ Deno.test('runDrill returns 502 when the upstream Claude call is not ok', async 
     const res = await runDrill(body, 'user-1', service);
     assertEquals(res.status, 502);
     assertEquals(await res.text(), 'coach unavailable');
+    assertEquals(res.headers.get('Access-Control-Allow-Origin'), '*');
   } finally {
     fetchStub.restore();
   }
