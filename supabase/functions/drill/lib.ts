@@ -16,6 +16,7 @@ export function validateBody(raw: unknown): { ok: true; body: DrillBody } | { ok
   if (typeof b?.sessionId !== 'string' || b.sessionId.length < 8) return { ok: false, reason: 'bad sessionId' };
   if (!Array.isArray(b.messages) || b.messages.length === 0) return { ok: false, reason: 'bad messages' };
   for (const m of b.messages) {
+    if (m === null || typeof m !== 'object') return { ok: false, reason: 'bad message' };
     if (m.role !== 'user' && m.role !== 'assistant') return { ok: false, reason: 'bad role' };
     if (typeof m.content !== 'string' || m.content.length > 2000) return { ok: false, reason: 'bad content' };
   }

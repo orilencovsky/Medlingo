@@ -12,7 +12,12 @@ Deno.serve(async (req) => {
     Deno.env.get('SUPABASE_ANON_KEY')!,
     { global: { headers: { Authorization: authHeader } } },
   );
-  const { data: { user } } = await userClient.auth.getUser();
+  let user;
+  try {
+    ({ data: { user } } = await userClient.auth.getUser());
+  } catch {
+    return new Response('unauthorized', { status: 401 });
+  }
   if (!user) return new Response('unauthorized', { status: 401 });
 
   const parsed = validateBody(await req.json().catch(() => null));

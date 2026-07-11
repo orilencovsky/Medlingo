@@ -6,6 +6,12 @@ Deno.test('validateBody accepts a well-formed session start', () => {
   assertEquals(r.ok, true);
 });
 
+Deno.test('validateBody rejects a null message element without throwing', () => {
+  // A null in the messages array is valid JSON; it must be rejected as 400, not crash to 500.
+  const r = validateBody({ sessionId: crypto.randomUUID(), messages: [null] });
+  assertEquals(r.ok, false);
+});
+
 Deno.test('validateBody rejects missing sessionId, bad roles, and >10 learner turns', () => {
   assertEquals(validateBody({ messages: [] }).ok, false);
   assertEquals(validateBody({ sessionId: 'x', messages: [{ role: 'system', content: 'hi' }] }).ok, false);
