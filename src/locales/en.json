@@ -32,6 +32,7 @@
     "due_other": "{{count}} words due — review now",
     "caughtUp": "All caught up — next review {{time}}",
     "extraPractice": "Extra practice",
+    "drill": "AI practice drill",
     "firstRun": "Start your first unit to begin learning.",
     "streak": "{{count}}-day streak",
     "wordsLearned": "{{count}} learned",
