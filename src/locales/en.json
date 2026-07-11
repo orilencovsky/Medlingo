@@ -11,7 +11,9 @@
     "emailLabel": "Email address",
     "sendLink": "Send me a sign-in link",
     "checkEmail": "Check your email for a sign-in link.",
-    "error": "Could not send the link. Try again."
+    "error": "Could not sign you in. Try again.",
+    "google": "Continue with Google",
+    "or": "or"
   },
   "onboarding": {
     "title": "Welcome to MedLingo",
