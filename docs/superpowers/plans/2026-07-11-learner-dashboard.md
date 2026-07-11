@@ -355,3 +355,26 @@ Start the dev server (`.claude/launch.json` / existing dev workflow), sign in, c
 git add src/pages/HomePage.tsx src/pages/HomePage.test.tsx
 git commit -m "feat: learner dashboard on home page"
 ```
+
+---
+
+### Task 4: UI language selection (en / ar / ru / fr) — added mid-execution by owner request
+
+**Files:**
+- Create: `src/locales/ar.json`, `src/locales/ru.json`, `src/locales/fr.json`
+- Create: `src/components/LanguagePicker.tsx`, `src/components/LanguagePicker.test.tsx`
+- Modify: `src/lib/i18n.ts`, `src/pages/HomePage.tsx`, `src/data/profile.ts`
+
+**Interfaces:**
+- Consumes: `i18n` singleton from `src/lib/i18n.ts`; `supabase` client; `Profile.uiLanguage`.
+- Produces: `setUiLanguage(lang: string): Promise<void>` in `src/data/profile.ts` (updates `profiles.ui_language` for current user); `applyLanguage(lang: string)` in `src/lib/i18n.ts` (changeLanguage + sets `document.documentElement.dir` to `rtl` for `ar`, `ltr` otherwise, and `document.documentElement.lang`); `LanguagePicker` named export — `<select data-testid="language-picker">` with options en/ar/ru/fr labeled in their own language (English / العربية / Русский / Français).
+
+**Requirements:**
+1. `ar.json` / `ru.json` / `fr.json` mirror `en.json`'s full key structure (all 55 keys incl. the new `home.stats.*`). Translations authored by the implementing model — pilot-quality, plain register, medical-app tone. Keep `{{count}}`/`{{time}}` interpolations and pluralization suffixes (`_one`/`_other`; Russian needs `_one`/`_few`/`_many`/`_other`).
+2. `i18n.ts` registers all four resources; `lng` stays `'en'` default; `fallbackLng: 'en'` unchanged.
+3. `applyLanguage` called (a) when HomePage loads a profile with a non-current `uiLanguage`, (b) on picker change. Picker change also calls `setUiLanguage` to persist.
+4. Picker renders on HomePage near the title. Signed-in only (HomePage is already behind auth).
+5. RTL: `dir="rtl"` on `<html>` for `ar` only.
+6. Tests: LanguagePicker renders 4 options and fires change; `applyLanguage('ar')` sets dir rtl and `applyLanguage('en')` resets ltr; HomePage applies profile language on load (mock profile `uiLanguage: 'ru'` → i18n.language becomes `ru`). Full suite green.
+
+**Steps:** same TDD cycle as Tasks 1-3 (failing tests → implement → full suite → commit `feat: ui language selection with rtl support`).
