@@ -35,7 +35,13 @@
     "firstRun": "Start your first unit to begin learning.",
     "streak": "{{count}}-day streak",
     "wordsLearned": "{{count}} learned",
-    "wordsKnown": "{{count}} known"
+    "wordsKnown": "{{count}} known",
+    "stats": {
+      "streak": "Day streak",
+      "dueToday": "Due today",
+      "mastered": "Mastered",
+      "learned": "Learned"
+    }
   },
   "unit": {
     "scenario": "Scenario",
