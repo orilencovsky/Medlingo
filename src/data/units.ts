@@ -90,3 +90,14 @@ export async function completeUnit(slug: string): Promise<void> {
   );
   if (error) throw error;
 }
+
+export async function loadUnitEntryIds(): Promise<Record<string, string[]>> {
+  const { data, error } = await supabase
+    .from('unit_items').select('unit_slug, entry_id');
+  if (error) throw error;
+  const map: Record<string, string[]> = {};
+  for (const row of (data ?? []) as { unit_slug: string; entry_id: string }[]) {
+    (map[row.unit_slug] ??= []).push(row.entry_id);
+  }
+  return map;
+}

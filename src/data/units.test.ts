@@ -25,7 +25,7 @@ vi.mock('../lib/supabase', () => ({
   },
 }));
 
-import { loadUnitProgress, startUnit, completeUnit } from './units';
+import { loadUnitProgress, startUnit, completeUnit, loadUnitEntryIds } from './units';
 
 describe('units data layer', () => {
   beforeEach(() => {
@@ -48,5 +48,27 @@ describe('units data layer', () => {
     const call = calls.find((c) => c.table === 'unit_progress')!;
     expect(call.payload).toMatchObject({ status: 'completed' });
     expect((call.payload as { completed_at: string }).completed_at).toBeTruthy();
+  });
+});
+
+describe('loadUnitEntryIds', () => {
+  beforeEach(() => {
+    calls.length = 0;
+    for (const k of Object.keys(responses)) delete responses[k];
+  });
+
+  it('groups entry ids by unit slug', async () => {
+    responses['unit_items'] = [
+      { unit_slug: 'u1', entry_id: 'a' },
+      { unit_slug: 'u1', entry_id: 'b' },
+      { unit_slug: 'u2', entry_id: 'c' },
+    ];
+    const map = await loadUnitEntryIds();
+    expect(map).toEqual({ u1: ['a', 'b'], u2: ['c'] });
+  });
+
+  it('returns empty object when there are no rows', async () => {
+    responses['unit_items'] = [];
+    expect(await loadUnitEntryIds()).toEqual({});
   });
 });
