@@ -1,0 +1,13 @@
+line_order	speaker	he	en
+1	רופאה	שלום, אני ד"ר לוי. מה התלונה העיקרית שלך?	Hello, I'm Dr. Levi. What is your main complaint?
+2	מטופל	יש לי כאב חזק בחזה מהבוקר.	I have strong pain in my chest since the morning.
+3	רופאה	יש לך גם קוצר נשימה?	Do you also have shortness of breath?
+4	מטופל	כן, הנשימה שלי כבדה, במיוחד במאמץ.	Yes, my breathing is heavy, especially with effort.
+5	רופאה	נמדוד עכשיו לחץ דם ודופק.	We will now measure blood pressure and pulse.
+6	רופאה	יש לך חום? בחילה או הקאה?	Do you have fever? Nausea or vomiting?
+7	מטופל	הייתה לי בחילה בבוקר, בלי הקאה. בלי חום.	I had nausea in the morning, without vomiting. No fever.
+8	רופאה	יש לך אלרגיה לתרופה כלשהי?	Do you have an allergy to any medication?
+9	מטופל	כן, יש לי אלרגיה לפניצילין.	Yes, I have an allergy to penicillin.
+10	רופאה	אילו תרופות אתה לוקח באופן קבוע?	Which medications do you take regularly?
+11	מטופל	תרופה ללחץ דם, פעם ביום.	A blood-pressure medication, once a day.
+12	רופאה	תודה. נשלים עכשיו את האנמנזה ונמשיך בבדיקה.	Thank you. We will now complete the medical history and continue with the examination.

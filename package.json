@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint:css": "stylelint \"src/**/*.css\""
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "import:content": "tsx scripts/import-content.ts",
+    "metrics": "tsx scripts/metrics.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.2",
@@ -18,7 +20,8 @@
     "react-dom": "^19.2.7",
     "react-i18next": "^17.0.9",
     "react-router": "^8.2.0",
-    "ts-fsrs": "5.4.1"
+    "ts-fsrs": "5.4.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2",
@@ -28,10 +31,13 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "dotenv": "^17.4.2",
     "jsdom": "^29.1.1",
+    "postgres": "^3.4.9",
     "stylelint": "^17.14.0",
     "stylelint-use-logical": "^2.1.3",
     "tailwindcss": "^4.3.2",
+    "tsx": "^4.23.0",
     "typescript": "^7.0.2",
     "vite": "^8.1.4",
     "vite-plugin-pwa": "^1.3.0",
