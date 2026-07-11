@@ -10,10 +10,10 @@ interface StatTileProps {
   'data-testid'?: string;
 }
 
-const BASE_CLASSES = 'flex flex-col items-center gap-1 rounded-md border border-border bg-surface p-3 text-center';
+const BASE_CLASSES = 'flex flex-col items-center gap-1 rounded-md border bg-surface p-3 text-center';
 
 export function StatTile({ icon, value, label, emphasis = false, to, ...rest }: StatTileProps) {
-  const classes = `${BASE_CLASSES} ${emphasis ? 'border-primary' : ''}`.trim();
+  const classes = `${BASE_CLASSES} ${emphasis ? 'border-primary' : 'border-border'}`;
   const content = (
     <>
       <span className={emphasis ? 'text-primary' : 'text-ink-subtle'}>{icon}</span>

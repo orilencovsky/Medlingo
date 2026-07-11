@@ -25,4 +25,15 @@ describe('StatTile', () => {
     render(<StatTile icon={<Flame />} value={5} label="Streak" data-testid="tile" />);
     expect(screen.getByTestId('tile')).not.toHaveAttribute('href');
   });
+
+  it('applies exactly one border-color class, not both, when emphasis is true', () => {
+    render(
+      <MemoryRouter>
+        <StatTile icon={<Flame />} value={12} label="Due today" emphasis to="/review" data-testid="tile" />
+      </MemoryRouter>,
+    );
+    const el = screen.getByTestId('tile');
+    expect(el).toHaveClass('border-primary');
+    expect(el).not.toHaveClass('border-border');
+  });
 });
