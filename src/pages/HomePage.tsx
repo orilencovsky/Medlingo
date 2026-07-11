@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { loadUnits, loadUnitProgress } from '../data/units';
+import { loadUnits, loadUnitProgress, loadUnitEntryIds } from '../data/units';
 import { loadDueCards, loadUpcomingCards, loadAllCards } from '../data/cards';
 import { getProfile, touchStreak } from '../data/profile';
+import { StatsStrip } from '../components/StatsStrip';
 import type { CardState, Profile, Unit } from '../lib/types';
 
 const KNOWN_STABILITY_DAYS = 7;
@@ -17,6 +18,7 @@ interface HomeState {
   nextDue: Date | null;
   cards: CardState[];
   profile: Profile | null;
+  entryIds: Record<string, string[]>;
 }
 
 export function HomePage() {
@@ -26,8 +28,8 @@ export function HomePage() {
 
   useEffect(() => {
     (async () => {
-      const [units, profile, due, cards] = await Promise.all([
-        loadUnits(), getProfile(), loadDueCards(), loadAllCards(),
+      const [units, profile, due, cards, entryIds] = await Promise.all([
+        loadUnits(), getProfile(), loadDueCards(), loadAllCards(), loadUnitEntryIds(),
       ]);
       const progressEntries = await Promise.all(
         units.map(async (u) => [u.slug, await loadUnitProgress(u.slug)] as const),
@@ -42,7 +44,7 @@ export function HomePage() {
         const upcoming = await loadUpcomingCards(1);
         nextDue = upcoming[0]?.card.due ?? null;
       }
-      setState({ units, progress, dueCount: due.length, nextDue, cards, profile });
+      setState({ units, progress, dueCount: due.length, nextDue, cards, profile, entryIds });
     })();
   }, []);
 
@@ -52,6 +54,7 @@ export function HomePage() {
   const known = state.cards.filter(
     (c) => c.state === 'review' && c.stability >= KNOWN_STABILITY_DAYS,
   ).length;
+  const startedIds = new Set(state.cards.filter((c) => c.reps > 0).map((c) => c.entryId));
   const firstRun = state.cards.length === 0;
   const ctaFor = (p: UnitProgress) =>
     p === 'completed' ? t('home.completed')
@@ -62,11 +65,12 @@ export function HomePage() {
     <div className="mx-auto flex max-w-md flex-col gap-4 p-4">
       <h1 className="text-2xl font-semibold">{t('app.title')}</h1>
 
-      <div data-testid="home-streak" className="flex gap-4 text-sm text-gray-700">
-        <span>{t('home.streak', { count: state.profile?.streakCurrent ?? 0 })}</span>
-        <span>{t('home.wordsLearned', { count: learned })}</span>
-        <span>{t('home.wordsKnown', { count: known })}</span>
-      </div>
+      <StatsStrip
+        streak={state.profile?.streakCurrent ?? 0}
+        dueCount={state.dueCount}
+        mastered={known}
+        learned={learned}
+      />
 
       {state.units.length === 0 && (
         <div data-testid="home-unit-card" className="rounded border p-4">
@@ -76,6 +80,9 @@ export function HomePage() {
       )}
       {state.units.map((unit) => {
         const progress = state.progress[unit.slug] ?? 'not_started';
+        const ids = state.entryIds[unit.slug] ?? [];
+        const covered = ids.filter((id) => startedIds.has(id)).length;
+        const percent = ids.length === 0 ? 0 : Math.round((covered / ids.length) * 100);
         return (
           <div key={unit.slug} data-testid="home-unit-card" className="rounded border p-4">
             <div className="flex items-center justify-between">
@@ -86,6 +93,20 @@ export function HomePage() {
                 </span>
               )}
             </div>
+            {ids.length > 0 && (
+              <div className="mt-2">
+                <div data-testid="unit-progress-bar" className="h-1.5 overflow-hidden rounded bg-gray-200">
+                  <div
+                    data-testid="unit-progress-fill"
+                    className={percent === 100 ? 'h-full bg-green-600' : 'h-full bg-blue-700'}
+                    style={{ width: `${percent}%` }}
+                  />
+                </div>
+                <p data-testid="unit-progress-text" className="mt-1 text-xs text-gray-500">
+                  {covered}/{ids.length} · {percent}%
+                </p>
+              </div>
+            )}
             {progress === 'completed' ? (
               <p className="mt-2 text-green-700">{ctaFor(progress)} ✓</p>
             ) : (
