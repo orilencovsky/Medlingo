@@ -9,7 +9,7 @@ const fixture = (name: string) => readFileSync(`content/fixtures/${name}`, 'utf8
 describe('content validation', () => {
   it('accepts the real content files', () => {
     const content = loadContent('content');
-    expect(content.dictionary).toHaveLength(12);
+    expect(content.dictionary).toHaveLength(1097);
     expect(content.units).toHaveLength(1);
     expect(content.units[0].items).toHaveLength(12);
     expect(content.units[0].dialogue).toHaveLength(12);

@@ -11,7 +11,9 @@ export interface Profile {
 export type PracticeForm = 'flashcard_recognition' | 'flashcard_recall' | 'cloze' | 'drill';
 export type Rating = 'again' | 'good' | 'easy';
 export type CardStateName = 'new' | 'learning' | 'review' | 'relearning';
-export type PartOfSpeech = 'noun' | 'verb' | 'adjective' | 'phrase' | 'abbreviation';
+export type PartOfSpeech =
+  | 'noun' | 'verb' | 'adjective' | 'phrase' | 'abbreviation'
+  | 'adverb' | 'pronoun' | 'preposition' | 'conjunction' | 'numeral' | 'interjection' | 'particle';
 
 export interface Translations { en: string; ar?: string | null; ru?: string | null; fr?: string | null; }
 
