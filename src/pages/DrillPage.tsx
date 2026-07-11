@@ -87,7 +87,7 @@ export function DrillPage() {
           {verdicts.filter((v) => v.verdict !== 'not_attempted').map((v) => (
             <li key={v.entryId}>
               {v.verdict === 'used_correctly' ? '✅' : '✍️'}{' '}
-              <He>{v.hebrew}</He>{' — '}{v.en}{' — '}
+              <He>{v.hebrew}</He>{' ('}{v.en}{') — '}
               {v.verdict === 'used_correctly' ? t('drill.usedCorrectly') : t('drill.usedIncorrectly')}
             </li>
           ))}
