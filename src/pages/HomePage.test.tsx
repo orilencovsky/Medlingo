@@ -15,12 +15,14 @@ const db = {
   upcoming: [] as Array<{ card: CardState }>,
   cards: [] as CardState[],
   units: [intakeUnit] as unknown[],
+  entryIds: {} as Record<string, string[]>,
 };
 const touchStreak = vi.fn().mockResolvedValue(undefined);
 
 vi.mock('../data/units', () => ({
   loadUnits: () => Promise.resolve(db.units),
   loadUnitProgress: () => Promise.resolve(db.progress),
+  loadUnitEntryIds: () => Promise.resolve(db.entryIds),
 }));
 vi.mock('../data/cards', () => ({
   loadDueCards: () => Promise.resolve(db.due),
@@ -48,6 +50,7 @@ describe('HomePage', () => {
   beforeEach(() => {
     db.progress = 'not_started'; db.due = []; db.upcoming = []; db.cards = [];
     db.units = [intakeUnit];
+    db.entryIds = {};
     touchStreak.mockClear();
   });
 
@@ -67,9 +70,13 @@ describe('HomePage', () => {
     ];
     render(<MemoryRouter><HomePage /></MemoryRouter>);
     expect(await screen.findByTestId('home-review-card')).toHaveTextContent('3 words due');
-    expect(screen.getByTestId('home-streak')).toHaveTextContent('3-day streak');
-    expect(screen.getByText('2 learned')).toBeInTheDocument();
-    expect(screen.getByText('1 known')).toBeInTheDocument();
+    const strip = screen.getByTestId('stats-strip');
+    expect(strip).toHaveTextContent('3');
+    expect(strip).toHaveTextContent('Day streak');
+    expect(strip).toHaveTextContent('2');
+    expect(strip).toHaveTextContent('Learned');
+    expect(strip).toHaveTextContent('1');
+    expect(strip).toHaveTextContent('Mastered');
   });
 
   it('caught-up state touches the streak and offers extra practice', async () => {
@@ -112,5 +119,50 @@ describe('HomePage', () => {
     );
     await screen.findByTestId('home-review-card');
     expect(touchStreak).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('dashboard', () => {
+  beforeEach(() => {
+    db.progress = 'not_started'; db.due = []; db.upcoming = []; db.cards = [];
+    db.units = [intakeUnit];
+    db.entryIds = {};
+    touchStreak.mockClear();
+  });
+
+  it('renders the stats strip with due, mastered, and learned counts', async () => {
+    db.cards = [
+      card('a', 'review', 10, 3),  // mastered + learned
+      card('b', 'learning', 1, 1), // learned only
+      card('c', 'new', 0, 0),      // neither
+    ];
+    db.due = [{}, {}];
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    const strip = await screen.findByTestId('stats-strip');
+    expect(strip).toHaveTextContent('Day streak');
+    expect(screen.getByTestId('stat-due')).toHaveTextContent('2');
+    expect(strip).toHaveTextContent('Mastered');
+    expect(strip).toHaveTextContent('Learned');
+  });
+
+  it('shows coverage percent per unit', async () => {
+    db.entryIds = { 'unit-01-intake': ['a', 'b', 'c', 'd'] };
+    db.cards = [card('a', 'learning', 1, 2), card('b', 'review', 8, 5)];
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByTestId('unit-progress-text')).toHaveTextContent('2/4 · 50%');
+    expect(screen.getByTestId('unit-progress-fill')).toHaveStyle({ width: '50%' });
+  });
+
+  it('shows 0% when the unit has no started entries', async () => {
+    db.entryIds = { 'unit-01-intake': ['a', 'b'] };
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByTestId('unit-progress-text')).toHaveTextContent('0/2 · 0%');
+  });
+
+  it('renders no progress bar for a unit with zero items', async () => {
+    db.entryIds = {};
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    await screen.findByTestId('home-unit-card');
+    expect(screen.queryByTestId('unit-progress-bar')).not.toBeInTheDocument();
   });
 });
