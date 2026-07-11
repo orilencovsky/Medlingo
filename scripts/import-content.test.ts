@@ -31,4 +31,10 @@ describe('content validation', () => {
     expect(() => validateItems(fixture('unknown-entry.items.tsv'), 'unknown-entry.items.tsv', dict))
       .toThrow(/unknown entry_id "no-such-entry"/);
   });
+  it('rejects an item whose headword is absent from its context sentence', () => {
+    const dict = validateDictionary(readFileSync('content/dictionary.tsv', 'utf8'), 'dictionary.tsv');
+    expect(() => validateItems(
+      fixture('headword-not-in-context.items.tsv'), 'headword-not-in-context.items.tsv', dict))
+      .toThrow(/trufa.*תרופה.*context/);
+  });
 });

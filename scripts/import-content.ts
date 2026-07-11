@@ -72,9 +72,16 @@ export function validateDictionary(text: string, file: string): DictEntry[] {
 
 export function validateItems(text: string, file: string, dict: DictEntry[]) {
   const rows = validateRows(ItemRow, parseTsv(text), file, []);
-  const ids = new Set(dict.map((d) => d.id));
+  const byId = new Map(dict.map((d) => [d.id, d]));
   for (const r of rows) {
-    if (!ids.has(r.entry_id)) throw new Error(`${file}: unknown entry_id "${r.entry_id}"`);
+    const entry = byId.get(r.entry_id);
+    if (!entry) throw new Error(`${file}: unknown entry_id "${r.entry_id}"`);
+    // The cloze exercise blanks the headword in context_he by exact substring; if the
+    // sentence uses an inflected form instead, the blank silently fails. Enforce here.
+    if (!r.context_he.includes(entry.hebrew)) {
+      throw new Error(
+        `${file}: entry "${r.entry_id}" headword "${entry.hebrew}" not found in context_he "${r.context_he}"`);
+    }
   }
   return rows;
 }
