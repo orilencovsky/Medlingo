@@ -106,6 +106,22 @@ describe('HomePage', () => {
     expect(screen.getByText('Extra practice')).toBeInTheDocument();
   });
 
+  it('hides the drill link by default and shows it when VITE_ENABLE_DRILL is set', async () => {
+    db.progress = 'completed';
+    db.due = [];
+    db.cards = [card('a', 'review', 8, 5)];
+    db.upcoming = [{ card: card('a', 'review', 8, 5) }];
+    const { unmount } = render(<MemoryRouter><HomePage /></MemoryRouter>);
+    await screen.findByText('Extra practice');
+    expect(screen.queryByText('AI practice drill')).not.toBeInTheDocument();
+    unmount();
+
+    vi.stubEnv('VITE_ENABLE_DRILL', 'true');
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByText('AI practice drill')).toBeInTheDocument();
+    vi.unstubAllEnvs();
+  });
+
   it('renders a card per visible unit, marking drafts', async () => {
     db.units = [
       intakeUnit,

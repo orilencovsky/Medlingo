@@ -8,6 +8,7 @@ import { StatsStrip } from '../components/StatsStrip';
 import { LanguagePicker } from '../components/LanguagePicker';
 import i18n, { applyLanguage } from '../lib/i18n';
 import type { CardState, Profile, Unit } from '../lib/types';
+import { drillEnabled } from '../lib/flags';
 
 const KNOWN_STABILITY_DAYS = 7;
 
@@ -142,9 +143,11 @@ export function HomePage() {
             <Link to="/review?extra=1" className="mt-2 block rounded border p-2 text-center">
               {t('home.extraPractice')}
             </Link>
-            <Link to="/drill" className="mt-2 block rounded border p-2 text-center">
-              {t('home.drill')}
-            </Link>
+            {drillEnabled() && (
+              <Link to="/drill" className="mt-2 block rounded border p-2 text-center">
+                {t('home.drill')}
+              </Link>
+            )}
           </>
         )}
       </div>

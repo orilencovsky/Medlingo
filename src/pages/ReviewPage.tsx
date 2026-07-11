@@ -11,6 +11,7 @@ import { Recognition, type ExerciseResult } from '../components/exercises/Recogn
 import { Cloze } from '../components/exercises/Cloze';
 import { Recall } from '../components/exercises/Recall';
 import type { DictionaryEntry, ReviewCard } from '../lib/types';
+import { drillEnabled } from '../lib/flags';
 
 const EXTRA_LIMIT = 10;
 
@@ -131,7 +132,9 @@ export function ReviewPage() {
         <h1 className="text-2xl font-semibold">{t('review.summary')}</h1>
         <p className="mt-2">{t('review.reviewed', { count: phase.total })}</p>
         <p>{t('review.accuracy', { pct })}</p>
-        <p className="mt-2"><Link to="/drill" className="underline">{t('home.drill')}</Link></p>
+        {drillEnabled() && (
+          <p className="mt-2"><Link to="/drill" className="underline">{t('home.drill')}</Link></p>
+        )}
         <p className="mt-4"><Link to="/" className="underline">{t('common.back')}
 </Link></p>
       </div>
