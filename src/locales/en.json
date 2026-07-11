@@ -32,6 +32,7 @@
     "due_other": "{{count}} words due — review now",
     "caughtUp": "All caught up — next review {{time}}",
     "extraPractice": "Extra practice",
+    "drill": "AI practice drill",
     "firstRun": "Start your first unit to begin learning.",
     "streak": "{{count}}-day streak",
     "wordsLearned": "{{count}} learned",
@@ -67,5 +68,18 @@
     "nextDue": "Next review {{time}}",
     "extra": "Extra practice (doesn't affect your schedule)",
     "empty": "Nothing to review yet — learn the unit first."
+  },
+  "drill": {
+    "title": "AI practice drill",
+    "intro": "Interview a simulated patient in Hebrew. You'll get coaching feedback after every message.",
+    "disclaimer": "The patient is simulated by AI. This is language practice, not medical guidance.",
+    "start": "Start drill",
+    "placeholder": "כתוב בעברית…",
+    "send": "Send",
+    "summaryTitle": "Drill complete",
+    "usedCorrectly": "Used correctly",
+    "usedIncorrectly": "Needs work",
+    "quota": "You've used today's 3 drills. Come back tomorrow!",
+    "unavailable": "The practice coach is unavailable right now — your reviews still work."
   }
 }
