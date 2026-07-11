@@ -1,0 +1,71 @@
+{
+  "app": { "title": "MedLingo" },
+  "common": {
+    "continue": "Continuer",
+    "loading": "Chargement…",
+    "retry": "Réessayer",
+    "back": "Retour"
+  },
+  "auth": {
+    "title": "Connexion à MedLingo",
+    "emailLabel": "Adresse e-mail",
+    "sendLink": "Envoyez-moi un lien de connexion",
+    "checkEmail": "Consultez votre e-mail pour trouver le lien de connexion.",
+    "error": "Impossible de vous connecter. Réessayez.",
+    "google": "Continuer avec Google",
+    "or": "ou"
+  },
+  "onboarding": {
+    "title": "Bienvenue sur MedLingo",
+    "nameLabel": "Votre nom d'affichage",
+    "consent": "En continuant, vous acceptez que MedLingo conserve votre e-mail, votre nom d'affichage et votre historique d'apprentissage pour mener ce pilote (hébergé dans l'UE). Vous pouvez demander la suppression de vos données à tout moment.",
+    "start": "Commencer l'apprentissage"
+  },
+  "home": {
+    "unitTitle": "Votre unité",
+    "draft": "Brouillon",
+    "start": "Commencer",
+    "continue": "Continuer",
+    "completed": "Terminé",
+    "reviewTitle": "Révisions",
+    "due_one": "{{count}} mot à réviser — révisez maintenant",
+    "due_other": "{{count}} mots à réviser — révisez maintenant",
+    "caughtUp": "Tout est à jour — prochaine révision {{time}}",
+    "extraPractice": "Entraînement supplémentaire",
+    "firstRun": "Commencez votre première unité pour débuter l'apprentissage.",
+    "streak": "Série de {{count}} jours",
+    "wordsLearned": "{{count}} apprises",
+    "wordsKnown": "{{count}} maîtrisées",
+    "stats": {
+      "streak": "Jours consécutifs",
+      "dueToday": "À réviser",
+      "mastered": "Maîtrisées",
+      "learned": "Apprises"
+    }
+  },
+  "unit": {
+    "scenario": "Scénario",
+    "vocab": "Nouveaux mots",
+    "practice": "Entraînement",
+    "done": "Unité terminée !",
+    "start": "Commencer l'unité",
+    "meaning": "Signification",
+    "gender": "Genre",
+    "plural": "Pluriel",
+    "root": "Racine",
+    "everyday": "Les patients disent"
+  },
+  "review": {
+    "title": "Révision",
+    "correct": "Correct !",
+    "wrong": "Pas tout à fait",
+    "answer": "Réponse",
+    "summary": "Séance terminée",
+    "reviewed": "{{count}} révisés",
+    "accuracy": "{{pct}} % de bonnes réponses",
+    "caughtUp": "Tout est à jour !",
+    "nextDue": "Prochaine révision {{time}}",
+    "extra": "Entraînement supplémentaire (n'affecte pas votre planning)",
+    "empty": "Rien à réviser pour l'instant — commencez par apprendre l'unité."
+  }
+}

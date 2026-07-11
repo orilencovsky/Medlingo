@@ -22,6 +22,16 @@ export async function getProfile(): Promise<Profile | null> {
   return data ? mapProfileRow(data as ProfileRow) : null;
 }
 
+export async function setUiLanguage(lang: string): Promise<void> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+  const { error } = await supabase
+    .from('profiles')
+    .update({ ui_language: lang })
+    .eq('user_id', user.id);
+  if (error) throw error;
+}
+
 export async function completeOnboarding(displayName: string): Promise<Profile> {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error('not signed in');

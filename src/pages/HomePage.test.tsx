@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { StrictMode } from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import '../lib/i18n';
+import i18n, { applyLanguage } from '../lib/i18n';
 import type { CardState } from '../lib/types';
 
 const intakeUnit = {
@@ -18,6 +18,11 @@ const db = {
   entryIds: {} as Record<string, string[]>,
 };
 const touchStreak = vi.fn().mockResolvedValue(undefined);
+const setUiLanguage = vi.fn().mockResolvedValue(undefined);
+const profile = {
+  userId: 'u1', displayName: 'Dr. Test', uiLanguage: 'en', isAdmin: false,
+  streakCurrent: 3, streakLongest: 5, lastActiveDate: '2026-07-09',
+};
 
 vi.mock('../data/units', () => ({
   loadUnits: () => Promise.resolve(db.units),
@@ -30,11 +35,9 @@ vi.mock('../data/cards', () => ({
   loadAllCards: () => Promise.resolve(db.cards),
 }));
 vi.mock('../data/profile', () => ({
-  getProfile: () => Promise.resolve({
-    userId: 'u1', displayName: 'Dr. Test', uiLanguage: 'en', isAdmin: false,
-    streakCurrent: 3, streakLongest: 5, lastActiveDate: '2026-07-09',
-  }),
+  getProfile: () => Promise.resolve(profile),
   touchStreak: () => touchStreak(),
+  setUiLanguage: (lang: string) => setUiLanguage(lang),
 }));
 
 import { HomePage } from './HomePage';
@@ -52,6 +55,19 @@ describe('HomePage', () => {
     db.units = [intakeUnit];
     db.entryIds = {};
     touchStreak.mockClear();
+    setUiLanguage.mockClear();
+    profile.uiLanguage = 'en';
+  });
+
+  afterEach(async () => {
+    await applyLanguage('en');
+  });
+
+  it('applies the profile ui language on load', async () => {
+    profile.uiLanguage = 'ru';
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    await screen.findByTestId('home-review-card');
+    await vi.waitFor(() => expect(i18n.language).toBe('ru'));
   });
 
   it('first run: prompts to start the unit', async () => {

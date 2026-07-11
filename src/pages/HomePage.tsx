@@ -5,6 +5,8 @@ import { loadUnits, loadUnitProgress, loadUnitEntryIds } from '../data/units';
 import { loadDueCards, loadUpcomingCards, loadAllCards } from '../data/cards';
 import { getProfile, touchStreak } from '../data/profile';
 import { StatsStrip } from '../components/StatsStrip';
+import { LanguagePicker } from '../components/LanguagePicker';
+import i18n, { applyLanguage } from '../lib/i18n';
 import type { CardState, Profile, Unit } from '../lib/types';
 
 const KNOWN_STABILITY_DAYS = 7;
@@ -31,6 +33,9 @@ export function HomePage() {
       const [units, profile, due, cards, entryIds] = await Promise.all([
         loadUnits(), getProfile(), loadDueCards(), loadAllCards(), loadUnitEntryIds(),
       ]);
+      if (profile?.uiLanguage && profile.uiLanguage !== i18n.language) {
+        await applyLanguage(profile.uiLanguage);
+      }
       const progressEntries = await Promise.all(
         units.map(async (u) => [u.slug, await loadUnitProgress(u.slug)] as const),
       );
@@ -63,7 +68,10 @@ export function HomePage() {
 
   return (
     <div className="mx-auto flex max-w-md flex-col gap-4 p-4">
-      <h1 className="text-2xl font-semibold">{t('app.title')}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">{t('app.title')}</h1>
+        <LanguagePicker />
+      </div>
 
       <StatsStrip
         streak={state.profile?.streakCurrent ?? 0}
