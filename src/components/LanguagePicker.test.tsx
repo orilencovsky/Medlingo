@@ -36,4 +36,13 @@ describe('LanguagePicker', () => {
     });
     expect(document.documentElement.dir).toBe('rtl');
   });
+
+  it('still switches the UI when persistence fails, without an unhandled rejection', async () => {
+    setUiLanguage.mockRejectedValueOnce(new Error('offline'));
+    render(<LanguagePicker />);
+    const picker = screen.getByTestId('language-picker');
+    fireEvent.change(picker, { target: { value: 'fr' } });
+    await vi.waitFor(() => expect(i18n.language).toBe('fr'));
+    // No throw / unhandled rejection reaches the test runner.
+  });
 });

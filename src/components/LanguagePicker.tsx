@@ -21,7 +21,13 @@ export function LanguagePicker({ onChange }: LanguagePickerProps = {}) {
     const lang = e.target.value;
     onChange?.(lang);
     await applyLanguage(lang);
-    await setUiLanguage(lang);
+    // The UI has already switched; a failed persist shouldn't surface as an
+    // unhandled rejection. The choice re-persists on the next change.
+    try {
+      await setUiLanguage(lang);
+    } catch {
+      // best-effort persistence
+    }
   };
 
   return (
