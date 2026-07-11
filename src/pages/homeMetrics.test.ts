@@ -46,4 +46,18 @@ describe('computeOverallProgress', () => {
     const result = computeOverallProgress(units, [card('a', 'review', 8, 5)], entryIds);
     expect(result.total).toBe(1);
   });
+
+  it('counts an id shared between a published and a draft unit exactly once, from the published unit', () => {
+    const units = [unit('u1', 'published'), unit('u2', 'draft')];
+    const entryIds = { u1: ['x'], u2: ['x'] };
+    const result = computeOverallProgress(units, [card('x', 'review', 8, 5)], entryIds);
+    expect(result).toEqual({ total: 1, covered: 1, mastered: 1, coveredPct: 100, masteredPct: 100 });
+  });
+
+  it('does not count an entry with an existing card at reps 0 as covered', () => {
+    const units = [unit('u1', 'published')];
+    const entryIds = { u1: ['y'] };
+    const result = computeOverallProgress(units, [card('y', 'new', 0, 0)], entryIds);
+    expect(result).toEqual({ total: 1, covered: 0, mastered: 0, coveredPct: 0, masteredPct: 0 });
+  });
 });
