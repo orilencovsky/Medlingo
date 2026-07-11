@@ -3,6 +3,8 @@ node_modules
 dist
 .env
 .env.*
+!.env.example
+!.env.content.example
 e2e/.auth
 test-results
 playwright-report
