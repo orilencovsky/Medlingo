@@ -10,7 +10,7 @@ describe('content validation', () => {
   it('accepts the real content files', () => {
     const content = loadContent('content');
     expect(content.dictionary).toHaveLength(1097);
-    expect(content.units).toHaveLength(1);
+    expect(content.units).toHaveLength(4);
     expect(content.units[0].items).toHaveLength(12);
     expect(content.units[0].dialogue).toHaveLength(12);
   });

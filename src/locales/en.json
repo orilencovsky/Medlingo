@@ -23,6 +23,7 @@
   },
   "home": {
     "unitTitle": "Your unit",
+    "draft": "Draft",
     "start": "Start",
     "continue": "Continue",
     "completed": "Completed",

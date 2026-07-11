@@ -8,9 +8,11 @@ import type { CardState, Profile, Unit } from '../lib/types';
 
 const KNOWN_STABILITY_DAYS = 7;
 
+type UnitProgress = 'not_started' | 'in_progress' | 'completed';
+
 interface HomeState {
-  unit: Unit | null;
-  progress: 'not_started' | 'in_progress' | 'completed';
+  units: Unit[];
+  progress: Record<string, UnitProgress>;
   dueCount: number;
   nextDue: Date | null;
   cards: CardState[];
@@ -27,8 +29,10 @@ export function HomePage() {
       const [units, profile, due, cards] = await Promise.all([
         loadUnits(), getProfile(), loadDueCards(), loadAllCards(),
       ]);
-      const unit = units[0] ?? null;
-      const progress = unit ? await loadUnitProgress(unit.slug) : 'not_started';
+      const progressEntries = await Promise.all(
+        units.map(async (u) => [u.slug, await loadUnitProgress(u.slug)] as const),
+      );
+      const progress = Object.fromEntries(progressEntries);
       let nextDue: Date | null = null;
       if (due.length === 0 && cards.length > 0) {
         if (!touched.current) {
@@ -38,7 +42,7 @@ export function HomePage() {
         const upcoming = await loadUpcomingCards(1);
         nextDue = upcoming[0]?.card.due ?? null;
       }
-      setState({ unit, progress, dueCount: due.length, nextDue, cards, profile });
+      setState({ units, progress, dueCount: due.length, nextDue, cards, profile });
     })();
   }, []);
 
@@ -49,9 +53,9 @@ export function HomePage() {
     (c) => c.state === 'review' && c.stability >= KNOWN_STABILITY_DAYS,
   ).length;
   const firstRun = state.cards.length === 0;
-  const unitCta =
-    state.progress === 'completed' ? t('home.completed')
-    : state.progress === 'in_progress' ? t('home.continue')
+  const ctaFor = (p: UnitProgress) =>
+    p === 'completed' ? t('home.completed')
+    : p === 'in_progress' ? t('home.continue')
     : t('home.start');
 
   return (
@@ -64,23 +68,34 @@ export function HomePage() {
         <span>{t('home.wordsKnown', { count: known })}</span>
       </div>
 
-      <div data-testid="home-unit-card" className="rounded border p-4">
-        <h2 className="font-semibold">{t('home.unitTitle')}</h2>
-        {state.unit ? (
-          <>
-            <p className="mt-1">{state.unit.title.en}</p>
-            {state.progress === 'completed' ? (
-              <p className="mt-2 text-green-700">{unitCta} ✓</p>
+      {state.units.length === 0 && (
+        <div data-testid="home-unit-card" className="rounded border p-4">
+          <h2 className="font-semibold">{t('home.unitTitle')}</h2>
+          <p className="mt-1 text-gray-600">{t('common.loading')}</p>
+        </div>
+      )}
+      {state.units.map((unit) => {
+        const progress = state.progress[unit.slug] ?? 'not_started';
+        return (
+          <div key={unit.slug} data-testid="home-unit-card" className="rounded border p-4">
+            <div className="flex items-center justify-between">
+              <h2 className="font-semibold">{unit.title.en}</h2>
+              {unit.status === 'draft' && (
+                <span className="rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-800">
+                  {t('home.draft')}
+                </span>
+              )}
+            </div>
+            {progress === 'completed' ? (
+              <p className="mt-2 text-green-700">{ctaFor(progress)} ✓</p>
             ) : (
-              <Link to={`/unit/${state.unit.slug}`} className="mt-2 block rounded bg-blue-700 p-2 text-center text-white">
-                {unitCta}
+              <Link to={`/unit/${unit.slug}`} className="mt-2 block rounded bg-blue-700 p-2 text-center text-white">
+                {ctaFor(progress)}
               </Link>
             )}
-          </>
-        ) : (
-          <p className="mt-1 text-gray-600">{t('common.loading')}</p>
-        )}
-      </div>
+          </div>
+        );
+      })}
 
       <div data-testid="home-review-card" className="rounded border p-4">
         <h2 className="font-semibold">{t('home.reviewTitle')}</h2>

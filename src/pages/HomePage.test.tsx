@@ -5,19 +5,21 @@ import { MemoryRouter } from 'react-router';
 import '../lib/i18n';
 import type { CardState } from '../lib/types';
 
+const intakeUnit = {
+  slug: 'unit-01-intake', level: 1, displayOrder: 1, status: 'published',
+  title: { en: 'Patient intake' }, dialogue: [],
+};
 const db = {
   progress: 'not_started' as 'not_started' | 'in_progress' | 'completed',
   due: [] as unknown[],
   upcoming: [] as Array<{ card: CardState }>,
   cards: [] as CardState[],
+  units: [intakeUnit] as unknown[],
 };
 const touchStreak = vi.fn().mockResolvedValue(undefined);
 
 vi.mock('../data/units', () => ({
-  loadUnits: () => Promise.resolve([{
-    slug: 'unit-01-intake', level: 1, displayOrder: 1, status: 'published',
-    title: { en: 'Patient intake' }, dialogue: [],
-  }]),
+  loadUnits: () => Promise.resolve(db.units),
   loadUnitProgress: () => Promise.resolve(db.progress),
 }));
 vi.mock('../data/cards', () => ({
@@ -45,6 +47,7 @@ function card(entryId: string, state: CardState['state'], stability: number, rep
 describe('HomePage', () => {
   beforeEach(() => {
     db.progress = 'not_started'; db.due = []; db.upcoming = []; db.cards = [];
+    db.units = [intakeUnit];
     touchStreak.mockClear();
   });
 
@@ -78,6 +81,23 @@ describe('HomePage', () => {
     expect(await screen.findByTestId('home-review-card')).toHaveTextContent('All caught up');
     expect(touchStreak).toHaveBeenCalledOnce();
     expect(screen.getByText('Extra practice')).toBeInTheDocument();
+  });
+
+  it('renders a card per visible unit, marking drafts', async () => {
+    db.units = [
+      intakeUnit,
+      { slug: 'unit-02-vitals', level: 1, displayOrder: 2, status: 'draft',
+        title: { en: 'Vital signs' }, dialogue: [] },
+      { slug: 'unit-03-physical-exam', level: 1, displayOrder: 3, status: 'draft',
+        title: { en: 'Physical examination' }, dialogue: [] },
+    ];
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    const cards = await screen.findAllByTestId('home-unit-card');
+    expect(cards).toHaveLength(3);
+    expect(cards[0]).toHaveTextContent('Patient intake');
+    expect(cards[1]).toHaveTextContent('Vital signs');
+    expect(cards[1]).toHaveTextContent('Draft');
+    expect(cards[0]).not.toHaveTextContent('Draft');
   });
 
   it('caught-up visit touches the streak exactly once under StrictMode', async () => {

@@ -1,0 +1,15 @@
+line_order	speaker	he	en
+1	אחות	שלום, אני האחות דנה. אני צריכה למדוד לך כמה מדדים חיוניים.	Hello, I'm nurse Dana. I need to measure a few vital signs for you.
+2	מטופלת	בסדר גמור. מאיפה מתחילים?	Sure. Where do we start?
+3	אחות	קודם משקל וגובה. תעלי בבקשה על המשקל.	First weight and height. Please step on the scale.
+4	אחות	יופי. עכשיו תשבי, אני שמה לך את המכשיר על היד ומודדת לחץ דם.	Great. Now sit down, I'm putting the device on your arm and measuring blood pressure.
+5	מטופלת	זה לוחץ לי קצת על היד.	It presses on my arm a little.
+6	אחות	זה נורמלי לגמרי. גם לחץ הדם וגם הדופק — הכל תקין לגמרי.	That's completely normal. Both the blood pressure and the pulse — everything is completely normal.
+7	אחות	מדדתי גם את החום, והוא בסדר.	I also measured the temperature, and it's fine.
+8	אחות	עכשיו תני לי את האצבע. אני שמה עליה מכשיר קטן שמראה את רמת החמצן.	Now give me your finger. I'm putting on it a small device that shows the oxygen level.
+9	אחות	רמת החמצן היא 98 אחוז. זאת תוצאה מצוינת.	The oxygen level is 98 percent. That's an excellent result.
+10	אחות	תנשמי בבקשה נשימה עמוקה אחת.	Please take one deep breath.
+11	מטופלת	יש לי קצת כאב בגב.	I have a little pain in my back.
+12	אחות	בסולם מ-1 עד 10, כמה חזק הכאב?	On a scale from 1 to 10, how strong is the pain?
+13	מטופלת	בערך שש. אני צריכה לנוח קצת.	About six. I need to rest a bit.
+14	אחות	מובן. אחרי מנוחה קצרה נעשה מדידה נוספת, ואני כותבת דיווח לרופאה עם כל התוצאות.	Understood. After a short rest we'll do another measurement, and I'm writing a report for the doctor with all the results.
