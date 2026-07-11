@@ -421,13 +421,16 @@ Deno.test('runDrill maps a give_feedback tool_use block into a feedback event', 
   }
 });
 
-Deno.test('runDrill maps an end_session tool_use block into a verdicts event with the parsed array', async () => {
+Deno.test('runDrill maps an end_session tool_use block into a verdicts event enriched with hebrew/en', async () => {
   const service = fakeService({
     due: [{ entry_id: 'keev' }],
     entries: [{ id: 'keev', hebrew: 'כאב', translations: { en: 'pain' } }],
   });
-  const verdicts = [{ entryId: 'keev', verdict: 'used_correctly' }];
-  const verdictsJson = JSON.stringify({ verdicts });
+  // Claude only ever emits {entryId, verdict} per the end_session tool schema (prompt.ts) —
+  // claude.ts is responsible for enriching each item with hebrew/en looked up from `words`
+  // before it ever hits the wire, so the client never has to see a bare entryId slug.
+  const rawVerdicts = [{ entryId: 'keev', verdict: 'used_correctly' }];
+  const verdictsJson = JSON.stringify({ verdicts: rawVerdicts });
   const chunks = [
     sseLine({
       type: 'content_block_start',
@@ -444,7 +447,49 @@ Deno.test('runDrill maps an end_session tool_use block into a verdicts event wit
     const events = await collectSse(res);
 
     assertEquals(events, [
-      { event: 'verdicts', data: verdicts },
+      { event: 'verdicts', data: [{ entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' }] },
+      { event: 'done', data: {} },
+    ]);
+  } finally {
+    fetchStub.restore();
+  }
+});
+
+Deno.test('runDrill falls back to the raw entryId as hebrew and an empty en when Claude hallucinates an unknown entryId', async () => {
+  const service = fakeService({
+    due: [{ entry_id: 'keev' }],
+    entries: [{ id: 'keev', hebrew: 'כאב', translations: { en: 'pain' } }],
+  });
+  // Claude is only ever given `keev` as a target word, but tool inputs are untrusted model
+  // output — a hallucinated entryId must degrade gracefully instead of crashing the stream.
+  const rawVerdicts = [
+    { entryId: 'keev', verdict: 'used_correctly' },
+    { entryId: 'made-up-id', verdict: 'used_incorrectly' },
+  ];
+  const verdictsJson = JSON.stringify({ verdicts: rawVerdicts });
+  const chunks = [
+    sseLine({
+      type: 'content_block_start',
+      index: 0,
+      content_block: { type: 'tool_use', id: 'toolu_3', name: 'end_session', input: {} },
+    }),
+    sseLine({ type: 'content_block_delta', index: 0, delta: { type: 'input_json_delta', partial_json: verdictsJson } }),
+    sseLine({ type: 'content_block_stop', index: 0 }),
+  ];
+  const fetchStub = stubFetch(() => fakeUpstream(chunks));
+  try {
+    const body: DrillBody = { sessionId: sessionId(), messages: [{ role: 'user', content: 'להתראות' }] };
+    const res = await runDrill(body, 'user-1', service);
+    const events = await collectSse(res);
+
+    assertEquals(events, [
+      {
+        event: 'verdicts',
+        data: [
+          { entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' },
+          { entryId: 'made-up-id', verdict: 'used_incorrectly', hebrew: 'made-up-id', en: '' },
+        ],
+      },
       { event: 'done', data: {} },
     ]);
   } finally {

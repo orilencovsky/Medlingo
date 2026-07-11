@@ -45,7 +45,7 @@ describe('DrillPage', () => {
     ]);
     // exchange 3: learner turn → session ends with verdicts
     script.push([
-      { type: 'verdicts', payload: [{ entryId: 'keev', verdict: 'used_correctly' }] },
+      { type: 'verdicts', payload: [{ entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' }] },
       { type: 'done', payload: {} },
     ]);
 
@@ -59,7 +59,17 @@ describe('DrillPage', () => {
 
     await userEvent.type(screen.getByTestId('drill-input'), 'תודה, סיימנו.');
     await userEvent.click(screen.getByTestId('drill-send'));
-    expect(await screen.findByTestId('drill-summary')).toBeInTheDocument();
-    expect(applyDrillVerdicts).toHaveBeenCalledWith([{ entryId: 'keev', verdict: 'used_correctly' }]);
+    const summary = await screen.findByTestId('drill-summary');
+    expect(summary).toBeInTheDocument();
+    expect(applyDrillVerdicts).toHaveBeenCalledWith([
+      { entryId: 'keev', verdict: 'used_correctly', hebrew: 'כאב', en: 'pain' },
+    ]);
+
+    // Real immigrant-clinician users must see the Hebrew word + English gloss, never the
+    // internal transliterated slug used as the entryId (regression guard for the bug this
+    // fix addresses).
+    expect(summary).toHaveTextContent('כאב');
+    expect(summary).toHaveTextContent('pain');
+    expect(summary).not.toHaveTextContent('keev');
   });
 });

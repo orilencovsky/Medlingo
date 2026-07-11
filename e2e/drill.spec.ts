@@ -7,7 +7,7 @@ const SSE_OPEN = [
 const SSE_TURN = [
   'event: delta\ndata: {"text":"כן, מהבוקר."}\n\n',
   'event: feedback\ndata: {"right":"Clear question","correction":"","tip":""}\n\n',
-  'event: verdicts\ndata: [{"entryId":"keev","verdict":"used_correctly"}]\n\n',
+  'event: verdicts\ndata: [{"entryId":"keev","verdict":"used_correctly","hebrew":"כאב","en":"pain"}]\n\n',
   'event: done\ndata: {}\n\n',
 ].join('');
 
