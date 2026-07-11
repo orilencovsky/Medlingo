@@ -39,8 +39,8 @@
     "stats": {
       "streak": "Jours consécutifs",
       "dueToday": "À réviser",
-      "mastered": "Maîtrisées",
-      "learned": "Apprises"
+      "mastered": "Maîtrisés",
+      "learned": "Appris"
     }
   },
   "unit": {
