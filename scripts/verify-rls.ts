@@ -43,8 +43,9 @@ async function main() {
   const { error: signInErr } = await user.auth.signInWithPassword({ email: EMAIL, password: PASS });
   if (signInErr) throw signInErr;
 
-  const { error: dictErr } = await user.from('dictionary_entries').select('id').limit(1);
+  const { data: dictRows, error: dictErr } = await user.from('dictionary_entries').select('id').limit(1);
   check('signed-in user can read dictionary', dictErr === null);
+  const sampleEntryId = dictRows?.[0]?.id as string | undefined;
 
   const { data: draftRows } = await user.from('units').select('slug').eq('slug', 'rls-draft-unit');
   check('signed-in non-admin cannot see draft units', (draftRows ?? []).length === 0);
@@ -55,13 +56,31 @@ async function main() {
   });
   check("cannot insert another user's review_logs", foreignLog !== null);
 
+  // seed a fresh review_logs row (as admin, bypassing RLS) so the update-rejection
+  // check below has a real before/after value to compare, not a possibly-empty set
+  const { data: seededLog, error: seedErr } = await admin.from('review_logs').insert({
+    user_id: userId!, entry_id: sampleEntryId!, practice_form: 'cloze', rating: 'good',
+    counts_for_scheduling: false,
+  }).select('id, rating').single();
+  if (seedErr) throw seedErr;
+
   const { error: updErr } = await user.from('review_logs')
-    .update({ rating: 'easy' }).eq('user_id', userId!).select();
-  const { data: updData } = await user.from('review_logs').select('id').limit(0);
-  check('review_logs update is rejected/ineffective', updErr !== null || updData !== null);
+    .update({ rating: 'easy' }).eq('id', seededLog.id).select();
+  const { data: afterLog } = await admin.from('review_logs')
+    .select('rating').eq('id', seededLog.id).single();
+  const updateHadNoEffect = afterLog?.rating === seededLog.rating;
+  check('review_logs update is rejected/ineffective', updErr !== null || updateHadNoEffect);
+
+  const { data: metricsRows, error: metricsErr } = await user
+    .from('v_reviews_per_user_day').select('*');
+  check(
+    'metrics views not readable by clients',
+    metricsErr !== null || (metricsRows ?? []).length === 0,
+  );
 
   // cleanup
   await admin.from('units').delete().eq('slug', 'rls-draft-unit');
+  await admin.from('review_logs').delete().eq('id', seededLog.id);
   console.log(failures === 0 ? '\nALL RLS CHECKS PASSED' : `\n${failures} FAILURES`);
   process.exit(failures === 0 ? 0 : 1);
 }

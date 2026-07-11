@@ -52,7 +52,7 @@ function fromCard(entryId: string, c: Card): CardState {
 }
 
 function toCard(cs: CardState): Card {
-  // elapsed_days/scheduled_days/learning_steps are reconstructed — not persisted in user_card_state
+  // elapsed_days/scheduled_days are reconstructed — not persisted in user_card_state
   const scheduledDays = cs.lastReview
     ? Math.max(0, Math.round((cs.due.getTime() - cs.lastReview.getTime()) / 86_400_000))
     : 0;

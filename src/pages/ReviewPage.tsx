@@ -147,14 +147,14 @@ export function ReviewPage() {
   }
 
   const form = selectForm(current.card);
+  const key = `${current.entry.id}-${phase.index}`;
   const props = {
-    key: `${current.entry.id}-${phase.index}`,
     entry: current.entry,
     contextSentences: current.contextSentences,
     distractors,
     onResult: handleResult,
   };
-  if (form === 'flashcard_recognition') return <Recognition {...props} />;
-  if (form === 'cloze') return <Cloze {...props} />;
-  return <Recall {...props} />;
+  if (form === 'flashcard_recognition') return <Recognition key={key} {...props} />;
+  if (form === 'cloze') return <Cloze key={key} {...props} />;
+  return <Recall key={key} {...props} />;
 }

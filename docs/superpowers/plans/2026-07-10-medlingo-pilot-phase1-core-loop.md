@@ -3923,6 +3923,8 @@ git commit -m "feat: add pilot metrics views and query script
 Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
 ```
 
+**Amendment (final review 2026-07-11):** views must be `security_invoker` and revoked from anon/authenticated (migration `0004_lock_views.sql`) — they are otherwise publicly readable via PostgREST; verify-rls gains a views check.
+
 ---
 
 ### Task 15: PWA installability
