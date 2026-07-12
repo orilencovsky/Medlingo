@@ -1,0 +1,99 @@
+{
+  "app": { "title": "מדלינגו" },
+  "common": {
+    "continue": "המשך",
+    "loading": "טוען…",
+    "retry": "נסה שוב",
+    "back": "חזרה"
+  },
+  "auth": {
+    "title": "התחברות למדלינגו",
+    "emailLabel": "כתובת אימייל",
+    "sendLink": "שלח לי קישור להתחברות",
+    "checkEmail": "בדוק את תיבת הדואר שלך לקבלת קישור התחברות.",
+    "error": "לא הצלחנו לחבר אותך. נסה שוב.",
+    "google": "המשך עם Google",
+    "or": "או"
+  },
+  "onboarding": {
+    "title": "ברוכים הבאים למדלינגו",
+    "nameLabel": "שם התצוגה שלך",
+    "consent": "בהמשך אתה מסכים שמדלינגו תשמור את האימייל, שם התצוגה וההיסטוריה הלימודית שלך להפעלת הפיילוט (מתארח באיחוד האירופי). ניתן לבקש מחיקה בכל עת.",
+    "start": "התחל ללמוד"
+  },
+  "home": {
+    "unitTitle": "היחידה שלך",
+    "draft": "טיוטה",
+    "start": "התחל",
+    "continue": "המשך",
+    "completed": "הושלם",
+    "reviewTitle": "חזרות",
+    "due_one": "מילה אחת ממתינה לחזרה — סקור עכשיו",
+    "due_two": "{{count}} מילים ממתינות לחזרה — סקור עכשיו",
+    "due_other": "{{count}} מילים ממתינות לחזרה — סקור עכשיו",
+    "caughtUp": "הכל מעודכן — החזרה הבאה {{time}}",
+    "extraPractice": "תרגול נוסף",
+    "drill": "תרגול AI",
+    "firstRun": "התחל את היחידה הראשונה שלך כדי להתחיל ללמוד.",
+    "streak": "רצף של {{count}} ימים",
+    "wordsLearned": "{{count}} נלמדו",
+    "wordsKnown": "{{count}} ידועות",
+    "greeting": "שלום, {{name}}",
+    "dueSummary_one": "יש לך מילה אחת לחזרה היום",
+    "dueSummary_two": "יש לך {{count}} מילים לחזרה היום",
+    "dueSummary_other": "יש לך {{count}} מילים לחזרה היום",
+    "overallProgress": "התקדמות כוללת",
+    "wordsInCourse_one": "מילה אחת בקורס",
+    "wordsInCourse_two": "{{count}} מילים בקורס",
+    "wordsInCourse_other": "{{count}} מילים בקורס",
+    "masteredCount": "{{count}} נשלטו ({{pct}}%)",
+    "coveredCount": "{{count}} כוסו ({{pct}}%)",
+    "new": "חדש",
+    "drillSubtitle": "ראיין מטופל מדומה בעברית, עם משוב מאמן",
+    "myUnits": "היחידות שלי",
+    "stats": {
+      "streak": "רצף ימים",
+      "dueToday": "לחזרה היום",
+      "mastered": "נשלטו",
+      "learned": "נלמדו"
+    }
+  },
+  "unit": {
+    "scenario": "תרחיש",
+    "vocab": "מילים חדשות",
+    "practice": "תרגול",
+    "done": "היחידה הושלמה!",
+    "start": "התחל יחידה",
+    "meaning": "משמעות",
+    "gender": "מגדר",
+    "plural": "רבים",
+    "root": "שורש",
+    "everyday": "מטופלים אומרים"
+  },
+  "review": {
+    "title": "חזרה",
+    "correct": "נכון!",
+    "wrong": "לא בדיוק",
+    "answer": "תשובה",
+    "summary": "הסשן הושלם",
+    "reviewed": "{{count}} נסקרו",
+    "accuracy": "{{pct}}% נכונים",
+    "caughtUp": "הכל מעודכן!",
+    "nextDue": "החזרה הבאה {{time}}",
+    "extra": "תרגול נוסף (לא משפיע על לוח הזמנים שלך)",
+    "empty": "אין כרגע מה לסקור — קודם למד את היחידה."
+  },
+  "drill": {
+    "title": "תרגול AI",
+    "intro": "ראיין מטופל מדומה בעברית. תקבל משוב מאמן אחרי כל הודעה.",
+    "disclaimer": "המטופל מדומה על ידי AI. זהו תרגול שפה, לא ייעוץ רפואי.",
+    "start": "התחל תרגול",
+    "placeholder": "כתוב בעברית…",
+    "send": "שלח",
+    "summaryTitle": "התרגול הושלם",
+    "usedCorrectly": "שימוש נכון",
+    "usedIncorrectly": "דורש עבודה",
+    "quota": "ניצלת את 3 התרגולים של היום. חזור מחר!",
+    "unavailable": "המאמן אינו זמין כרגע — החזרות שלך עדיין עובדות."
+  }
+}

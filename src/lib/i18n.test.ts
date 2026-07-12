@@ -32,4 +32,11 @@ describe('applyLanguage', () => {
     expect(document.documentElement.dir).toBe('ltr');
     expect(document.documentElement.lang).toBe('ru');
   });
+
+  it('sets dir to rtl and lang to he for Hebrew', async () => {
+    await applyLanguage('he');
+    expect(i18n.language).toBe('he');
+    expect(document.documentElement.dir).toBe('rtl');
+    expect(document.documentElement.lang).toBe('he');
+  });
 });

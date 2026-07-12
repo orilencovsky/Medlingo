@@ -4,8 +4,9 @@ import en from '../locales/en.json';
 import ar from '../locales/ar.json';
 import ru from '../locales/ru.json';
 import fr from '../locales/fr.json';
+import he from '../locales/he.json';
 
-const RTL_LANGUAGES = new Set(['ar']);
+const RTL_LANGUAGES = new Set(['ar', 'he']);
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -13,6 +14,7 @@ i18n.use(initReactI18next).init({
     ar: { translation: ar },
     ru: { translation: ru },
     fr: { translation: fr },
+    he: { translation: he },
   },
   lng: 'en',
   fallbackLng: 'en',

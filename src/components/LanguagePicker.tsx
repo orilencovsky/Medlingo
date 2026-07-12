@@ -8,6 +8,7 @@ const LANGUAGES: Array<{ code: string; label: string }> = [
   { code: 'ar', label: 'العربية' },
   { code: 'ru', label: 'Русский' },
   { code: 'fr', label: 'Français' },
+  { code: 'he', label: 'עברית' },
 ];
 
 interface LanguagePickerProps {
