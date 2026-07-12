@@ -4,7 +4,8 @@
     "continue": "Продолжить",
     "loading": "Загрузка…",
     "retry": "Повторить попытку",
-    "back": "Назад"
+    "back": "Назад",
+    "signOut": "Выйти"
   },
   "auth": {
     "title": "Вход в MedLingo",

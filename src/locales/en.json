@@ -4,7 +4,8 @@
     "continue": "Continue",
     "loading": "Loading…",
     "retry": "Try again",
-    "back": "Back"
+    "back": "Back",
+    "signOut": "Sign out"
   },
   "auth": {
     "title": "Sign in to MedLingo",
