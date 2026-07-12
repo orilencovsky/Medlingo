@@ -197,4 +197,28 @@ describe('dashboard', () => {
     await screen.findByTestId('home-unit-card');
     expect(screen.queryByTestId('unit-progress-bar')).not.toBeInTheDocument();
   });
+
+  it('renders the greeting and the overall progress card', async () => {
+    db.units = [{ slug: 'unit-01-intake', level: 1, displayOrder: 1, status: 'published', title: { en: 'Patient intake' }, dialogue: [] }];
+    db.entryIds = { 'unit-01-intake': ['a', 'b'] };
+    db.cards = [card('a', 'review', 10, 3), card('b', 'learning', 1, 1)];
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByText('Hello, Dr. Test')).toBeInTheDocument();
+    expect(screen.getByTestId('overall-progress-card')).toHaveTextContent('Overall progress');
+    expect(screen.getByTestId('overall-progress-covered')).toHaveStyle({ width: '100%' });
+    expect(screen.getByTestId('overall-progress-mastered')).toHaveStyle({ width: '50%' });
+  });
+
+  it('shows the AI drill card with a "New" badge only when the flag is on', async () => {
+    vi.stubEnv('VITE_ENABLE_DRILL', 'true');
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByTestId('home-drill-card')).toHaveTextContent('AI practice drill');
+    expect(screen.getByTestId('home-drill-card')).toHaveTextContent('New');
+    vi.unstubAllEnvs();
+  });
+
+  it('renders the "My units" section title', async () => {
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
+    expect(await screen.findByRole('heading', { name: 'My units' })).toBeInTheDocument();
+  });
 });
