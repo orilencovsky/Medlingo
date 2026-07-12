@@ -12,7 +12,7 @@ describe('LanguagePicker', () => {
     await applyLanguage('en');
   });
 
-  it('renders four options labeled in their own language', () => {
+  it('renders five options labeled in their own language', () => {
     render(<LanguagePicker />);
     const picker = screen.getByTestId('language-picker');
     const options = Array.from(picker.querySelectorAll('option')).map((o) => [o.value, o.textContent]);
@@ -21,6 +21,7 @@ describe('LanguagePicker', () => {
       ['ar', 'العربية'],
       ['ru', 'Русский'],
       ['fr', 'Français'],
+      ['he', 'עברית'],
     ]);
   });
 
