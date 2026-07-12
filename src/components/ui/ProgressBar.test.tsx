@@ -21,6 +21,6 @@ describe('ProgressBar', () => {
 
   it('uses the success tone color at 100%', () => {
     render(<ProgressBar value={100} tone="success" fillTestId="fill" />);
-    expect(screen.getByTestId('fill')).toHaveClass('bg-green-600');
+    expect(screen.getByTestId('fill')).toHaveClass('bg-success');
   });
 });

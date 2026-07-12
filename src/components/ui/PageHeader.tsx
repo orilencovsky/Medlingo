@@ -16,7 +16,7 @@ export function PageHeader({ title, displayName }: PageHeaderProps) {
         <div className="flex size-8 items-center justify-center rounded-md bg-primary text-sm font-bold text-white">
           {title.charAt(0)}
         </div>
-        <span className="text-lg font-extrabold text-ink">{title}</span>
+        <h1 className="text-lg font-extrabold text-ink">{title}</h1>
       </div>
       <div className="flex items-center gap-2">
         <LanguagePicker />

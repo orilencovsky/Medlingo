@@ -44,7 +44,7 @@
     "wordsInCourse_one": "{{count}} word in course",
     "wordsInCourse_other": "{{count}} words in course",
     "masteredCount": "{{count}} mastered ({{pct}}%)",
-    "coveredCount": "{{count}} learned ({{pct}}%)",
+    "coveredCount": "{{count}} covered ({{pct}}%)",
     "new": "New",
     "drillSubtitle": "Interview a simulated patient in Hebrew, with coaching feedback",
     "myUnits": "My units",
