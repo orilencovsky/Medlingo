@@ -12,6 +12,9 @@ import { Cloze } from '../components/exercises/Cloze';
 import { Recall } from '../components/exercises/Recall';
 import type { DictionaryEntry, ReviewCard } from '../lib/types';
 import { drillEnabled } from '../lib/flags';
+import { PageHeader } from '../components/ui/PageHeader';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
 
 const EXTRA_LIMIT = 10;
 
@@ -93,59 +96,69 @@ export function ReviewPage() {
     }
   }
 
-  if (phase.kind === 'loading') return <p className="p-4">{t('common.loading')}</p>;
+  if (phase.kind === 'loading') {
+    return (
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('review.title')} />
+        <p className="mt-4 text-ink-subtle">{t('common.loading')}</p>
+      </div>
+    );
+  }
   if (phase.kind === 'error') {
     return (
-      <div className="p-4">
-        <p role="alert">{t('auth.error')}</p>
-        <button onClick={() => window.location.reload()} className="mt-2 rounded border p-2">
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('review.title')} />
+        <p role="alert" className="mt-4 text-red-700">{t('auth.error')}</p>
+        <Button variant="secondary" onClick={() => window.location.reload()} className="mt-2">
           {t('common.retry')}
-        </button>
+        </Button>
       </div>
     );
   }
   if (phase.kind === 'caught-up') {
     return (
-      <div data-testid="review-caught-up" className="p-6 text-center">
-        <h1 className="text-2xl font-semibold">{t('review.caughtUp')}</h1>
-        {phase.nextDue && (
-          <p className="mt-2 text-gray-600">
-            {t('review.nextDue', { time: phase.nextDue.toLocaleString() })}
-          </p>
-        )}
-        <button
-          data-testid="review-extra-practice"
-          onClick={startExtra}
-          className="mt-4 rounded border p-2"
-        >
-          {t('review.extra')}
-        </button>
-        <p className="mt-4"><Link to="/" className="underline">{t('common.back')}
-</Link></p>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('review.title')} />
+        <Card data-testid="review-caught-up" className="mt-4 text-center">
+          <h1 className="text-2xl font-semibold text-ink">{t('review.caughtUp')}</h1>
+          {phase.nextDue && (
+            <p className="mt-2 text-ink-subtle">
+              {t('review.nextDue', { time: phase.nextDue.toLocaleString() })}
+            </p>
+          )}
+          <Button data-testid="review-extra-practice" variant="secondary" onClick={startExtra} className="mt-4">
+            {t('review.extra')}
+          </Button>
+          <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
+        </Card>
       </div>
     );
   }
   if (phase.kind === 'summary') {
     const pct = phase.total === 0 ? 0 : Math.round((100 * phase.correct) / phase.total);
     return (
-      <div data-testid="review-summary" className="p-6 text-center">
-        <h1 className="text-2xl font-semibold">{t('review.summary')}</h1>
-        <p className="mt-2">{t('review.reviewed', { count: phase.total })}</p>
-        <p>{t('review.accuracy', { pct })}</p>
-        {drillEnabled() && (
-          <p className="mt-2"><Link to="/drill" className="underline">{t('home.drill')}</Link></p>
-        )}
-        <p className="mt-4"><Link to="/" className="underline">{t('common.back')}
-</Link></p>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('review.title')} />
+        <Card data-testid="review-summary" className="mt-4 text-center">
+          <h1 className="text-2xl font-semibold text-ink">{t('review.summary')}</h1>
+          <p className="mt-2 text-ink">{t('review.reviewed', { count: phase.total })}</p>
+          <p className="text-ink">{t('review.accuracy', { pct })}</p>
+          {drillEnabled() && (
+            <p className="mt-2"><Link to="/drill" className="text-primary underline">{t('home.drill')}</Link></p>
+          )}
+          <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
+        </Card>
       </div>
     );
   }
   if (!current) {
     return (
-      <div data-testid="review-caught-up" className="p-6 text-center">
-        <p>{t('review.empty')}</p>
-        <p className="mt-4"><Link to="/" className="underline">{t('common.back')}
-</Link></p>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('review.title')} />
+        <Card data-testid="review-caught-up" className="mt-4 text-center">
+          <p className="text-ink">{t('review.empty')}</p>
+          <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
+        </Card>
       </div>
     );
   }
@@ -158,7 +171,11 @@ export function ReviewPage() {
     distractors,
     onResult: handleResult,
   };
-  if (form === 'flashcard_recognition') return <Recognition key={key} {...props} />;
-  if (form === 'cloze') return <Cloze key={key} {...props} />;
-  return <Recall key={key} {...props} />;
+  return (
+    <div className="mx-auto max-w-2xl">
+      {form === 'flashcard_recognition' ? <Recognition key={key} {...props} />
+        : form === 'cloze' ? <Cloze key={key} {...props} />
+        : <Recall key={key} {...props} />}
+    </div>
+  );
 }

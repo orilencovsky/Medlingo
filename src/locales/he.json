@@ -1,5 +1,10 @@
 {
   "app": { "title": "מדלינגו" },
+  "nav": {
+    "home": "בית",
+    "review": "חזרה",
+    "drill": "תרגול"
+  },
   "common": {
     "continue": "המשך",
     "loading": "טוען…",

@@ -1,5 +1,10 @@
 {
   "app": { "title": "MedLingo" },
+  "nav": {
+    "home": "Home",
+    "review": "Review",
+    "drill": "Drill"
+  },
   "common": {
     "continue": "Continue",
     "loading": "Loading…",

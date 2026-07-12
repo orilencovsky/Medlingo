@@ -10,9 +10,9 @@ export function Recall({ entry, distractors, onResult }: ExerciseProps) {
   const tiles = useMemo(() => shuffledOnce([entry, ...distractors]), [entry, distractors]);
   return (
     <div className="p-4">
-      <p className="text-center text-2xl font-semibold">{entry.translations.en}</p>
+      <p className="text-center text-2xl font-semibold text-ink">{entry.translations.en}</p>
       {entry.gender && (
-        <p className="text-center text-sm text-gray-600">{t('unit.gender')}: <He>{entry.gender}</He></p>
+        <p className="text-center text-sm text-ink-subtle">{t('unit.gender')}: <He>{entry.gender}</He></p>
       )}
       <div className="mt-6 grid grid-cols-2 gap-2">
         {tiles.map((o, i) => (
@@ -21,7 +21,7 @@ export function Recall({ entry, distractors, onResult }: ExerciseProps) {
             data-testid={`exercise-tile-${i}`}
             disabled={answered !== null}
             onClick={() => answer(o.id === entry.id)}
-            className="rounded border p-3 disabled:opacity-60"
+            className="rounded-md border border-border bg-surface p-3 text-ink shadow-card transition-colors hover:bg-primary-tint disabled:opacity-60"
           >
             <He>{o.hebrew}</He>
           </button>

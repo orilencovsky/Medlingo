@@ -5,6 +5,9 @@ import { He } from '../components/He';
 import {
   streamDrill, applyDrillVerdicts, DrillQuotaError, type DrillMessage,
 } from '../data/drill';
+import { PageHeader } from '../components/ui/PageHeader';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
 
 type Feedback = { right: string; correction: string; tip: string };
 type Verdict = { entryId: string; verdict: string; hebrew: string; en: string };
@@ -63,62 +66,78 @@ export function DrillPage() {
 
   if (phase === 'intro') {
     return (
-      <div className="mx-auto max-w-md p-6 text-center">
-        <h1 className="text-2xl font-semibold">{t('drill.title')}</h1>
-        <p className="mt-2">{t('drill.intro')}</p>
-        <p className="mt-2 text-sm text-gray-600">{t('drill.disclaimer')}</p>
-        <button onClick={start} className="mt-4 w-full rounded bg-blue-700 p-3 text-white">
-          {t('drill.start')}
-        </button>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('drill.title')} />
+        <Card className="mt-4 text-center">
+          <p className="text-ink">{t('drill.intro')}</p>
+          <p className="mt-2 text-sm text-ink-subtle">{t('drill.disclaimer')}</p>
+          <Button onClick={start} className="mt-4 w-full">
+            {t('drill.start')}
+          </Button>
+        </Card>
       </div>
     );
   }
   if (phase === 'quota') {
-    return <p className="p-6 text-center">{t('drill.quota')} <Link className="underline" to="/">{t('common.back')}</Link></p>;
+    return (
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('drill.title')} />
+        <p className="mt-4 text-ink">{t('drill.quota')} <Link className="text-primary underline" to="/">{t('common.back')}</Link></p>
+      </div>
+    );
   }
   if (phase === 'unavailable') {
-    return <p className="p-6 text-center" role="alert">{t('drill.unavailable')} <Link className="underline" to="/">{t('common.back')}</Link></p>;
+    return (
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('drill.title')} />
+        <p role="alert" className="mt-4 text-ink">{t('drill.unavailable')} <Link className="text-primary underline" to="/">{t('common.back')}</Link></p>
+      </div>
+    );
   }
   if (phase === 'summary') {
     return (
-      <div data-testid="drill-summary" className="mx-auto max-w-md p-6">
-        <h1 className="text-2xl font-semibold">{t('drill.summaryTitle')}</h1>
-        <ul className="mt-4 flex flex-col gap-1">
-          {verdicts.filter((v) => v.verdict !== 'not_attempted').map((v) => (
-            <li key={v.entryId}>
-              {v.verdict === 'used_correctly' ? '✅' : '✍️'}{' '}
-              <He>{v.hebrew}</He>{' ('}{v.en}{') — '}
-              {v.verdict === 'used_correctly' ? t('drill.usedCorrectly') : t('drill.usedIncorrectly')}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4"><Link to="/" className="underline">{t('common.back')}</Link></p>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('drill.title')} />
+        <Card data-testid="drill-summary" className="mt-4">
+          <h1 className="text-2xl font-semibold text-ink">{t('drill.summaryTitle')}</h1>
+          <ul className="mt-4 flex flex-col gap-1 text-ink">
+            {verdicts.filter((v) => v.verdict !== 'not_attempted').map((v) => (
+              <li key={v.entryId}>
+                {v.verdict === 'used_correctly' ? '✅' : '✍️'}{' '}
+                <He>{v.hebrew}</He>{' ('}{v.en}{') — '}
+                {v.verdict === 'used_correctly' ? t('drill.usedCorrectly') : t('drill.usedIncorrectly')}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
+        </Card>
       </div>
     );
   }
 
   const lastFeedback = feedbacks[feedbacks.length - 1];
   return (
-    <div className="mx-auto flex max-w-md flex-col gap-3 p-4">
-      <p className="text-xs text-gray-500">{t('drill.disclaimer')}</p>
+    <div className="mx-auto flex max-w-2xl flex-col gap-3 p-4">
+      <PageHeader title={t('drill.title')} />
+      <p className="text-xs text-ink-subtle">{t('drill.disclaimer')}</p>
       <div className="flex flex-col gap-2">
         {messages.filter((m) => m.content !== '').map((m, i) => (
           <div
             key={i}
             className={m.role === 'assistant'
-              ? 'self-start rounded-lg bg-gray-100 p-3'
-              : 'self-end rounded-lg bg-blue-100 p-3'}
+              ? 'self-start rounded-lg border border-border bg-surface p-3 text-ink shadow-card'
+              : 'self-end rounded-lg bg-primary-tint p-3 text-ink'}
           >
             <He>{m.content}</He>
           </div>
         ))}
       </div>
       {lastFeedback && (
-        <div data-testid="drill-feedback" className="rounded border border-amber-300 bg-amber-50 p-3 text-sm">
-          <p className="font-semibold">{lastFeedback.right}</p>
-          {lastFeedback.correction && <p><He>{lastFeedback.correction}</He></p>}
-          {lastFeedback.tip && <p className="text-gray-700">{lastFeedback.tip}</p>}
-        </div>
+        <Card data-testid="drill-feedback" className="border-amber text-sm">
+          <p className="font-semibold text-ink">{lastFeedback.right}</p>
+          {lastFeedback.correction && <p className="text-ink"><He>{lastFeedback.correction}</He></p>}
+          {lastFeedback.tip && <p className="text-ink-subtle">{lastFeedback.tip}</p>}
+        </Card>
       )}
       <div className="flex gap-2">
         <textarea
@@ -129,16 +148,11 @@ export function DrillPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('drill.placeholder')}
-          className="flex-1 rounded border p-2"
+          className="flex-1 rounded-md border border-border p-2 text-ink focus:outline-none focus:ring-2 focus:ring-primary"
         />
-        <button
-          data-testid="drill-send"
-          onClick={send}
-          disabled={busy}
-          className="rounded bg-blue-700 px-4 text-white disabled:opacity-50"
-        >
+        <Button data-testid="drill-send" onClick={send} disabled={busy} className="px-4">
           {t('drill.send')}
-        </button>
+        </Button>
       </div>
     </div>
   );

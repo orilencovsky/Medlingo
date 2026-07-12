@@ -6,16 +6,19 @@ import { UnitPage } from './pages/UnitPage';
 import { ReviewPage } from './pages/ReviewPage';
 import { DrillPage } from './pages/DrillPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { AppShell } from './components/AppShell';
 
 export default function App() {
   return (
     <Routes>
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/onboarding" element={<OnboardingPage />} />
-      <Route path="/" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
-      <Route path="/unit/:slug" element={<ProtectedRoute><UnitPage /></ProtectedRoute>} />
-      <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
-      <Route path="/drill" element={<ProtectedRoute><DrillPage /></ProtectedRoute>} />
+      <Route element={<ProtectedRoute><AppShell /></ProtectedRoute>}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/unit/:slug" element={<UnitPage />} />
+        <Route path="/review" element={<ReviewPage />} />
+        <Route path="/drill" element={<DrillPage />} />
+      </Route>
     </Routes>
   );
 }

@@ -8,6 +8,9 @@ import { loadUnit, loadUnitProgress, startUnit, completeUnit } from '../data/uni
 import { seedNewCards, submitReview, loadEntryPool } from '../data/cards';
 import { pickDistractors } from '../lib/distractors';
 import type { DictionaryEntry, UnitItem } from '../lib/types';
+import { PageHeader } from '../components/ui/PageHeader';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
 
 type LoadedItem = UnitItem & { entry: DictionaryEntry };
 type Phase =
@@ -83,41 +86,45 @@ export function UnitPage() {
     }
   }
 
-  if (phase.kind === 'loading' || !data) return <p className="p-4">{t('common.loading')}</p>;
+  if (phase.kind === 'loading' || !data) {
+    return (
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={t('app.title')} />
+        <p className="mt-4 text-ink-subtle">{t('common.loading')}</p>
+      </div>
+    );
+  }
 
   if (phase.kind === 'scenario') {
     return (
-      <div className="p-4">
-        <h1 className="text-xl font-semibold">{t('unit.scenario')}: {data.unit.title.en}</h1>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={data.unit.title.en} />
+        <h1 className="mt-4 text-xl font-semibold text-ink">{t('unit.scenario')}: {data.unit.title.en}</h1>
         <div className="mt-4 flex flex-col gap-3">
           {data.unit.dialogue.map((line) => (
-            <div key={line.order} className="rounded border p-3">
-              <p className="text-sm font-semibold text-gray-600"><He>{line.speaker}</He></p>
-              <p className="text-lg"><He>{renderLine(line.he, items, setGloss)}</He></p>
-              <p className="text-sm text-gray-600">{line.translations.en}</p>
-            </div>
+            <Card key={line.order}>
+              <p className="text-sm font-semibold text-ink-subtle"><He>{line.speaker}</He></p>
+              <p className="text-lg text-ink"><He>{renderLine(line.he, items, setGloss)}</He></p>
+              <p className="text-sm text-ink-subtle">{line.translations.en}</p>
+            </Card>
           ))}
         </div>
         {gloss && (
           <div
             data-testid="unit-gloss-panel"
-            className="fixed inset-x-0 bottom-0 border-t bg-white p-4 shadow-lg"
+            className="fixed inset-x-0 bottom-0 border-t border-border bg-surface p-4 shadow-raised"
             onClick={() => setGloss(null)}
           >
-            <p><He className="text-xl font-bold">{gloss.entry.hebrewNikud}</He> — {gloss.entry.translations.en}</p>
-            {gloss.entry.gender && <p className="text-sm">{t('unit.gender')}: <He>{gloss.entry.gender}</He></p>}
+            <p className="text-ink"><He className="text-xl font-bold">{gloss.entry.hebrewNikud}</He> — {gloss.entry.translations.en}</p>
+            {gloss.entry.gender && <p className="text-sm text-ink-subtle">{t('unit.gender')}: <He>{gloss.entry.gender}</He></p>}
             {gloss.entry.everydaySynonym && (
-              <p className="text-sm">{t('unit.everyday')}: <He>{gloss.entry.everydaySynonym}</He></p>
+              <p className="text-sm text-ink-subtle">{t('unit.everyday')}: <He>{gloss.entry.everydaySynonym}</He></p>
             )}
           </div>
         )}
-        <button
-          data-testid="unit-start"
-          onClick={() => setPhase({ kind: 'vocab', index: 0 })}
-          className="mt-6 w-full rounded bg-blue-700 p-3 text-white"
-        >
+        <Button data-testid="unit-start" onClick={() => setPhase({ kind: 'vocab', index: 0 })} className="mt-6 w-full">
           {t('unit.vocab')}
-        </button>
+        </Button>
       </div>
     );
   }
@@ -125,36 +132,37 @@ export function UnitPage() {
   if (phase.kind === 'vocab') {
     const item = items[phase.index];
     return (
-      <div className="p-4">
-        <p className="text-sm text-gray-600">{t('unit.vocab')} {phase.index + 1}/{items.length}</p>
-        <div className="mt-4 rounded border p-6 text-center">
-          <He className="block text-3xl font-bold">{item.entry.hebrewNikud}</He>
-          <p className="mt-2 text-xl">{item.entry.translations.en}</p>
+      <div className="mx-auto max-w-2xl p-4">
+        <PageHeader title={data.unit.title.en} />
+        <p className="mt-4 text-sm text-ink-subtle">{t('unit.vocab')} {phase.index + 1}/{items.length}</p>
+        <Card className="mt-4 text-center">
+          <He className="block text-3xl font-bold text-ink">{item.entry.hebrewNikud}</He>
+          <p className="mt-2 text-xl text-ink">{item.entry.translations.en}</p>
           {item.entry.gender && (
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-1 text-sm text-ink-subtle">
               {t('unit.gender')}: <He>{item.entry.gender}</He>
               {item.entry.plural && <> · {t('unit.plural')}: <He>{item.entry.plural}</He></>}
             </p>
           )}
-          {item.entry.root && <p className="text-sm text-gray-600">{t('unit.root')}: <He>{item.entry.root}</He></p>}
+          {item.entry.root && <p className="text-sm text-ink-subtle">{t('unit.root')}: <He>{item.entry.root}</He></p>}
           {item.entry.everydaySynonym && (
-            <p className="text-sm text-gray-600">{t('unit.everyday')}: <He>{item.entry.everydaySynonym}</He></p>
+            <p className="text-sm text-ink-subtle">{t('unit.everyday')}: <He>{item.entry.everydaySynonym}</He></p>
           )}
           {item.contextSentences[0] && (
-            <p className="mt-3 border-t pt-3"><He>{item.contextSentences[0].he}</He></p>
+            <p className="mt-3 border-t border-border pt-3 text-ink"><He>{item.contextSentences[0].he}</He></p>
           )}
-        </div>
-        <button
+        </Card>
+        <Button
           data-testid="unit-vocab-continue"
           onClick={() =>
             phase.index + 1 >= items.length
               ? enterPractice()
               : setPhase({ kind: 'vocab', index: phase.index + 1 })
           }
-          className="mt-6 w-full rounded bg-blue-700 p-3 text-white"
+          className="mt-6 w-full"
         >
           {t('common.continue')}
-        </button>
+        </Button>
       </div>
     );
   }
@@ -164,21 +172,25 @@ export function UnitPage() {
     const isRecognition = phase.index % 2 === 0;
     const distractors = pickDistractors(item.entry, pool);
     const key = `p-${phase.index}`;
-    return isRecognition ? (
-      <Recognition key={key} entry={item.entry} contextSentences={item.contextSentences}
-        distractors={distractors}
-        onResult={(r) => handlePracticeResult(item, 'flashcard_recognition', r)} />
-    ) : (
-      <Cloze key={key} entry={item.entry} contextSentences={item.contextSentences}
-        distractors={distractors}
-        onResult={(r) => handlePracticeResult(item, 'cloze', r)} />
+    return (
+      <div className="mx-auto max-w-2xl">
+        {isRecognition ? (
+          <Recognition key={key} entry={item.entry} contextSentences={item.contextSentences}
+            distractors={distractors}
+            onResult={(r) => handlePracticeResult(item, 'flashcard_recognition', r)} />
+        ) : (
+          <Cloze key={key} entry={item.entry} contextSentences={item.contextSentences}
+            distractors={distractors}
+            onResult={(r) => handlePracticeResult(item, 'cloze', r)} />
+        )}
+      </div>
     );
   }
 
   return (
-    <div data-testid="unit-complete" className="p-6 text-center">
-      <h1 className="text-2xl font-semibold">{t('unit.done')}</h1>
-      <p className="mt-4"><Link to="/" className="underline">{t('common.back')}</Link></p>
+    <div data-testid="unit-complete" className="mx-auto max-w-2xl p-6 text-center">
+      <h1 className="text-2xl font-semibold text-ink">{t('unit.done')}</h1>
+      <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
     </div>
   );
 }

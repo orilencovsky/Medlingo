@@ -41,7 +41,7 @@ export function Recognition({ entry, distractors, onResult }: ExerciseProps) {
   );
   return (
     <div className="p-4">
-      <He className="block text-center text-3xl font-bold">{entry.hebrewNikud}</He>
+      <He className="block text-center text-3xl font-bold text-ink">{entry.hebrewNikud}</He>
       <div className="mt-6 flex flex-col gap-2">
         {options.map((o, i) => (
           <button
@@ -49,7 +49,7 @@ export function Recognition({ entry, distractors, onResult }: ExerciseProps) {
             data-testid={`exercise-option-${i}`}
             disabled={answered !== null}
             onClick={() => answer(o.id === entry.id)}
-            className="rounded border p-3 text-start disabled:opacity-60"
+            className="rounded-md border border-border bg-surface p-3 text-start text-ink shadow-card transition-colors hover:bg-primary-tint disabled:opacity-60"
           >
             {o.translations.en}
           </button>

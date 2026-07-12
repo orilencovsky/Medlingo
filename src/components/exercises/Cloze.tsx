@@ -14,9 +14,9 @@ export function Cloze({ entry, contextSentences, distractors, onResult }: Exerci
   const tiles = useMemo(() => shuffledOnce([entry, ...distractors]), [entry, distractors]);
   return (
     <div className="p-4">
-      <He className="block text-center text-xl">{blanked}</He>
+      <He className="block text-center text-xl text-ink">{blanked}</He>
       {contextSentences[0] && (
-        <p className="mt-1 text-center text-sm text-gray-600">{contextSentences[0].translations.en}</p>
+        <p className="mt-1 text-center text-sm text-ink-subtle">{contextSentences[0].translations.en}</p>
       )}
       <div className="mt-6 grid grid-cols-2 gap-2">
         {tiles.map((o, i) => (
@@ -25,7 +25,7 @@ export function Cloze({ entry, contextSentences, distractors, onResult }: Exerci
             data-testid={`exercise-tile-${i}`}
             disabled={answered !== null}
             onClick={() => answer(o.id === entry.id)}
-            className="rounded border p-3 disabled:opacity-60"
+            className="rounded-md border border-border bg-surface p-3 text-ink shadow-card transition-colors hover:bg-primary-tint disabled:opacity-60"
           >
             <He>{o.hebrew}</He>
           </button>
