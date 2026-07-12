@@ -24,6 +24,11 @@ export function AuthPage() {
     if (error) setStatus('error');
   }
 
+  async function devSignIn() {
+    const { error } = await supabase.auth.signInAnonymously();
+    if (error) setStatus('error');
+  }
+
   if (status === 'sent') return <p className="p-6 text-center">{t('auth.checkEmail')}</p>;
 
   return (
@@ -63,6 +68,16 @@ export function AuthPage() {
         {t('auth.sendLink')}
       </button>
       {status === 'error' && <p role="alert" className="text-red-700">{t('auth.error')}</p>}
+      {import.meta.env.DEV && (
+        <button
+          data-testid="auth-dev-bypass"
+          type="button"
+          onClick={devSignIn}
+          className="rounded border border-dashed p-2 text-sm text-gray-500"
+        >
+          Continue without sign-in (dev only)
+        </button>
+      )}
     </form>
   );
 }
