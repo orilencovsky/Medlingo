@@ -84,7 +84,12 @@
     "caughtUp": "All caught up!",
     "nextDue": "Next review {{time}}",
     "extra": "Extra practice (doesn't affect your schedule)",
-    "empty": "Nothing to review yet — learn the unit first."
+    "empty": "Nothing to review yet — learn the unit first.",
+    "reportProblem": "Report a problem with this word",
+    "reportPlaceholder": "What's wrong with this word or example?",
+    "reportSubmit": "Submit report",
+    "reportSent": "Thanks, we got your report.",
+    "reportError": "Couldn't send the report. Try again."
   },
   "drill": {
     "title": "AI practice drill",

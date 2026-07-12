@@ -83,6 +83,11 @@
     "caughtUp": "Tout est à jour !",
     "nextDue": "Prochaine révision {{time}}",
     "extra": "Entraînement supplémentaire (n'affecte pas votre planning)",
-    "empty": "Rien à réviser pour l'instant — commencez par apprendre l'unité."
+    "empty": "Rien à réviser pour l'instant — commencez par apprendre l'unité.",
+    "reportProblem": "Signaler un problème avec ce mot",
+    "reportPlaceholder": "Quel est le problème avec ce mot ou cet exemple ?",
+    "reportSubmit": "Envoyer le signalement",
+    "reportSent": "Merci, votre signalement a été reçu.",
+    "reportError": "Impossible d'envoyer le signalement. Réessayez."
   }
 }
