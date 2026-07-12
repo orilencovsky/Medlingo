@@ -1,5 +1,5 @@
 slug	level	display_order	status	title_en
 unit-01-intake	1	1	published	Patient intake (anamnesis)
-unit-02-vitals	1	2	draft	Vital signs
-unit-03-physical-exam	1	3	draft	Physical examination
-unit-04-discharge-meds	1	4	draft	Discharge and medications
+unit-02-vitals	1	2	published	Vital signs
+unit-03-physical-exam	1	3	published	Physical examination
+unit-04-discharge-meds	1	4	published	Discharge and medications
