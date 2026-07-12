@@ -66,7 +66,7 @@ export function DrillPage() {
 
   if (phase === 'intro') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('drill.title')} />
         <Card className="mt-4 text-center">
           <p className="text-ink">{t('drill.intro')}</p>
@@ -80,7 +80,7 @@ export function DrillPage() {
   }
   if (phase === 'quota') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('drill.title')} />
         <p className="mt-4 text-ink">{t('drill.quota')} <Link className="text-primary underline" to="/">{t('common.back')}</Link></p>
       </div>
@@ -88,7 +88,7 @@ export function DrillPage() {
   }
   if (phase === 'unavailable') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('drill.title')} />
         <p role="alert" className="mt-4 text-ink">{t('drill.unavailable')} <Link className="text-primary underline" to="/">{t('common.back')}</Link></p>
       </div>
@@ -96,7 +96,7 @@ export function DrillPage() {
   }
   if (phase === 'summary') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('drill.title')} />
         <Card data-testid="drill-summary" className="mt-4">
           <h1 className="text-2xl font-semibold text-ink">{t('drill.summaryTitle')}</h1>
@@ -117,7 +117,7 @@ export function DrillPage() {
 
   const lastFeedback = feedbacks[feedbacks.length - 1];
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-3 p-4">
+    <div className="mx-auto flex max-w-2xl lg:mx-0 lg:max-w-none flex-col gap-3 p-4">
       <PageHeader title={t('drill.title')} />
       <p className="text-xs text-ink-subtle">{t('drill.disclaimer')}</p>
       <div className="flex flex-col gap-2">

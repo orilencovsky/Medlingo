@@ -98,7 +98,7 @@ export function ReviewPage() {
 
   if (phase.kind === 'loading') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('review.title')} />
         <p className="mt-4 text-ink-subtle">{t('common.loading')}</p>
       </div>
@@ -106,7 +106,7 @@ export function ReviewPage() {
   }
   if (phase.kind === 'error') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('review.title')} />
         <p role="alert" className="mt-4 text-red-700">{t('auth.error')}</p>
         <Button variant="secondary" onClick={() => window.location.reload()} className="mt-2">
@@ -117,7 +117,7 @@ export function ReviewPage() {
   }
   if (phase.kind === 'caught-up') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('review.title')} />
         <Card data-testid="review-caught-up" className="mt-4 text-center">
           <h1 className="text-2xl font-semibold text-ink">{t('review.caughtUp')}</h1>
@@ -137,7 +137,7 @@ export function ReviewPage() {
   if (phase.kind === 'summary') {
     const pct = phase.total === 0 ? 0 : Math.round((100 * phase.correct) / phase.total);
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('review.title')} />
         <Card data-testid="review-summary" className="mt-4 text-center">
           <h1 className="text-2xl font-semibold text-ink">{t('review.summary')}</h1>
@@ -153,7 +153,7 @@ export function ReviewPage() {
   }
   if (!current) {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('review.title')} />
         <Card data-testid="review-caught-up" className="mt-4 text-center">
           <p className="text-ink">{t('review.empty')}</p>
@@ -172,7 +172,7 @@ export function ReviewPage() {
     onResult: handleResult,
   };
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
       {form === 'flashcard_recognition' ? <Recognition key={key} {...props} />
         : form === 'cloze' ? <Cloze key={key} {...props} />
         : <Recall key={key} {...props} />}

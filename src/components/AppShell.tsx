@@ -11,7 +11,7 @@ const NAV_ITEM_CLASSES = ({ isActive }: { isActive: boolean }) =>
 export function AppShell() {
   const { t } = useTranslation();
   return (
-    <div className="min-h-dvh bg-bg lg:flex lg:items-start lg:justify-center lg:gap-6 lg:p-6">
+    <div className="min-h-dvh bg-bg lg:flex lg:items-start lg:gap-6 lg:p-6">
       <aside className="hidden lg:sticky lg:top-6 lg:flex lg:w-52 lg:shrink-0 lg:flex-col lg:gap-1">
         <NavLink to="/" end className={NAV_ITEM_CLASSES}>
           <Home className="size-4" />

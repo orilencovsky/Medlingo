@@ -34,3 +34,9 @@
   --shadow-card: 0 1px 2px rgba(15, 23, 42, .04);
   --shadow-raised: 0 6px 16px rgba(15, 118, 110, .25);
 }
+
+/* Tailwind Preflight resets button cursor to default; restore the pointer
+   on every clickable control so hover state is visually obvious. */
+button:not(:disabled), [role="button"], a, select:not(:disabled) {
+  cursor: pointer;
+}

@@ -88,7 +88,7 @@ export function UnitPage() {
 
   if (phase.kind === 'loading' || !data) {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={t('app.title')} />
         <p className="mt-4 text-ink-subtle">{t('common.loading')}</p>
       </div>
@@ -97,7 +97,7 @@ export function UnitPage() {
 
   if (phase.kind === 'scenario') {
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={data.unit.title.en} />
         <h1 className="mt-4 text-xl font-semibold text-ink">{t('unit.scenario')}: {data.unit.title.en}</h1>
         <div className="mt-4 flex flex-col gap-3">
@@ -132,7 +132,7 @@ export function UnitPage() {
   if (phase.kind === 'vocab') {
     const item = items[phase.index];
     return (
-      <div className="mx-auto max-w-2xl p-4">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-4">
         <PageHeader title={data.unit.title.en} />
         <p className="mt-4 text-sm text-ink-subtle">{t('unit.vocab')} {phase.index + 1}/{items.length}</p>
         <Card className="mt-4 text-center">
@@ -173,7 +173,7 @@ export function UnitPage() {
     const distractors = pickDistractors(item.entry, pool);
     const key = `p-${phase.index}`;
     return (
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
         {isRecognition ? (
           <Recognition key={key} entry={item.entry} contextSentences={item.contextSentences}
             distractors={distractors}
@@ -188,7 +188,7 @@ export function UnitPage() {
   }
 
   return (
-    <div data-testid="unit-complete" className="mx-auto max-w-2xl p-6 text-center">
+    <div data-testid="unit-complete" className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none p-6 text-center">
       <h1 className="text-2xl font-semibold text-ink">{t('unit.done')}</h1>
       <p className="mt-4"><Link to="/" className="text-primary underline">{t('common.back')}</Link></p>
     </div>

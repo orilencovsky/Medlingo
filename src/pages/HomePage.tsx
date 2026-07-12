@@ -80,7 +80,7 @@ export function HomePage() {
     : t('home.start');
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-4 bg-bg p-4">
+    <div className="mx-auto flex max-w-2xl lg:mx-0 lg:max-w-none flex-col gap-4 bg-bg p-4">
       <PageHeader title={t('app.title')} displayName={state.profile?.displayName} />
 
       <div>
