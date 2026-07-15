@@ -19,4 +19,14 @@ describe('OnboardingPage', () => {
     await userEvent.click(screen.getByTestId('onboarding-submit'));
     expect(completeOnboarding).toHaveBeenCalledWith('Dr. Test');
   });
+
+  it('shows an error instead of failing silently when saving fails', async () => {
+    completeOnboarding.mockRejectedValueOnce(new Error('rls violation'));
+    render(<MemoryRouter><OnboardingPage /></MemoryRouter>);
+    await userEvent.type(screen.getByTestId('onboarding-name'), 'Dr. Test');
+    await userEvent.click(screen.getByTestId('onboarding-submit'));
+    expect(await screen.findByTestId('onboarding-error')).toBeInTheDocument();
+    // button stays usable for a retry
+    expect(screen.getByTestId('onboarding-submit')).not.toBeDisabled();
+  });
 });

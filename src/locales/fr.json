@@ -25,7 +25,8 @@
     "title": "Bienvenue sur MedLingo",
     "nameLabel": "Votre nom d'affichage",
     "consent": "En continuant, vous acceptez que MedLingo conserve votre e-mail, votre nom d'affichage et votre historique d'apprentissage pour mener ce pilote (hébergé dans l'UE). Vous pouvez demander la suppression de vos données à tout moment.",
-    "start": "Commencer l'apprentissage"
+    "start": "Commencer l'apprentissage",
+    "error": "Impossible d'enregistrer votre profil. Réessayez, ou contactez-nous si le problème persiste."
   },
   "home": {
     "unitTitle": "Votre unité",

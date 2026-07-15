@@ -9,11 +9,22 @@ export function OnboardingPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [name, setName] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    await completeOnboarding(name.trim());
-    navigate('/', { replace: true });
+    if (submitting) return;
+    setError(false);
+    setSubmitting(true);
+    try {
+      await completeOnboarding(name.trim());
+      navigate('/', { replace: true });
+    } catch (err) {
+      console.error('onboarding failed', err);
+      setError(true);
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -37,7 +48,12 @@ export function OnboardingPage() {
             />
           </label>
           <p className="text-sm text-ink-subtle">{t('onboarding.consent')}</p>
-          <Button data-testid="onboarding-submit" type="submit" className="w-full">
+          {error && (
+            <p data-testid="onboarding-error" role="alert" className="text-sm font-semibold text-red-700">
+              {t('onboarding.error')}
+            </p>
+          )}
+          <Button data-testid="onboarding-submit" type="submit" className="w-full" disabled={submitting}>
             {t('onboarding.start')}
           </Button>
         </form>

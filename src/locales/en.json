@@ -25,7 +25,8 @@
     "title": "Welcome to MedLingo",
     "nameLabel": "Your display name",
     "consent": "By continuing you agree that MedLingo stores your email, display name, and learning history to run this pilot (hosted in the EU). You can request deletion at any time.",
-    "start": "Start learning"
+    "start": "Start learning",
+    "error": "Could not save your profile. Please try again, or contact us if it keeps happening."
   },
   "home": {
     "unitTitle": "Your unit",
