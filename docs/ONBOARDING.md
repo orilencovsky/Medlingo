@@ -35,17 +35,17 @@ Implementation plans: [docs/superpowers/plans/](superpowers/plans/).
 - `npm run import:content` — reimport `content/` into Supabase (needs `.env.content` with
   `DATABASE_URL`) · `npm run metrics` — pilot retention SQL views · `npm run verify:rls`
 
-## Status as of 2026-07-11
+## Status as of 2026-07-17
 
 - **Phase 1 (core loop) shipped and live**: auth, onboarding, FSRS-scheduled review, streak,
-  offline support, one **published** unit (`unit-01-intake`)
+  offline support
 - **Dictionary**: 1097 entries (12 dev-sample + 1085 imported from the partner's word list,
   AI-enriched — nikud/POS/level/gender/plural/root/English). Needs a language-expert review
   pass; a review spreadsheet is out with the content partner. Known gap: no entry yet for
   "side effect" (תופעת לוואי).
-- **3 more units authored as `draft`** (vitals, physical exam, discharge/meds) — visible only
-  to `is_admin` accounts for preview; publish = flip `draft`→`published` in `content/units.tsv`
-  + reimport.
+- **4 units, all `published`** (`unit-01-intake`, `unit-02-vitals`, `unit-03-physical-exam`,
+  `unit-04-discharge-meds`) — all level 1. Publish/retire = flip `status` in
+  `content/units.tsv` + reimport.
 - **Phase 2 (AI-backed drill practice)** — built (Edge Function, streaming, UI, e2e); gated
   behind `VITE_ENABLE_DRILL` — confirm it is enabled in production. See
   [docs/superpowers/plans/2026-07-10-medlingo-pilot-phase2-drill.md](superpowers/plans/2026-07-10-medlingo-pilot-phase2-drill.md).
@@ -70,9 +70,9 @@ loop (learn-a-unit → FSRS review → drill) is unchanged. Full write-up:
 1. Confirm the drill Edge Function is deployed and `VITE_ENABLE_DRILL` is on in production
 2. Apply the content partner's corrections from the review spreadsheet back to
    `content/dictionary.tsv`, reimport
-3. Publish the remaining draft units once admin-reviewed in-app
-4. Scale content beyond the current ~1,100-word slice toward ~3,000 across 3 levels
-5. **New scope** — write per-feature plans for audio/pronunciation, then voice conversation,
+3. Scale content beyond the current 4-unit / ~1,100-word slice toward ~3,000 words across
+   3 levels and more units
+4. **New scope** — write per-feature plans for audio/pronunciation, then voice conversation,
    then one game surface (see the 2026-07-17 vision update)
 
 ## Access this partner needs (owner grants manually — not code)
