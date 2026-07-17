@@ -1116,3 +1116,39 @@ absces	אבצס	אַבְּצֶס	noun	3	ז			מורסה	abscess				loanword; Heb
 sindrom	סינדרום	סִינְדְּרוֹם	noun	2	ז	סינדרומים		תסמונת	syndrome				loanword; Hebrew תסמונת	medical_loanword
 sterili	סטרילי	סְטֶרִילִי	adjective	2				מחוטא	sterile				loanword; Hebrew עקר/מחוטא	medical_loanword
 intubatzya	אינטובציה	אִינְטוּבַּצְיָה	noun	3	נ			החדרת צינור הנשמה	intubation				loanword	medical_loanword
+dispnea	דיספניאה	דִיסְפְּנֵאָה	noun	2	נ			קוצר נשימה	dyspnea				loanword; Hebrew קוצר נשימה	medical_loanword
+ortopnea	אורתופניאה	אוֹרְתּוֹפְּנֵאָה	noun	3	נ			קוצר נשימה בשכיבה	orthopnea				loanword; dyspnea when lying flat	medical_loanword
+tachipnea	טכיפניאה	טַכִיפְּנֵאָה	noun	3	נ			נשימה מהירה	tachypnea				loanword	medical_loanword
+hipoksia	היפוקסיה	הִיפּוֹקְסְיָה	noun	3	נ			חוסר חמצן	hypoxia				loanword	medical_loanword
+pnaumonia	פנאומוניה	פְּנֵאוּמוֹנְיָה	noun	2	נ			דלקת ריאות	pneumonia				loanword; Hebrew דלקת ריאות	medical_loanword
+sinkope	סינקופה	סִינְקוֹפֵּה	noun	3	נ			התעלפות	syncope				loanword; Hebrew התעלפות	medical_loanword
+palpitatzyot	פלפיטציות	פַּלְפִּיטַצְיוֹת	noun	3	נ			דפיקות לב	palpitations				loanword	medical_loanword
+troponin	טרופונין	טְרוֹפּוֹנִין	noun	3	ז				troponin				loanword; cardiac marker	medical_loanword
+kardiomiopatia	קרדיומיופתיה	קַרְדִיוֹמִיוֹפַּתְיָה	noun	3	נ			מחלת שריר הלב	cardiomyopathy				loanword	medical_loanword
+emboliya	אמבוליה	אֶמְבּוֹלְיָה	noun	3	נ			תסחיף	embolism				loanword; Hebrew תסחיף	medical_loanword
+endokarditis	אנדוקרדיטיס	אֶנְדוֹקַרְדִּיטִיס	noun	3	ז			דלקת פנים הלב	endocarditis				loanword	medical_loanword
+delirium	דליריום	דֶּלִירְיוּם	noun	3	ז			בלבול חריף	delirium				loanword	medical_loanword
+vertigo	ורטיגו	וֶרְטִיגוֹ	noun	2	ז			סחרחורת	vertigo				loanword; Hebrew סחרחורת	medical_loanword
+tremor	טרמור	טְרֶמוֹר	noun	2	ז			רעד	tremor				loanword; Hebrew רעד	medical_loanword
+nistagmus	ניסטגמוס	נִיסְטַגְמוּס	noun	3	ז			ריצוד עיניים	nystagmus				loanword	medical_loanword
+aura	אאורה	אָאוּרָה	noun	3	נ				aura				loanword; pre-seizure/pre-migraine sensation	medical_loanword
+fotofobia	פוטופוביה	פוֹטוֹפוֹבְּיָה	noun	3	נ			רגישות לאור	photophobia				loanword	medical_loanword
+peristaltika	פריסטלטיקה	פֶּרִיסְטַלְטִיקָה	noun	3	נ			תנועתיות מעיים	peristalsis				loanword	medical_loanword
+kolecistitis	כולציסטיטיס	כוֹלֵצִיסְטִיטִיס	noun	3	ז			דלקת כיס המרה	cholecystitis				loanword	medical_loanword
+hidronefrozis	הידרונפרוזיס	הִידְרוֹנֶפְרוֹזִיס	noun	3	ז				hydronephrosis				loanword; urinary tract dilation	medical_loanword
+proteinuria	פרוטאינוריה	פְּרוֹטֵאִינוּרְיָה	noun	3	נ			חלבון בשתן	proteinuria				loanword	medical_loanword
+nokturia	נוקטוריה	נוֹקְטוּרְיָה	noun	3	נ			השתנה לילית	nocturia				loanword	medical_loanword
+tselulitis	צלוליטיס	צֶלוּלִיטִיס	noun	2	ז			דלקת רקמת עור	cellulitis				loanword	medical_loanword
+dermatitis	דרמטיטיס	דֶּרְמָטִיטִיס	noun	2	ז			דלקת עור	dermatitis				loanword	medical_loanword
+gaut	גאוט	גָּאוּט	noun	2	ז			שיגדון	gout				loanword; Hebrew שיגדון	medical_loanword
+katarakt	קטרקט	קָטָרַקְט	noun	2	ז			ירוד	cataract				loanword; Hebrew ירוד	medical_loanword
+glaukoma	גלאוקומה	גְלָאוּקוֹמָה	noun	2	נ			ברקית	glaucoma				loanword; Hebrew ברקית	medical_loanword
+melanoma	מלנומה	מֶלָנוֹמָה	noun	3	נ				melanoma				loanword; skin cancer	medical_loanword
+kartsinoma	קרצינומה	קַרְצִינוֹמָה	noun	3	נ			סרטן	carcinoma				loanword	medical_loanword
+leukotsitozis	לויקוציטוזיס	לֵאוּקוֹצִיטוֹזִיס	noun	3	ז			ריבוי תאי דם לבנים	leukocytosis				loanword	medical_loanword
+neutrofilia	נויטרופיליה	נֵאוּטְרוֹפִילְיָה	noun	3	נ				neutrophilia				loanword	medical_loanword
+hipovolemia	היפוולמיה	הִיפּוֹווֹלֶמְיָה	noun	3	נ			חוסר נפח דם	hypovolemia				loanword	medical_loanword
+hipoglikemia	היפוגליקמיה	הִיפּוֹגְלִיקֶמְיָה	noun	3	נ			סוכר נמוך בדם	hypoglycemia				loanword	medical_loanword
+dislipidemia	דיסליפידמיה	דִיסְלִיפִּידֶמְיָה	noun	3	נ			שומנים גבוהים בדם	dyslipidemia				loanword	medical_loanword
+akuti	אקוטי	אָקוּטִי	adjective	2				חריף	acute				loanword; Hebrew חריף	medical_loanword
+empiri	אמפירי	אֶמְפִּירִי	adjective	3					empiric				loanword; empiric (treatment)	medical_loanword
