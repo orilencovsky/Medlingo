@@ -20,6 +20,7 @@ const DictRow = z.object({
   ru: z.string().nullable(),
   fr: z.string().nullable(),
   notes: z.string().nullable(),
+  category: z.enum(['medical_loanword']).nullable(),
 });
 export type DictEntry = z.infer<typeof DictRow>;
 
@@ -61,7 +62,7 @@ function validateRows<T>(schema: z.ZodType<T>, raw: Array<Record<string, string>
 
 export function validateDictionary(text: string, file: string): DictEntry[] {
   const rows = validateRows(DictRow, parseTsv(text), file,
-    ['gender', 'plural', 'root', 'everyday_synonym', 'ar', 'ru', 'fr', 'notes']);
+    ['gender', 'plural', 'root', 'everyday_synonym', 'ar', 'ru', 'fr', 'notes', 'category']);
   const seen = new Set<string>();
   for (const r of rows) {
     if (seen.has(r.id)) throw new Error(`${file}: duplicate id "${r.id}"`);
@@ -117,16 +118,17 @@ async function main() {
       await tx`
         insert into dictionary_entries
           (id, hebrew, hebrew_nikud, part_of_speech, level, gender, plural, root,
-           everyday_synonym, translations, notes)
+           everyday_synonym, translations, notes, category)
         values (${d.id}, ${d.hebrew}, ${d.hebrew_nikud}, ${d.part_of_speech}, ${d.level},
                 ${d.gender}, ${d.plural}, ${d.root}, ${d.everyday_synonym},
-                ${tx.json(translations)}, ${d.notes})
+                ${tx.json(translations)}, ${d.notes}, ${d.category})
         on conflict (id) do update set
           hebrew = excluded.hebrew, hebrew_nikud = excluded.hebrew_nikud,
           part_of_speech = excluded.part_of_speech, level = excluded.level,
           gender = excluded.gender, plural = excluded.plural, root = excluded.root,
           everyday_synonym = excluded.everyday_synonym,
           translations = excluded.translations, notes = excluded.notes,
+          category = excluded.category,
           updated_at = now()`;
     }
     for (const u of units) {

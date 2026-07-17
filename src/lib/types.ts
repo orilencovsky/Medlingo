@@ -15,6 +15,11 @@ export type PartOfSpeech =
   | 'noun' | 'verb' | 'adjective' | 'phrase' | 'abbreviation'
   | 'adverb' | 'pronoun' | 'preposition' | 'conjunction' | 'numeral' | 'interjection' | 'particle';
 
+// Optional "study area" tag on a dictionary entry. `medical_loanword` marks a
+// widely-used foreign-origin clinical term written in Hebrew script (ספסיס,
+// קרפיטציות). Extend alongside the DB check constraint + import zod enum.
+export type EntryCategory = 'medical_loanword';
+
 export interface Translations { en: string; ar?: string | null; ru?: string | null; fr?: string | null; }
 
 export interface DictionaryEntry {
@@ -29,6 +34,7 @@ export interface DictionaryEntry {
   everydaySynonym: string | null;
   translations: Translations;
   notes: string | null;
+  category: EntryCategory | null;
 }
 
 export interface ContextSentence { he: string; translations: Translations; }

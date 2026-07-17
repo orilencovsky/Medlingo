@@ -8,3 +8,20 @@ Import with `npm run import:content` (validates everything first; writes all-or-
 Replace with professionally authored content before pilot launch.**
 
 Empty cells: leave the cell empty (do not write "null"). `ar`/`ru`/`fr` may be empty during the pilot; `en` is required.
+
+## The `category` column (dictionary.tsv)
+
+Optional tag that groups an entry into a study "area". Leave empty for ordinary
+entries. Allowed values (controlled — a typo fails the import):
+
+- `medical_loanword` — a widely-used **foreign-origin clinical term written in
+  Hebrew script** that has no native-Hebrew root: e.g. ספסיס (sepsis),
+  קרפיטציות (crepitations), ביופסיה (biopsy), אנמנזה (anamnesis). These are
+  words an olim clinician hears daily on the ward. Conventions for such a row:
+  leave `root` empty (there is none), and put the formal Hebrew equivalent in
+  `everyday_synonym` where one exists (ספסיס → אלח דם, קרפיטציות → חרחורים).
+  Do **not** tag general-vocabulary loanwords (אוטובוס/bus, בננה/banana) — the
+  area is clinical terminology only.
+
+Add a new value only alongside a migration extending the `category` check
+constraint on `dictionary_entries` and the zod enum in `scripts/import-content.ts`.
