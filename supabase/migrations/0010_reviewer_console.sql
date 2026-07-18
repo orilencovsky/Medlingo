@@ -13,6 +13,14 @@ alter table public.dictionary_entries
 alter table public.profiles
   add column can_approve boolean not null default false;
 
+-- Tighten own_profile_update so a user cannot self-grant can_approve (or is_admin).
+drop policy own_profile_update on public.profiles;
+create policy own_profile_update on public.profiles for update to authenticated
+  using (user_id = auth.uid())
+  with check (user_id = auth.uid()
+    and is_admin = (select p.is_admin from public.profiles p where p.user_id = auth.uid())
+    and can_approve = (select p.can_approve from public.profiles p where p.user_id = auth.uid()));
+
 -- 3. Staging table for proposed changes.
 create table public.entry_edits (
   id           uuid primary key default gen_random_uuid(),
@@ -26,6 +34,8 @@ create table public.entry_edits (
   decided_by   uuid references auth.users(id),
   decided_at   timestamptz,
   created_at   timestamptz not null default now()
+  ,constraint entry_edits_entry_id_matches_type
+     check ((entry_id is null) = (change_type = 'create'))
 );
 
 -- At most one open pending edit per existing entry (creates are exempt: entry_id is null).
@@ -50,10 +60,6 @@ create policy edits_admin_select on public.entry_edits for select to authenticat
   using (public.is_admin());
 create policy edits_admin_insert on public.entry_edits for insert to authenticated
   with check (public.is_admin() and editor_id = auth.uid());
--- Reviewer may withdraw their own still-pending edit.
-create policy edits_owner_withdraw on public.entry_edits for update to authenticated
-  using (editor_id = auth.uid() and status = 'pending')
-  with check (status = 'rejected');
 -- Approver decisions flow only through apply_entry_edit (SECURITY DEFINER); no broad update policy.
 
 -- 7. Reviewer may update dictionary_entries (needed for "mark reviewed" and the
@@ -69,7 +75,8 @@ language plpgsql security definer set search_path = public as $$
 begin
   -- SECURITY DEFINER callers (apply_entry_edit) and approvers may change content.
   if public.can_approve() then return new; end if;
-  if new.hebrew is distinct from old.hebrew
+  if new.id is distinct from old.id
+     or new.hebrew is distinct from old.hebrew
      or new.hebrew_nikud is distinct from old.hebrew_nikud
      or new.part_of_speech is distinct from old.part_of_speech
      or new.level is distinct from old.level
@@ -91,6 +98,9 @@ create trigger guard_entry_content
   for each row execute function public.guard_entry_content_update();
 
 -- 8. Apply-or-reject RPC. All content mutation is server-side and atomic.
+-- payload contract: for change_type 'create'/'update', payload is the FULL field set
+-- (every content column present). The update branch reads absent nullable keys as NULL,
+-- so callers must always send all fields, not just changed ones.
 create function public.apply_entry_edit(edit_id uuid, decision text)
 returns void language plpgsql security definer set search_path = public as $$
 declare e public.entry_edits;
@@ -152,6 +162,24 @@ begin
   update public.entry_edits
     set status = decision, decided_by = auth.uid(), decided_at = now()
   where id = edit_id;
+end $$;
+
+-- Reviewer withdraws their own still-pending edit. Routed through a definer fn (not a
+-- raw UPDATE policy) so it also reverts the entry's edit_pending flag and cannot forge
+-- decided_by/payload.
+create function public.withdraw_entry_edit(edit_id uuid)
+returns void language plpgsql security definer set search_path = public as $$
+declare e public.entry_edits;
+begin
+  select * into e from public.entry_edits
+    where id = edit_id and editor_id = auth.uid() and status = 'pending';
+  if not found then raise exception 'edit % not found or not withdrawable', edit_id; end if;
+  if e.entry_id is not null then
+    update public.dictionary_entries set review_state = 'unreviewed', updated_at = now()
+      where id = e.entry_id and review_state = 'edit_pending';
+  end if;
+  update public.entry_edits set status = 'rejected', decided_by = auth.uid(), decided_at = now()
+    where id = edit_id;
 end $$;
 
 -- 9. Seed the owner as approver (idempotent; no-op until that profile exists).
