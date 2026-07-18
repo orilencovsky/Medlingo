@@ -3,13 +3,14 @@ import type { Profile } from '../lib/types';
 
 type ProfileRow = {
   user_id: string; display_name: string; ui_language: string; is_admin: boolean;
+  can_approve: boolean;
   streak_current: number; streak_longest: number; last_active_date: string | null;
 };
 
 function mapProfileRow(r: ProfileRow): Profile {
   return {
     userId: r.user_id, displayName: r.display_name, uiLanguage: r.ui_language,
-    isAdmin: r.is_admin, streakCurrent: r.streak_current,
+    isAdmin: r.is_admin, canApprove: r.can_approve, streakCurrent: r.streak_current,
     streakLongest: r.streak_longest, lastActiveDate: r.last_active_date,
   };
 }
