@@ -783,7 +783,9 @@ export async function decideEdit(editId: string, decision: 'approved' | 'rejecte
 }
 
 export async function withdrawEdit(editId: string): Promise<void> {
-  const { error } = await supabase.from('entry_edits').update({ status: 'rejected' }).eq('id', editId);
+  // Routed through the SECURITY DEFINER RPC (not a raw update) so the entry's
+  // edit_pending flag is reverted and decided_by/payload cannot be forged.
+  const { error } = await supabase.rpc('withdraw_entry_edit', { edit_id: editId });
   if (error) throw error;
 }
 ```
