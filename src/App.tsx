@@ -6,7 +6,9 @@ import { UnitPage } from './pages/UnitPage';
 import { ReviewPage } from './pages/ReviewPage';
 import { DrillPage } from './pages/DrillPage';
 import { DictionaryPage } from './pages/DictionaryPage';
+import { AdminDictionaryPage } from './pages/AdminDictionaryPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { AdminRoute } from './components/AdminRoute';
 import { AppShell } from './components/AppShell';
 
 export default function App() {
@@ -20,6 +22,7 @@ export default function App() {
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/drill" element={<DrillPage />} />
         <Route path="/dictionary" element={<DictionaryPage />} />
+        <Route path="/admin/dictionary" element={<AdminRoute><AdminDictionaryPage /></AdminRoute>} />
       </Route>
     </Routes>
   );

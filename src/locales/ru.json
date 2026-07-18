@@ -4,7 +4,8 @@
     "home": "Главная",
     "review": "Повторение",
     "drill": "Тренировка",
-    "dictionary": "Словарь"
+    "dictionary": "Словарь",
+    "dictionaryAdmin": "Проверка"
   },
   "common": {
     "continue": "Продолжить",
@@ -103,5 +104,19 @@
     "searchPlaceholder": "Поиск слов…",
     "empty": "Нет слов, соответствующих запросу.",
     "count": "{{count}} слов"
+  },
+  "admin": {
+    "dictionary": "Проверка слов",
+    "progress": "{{reviewed}} / {{total}} проверено",
+    "stateUnreviewed": "Не проверено",
+    "stateReviewed": "Проверено",
+    "statePending": "Ожидает",
+    "edit": "Изменить",
+    "saveDraft": "Сохранить черновик",
+    "markReviewed": "Отметить как проверенное",
+    "flagDelete": "Отметить на удаление",
+    "addWord": "Добавить слово",
+    "note": "Примечание для утверждающего",
+    "cancel": "Отмена"
   }
 }

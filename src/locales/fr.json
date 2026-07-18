@@ -4,7 +4,8 @@
     "home": "Accueil",
     "review": "Révision",
     "drill": "Exercice",
-    "dictionary": "Dictionnaire"
+    "dictionary": "Dictionnaire",
+    "dictionaryAdmin": "Révision"
   },
   "common": {
     "continue": "Continuer",
@@ -97,5 +98,19 @@
     "searchPlaceholder": "Rechercher des mots…",
     "empty": "Aucun mot ne correspond à votre recherche.",
     "count": "{{count}} mots"
+  },
+  "admin": {
+    "dictionary": "Révision des mots",
+    "progress": "{{reviewed}} / {{total}} révisés",
+    "stateUnreviewed": "Non révisé",
+    "stateReviewed": "Révisé",
+    "statePending": "En attente",
+    "edit": "Modifier",
+    "saveDraft": "Enregistrer le brouillon",
+    "markReviewed": "Marquer comme révisé",
+    "flagDelete": "Signaler pour suppression",
+    "addWord": "Ajouter un mot",
+    "note": "Note pour l'approbateur",
+    "cancel": "Annuler"
   }
 }

@@ -4,7 +4,8 @@
     "home": "בית",
     "review": "חזרה",
     "drill": "תרגול",
-    "dictionary": "מילון"
+    "dictionary": "מילון",
+    "dictionaryAdmin": "סקירה"
   },
   "common": {
     "continue": "המשך",
@@ -114,5 +115,19 @@
     "searchPlaceholder": "חיפוש מילים…",
     "empty": "אין מילים שתואמות לחיפוש.",
     "count": "{{count}} מילים"
+  },
+  "admin": {
+    "dictionary": "סקירת מילים",
+    "progress": "{{reviewed}} / {{total}} נסקרו",
+    "stateUnreviewed": "לא נסקר",
+    "stateReviewed": "נסקר",
+    "statePending": "ממתין",
+    "edit": "עריכה",
+    "saveDraft": "שמור טיוטה",
+    "markReviewed": "סמן כנבדק",
+    "flagDelete": "סמן למחיקה",
+    "addWord": "הוסף מילה",
+    "note": "הערה לגורם המאשר",
+    "cancel": "ביטול"
   }
 }

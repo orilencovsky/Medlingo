@@ -4,7 +4,8 @@
     "home": "Home",
     "review": "Review",
     "drill": "Drill",
-    "dictionary": "Dictionary"
+    "dictionary": "Dictionary",
+    "dictionaryAdmin": "Review"
   },
   "common": {
     "continue": "Continue",
@@ -111,5 +112,19 @@
     "searchPlaceholder": "Search words…",
     "empty": "No words match your search.",
     "count": "{{count}} words"
+  },
+  "admin": {
+    "dictionary": "Review words",
+    "progress": "{{reviewed}} / {{total}} reviewed",
+    "stateUnreviewed": "Unreviewed",
+    "stateReviewed": "Reviewed",
+    "statePending": "Pending",
+    "edit": "Edit",
+    "saveDraft": "Save draft",
+    "markReviewed": "Mark reviewed",
+    "flagDelete": "Flag for deletion",
+    "addWord": "Add word",
+    "note": "Note for approver",
+    "cancel": "Cancel"
   }
 }

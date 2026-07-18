@@ -1,0 +1,82 @@
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { PageHeader } from '../components/ui/PageHeader';
+import { EntryEditForm } from '../components/admin/EntryEditForm';
+import {
+  fetchAdminEntries, entryToPayload, saveEditDraft, createEntryDraft, flagDelete, markReviewed,
+} from '../data/reviewConsole';
+import type { AdminEntry, EntryPayload } from '../lib/types';
+
+const EMPTY: EntryPayload = {
+  hebrew: '', hebrew_nikud: '', part_of_speech: 'noun', level: 1, gender: null, plural: null,
+  root: null, everyday_synonym: null, translations: { en: '' }, notes: null, category: null,
+};
+
+export function AdminDictionaryPage() {
+  const { t } = useTranslation();
+  const [entries, setEntries] = useState<AdminEntry[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [adding, setAdding] = useState(false);
+
+  const reload = () => fetchAdminEntries().then(setEntries);
+  useEffect(() => { reload(); }, []);
+
+  const reviewedCount = useMemo(
+    () => entries.filter((e) => e.reviewState === 'reviewed').length, [entries]);
+
+  const onSave = async (entryId: string, payload: EntryPayload, note: string | null) => {
+    await saveEditDraft(entryId, payload, note);
+    setEditingId(null); await reload();
+  };
+  const onCreate = async (payload: EntryPayload, note: string | null) => {
+    await createEntryDraft(payload, note); setAdding(false); await reload();
+  };
+  const onReview = async (id: string) => { await markReviewed(id); await reload(); };
+  const onDelete = async (id: string) => { await flagDelete(id, null); await reload(); };
+
+  return (
+    <div className="mx-auto max-w-2xl p-4">
+      <PageHeader title={t('admin.dictionary')} />
+      <div className="mt-3 flex items-center justify-between">
+        <p className="text-sm text-ink-muted">
+          {t('admin.progress', { reviewed: reviewedCount, total: entries.length })}
+        </p>
+        <button className="rounded-md border border-border px-3 py-1 text-sm"
+          onClick={() => setAdding(true)}>{t('admin.addWord')}</button>
+      </div>
+      {adding && <div className="mt-3"><EntryEditForm initial={EMPTY} onSave={onCreate} onCancel={() => setAdding(false)} /></div>}
+      <ul className="mt-4 divide-y divide-border">
+        {entries.map((e) => (
+          <li key={e.id} className="py-3">
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <span className="text-lg font-bold text-ink">{e.hebrew}</span>
+                {e.hebrewNikud && e.hebrewNikud !== e.hebrew && (
+                  <span className="ms-2 text-sm text-ink-subtle">{e.hebrewNikud}</span>
+                )}
+                <span className="ms-2 text-sm text-ink-muted">{e.translations.en}</span>
+              </div>
+              <span className="text-xs text-ink-muted">
+                {e.reviewState === 'reviewed' ? t('admin.stateReviewed')
+                  : e.reviewState === 'edit_pending' ? t('admin.statePending') : t('admin.stateUnreviewed')}
+              </span>
+            </div>
+            {editingId === e.id ? (
+              <div className="mt-2">
+                <EntryEditForm initial={entryToPayload(e)}
+                  onSave={(payload, note) => onSave(e.id, payload, note)}
+                  onCancel={() => setEditingId(null)} />
+              </div>
+            ) : (
+              <div className="mt-2 flex gap-2">
+                <button className="text-sm text-primary" onClick={() => setEditingId(e.id)}>{t('admin.edit')}</button>
+                <button className="text-sm text-ink-muted" onClick={() => onReview(e.id)}>{t('admin.markReviewed')}</button>
+                <button className="text-sm text-red-600" onClick={() => onDelete(e.id)}>{t('admin.flagDelete')}</button>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

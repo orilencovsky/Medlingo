@@ -4,7 +4,8 @@
     "home": "الرئيسية",
     "review": "مراجعة",
     "drill": "تدريب",
-    "dictionary": "القاموس"
+    "dictionary": "القاموس",
+    "dictionaryAdmin": "مراجعة"
   },
   "common": {
     "continue": "متابعة",
@@ -109,5 +110,19 @@
     "searchPlaceholder": "ابحث عن كلمات…",
     "empty": "لا توجد كلمات تطابق بحثك.",
     "count": "{{count}} كلمة"
+  },
+  "admin": {
+    "dictionary": "مراجعة الكلمات",
+    "progress": "{{reviewed}} / {{total}} تمت مراجعتها",
+    "stateUnreviewed": "غير مُراجَعة",
+    "stateReviewed": "تمت المراجعة",
+    "statePending": "قيد الانتظار",
+    "edit": "تعديل",
+    "saveDraft": "حفظ المسودة",
+    "markReviewed": "وضع علامة \"تمت المراجعة\"",
+    "flagDelete": "وضع علامة للحذف",
+    "addWord": "إضافة كلمة",
+    "note": "ملاحظة للمُعتمِد",
+    "cancel": "إلغاء"
   }
 }
