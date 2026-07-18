@@ -1163,7 +1163,7 @@ monitor	מוניטור	מוֹנִיטוֹר	noun	2	ז	מוניטורים		צג �
 ambulans	אמבולנס	אַמְבּוּלַנְס	noun	1	ז	אמבולנסים			ambulance				loanword	medical_loanword
 etiologia	אטיולוגיה	אֶטְיוֹלוֹגְיָה	noun	3	נ			גורם המחלה	etiology				loanword; cause of disease	medical_loanword
 patologia	פתולוגיה	פַּתוֹלוֹגְיָה	noun	3	נ				pathology				loanword	medical_loanword
-parenchima	פרנכימה	פָּרֶנְכִימָה	noun	3	נ				parenchyma				loanword; functional tissue of an organ	medical_loanword
+parenchima	פרנכימה	פָּרֶנְכִימָה	noun	3	נ			חלק תפקודי של איבר	parenchyma				loanword; functional tissue of an organ	medical_loanword
 retraktzyot	רטרקציות	רֶטְרַקְצְיוֹת	noun	3	נ			משיכת שרירי נשימה	retractions				loanword; use of accessory breathing muscles	medical_loanword
 vegetatzyot	וגטציות	וֶגֶטַצְיוֹת	noun	3	נ				vegetations				loanword; on heart valves in endocarditis	medical_loanword
 triger	טריגר	טְרִיגֶר	noun	2	ז	טריגרים		גורם מעורר	trigger				loanword	medical_loanword
@@ -1173,8 +1173,8 @@ serologia	סרולוגיה	סֶרוֹלוֹגְיָה	noun	3	נ				serology				l
 karotid	קרוטיד	קָרוֹטִיד	noun	3	ז			עורק הצוואר	carotid				loanword; neck artery	medical_loanword
 klini	קליני	קְלִינִי	adjective	2					clinical				loanword	medical_loanword
 kardiali	קרדיאלי	קַרְדִּיאָלִי	adjective	2				לבבי	cardiac				loanword; Hebrew לבבי	medical_loanword
-pleurali	פלאורלי	פְּלֵאוּרָלִי	adjective	3					pleural				loanword; of the lung lining	medical_loanword
-perikardiali	פריקרדיאלי	פֶּרִיקַרְדִּיאָלִי	adjective	3					pericardial				loanword; around the heart	medical_loanword
+pleurali	פלאורלי	פְּלֵאוּרָלִי	adjective	3				של קרום הריאה	pleural				loanword; of the lung lining	medical_loanword
+perikardiali	פריקרדיאלי	פֶּרִיקַרְדִּיאָלִי	adjective	3				של קרום הלב	pericardial				loanword; around the heart	medical_loanword
 virali	ויראלי	וִירָאלִי	adjective	2				נגיפי	viral				loanword; Hebrew נגיפי	medical_loanword
 respiratori	רספירטורי	רֶסְפִּירָטוֹרִי	adjective	3				נשימתי	respiratory				loanword; Hebrew נשימתי	medical_loanword
 difuzi	דיפוזי	דִיפוּזִי	adjective	3				מפושט	diffuse				loanword; Hebrew מפושט	medical_loanword
@@ -1183,6 +1183,6 @@ distali	דיסטלי	דִיסְטָלִי	adjective	3				מרוחק	distal				lo
 proksimali	פרוקסימלי	פְּרוֹקְסִימָלִי	adjective	3				קרוב	proximal				loanword; closer to the center	medical_loanword
 sistoli	סיסטולי	סִיסְטוֹלִי	adjective	3					systolic				loanword; heart-contraction phase	medical_loanword
 diastoli	דיאסטולי	דִּיאַסְטוֹלִי	adjective	3					diastolic				loanword; heart-relaxation phase	medical_loanword
-metaboli	מטבולי	מֶטָבּוֹלִי	adjective	3					metabolic				loanword	medical_loanword
+metaboli	מטבולי	מֶטָבּוֹלִי	adjective	3				קשור בחילוף חומרים	metabolic				loanword	medical_loanword
 urinari	אורינרי	אוּרִינָרִי	adjective	3				שתני	urinary				loanword; Hebrew שתני	medical_loanword
 vazovagali	ואזווגאלי	וָאזוֹוָגָאלִי	adjective	3					vasovagal				loanword; reflex-fainting mechanism	medical_loanword
