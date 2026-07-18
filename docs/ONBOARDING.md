@@ -35,14 +35,19 @@ Implementation plans: [docs/superpowers/plans/](superpowers/plans/).
 - `npm run import:content` — reimport `content/` into Supabase (needs `.env.content` with
   `DATABASE_URL`) · `npm run metrics` — pilot retention SQL views · `npm run verify:rls`
 
-## Status as of 2026-07-17
+## Status as of 2026-07-18
 
 - **Phase 1 (core loop) shipped and live**: auth, onboarding, FSRS-scheduled review, streak,
   offline support
-- **Dictionary**: 1097 entries (12 dev-sample + 1085 imported from the partner's word list,
-  AI-enriched — nikud/POS/level/gender/plural/root/English). Needs a language-expert review
-  pass; a review spreadsheet is out with the content partner. Known gap: no entry yet for
+- **Dictionary**: 1187 entries (1097 base — 12 dev-sample + 1085 from the partner's word list,
+  AI-enriched — plus 90 medical loanwords added 2026-07-18). Still needs a broad language-expert
+  review pass; a review spreadsheet is out with the content partner. Known gap: no entry yet for
   "side effect" (תופעת לוואי).
+- **Medical-loanword study area**: 98 entries tagged `category = medical_loanword` — widely-used
+  foreign-origin clinical terms written in Hebrew script (ספסיס/sepsis, קרפיטציות/crepitations),
+  each with its formal Hebrew equivalent in `everyday_synonym` where one exists. Seeded manually +
+  harvested from sample admission notes, owner-reviewed. See
+  [docs/superpowers/plans/2026-07-18-medical-loanword-area.md](superpowers/plans/2026-07-18-medical-loanword-area.md).
 - **4 units, all `published`** (`unit-01-intake`, `unit-02-vitals`, `unit-03-physical-exam`,
   `unit-04-discharge-meds`) — all level 1. Publish/retire = flip `status` in
   `content/units.tsv` + reimport.
@@ -52,8 +57,9 @@ Implementation plans: [docs/superpowers/plans/](superpowers/plans/).
 
 ## Data model (core tables)
 
-`dictionary_entries`, `units`, `unit_items` (unit ↔ dictionary + context sentences),
-`user_card_state`, `review_logs` (append-only), `profiles` (incl. `is_admin`), `unit_progress`.
+`dictionary_entries` (incl. optional `category` study-area tag — first value `medical_loanword`),
+`units`, `unit_items` (unit ↔ dictionary + context sentences), `user_card_state`,
+`review_logs` (append-only), `profiles` (incl. `is_admin`), `unit_progress`.
 RLS: signed-in users read published units + their own state; `is_admin` also reads drafts.
 
 ## Revised MVP direction (2026-07-17)
