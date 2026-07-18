@@ -10,7 +10,7 @@ bchila	בחילה	בְּחִילָה	noun	1	נ	בחילות	ב-ח-ל		nausea
 hakaa	הקאה	הֲקָאָה	noun	1	נ	הקאות	ק-י-א		vomiting					
 alergia	אלרגיה	אָלֶרְגְּיָה	noun	1	נ	אלרגיות		רגישות	allergy				loanword	medical_loanword
 trufa	תרופה	תְּרוּפָה	noun	1	נ	תרופות	ר-פ-א		medication					
-anamneza	אנמנזה	אָנַמְנֶזָה	noun	1	נ				medical history				loanword; the intake interview	medical_loanword
+anamneza	אנמנזה	אָנַמְנֶזָה	noun	1	נ			תולדות המחלה	medical history				loanword; the intake interview	medical_loanword
 ahava	אהבה	אַהֲבָה	noun	2	נ		א-ה-ב		love					
 ahav	אהב	אָהַב	verb	2			א-ה-ב		to love					
 aba	אבא	אַבָּא	noun	1	ז	אבות			dad, father					
@@ -507,7 +507,7 @@ kacha	ככה	כָּכָה	adverb	2					like this, so, thus
 kviya	כווייה	כְּוִיָּה	noun	2	נ	כוויות	כ-ו-ה		burn (injury)				burn injury (medical)	
 kavana	כוונה	כַּוָּנָה	noun	2	נ	כוונות	כ-ו-ן		intention					
 koach	כוח	כֹּחַ	noun	2	ז	כוחות			strength, power, force					
-kroni	כרוני	כְרוֹנִי	adjective	3					chronic				loanword; medical	medical_loanword
+kroni	כרוני	כְרוֹנִי	adjective	3				מתמשך	chronic				loanword; medical	medical_loanword
 kilya	כליה	כִּלְיָה	noun	2	נ	כליות			kidney				medical (organ)	
 levad	לבד	לְבַד	adverb	2					alone, by oneself					
 lo	לא	לֹא	adverb	1					no, not					
@@ -878,7 +878,7 @@ prati	פרטי	פְּרָטִי	adjective	2			פ-ר-ט		private				e.g. רופא
 pasta	פסטה	פַּסְטָה	noun	2	נ				pasta				loanword	
 pgisha	פגישה	פְּגִישָׁה	noun	2	נ	פגישות	פ-ג-ש		meeting / appointment					
 peilut	פעילות	פְּעִילוּת	noun	2	נ	פעילויות	פ-ע-ל		activity					
-protzedura	פרוצדורה	פְּרוֹצֵדוּרָה	noun	3	נ	פרוצדורות			procedure				loanword; clinical	medical_loanword
+protzedura	פרוצדורה	פְּרוֹצֵדוּרָה	noun	3	נ	פרוצדורות		הליך רפואי	procedure				loanword; clinical	medical_loanword
 park	פארק	פַּארְק	noun	2	ז	פארקים			park				loanword	
 paga	פגע	פָּגַע	verb	2			פ-ג-ע		to hit / to harm / to hurt					
 februar	פברואר	פֶבְּרוּאָר	noun	2	ז				February				loanword	
@@ -1131,11 +1131,11 @@ delirium	דליריום	דֶּלִירְיוּם	noun	3	ז			בלבול חריף
 vertigo	ורטיגו	וֶרְטִיגוֹ	noun	2	ז			סחרחורת	vertigo				loanword; Hebrew סחרחורת	medical_loanword
 tremor	טרמור	טְרֶמוֹר	noun	2	ז			רעד	tremor				loanword; Hebrew רעד	medical_loanword
 nistagmus	ניסטגמוס	נִיסְטַגְמוּס	noun	3	ז			ריצוד עיניים	nystagmus				loanword	medical_loanword
-aura	אאורה	אָאוּרָה	noun	3	נ				aura				loanword; pre-seizure/pre-migraine sensation	medical_loanword
+aura	אאורה	אָאוּרָה	noun	3	נ			הילה	aura				loanword; pre-seizure/pre-migraine sensation	medical_loanword
 fotofobia	פוטופוביה	פוֹטוֹפוֹבְּיָה	noun	3	נ			רגישות לאור	photophobia				loanword	medical_loanword
 peristaltika	פריסטלטיקה	פֶּרִיסְטַלְטִיקָה	noun	3	נ			תנועתיות מעיים	peristalsis				loanword	medical_loanword
 kolecistitis	כולציסטיטיס	כוֹלֵצִיסְטִיטִיס	noun	3	ז			דלקת כיס המרה	cholecystitis				loanword	medical_loanword
-hidronefrozis	הידרונפרוזיס	הִידְרוֹנֶפְרוֹזִיס	noun	3	ז				hydronephrosis				loanword; urinary tract dilation	medical_loanword
+hidronefrozis	הידרונפרוזיס	הִידְרוֹנֶפְרוֹזִיס	noun	3	ז			מיימת בכליה	hydronephrosis				loanword; urinary tract dilation	medical_loanword
 proteinuria	פרוטאינוריה	פְּרוֹטֵאִינוּרְיָה	noun	3	נ			חלבון בשתן	proteinuria				loanword	medical_loanword
 nokturia	נוקטוריה	נוֹקְטוּרְיָה	noun	3	נ			השתנה לילית	nocturia				loanword	medical_loanword
 tselulitis	צלוליטיס	צֶלוּלִיטִיס	noun	2	ז			דלקת רקמת עור	cellulitis				loanword	medical_loanword
@@ -1146,9 +1146,9 @@ glaukoma	גלאוקומה	גְלָאוּקוֹמָה	noun	2	נ			ברקית	glau
 melanoma	מלנומה	מֶלָנוֹמָה	noun	3	נ				melanoma				loanword; skin cancer	medical_loanword
 kartsinoma	קרצינומה	קַרְצִינוֹמָה	noun	3	נ			סרטן	carcinoma				loanword	medical_loanword
 leukotsitozis	לויקוציטוזיס	לֵאוּקוֹצִיטוֹזִיס	noun	3	ז			ריבוי תאי דם לבנים	leukocytosis				loanword	medical_loanword
-neutrofilia	נויטרופיליה	נֵאוּטְרוֹפִילְיָה	noun	3	נ				neutrophilia				loanword	medical_loanword
-hipovolemia	היפוולמיה	הִיפּוֹווֹלֶמְיָה	noun	3	נ			חוסר נפח דם	hypovolemia				loanword	medical_loanword
+neutrofilia	נויטרופיליה	נֵאוּטְרוֹפִילְיָה	noun	3	נ			ריבוי נויטרופילים	neutrophilia				loanword	medical_loanword
+hipovolemia	היפוולמיה	הִיפּוֹווֹלֶמְיָה	noun	3	נ			חוסר נפח	hypovolemia				loanword	medical_loanword
 hipoglikemia	היפוגליקמיה	הִיפּוֹגְלִיקֶמְיָה	noun	3	נ			סוכר נמוך בדם	hypoglycemia				loanword	medical_loanword
 dislipidemia	דיסליפידמיה	דִיסְלִיפִּידֶמְיָה	noun	3	נ			שומנים גבוהים בדם	dyslipidemia				loanword	medical_loanword
 akuti	אקוטי	אָקוּטִי	adjective	2				חריף	acute				loanword; Hebrew חריף	medical_loanword
-empiri	אמפירי	אֶמְפִּירִי	adjective	3					empiric				loanword; empiric (treatment)	medical_loanword
+empiri	אמפירי	אֶמְפִּירִי	adjective	3				ניסיוני	empiric				loanword; empiric (treatment)	medical_loanword
