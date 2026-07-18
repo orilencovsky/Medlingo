@@ -8,7 +8,7 @@ import {
 import type { AdminEntry, EntryPayload } from '../lib/types';
 
 const EMPTY: EntryPayload = {
-  hebrew: '', hebrew_nikud: '', part_of_speech: 'noun', level: 1, gender: null, plural: null,
+  id: '', hebrew: '', hebrew_nikud: '', part_of_speech: 'noun', level: 1, gender: null, plural: null,
   root: null, everyday_synonym: null, translations: { en: '' }, notes: null, category: null,
 };
 
@@ -29,6 +29,7 @@ export function AdminDictionaryPage() {
     setEditingId(null); await reload();
   };
   const onCreate = async (payload: EntryPayload, note: string | null) => {
+    if (!payload.id?.trim()) return;
     await createEntryDraft(payload, note); setAdding(false); await reload();
   };
   const onReview = async (id: string) => { await markReviewed(id); await reload(); };
@@ -44,7 +45,7 @@ export function AdminDictionaryPage() {
         <button className="rounded-md border border-border px-3 py-1 text-sm"
           onClick={() => setAdding(true)}>{t('admin.addWord')}</button>
       </div>
-      {adding && <div className="mt-3"><EntryEditForm initial={EMPTY} onSave={onCreate} onCancel={() => setAdding(false)} /></div>}
+      {adding && <div className="mt-3"><EntryEditForm initial={EMPTY} onSave={onCreate} onCancel={() => setAdding(false)} isCreate /></div>}
       <ul className="mt-4 divide-y divide-border">
         {entries.map((e) => (
           <li key={e.id} className="py-3">
@@ -65,7 +66,7 @@ export function AdminDictionaryPage() {
               <div className="mt-2">
                 <EntryEditForm initial={entryToPayload(e)}
                   onSave={(payload, note) => onSave(e.id, payload, note)}
-                  onCancel={() => setEditingId(null)} />
+                  onCancel={() => setEditingId(null)} isCreate={false} />
               </div>
             ) : (
               <div className="mt-2 flex gap-2">

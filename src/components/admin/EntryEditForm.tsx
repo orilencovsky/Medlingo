@@ -9,9 +9,10 @@ interface Props {
   initial: EntryPayload;
   onSave: (payload: EntryPayload, note: string | null) => void;
   onCancel: () => void;
+  isCreate?: boolean;
 }
 
-export function EntryEditForm({ initial, onSave, onCancel }: Props) {
+export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
   const { t } = useTranslation();
   const [p, setP] = useState<EntryPayload>(initial);
   const [note, setNote] = useState('');
@@ -23,8 +24,16 @@ export function EntryEditForm({ initial, onSave, onCancel }: Props) {
         value={(p[key] as string) ?? ''} onChange={(e) => set(key, e.target.value || null)} />
     </label>
   );
+  const saveBlocked = Boolean(isCreate) && !p.id?.trim();
   return (
     <div className="space-y-3 rounded-md border border-border p-3">
+      {isCreate && (
+        <label className="block text-sm">
+          <span className="text-ink-muted">id (slug)</span>
+          <input className="mt-1 w-full rounded-md border border-border px-2 py-1"
+            value={p.id ?? ''} onChange={(e) => setP({ ...p, id: e.target.value || undefined })} />
+        </label>
+      )}
       {field('hebrew', 'hebrew')}
       {field('nikud', 'hebrew_nikud')}
       <label className="block text-sm">
@@ -58,7 +67,8 @@ export function EntryEditForm({ initial, onSave, onCancel }: Props) {
           value={note} onChange={(e) => setNote(e.target.value)} />
       </label>
       <div className="flex gap-2">
-        <button className="rounded-md bg-primary px-3 py-1 text-sm font-semibold text-white"
+        <button className="rounded-md bg-primary px-3 py-1 text-sm font-semibold text-white disabled:opacity-50"
+          disabled={saveBlocked}
           onClick={() => onSave(p, note || null)}>{t('admin.saveDraft')}</button>
         <button className="rounded-md border border-border px-3 py-1 text-sm"
           onClick={onCancel}>{t('admin.cancel')}</button>
