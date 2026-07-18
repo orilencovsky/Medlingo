@@ -9,7 +9,7 @@ function entry(id: string, hebrew: string, en: string): DictionaryEntry {
   return {
     id, hebrew, hebrewNikud: hebrew, partOfSpeech: 'noun', level: 1,
     gender: null, plural: null, root: null, everydaySynonym: null,
-    translations: { en }, notes: null,
+    translations: { en }, notes: null, category: null,
   };
 }
 function reviewCard(id: string, hebrew: string, en: string): ReviewCard {

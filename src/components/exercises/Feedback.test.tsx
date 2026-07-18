@@ -16,7 +16,7 @@ afterEach(() => cleanup());
 const entry: DictionaryEntry = {
   id: 'keev', hebrew: 'כאב', hebrewNikud: 'כְּאֵב', partOfSpeech: 'noun', level: 1,
   gender: 'ז', plural: null, root: null, everydaySynonym: null,
-  translations: { en: 'pain' }, notes: null,
+  translations: { en: 'pain' }, notes: null, category: null,
 };
 
 describe('Feedback report a problem', () => {
