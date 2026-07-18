@@ -117,7 +117,10 @@ that `id`. The import is idempotent and additive: it never deletes; retiring con
 flipping a unit's `status` from `published` to `draft` in `content/units.tsv` and reimporting.
 Validation cross-checks structural invariants beyond types, e.g. `validateItems` requires a
 unit item's `context_he` to literally contain the dictionary entry's `hebrew` headword, because
-the cloze exercise blanks it by substring match.
+the cloze exercise blanks it by substring match. `dictionary_entries` also carries an optional,
+controlled-vocabulary `category` "study area" tag (first value `medical_loanword`); add a new
+value by extending both the DB check constraint (`supabase/migrations/*`) and the import zod enum
+together — see [docs/superpowers/plans/2026-07-18-medical-loanword-area.md](docs/superpowers/plans/2026-07-18-medical-loanword-area.md).
 
 ### i18n / RTL
 
