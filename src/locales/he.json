@@ -3,7 +3,8 @@
   "nav": {
     "home": "בית",
     "review": "חזרה",
-    "drill": "תרגול"
+    "drill": "תרגול",
+    "dictionary": "מילון"
   },
   "common": {
     "continue": "המשך",
@@ -107,5 +108,11 @@
     "usedIncorrectly": "דורש עבודה",
     "quota": "ניצלת את 3 התרגולים של היום. חזור מחר!",
     "unavailable": "המאמן אינו זמין כרגע — החזרות שלך עדיין עובדות."
+  },
+  "dictionary": {
+    "title": "מילון",
+    "searchPlaceholder": "חיפוש מילים…",
+    "empty": "אין מילים שתואמות לחיפוש.",
+    "count": "{{count}} מילים"
   }
 }

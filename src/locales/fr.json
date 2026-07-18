@@ -3,7 +3,8 @@
   "nav": {
     "home": "Accueil",
     "review": "Révision",
-    "drill": "Exercice"
+    "drill": "Exercice",
+    "dictionary": "Dictionnaire"
   },
   "common": {
     "continue": "Continuer",
@@ -90,5 +91,11 @@
     "reportSubmit": "Envoyer le signalement",
     "reportSent": "Merci, votre signalement a été reçu.",
     "reportError": "Impossible d'envoyer le signalement. Réessayez."
+  },
+  "dictionary": {
+    "title": "Dictionnaire",
+    "searchPlaceholder": "Rechercher des mots…",
+    "empty": "Aucun mot ne correspond à votre recherche.",
+    "count": "{{count}} mots"
   }
 }

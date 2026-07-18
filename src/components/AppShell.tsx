@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { Home, Clock, Stethoscope } from 'lucide-react';
+import { Home, Clock, Stethoscope, Library } from 'lucide-react';
 import { drillEnabled } from '../lib/flags';
 
 const NAV_ITEM_CLASSES = ({ isActive }: { isActive: boolean }) =>
@@ -20,6 +20,10 @@ export function AppShell() {
         <NavLink to="/review" className={NAV_ITEM_CLASSES}>
           <Clock className="size-4" />
           {t('nav.review')}
+        </NavLink>
+        <NavLink to="/dictionary" className={NAV_ITEM_CLASSES}>
+          <Library className="size-4" />
+          {t('nav.dictionary')}
         </NavLink>
         {drillEnabled() && (
           <NavLink to="/drill" className={NAV_ITEM_CLASSES}>

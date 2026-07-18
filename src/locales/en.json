@@ -3,7 +3,8 @@
   "nav": {
     "home": "Home",
     "review": "Review",
-    "drill": "Drill"
+    "drill": "Drill",
+    "dictionary": "Dictionary"
   },
   "common": {
     "continue": "Continue",
@@ -104,5 +105,11 @@
     "usedIncorrectly": "Needs work",
     "quota": "You've used today's 3 drills. Come back tomorrow!",
     "unavailable": "The practice coach is unavailable right now — your reviews still work."
+  },
+  "dictionary": {
+    "title": "Dictionary",
+    "searchPlaceholder": "Search words…",
+    "empty": "No words match your search.",
+    "count": "{{count}} words"
   }
 }

@@ -3,7 +3,8 @@
   "nav": {
     "home": "الرئيسية",
     "review": "مراجعة",
-    "drill": "تدريب"
+    "drill": "تدريب",
+    "dictionary": "القاموس"
   },
   "common": {
     "continue": "متابعة",
@@ -102,5 +103,11 @@
     "reportSubmit": "إرسال البلاغ",
     "reportSent": "شكرًا، تم استلام بلاغك.",
     "reportError": "تعذّر إرسال البلاغ. حاول مرة أخرى."
+  },
+  "dictionary": {
+    "title": "القاموس",
+    "searchPlaceholder": "ابحث عن كلمات…",
+    "empty": "لا توجد كلمات تطابق بحثك.",
+    "count": "{{count}} كلمة"
   }
 }

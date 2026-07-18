@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { UnitPage } from './pages/UnitPage';
 import { ReviewPage } from './pages/ReviewPage';
 import { DrillPage } from './pages/DrillPage';
+import { DictionaryPage } from './pages/DictionaryPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { AppShell } from './components/AppShell';
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/unit/:slug" element={<UnitPage />} />
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/drill" element={<DrillPage />} />
+        <Route path="/dictionary" element={<DictionaryPage />} />
       </Route>
     </Routes>
   );
