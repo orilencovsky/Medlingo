@@ -1152,3 +1152,37 @@ hipoglikemia	היפוגליקמיה	הִיפּוֹגְלִיקֶמְיָה	noun	
 dislipidemia	דיסליפידמיה	דִיסְלִיפִּידֶמְיָה	noun	3	נ			שומנים גבוהים בדם	dyslipidemia				loanword	medical_loanword
 akuti	אקוטי	אָקוּטִי	adjective	2				חריף	acute				loanword; Hebrew חריף	medical_loanword
 empiri	אמפירי	אֶמְפִּירִי	adjective	3				ניסיוני	empiric				loanword; empiric (treatment)	medical_loanword
+insulin	אינסולין	אִינְסוּלִין	noun	2	ז				insulin				loanword	medical_loanword
+glukoz	גלוקוז	גְּלוּקוֹז	noun	2	ז			סוכר	glucose				loanword; Hebrew סוכר	medical_loanword
+dializa	דיאליזה	דִּיאָלִיזָה	noun	2	נ				dialysis				loanword	medical_loanword
+kreatinin	קריאטינין	קְרֵאָטִינִין	noun	3	ז				creatinine				loanword; kidney-function lab	medical_loanword
+albumin	אלבומין	אַלְבּוּמִין	noun	3	ז				albumin				loanword; blood-protein lab	medical_loanword
+bilirubin	בילירובין	בִּילִירוּבִּין	noun	3	ז				bilirubin				loanword; liver lab	medical_loanword
+elektrolitim	אלקטרוליטים	אֶלֶקְטְרוֹלִיטִים	noun	3	ז			מלחים	electrolytes				loanword; already plural form	medical_loanword
+monitor	מוניטור	מוֹנִיטוֹר	noun	2	ז	מוניטורים		צג ניטור	monitor				loanword; vital-signs monitor	medical_loanword
+ambulans	אמבולנס	אַמְבּוּלַנְס	noun	1	ז	אמבולנסים			ambulance				loanword	medical_loanword
+etiologia	אטיולוגיה	אֶטְיוֹלוֹגְיָה	noun	3	נ			גורם המחלה	etiology				loanword; cause of disease	medical_loanword
+patologia	פתולוגיה	פַּתוֹלוֹגְיָה	noun	3	נ				pathology				loanword	medical_loanword
+parenchima	פרנכימה	פָּרֶנְכִימָה	noun	3	נ				parenchyma				loanword; functional tissue of an organ	medical_loanword
+retraktzyot	רטרקציות	רֶטְרַקְצְיוֹת	noun	3	נ			משיכת שרירי נשימה	retractions				loanword; use of accessory breathing muscles	medical_loanword
+vegetatzyot	וגטציות	וֶגֶטַצְיוֹת	noun	3	נ				vegetations				loanword; on heart valves in endocarditis	medical_loanword
+triger	טריגר	טְרִיגֶר	noun	2	ז	טריגרים		גורם מעורר	trigger				loanword	medical_loanword
+dislokatzya	דיסלוקציה	דִיסְלוֹקַצְיָה	noun	2	נ			פריקה	dislocation				loanword; joint dislocation	medical_loanword
+atrofia	אטרופיה	אַטְרוֹפְיָה	noun	3	נ			ניוון	atrophy				loanword; Hebrew ניוון	medical_loanword
+serologia	סרולוגיה	סֶרוֹלוֹגְיָה	noun	3	נ				serology				loanword; antibody blood tests	medical_loanword
+karotid	קרוטיד	קָרוֹטִיד	noun	3	ז			עורק הצוואר	carotid				loanword; neck artery	medical_loanword
+klini	קליני	קְלִינִי	adjective	2					clinical				loanword	medical_loanword
+kardiali	קרדיאלי	קַרְדִּיאָלִי	adjective	2				לבבי	cardiac				loanword; Hebrew לבבי	medical_loanword
+pleurali	פלאורלי	פְּלֵאוּרָלִי	adjective	3					pleural				loanword; of the lung lining	medical_loanword
+perikardiali	פריקרדיאלי	פֶּרִיקַרְדִּיאָלִי	adjective	3					pericardial				loanword; around the heart	medical_loanword
+virali	ויראלי	וִירָאלִי	adjective	2				נגיפי	viral				loanword; Hebrew נגיפי	medical_loanword
+respiratori	רספירטורי	רֶסְפִּירָטוֹרִי	adjective	3				נשימתי	respiratory				loanword; Hebrew נשימתי	medical_loanword
+difuzi	דיפוזי	דִיפוּזִי	adjective	3				מפושט	diffuse				loanword; Hebrew מפושט	medical_loanword
+periferi	פריפרי	פֶּרִיפֶרִי	adjective	2				היקפי	peripheral				loanword; Hebrew היקפי	medical_loanword
+distali	דיסטלי	דִיסְטָלִי	adjective	3				מרוחק	distal				loanword; farther from the center	medical_loanword
+proksimali	פרוקסימלי	פְּרוֹקְסִימָלִי	adjective	3				קרוב	proximal				loanword; closer to the center	medical_loanword
+sistoli	סיסטולי	סִיסְטוֹלִי	adjective	3					systolic				loanword; heart-contraction phase	medical_loanword
+diastoli	דיאסטולי	דִּיאַסְטוֹלִי	adjective	3					diastolic				loanword; heart-relaxation phase	medical_loanword
+metaboli	מטבולי	מֶטָבּוֹלִי	adjective	3					metabolic				loanword	medical_loanword
+urinari	אורינרי	אוּרִינָרִי	adjective	3				שתני	urinary				loanword; Hebrew שתני	medical_loanword
+vazovagali	ואזווגאלי	וָאזוֹוָגָאלִי	adjective	3					vasovagal				loanword; reflex-fainting mechanism	medical_loanword
