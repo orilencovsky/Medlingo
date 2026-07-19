@@ -112,6 +112,22 @@ async function main() {
     contentErr !== null || afterEntry?.hebrew !== 'TAMPERED');
   await admin.from('profiles').update({ is_admin: false }).eq('user_id', userId!);
 
+  // a reviewer (is_admin) may set topic directly — it is NOT a moderated content column
+  await admin.from('profiles').update({ is_admin: true }).eq('user_id', userId!);
+  const { error: topicErr } = await user.from('dictionary_entries')
+    .update({ topic: 'cardiology' }).eq('id', sampleEntryId!);
+  const { data: afterTopic } = await admin.from('dictionary_entries')
+    .select('topic').eq('id', sampleEntryId!).single();
+  check('reviewer can set topic directly', topicErr === null && afterTopic?.topic === 'cardiology');
+  // but still cannot change a content column in the same breath
+  const { error: stillBlocked } = await user.from('dictionary_entries')
+    .update({ hebrew: 'NOPE' }).eq('id', sampleEntryId!);
+  const { data: afterHeb } = await admin.from('dictionary_entries')
+    .select('hebrew').eq('id', sampleEntryId!).single();
+  check('reviewer still cannot edit content columns', stillBlocked !== null || afterHeb?.hebrew !== 'NOPE');
+  await admin.from('dictionary_entries').update({ topic: null }).eq('id', sampleEntryId!);
+  await admin.from('profiles').update({ is_admin: false }).eq('user_id', userId!);
+
   // profile insert cannot self-grant can_approve (0010 fix: own_profile_insert now
   // requires can_approve = false). own_profile_insert also requires user_id =
   // auth.uid(), so a second throwaway user can't be used to isolate this — a forged
