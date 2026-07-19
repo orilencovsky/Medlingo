@@ -16,7 +16,7 @@ test('learner can open the dictionary and search', async ({ page }) => {
   // for the post-onboarding home screen so that request lands before navigating away.
   await expect(page.getByTestId('home-review-card')).toBeVisible();
 
-  await page.goto('/dictionary');
+  await page.goto('/dictionary/all');
   await expect(page.getByRole('searchbox')).toBeVisible();
   await page.getByRole('searchbox').fill('חום');
   // content/dictionary.tsv has two entries sharing the unpointed spelling חום

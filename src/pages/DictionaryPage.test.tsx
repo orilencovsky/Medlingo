@@ -34,4 +34,9 @@ describe('DictionaryPage', () => {
     const all = await screen.findByRole('link', { name: /all words/i });
     expect(all.getAttribute('href')).toBe('/dictionary/all');
   });
+  it('omits a topic with zero entries from the grid', async () => {
+    renderPage();
+    await screen.findByRole('link', { name: /Cardiology/i });
+    expect(screen.queryByRole('link', { name: /Anatomy/i })).toBeNull();
+  });
 });

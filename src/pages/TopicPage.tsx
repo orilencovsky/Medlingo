@@ -15,6 +15,7 @@ export function TopicPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetchDictionary().then((all) => {
       const scoped = topic === 'all' ? all
         : topic && isTopic(topic) ? all.filter((e) => e.topic === topic)
