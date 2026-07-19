@@ -73,6 +73,12 @@ create policy admin_update_entries on public.dictionary_entries for update to au
 create function public.guard_entry_content_update() returns trigger
 language plpgsql security definer set search_path = public as $$
 begin
+  -- No auth context = service-role key or direct SQL (seed import, verify script,
+  -- operator fixes). RLS is the gate for client sessions; this guard only exists to
+  -- stop authenticated reviewers (is_admin) from bypassing moderation. Triggers fire
+  -- even for RLS-bypassing roles, so without this the seed import and admin tooling
+  -- would be blocked too.
+  if auth.uid() is null then return new; end if;
   -- SECURITY DEFINER callers (apply_entry_edit) and approvers may change content.
   if public.can_approve() then return new; end if;
   if new.id is distinct from old.id
