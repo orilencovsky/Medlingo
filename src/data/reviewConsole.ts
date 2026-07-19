@@ -47,6 +47,7 @@ export async function fetchPendingEdits(): Promise<EntryEdit[]> {
   return ((data ?? []) as EditRow[]).map(mapEdit);
 }
 
+// payload must be the FULL field set (entryToPayload) — apply_entry_edit nulls absent nullable keys.
 export async function saveEditDraft(entryId: string, payload: EntryPayload, note: string | null): Promise<void> {
   const editorId = await currentUserId();
   const { error } = await supabase.from('entry_edits')

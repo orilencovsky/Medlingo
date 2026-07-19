@@ -137,6 +137,9 @@
     "noPending": "אין מה לאשר.",
     "changeCreate": "מילה חדשה",
     "changeDelete": "מחיקה",
-    "changeUpdate": "עריכה"
+    "changeUpdate": "עריכה",
+    "alreadyPending": "למילה הזו כבר יש עריכה שממתינה לאישור.",
+    "actionFailed": "הפעולה נכשלה: {{message}}",
+    "dismiss": "סגור"
   }
 }

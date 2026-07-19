@@ -21,6 +21,12 @@ create policy own_profile_update on public.profiles for update to authenticated
     and is_admin = (select p.is_admin from public.profiles p where p.user_id = auth.uid())
     and can_approve = (select p.can_approve from public.profiles p where p.user_id = auth.uid()));
 
+-- 0008 relaxed own_profile_insert because the allowlist trigger force-overwrites
+-- is_admin; that trigger never touches can_approve, so pin it at insert too.
+drop policy own_profile_insert on public.profiles;
+create policy own_profile_insert on public.profiles for insert to authenticated
+  with check (user_id = auth.uid() and can_approve = false);
+
 -- 3. Staging table for proposed changes.
 create table public.entry_edits (
   id           uuid primary key default gen_random_uuid(),

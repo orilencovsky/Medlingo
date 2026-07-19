@@ -14,13 +14,28 @@ const DIFF_FIELDS: Array<[string, keyof EntryEdit['payload']]> = [
 export function ReviewQueue({ entries, onDecided }: Props) {
   const { t } = useTranslation();
   const [edits, setEdits] = useState<EntryEdit[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const byId = new Map(entries.map((e) => [e.id, e]));
 
   const reload = () => fetchPendingEdits().then(setEdits);
   useEffect(() => { reload(); }, []);
 
+  const describeError = (err: unknown): string => {
+    const e = err as { message?: string; code?: string } | null | undefined;
+    const message = e?.message ?? String(err);
+    const isDuplicate = e?.code === '23505'
+      || message.includes('entry_edits_one_open_per_entry')
+      || message.includes('duplicate key');
+    return isDuplicate ? t('admin.alreadyPending') : t('admin.actionFailed', { message });
+  };
+
   const decide = async (id: string, d: 'approved' | 'rejected') => {
-    await decideEdit(id, d); await reload(); onDecided();
+    setError(null);
+    try {
+      await decideEdit(id, d); await reload(); onDecided();
+    } catch (err) {
+      setError(describeError(err));
+    }
   };
   const currentValue = (edit: EntryEdit, key: string): string => {
     const e = edit.entryId ? byId.get(edit.entryId) : undefined;
@@ -38,6 +53,14 @@ export function ReviewQueue({ entries, onDecided }: Props) {
   return (
     <div className="rounded-md border border-border p-3">
       <h2 className="text-sm font-bold text-ink">{t('admin.queue')}</h2>
+      {error && (
+        <p role="alert" className="mt-3 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+          {error}
+          <button type="button" className="ms-2 font-semibold underline" onClick={() => setError(null)}>
+            {t('admin.dismiss')}
+          </button>
+        </p>
+      )}
       {edits.length === 0 ? (
         <p className="mt-2 text-sm text-ink-muted">{t('admin.noPending')}</p>
       ) : (

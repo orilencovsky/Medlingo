@@ -108,4 +108,17 @@ describe('AdminDictionaryPage', () => {
     await screen.findByText('תְּלוּנָה');
     expect(await screen.findByText(/pending edits/i)).toBeTruthy();
   });
+  it('shows a friendly alert when saveEditDraft fails on a duplicate pending edit', async () => {
+    saveEditDraft.mockRejectedValueOnce(
+      Object.assign(
+        new Error('duplicate key value violates unique constraint "entry_edits_one_open_per_entry"'),
+        { code: '23505' },
+      ),
+    );
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText('תְּלוּנָה');
+    await userEvent.click(screen.getByRole('button', { name: /^edit$/i }));
+    await userEvent.click(await screen.findByRole('button', { name: /save draft/i }));
+    expect(await screen.findByRole('alert')).toHaveTextContent(/already has a pending edit/i);
+  });
 });

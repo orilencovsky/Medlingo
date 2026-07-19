@@ -119,6 +119,9 @@
     "noPending": "Aucune modification en attente.",
     "changeCreate": "Nouveau mot",
     "changeDelete": "Suppression",
-    "changeUpdate": "Modification"
+    "changeUpdate": "Modification",
+    "alreadyPending": "Ce mot a déjà une modification en attente de décision.",
+    "actionFailed": "Échec de l'action : {{message}}",
+    "dismiss": "Fermer"
   }
 }

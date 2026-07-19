@@ -112,6 +112,22 @@ async function main() {
     contentErr !== null || afterEntry?.hebrew !== 'TAMPERED');
   await admin.from('profiles').update({ is_admin: false }).eq('user_id', userId!);
 
+  // profile insert cannot self-grant can_approve (0010 fix: own_profile_insert now
+  // requires can_approve = false). own_profile_insert also requires user_id =
+  // auth.uid(), so a second throwaway user can't be used to isolate this — a forged
+  // insert for a fresh uuid would just fail on the user_id clause instead. Reuse
+  // this test user: delete its profile row (admin, bypasses RLS) so `user` can
+  // attempt a fresh insert, try the forged insert, then restore a clean row. Placed
+  // immediately before cleanup so the restored profile's state doesn't need to
+  // satisfy any check that runs later.
+  await admin.from('profiles').delete().eq('user_id', userId!);
+  const { error: forgeErr } = await user.from('profiles')
+    .insert({ user_id: userId!, display_name: 'RLS Forge', can_approve: true });
+  check('cannot self-grant can_approve at profile insert', forgeErr !== null);
+  const { error: restoreErr } = await user.from('profiles')
+    .insert({ user_id: userId!, display_name: 'RLS Check' });
+  check('profile insert without can_approve succeeds', restoreErr === null);
+
   // cleanup
   await admin.from('units').delete().eq('slug', 'rls-draft-unit');
   await admin.from('review_logs').delete().eq('id', seededLog.id);

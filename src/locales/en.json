@@ -133,6 +133,9 @@
     "noPending": "Nothing waiting for review.",
     "changeCreate": "New word",
     "changeDelete": "Delete",
-    "changeUpdate": "Edit"
+    "changeUpdate": "Edit",
+    "alreadyPending": "This word already has a pending edit awaiting a decision.",
+    "actionFailed": "Action failed: {{message}}",
+    "dismiss": "Dismiss"
   }
 }

@@ -127,6 +127,9 @@
     "noPending": "Нечего проверять.",
     "changeCreate": "Новое слово",
     "changeDelete": "Удаление",
-    "changeUpdate": "Правка"
+    "changeUpdate": "Правка",
+    "alreadyPending": "У этого слова уже есть правка, ожидающая решения.",
+    "actionFailed": "Действие не выполнено: {{message}}",
+    "dismiss": "Закрыть"
   }
 }

@@ -45,4 +45,11 @@ describe('ReviewQueue', () => {
     render(<ReviewQueue entries={entries} onDecided={() => {}} />);
     expect(await screen.findByText('Delete · חום')).toBeTruthy();
   });
+  it('shows an inline alert when decideEdit fails', async () => {
+    decideEdit.mockRejectedValueOnce(new Error('network blip'));
+    render(<ReviewQueue entries={entries} onDecided={() => {}} />);
+    await screen.findByText(/fix nikud/);
+    await userEvent.click(screen.getByRole('button', { name: /approve/i }));
+    expect(await screen.findByRole('alert')).toHaveTextContent(/network blip/i);
+  });
 });

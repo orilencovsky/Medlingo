@@ -6,6 +6,7 @@ export async function fetchDictionary(): Promise<DictionaryEntry[]> {
   const { data, error } = await supabase
     .from('dictionary_entries')
     .select('*')
+    .eq('is_deprecated', false)
     .order('hebrew', { ascending: true });
   if (error) throw error;
   return ((data ?? []) as EntryRow[]).map(mapEntryRow);

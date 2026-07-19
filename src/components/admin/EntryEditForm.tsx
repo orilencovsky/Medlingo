@@ -50,7 +50,15 @@ export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
           {[1, 2, 3].map((v) => <option key={v} value={v}>{v}</option>)}
         </select>
       </label>
-      {field('gender (ז/נ)', 'gender')}
+      <label className="block text-sm">
+        <span className="text-ink-muted">gender</span>
+        <select className="mt-1 w-full rounded-md border border-border px-2 py-1"
+          value={p.gender ?? ''} onChange={(e) => set('gender', e.target.value || null)}>
+          <option value="">—</option>
+          <option value="ז">ז</option>
+          <option value="נ">נ</option>
+        </select>
+      </label>
       {field('plural', 'plural')}
       {field('root', 'root')}
       {field('everyday synonym', 'everyday_synonym')}

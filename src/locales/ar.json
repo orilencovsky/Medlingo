@@ -135,6 +135,9 @@
     "noPending": "لا يوجد ما يحتاج إلى مراجعة.",
     "changeCreate": "كلمة جديدة",
     "changeDelete": "حذف",
-    "changeUpdate": "تعديل"
+    "changeUpdate": "تعديل",
+    "alreadyPending": "لهذه الكلمة تعديل معلّق بالفعل بانتظار القرار.",
+    "actionFailed": "فشل الإجراء: {{message}}",
+    "dismiss": "إغلاق"
   }
 }
