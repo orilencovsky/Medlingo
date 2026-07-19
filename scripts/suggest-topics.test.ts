@@ -20,4 +20,11 @@ describe('parseTopicResponse', () => {
   it('returns null for empty', () => {
     expect(parseTopicResponse('')).toBeNull();
   });
+  it('does not false-match a slug inside a longer word', () => {
+    expect(parseTopicResponse('gastrointestinal')).toBeNull();
+    expect(parseTopicResponse('mental_healthcare')).toBeNull();
+  });
+  it('returns the slug when it repeats (not ambiguous)', () => {
+    expect(parseTopicResponse('cardiology, cardiology')).toBe('cardiology');
+  });
 });

@@ -14,7 +14,7 @@ async function classify(hebrew: string, en: string, notes: string | null): Promi
   const prompt =
     `Classify this Hebrew medical term into exactly ONE topic from this fixed list:\n${list}\n\n` +
     `Term (Hebrew): ${hebrew}\nEnglish: ${en}\n${notes ? `Notes: ${notes}\n` : ''}` +
-    `Reply with ONLY the single topic slug, nothing else.`;
+    `Reply with ONLY the single topic slug from the list — no other words.`;
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -24,7 +24,7 @@ async function classify(hebrew: string, en: string, notes: string | null): Promi
     },
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 16,
+      max_tokens: 64,
       messages: [{ role: 'user', content: prompt }],
     }),
   });
@@ -50,7 +50,7 @@ async function main() {
   for (const r of rows) {
     const topic = await classify(r.hebrew, r.en, r.notes);
     if (topic) {
-      await sql`update dictionary_entries set topic = ${topic} where id = ${r.id}`;
+      await sql`update dictionary_entries set topic = ${topic}, updated_at = now() where id = ${r.id}`;
       tagged++;
     } else {
       console.warn(`  no confident topic for ${r.id} (${r.hebrew}) — left null`);
