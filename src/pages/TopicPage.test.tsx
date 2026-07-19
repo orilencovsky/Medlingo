@@ -19,7 +19,10 @@ import { TopicPage } from './TopicPage';
 
 function renderAt(path: string) {
   return render(<MemoryRouter initialEntries={[path]}>
-    <Routes><Route path="/dictionary/:topic" element={<TopicPage />} /></Routes>
+    <Routes>
+      <Route path="/dictionary" element={<div>GRID</div>} />
+      <Route path="/dictionary/:topic" element={<TopicPage />} />
+    </Routes>
   </MemoryRouter>);
 }
 
@@ -35,9 +38,9 @@ describe('TopicPage', () => {
     expect(await screen.findByText('לב')).toBeTruthy();
     expect(screen.getByText('חום')).toBeTruthy();
   });
-  it('an unknown topic renders no word rows and does not crash', async () => {
+  it('an unknown topic redirects to the grid', async () => {
     renderAt('/dictionary/not-a-real-topic');
-    expect(await screen.findByText(/no words match/i)).toBeTruthy();
+    expect(await screen.findByText('GRID')).toBeTruthy();
     expect(screen.queryByText('לב')).toBeNull();
     expect(screen.queryByText('חום')).toBeNull();
   });

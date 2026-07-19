@@ -132,15 +132,20 @@ export function AdminDictionaryPage() {
                 <button className="text-sm text-ink-muted" onClick={() => onReview(e.id)}>{t('admin.markReviewed')}</button>
                 <button className="text-sm text-red-600" onClick={() => onDelete(e.id)}>{t('admin.flagDelete')}</button>
                 <label className="text-xs text-ink-muted">
-                  <span className="sr-only">topic</span>
+                  <span className="sr-only">{t('admin.topicLabel')}</span>
                   <select
-                    aria-label="topic"
+                    aria-label={t('admin.topicLabel')}
                     className="ms-2 rounded border border-border px-1 py-0.5 text-xs"
                     value={e.topic ?? ''}
                     onChange={async (ev) => {
                       const v = ev.target.value;
-                      await setTopic(e.id, v === '' ? null : (v as typeof TOPICS[number]));
-                      await reload();
+                      setError(null);
+                      try {
+                        await setTopic(e.id, v === '' ? null : (v as typeof TOPICS[number]));
+                        await reload();
+                      } catch (err) {
+                        setError(describeError(err));
+                      }
                     }}
                   >
                     <option value="">{t('admin.untagged')}</option>

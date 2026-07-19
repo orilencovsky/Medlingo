@@ -122,6 +122,7 @@
     "progress": "{{reviewed}} / {{total}} проверено",
     "topicCoverage": "{{tagged}} / {{total}} размечено",
     "untagged": "— без темы —",
+    "topicLabel": "Тема",
     "stateUnreviewed": "Не проверено",
     "stateReviewed": "Проверено",
     "statePending": "Ожидает",

@@ -130,6 +130,7 @@
     "progress": "{{reviewed}} / {{total}} تمت مراجعتها",
     "topicCoverage": "{{tagged}} / {{total}} مُصنَّفة",
     "untagged": "— بدون تصنيف —",
+    "topicLabel": "الموضوع",
     "stateUnreviewed": "غير مُراجَعة",
     "stateReviewed": "تمت المراجعة",
     "statePending": "قيد الانتظار",

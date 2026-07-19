@@ -128,6 +128,7 @@
     "progress": "{{reviewed}} / {{total}} reviewed",
     "topicCoverage": "{{tagged}} / {{total}} tagged",
     "untagged": "— untagged —",
+    "topicLabel": "Topic",
     "stateUnreviewed": "Unreviewed",
     "stateReviewed": "Reviewed",
     "statePending": "Pending",

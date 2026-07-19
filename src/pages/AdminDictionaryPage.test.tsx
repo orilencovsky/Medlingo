@@ -131,4 +131,12 @@ describe('AdminDictionaryPage', () => {
     await userEvent.selectOptions(select, 'cardiology');
     expect(setTopic).toHaveBeenCalledWith('a', 'cardiology');
   });
+  it('shows a friendly alert when setTopic fails', async () => {
+    setTopic.mockRejectedValueOnce(new Error('network error'));
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText(/תלונה|חום/);
+    const select = screen.getByLabelText(/topic/i);
+    await userEvent.selectOptions(select, 'cardiology');
+    expect(await screen.findByRole('alert')).toHaveTextContent(/action failed/i);
+  });
 });

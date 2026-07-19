@@ -7,7 +7,7 @@ test('learner can open the dictionary and search', async ({ page }) => {
   // protected route — including /dictionary — to /onboarding. A direct
   // `page.goto('/dictionary')` would therefore land on the onboarding form instead of
   // DictionaryPage. Complete onboarding first, same testids as pilot.spec.ts/drill.spec.ts,
-  // so the profile exists before we navigate to /dictionary.
+  // so the profile exists before we navigate to /dictionary/all.
   await page.goto('/');
   await page.getByTestId('onboarding-name').fill('E2E Dictionary');
   await page.getByTestId('onboarding-submit').click();

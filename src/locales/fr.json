@@ -114,6 +114,7 @@
     "progress": "{{reviewed}} / {{total}} révisés",
     "topicCoverage": "{{tagged}} / {{total}} étiquetés",
     "untagged": "— sans thème —",
+    "topicLabel": "Thème",
     "stateUnreviewed": "Non révisé",
     "stateReviewed": "Révisé",
     "statePending": "En attente",

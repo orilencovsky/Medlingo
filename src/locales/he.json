@@ -132,6 +132,7 @@
     "progress": "{{reviewed}} / {{total}} נסקרו",
     "topicCoverage": "{{tagged}} / {{total}} מתויגות",
     "untagged": "— ללא נושא —",
+    "topicLabel": "נושא",
     "stateUnreviewed": "לא נסקר",
     "stateReviewed": "נסקר",
     "statePending": "ממתין",

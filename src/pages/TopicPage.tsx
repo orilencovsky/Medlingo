@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, Link } from 'react-router';
+import { useParams, Link, Navigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { fetchDictionary, filterEntries } from '../data/dictionary';
 import { PageHeader } from '../components/ui/PageHeader';
@@ -13,20 +13,22 @@ export function TopicPage() {
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const validTopic = topic === 'all' || (!!topic && isTopic(topic));
 
   useEffect(() => {
+    if (!validTopic) return;
     setLoading(true);
     fetchDictionary().then((all) => {
-      const scoped = topic === 'all' ? all
-        : topic && isTopic(topic) ? all.filter((e) => e.topic === topic)
-        : [];
+      const scoped = topic === 'all' ? all : all.filter((e) => e.topic === topic);
       setEntries(scoped); setLoading(false);
     });
-  }, [topic]);
+  }, [topic, validTopic]);
 
   const shown = useMemo(() => filterEntries(entries, query), [entries, query]);
-  const title = topic === 'all' ? t('dictionary.allWords')
-    : topic && isTopic(topic) ? t(`topics.${topic}`) : t('dictionary.title');
+
+  if (!validTopic) return <Navigate to="/dictionary" replace />;
+
+  const title = topic === 'all' ? t('dictionary.allWords') : t(`topics.${topic}`);
 
   return (
     <div className="mx-auto max-w-2xl p-4">
