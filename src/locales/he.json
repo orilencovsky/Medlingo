@@ -128,6 +128,13 @@
     "flagDelete": "סמן למחיקה",
     "addWord": "הוסף מילה",
     "note": "הערה לגורם המאשר",
-    "cancel": "ביטול"
+    "cancel": "ביטול",
+    "queue": "עריכות ממתינות",
+    "approve": "אשר",
+    "reject": "דחה",
+    "noPending": "אין מה לאשר.",
+    "changeCreate": "מילה חדשה",
+    "changeDelete": "מחיקה",
+    "changeUpdate": "עריכה"
   }
 }

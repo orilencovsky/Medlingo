@@ -111,6 +111,13 @@
     "flagDelete": "Signaler pour suppression",
     "addWord": "Ajouter un mot",
     "note": "Note pour l'approbateur",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "queue": "Modifications en attente",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "noPending": "Aucune modification en attente.",
+    "changeCreate": "Nouveau mot",
+    "changeDelete": "Suppression",
+    "changeUpdate": "Modification"
   }
 }

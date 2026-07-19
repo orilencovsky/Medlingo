@@ -2,9 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageHeader } from '../components/ui/PageHeader';
 import { EntryEditForm } from '../components/admin/EntryEditForm';
+import { ReviewQueue } from '../components/admin/ReviewQueue';
 import {
   fetchAdminEntries, entryToPayload, saveEditDraft, createEntryDraft, flagDelete, markReviewed,
 } from '../data/reviewConsole';
+import { getProfile } from '../data/profile';
 import type { AdminEntry, EntryPayload } from '../lib/types';
 
 const EMPTY: EntryPayload = {
@@ -17,9 +19,13 @@ export function AdminDictionaryPage() {
   const [entries, setEntries] = useState<AdminEntry[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [adding, setAdding] = useState(false);
+  const [canApprove, setCanApprove] = useState(false);
 
   const reload = () => fetchAdminEntries().then(setEntries);
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    reload();
+    getProfile().then((p) => setCanApprove(!!p?.canApprove));
+  }, []);
 
   const reviewedCount = useMemo(
     () => entries.filter((e) => e.reviewState === 'reviewed').length, [entries]);
@@ -46,6 +52,7 @@ export function AdminDictionaryPage() {
           onClick={() => setAdding(true)}>{t('admin.addWord')}</button>
       </div>
       {adding && <div className="mt-3"><EntryEditForm initial={EMPTY} onSave={onCreate} onCancel={() => setAdding(false)} isCreate /></div>}
+      {canApprove && <div className="mt-4"><ReviewQueue entries={entries} onDecided={reload} /></div>}
       <ul className="mt-4 divide-y divide-border">
         {entries.map((e) => (
           <li key={e.id} className="py-3">

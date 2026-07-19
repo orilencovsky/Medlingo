@@ -10,19 +10,25 @@ const entries: AdminEntry[] = [
     plural: null, root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null,
     category: null, reviewState: 'unreviewed', reviewPriority: 1, isDeprecated: false },
 ];
-const { saveEditDraft, markReviewed, createEntryDraft, flagDelete } = vi.hoisted(() => ({
-  saveEditDraft: vi.fn(async (_entryId: string, _payload: EntryPayload, _note: string | null) => {}),
-  markReviewed: vi.fn(async (_id: string) => {}),
-  createEntryDraft: vi.fn(async (_payload: EntryPayload, _note: string | null) => {}),
-  flagDelete: vi.fn(async (_entryId: string, _note: string | null) => {}),
-}));
+const { saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit, getProfile } =
+  vi.hoisted(() => ({
+    saveEditDraft: vi.fn(async (_entryId: string, _payload: EntryPayload, _note: string | null) => {}),
+    markReviewed: vi.fn(async (_id: string) => {}),
+    createEntryDraft: vi.fn(async (_payload: EntryPayload, _note: string | null) => {}),
+    flagDelete: vi.fn(async (_entryId: string, _note: string | null) => {}),
+    fetchPendingEdits: vi.fn(async () => [] as import('../lib/types').EntryEdit[]),
+    decideEdit: vi.fn(async (_editId: string, _decision: 'approved' | 'rejected') => {}),
+    // Reviewer console tests don't need approver access; the one owner-view test below opts in per-call.
+    getProfile: vi.fn(async (): Promise<{ canApprove: boolean } | null> => null),
+  }));
 vi.mock('../data/reviewConsole', () => ({
   fetchAdminEntries: vi.fn(async () => entries),
   entryToPayload: (e: AdminEntry) => ({ id: e.id, hebrew: e.hebrew, hebrew_nikud: e.hebrewNikud,
     part_of_speech: e.partOfSpeech, level: e.level, gender: e.gender, plural: e.plural, root: e.root,
     everyday_synonym: e.everydaySynonym, translations: e.translations, notes: e.notes, category: e.category }),
-  saveEditDraft, markReviewed, createEntryDraft, flagDelete,
+  saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit,
 }));
+vi.mock('../data/profile', () => ({ getProfile }));
 
 import { AdminDictionaryPage } from './AdminDictionaryPage';
 
@@ -75,5 +81,16 @@ describe('AdminDictionaryPage', () => {
     await screen.findByText('תלונה');
     await userEvent.click(screen.getByRole('button', { name: /flag for deletion/i }));
     expect(flagDelete).toHaveBeenCalledWith('a', null);
+  });
+  it('does not show the review queue for a non-approver', async () => {
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText('תלונה');
+    expect(screen.queryByText(/pending edits/i)).toBeNull();
+  });
+  it('shows the review queue for an approver', async () => {
+    getProfile.mockResolvedValueOnce({ canApprove: true });
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText('תלונה');
+    expect(await screen.findByText(/pending edits/i)).toBeTruthy();
   });
 });

@@ -123,6 +123,13 @@
     "flagDelete": "وضع علامة للحذف",
     "addWord": "إضافة كلمة",
     "note": "ملاحظة للمُعتمِد",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "queue": "تعديلات معلّقة",
+    "approve": "قبول",
+    "reject": "رفض",
+    "noPending": "لا يوجد ما يحتاج إلى مراجعة.",
+    "changeCreate": "كلمة جديدة",
+    "changeDelete": "حذف",
+    "changeUpdate": "تعديل"
   }
 }

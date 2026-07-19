@@ -125,6 +125,13 @@
     "flagDelete": "Flag for deletion",
     "addWord": "Add word",
     "note": "Note for approver",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "queue": "Pending edits",
+    "approve": "Approve",
+    "reject": "Reject",
+    "noPending": "Nothing waiting for review.",
+    "changeCreate": "New word",
+    "changeDelete": "Delete",
+    "changeUpdate": "Edit"
   }
 }
