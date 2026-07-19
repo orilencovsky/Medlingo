@@ -100,9 +100,19 @@
     "count_one": "{{count}} mot",
     "count_other": "{{count}} mots"
   },
+  "topics": {
+    "anatomy": "Anatomie", "symptoms": "Symptômes", "cardiology": "Cardiologie",
+    "respiratory": "Système respiratoire", "gastro": "Gastro / abdomen", "neuro": "Neurologie",
+    "msk": "Musculo-squelettique", "genitourinary": "Génito-urinaire", "endocrine": "Endocrinologie / métabolisme",
+    "dermatology": "Dermatologie", "medications": "Médicaments", "procedures": "Procédures et examens",
+    "lab_imaging": "Labo et imagerie", "emergency": "Urgences et traumatologie", "mental_health": "Santé mentale",
+    "obgyn": "Gynéco-obstétrique", "pediatrics": "Pédiatrie", "infectious": "Maladies infectieuses", "general": "Général et administratif"
+  },
   "admin": {
     "dictionary": "Révision des mots",
     "progress": "{{reviewed}} / {{total}} révisés",
+    "topicCoverage": "{{tagged}} / {{total}} étiquetés",
+    "untagged": "— sans thème —",
     "stateUnreviewed": "Non révisé",
     "stateReviewed": "Révisé",
     "statePending": "En attente",

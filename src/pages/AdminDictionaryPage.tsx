@@ -4,9 +4,10 @@ import { PageHeader } from '../components/ui/PageHeader';
 import { EntryEditForm } from '../components/admin/EntryEditForm';
 import { ReviewQueue } from '../components/admin/ReviewQueue';
 import {
-  fetchAdminEntries, entryToPayload, saveEditDraft, createEntryDraft, flagDelete, markReviewed,
+  fetchAdminEntries, entryToPayload, saveEditDraft, createEntryDraft, flagDelete, markReviewed, setTopic,
 } from '../data/reviewConsole';
 import { getProfile } from '../data/profile';
+import { TOPICS } from '../lib/topics';
 import type { AdminEntry, EntryPayload } from '../lib/types';
 
 const EMPTY: EntryPayload = {
@@ -79,9 +80,17 @@ export function AdminDictionaryPage() {
     <div className="mx-auto max-w-2xl p-4">
       <PageHeader title={t('admin.dictionary')} />
       <div className="mt-3 flex items-center justify-between">
-        <p className="text-sm text-ink-muted">
-          {t('admin.progress', { reviewed: reviewedCount, total: entries.length })}
-        </p>
+        <div>
+          <p className="text-sm text-ink-muted">
+            {t('admin.progress', { reviewed: reviewedCount, total: entries.length })}
+          </p>
+          <p className="text-sm text-ink-muted">
+            {t('admin.topicCoverage', {
+              tagged: entries.filter((e) => e.topic).length,
+              total: entries.length,
+            })}
+          </p>
+        </div>
         <button className="rounded-md border border-border px-3 py-1 text-sm"
           onClick={() => setAdding(true)}>{t('admin.addWord')}</button>
       </div>
@@ -118,10 +127,26 @@ export function AdminDictionaryPage() {
                   onCancel={() => setEditingId(null)} isCreate={false} />
               </div>
             ) : (
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex items-center gap-2">
                 <button className="text-sm text-primary" onClick={() => setEditingId(e.id)}>{t('admin.edit')}</button>
                 <button className="text-sm text-ink-muted" onClick={() => onReview(e.id)}>{t('admin.markReviewed')}</button>
                 <button className="text-sm text-red-600" onClick={() => onDelete(e.id)}>{t('admin.flagDelete')}</button>
+                <label className="text-xs text-ink-muted">
+                  <span className="sr-only">topic</span>
+                  <select
+                    aria-label="topic"
+                    className="ms-2 rounded border border-border px-1 py-0.5 text-xs"
+                    value={e.topic ?? ''}
+                    onChange={async (ev) => {
+                      const v = ev.target.value;
+                      await setTopic(e.id, v === '' ? null : (v as typeof TOPICS[number]));
+                      await reload();
+                    }}
+                  >
+                    <option value="">{t('admin.untagged')}</option>
+                    {TOPICS.map((slug) => <option key={slug} value={slug}>{t(`topics.${slug}`)}</option>)}
+                  </select>
+                </label>
               </div>
             )}
           </li>
