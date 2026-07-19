@@ -105,6 +105,8 @@ export function loadContent(dir: string) {
 }
 
 async function main() {
+  console.warn('⚠  import:content OVERWRITES dictionary_entries from the TSV (seed/bootstrap only).');
+  console.warn('   The DB is the source of truth — run `npm run export:content` to back it up first.');
   const { config } = await import('dotenv');
   config({ path: '.env.content' });
   const { default: postgres } = await import('postgres');
