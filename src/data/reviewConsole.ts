@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import { fetchAllRows } from './fetchAll';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type { AdminEntry, EntryEdit, EntryPayload } from '../lib/types';
 
@@ -33,11 +34,14 @@ async function currentUserId(): Promise<string> {
 }
 
 export async function fetchAdminEntries(): Promise<AdminEntry[]> {
-  const { data, error } = await supabase
-    .from('dictionary_entries').select('*')
-    .order('review_priority', { ascending: false }).order('hebrew', { ascending: true });
-  if (error) throw error;
-  return ((data ?? []) as AdminEntryRow[]).map(mapAdminEntry);
+  const rows = await fetchAllRows<AdminEntryRow>((from, to) =>
+    supabase
+      .from('dictionary_entries').select('*')
+      .order('review_priority', { ascending: false }).order('hebrew', { ascending: true })
+      .order('id', { ascending: true })
+      .range(from, to),
+  );
+  return rows.map(mapAdminEntry);
 }
 
 export async function fetchPendingEdits(): Promise<EntryEdit[]> {
