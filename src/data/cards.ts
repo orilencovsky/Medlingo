@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { applyReview, deriveRating, isDue, newCardState } from '../lib/fsrs';
+import { fetchAllRows } from './fetchAll';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type {
   CardState, ContextSentence, DictionaryEntry, PracticeForm, Rating, ReviewCard,
@@ -76,9 +77,12 @@ export async function loadUpcomingCards(limit: number): Promise<ReviewCard[]> {
 }
 
 export async function loadEntryPool(): Promise<DictionaryEntry[]> {
-  const { data, error } = await supabase.from('dictionary_entries').select('*');
-  if (error) throw error;
-  return ((data ?? []) as EntryRow[]).map(mapEntryRow);
+  const rows = await fetchAllRows<EntryRow>((from, to) =>
+    supabase.from('dictionary_entries').select('*')
+      .order('id', { ascending: true })
+      .range(from, to),
+  );
+  return rows.map(mapEntryRow);
 }
 
 export async function seedNewCards(entryIds: string[], now: Date = new Date()): Promise<void> {
