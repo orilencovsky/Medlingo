@@ -103,7 +103,10 @@
     "title": "Словарь",
     "searchPlaceholder": "Поиск слов…",
     "empty": "Нет слов, соответствующих запросу.",
-    "count": "{{count}} слов"
+    "count_one": "{{count}} слово",
+    "count_few": "{{count}} слова",
+    "count_many": "{{count}} слов",
+    "count_other": "{{count}} слова"
   },
   "admin": {
     "dictionary": "Проверка слов",

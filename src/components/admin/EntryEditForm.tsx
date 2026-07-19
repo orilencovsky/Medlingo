@@ -69,7 +69,9 @@ export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
       <div className="flex gap-2">
         <button className="rounded-md bg-primary px-3 py-1 text-sm font-semibold text-white disabled:opacity-50"
           disabled={saveBlocked}
-          onClick={() => onSave(p, note || null)}>{t('admin.saveDraft')}</button>
+          onClick={() => onSave(isCreate ? { ...p, id: p.id?.trim() || undefined } : p, note || null)}>
+          {t('admin.saveDraft')}
+        </button>
         <button className="rounded-md border border-border px-3 py-1 text-sm"
           onClick={onCancel}>{t('admin.cancel')}</button>
       </div>

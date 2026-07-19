@@ -44,7 +44,7 @@ export function ReviewQueue({ entries, onDecided }: Props) {
         <ul className="mt-2 space-y-3">
           {edits.map((edit) => (
             <li key={edit.id} className="rounded-md bg-primary-tint p-2 text-sm">
-              <div className="font-semibold">{label(edit.changeType)} · {edit.payload.hebrew || edit.entryId}</div>
+              <div className="font-semibold">{label(edit.changeType)} · {edit.payload.hebrew || byId.get(edit.entryId ?? '')?.hebrew || edit.entryId}</div>
               {edit.editorNote && <div className="text-ink-muted">“{edit.editorNote}”</div>}
               {edit.changeType === 'update' && (
                 <table className="mt-1 text-xs">

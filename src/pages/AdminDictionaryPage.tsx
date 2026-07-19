@@ -58,9 +58,9 @@ export function AdminDictionaryPage() {
           <li key={e.id} className="py-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <span className="text-lg font-bold text-ink">{e.hebrew}</span>
-                {e.hebrewNikud && e.hebrewNikud !== e.hebrew && (
-                  <span className="ms-2 text-sm text-ink-subtle">{e.hebrewNikud}</span>
+                <span className="text-lg font-bold text-ink">{e.hebrewNikud}</span>
+                {e.hebrew && e.hebrew !== e.hebrewNikud && (
+                  <span className="ms-2 text-sm text-ink-subtle">{e.hebrew}</span>
                 )}
                 <span className="ms-2 text-sm text-ink-muted">{e.translations.en}</span>
               </div>

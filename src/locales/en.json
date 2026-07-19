@@ -111,7 +111,8 @@
     "title": "Dictionary",
     "searchPlaceholder": "Search words…",
     "empty": "No words match your search.",
-    "count": "{{count}} words"
+    "count_one": "{{count}} word",
+    "count_other": "{{count}} words"
   },
   "admin": {
     "dictionary": "Review words",

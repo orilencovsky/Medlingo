@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '../../lib/i18n';
-import type { AdminEntry, EntryEdit } from '../../lib/types';
+import type { AdminEntry, EntryEdit, EntryPayload } from '../../lib/types';
 
 const edits: EntryEdit[] = [{
   id: 'ed1', entryId: 'a', changeType: 'update', status: 'pending', editorNote: 'fix nikud',
@@ -11,10 +11,11 @@ const edits: EntryEdit[] = [{
     gender: 'ז', plural: null, root: null, everyday_synonym: null, translations: { en: 'fever' },
     notes: null, category: null },
 }];
-const decideEdit = vi.hoisted(() => vi.fn(async () => {}));
-vi.mock('../../data/reviewConsole', () => ({
-  fetchPendingEdits: vi.fn(async () => edits), decideEdit,
+const { fetchPendingEdits, decideEdit } = vi.hoisted(() => ({
+  fetchPendingEdits: vi.fn(async () => edits),
+  decideEdit: vi.fn(async () => {}),
 }));
+vi.mock('../../data/reviewConsole', () => ({ fetchPendingEdits, decideEdit }));
 import { ReviewQueue } from './ReviewQueue';
 
 const entries: AdminEntry[] = [{
@@ -34,5 +35,14 @@ describe('ReviewQueue', () => {
     await screen.findByText(/fix nikud/);
     await userEvent.click(screen.getByRole('button', { name: /approve/i }));
     expect(decideEdit).toHaveBeenCalledWith('ed1', 'approved');
+  });
+  it('resolves the entry hebrew (not the raw id) for a delete edit with an empty payload', async () => {
+    fetchPendingEdits.mockResolvedValueOnce([{
+      id: 'ed2', entryId: 'a', changeType: 'delete', status: 'pending', editorNote: null,
+      createdAt: '2026-07-18T00:00:00Z',
+      payload: {} as unknown as EntryPayload,
+    }]);
+    render(<ReviewQueue entries={entries} onDecided={() => {}} />);
+    expect(await screen.findByText('Delete · חום')).toBeTruthy();
   });
 });

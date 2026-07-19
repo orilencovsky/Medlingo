@@ -25,17 +25,20 @@ function renderPage() {
 
 describe('DictionaryPage', () => {
   beforeEach(() => vi.clearAllMocks());
-  it('lists fetched words', async () => {
+  it('lists fetched words with nikud as the primary heading', async () => {
     renderPage();
-    expect(await screen.findByText('תלונה')).toBeTruthy();
-    expect(screen.getByText('חום')).toBeTruthy();
+    expect(await screen.findByText('תְּלוּנָה')).toBeTruthy();
+    expect(screen.getByText('חוֹם')).toBeTruthy();
     expect(screen.getByText('complaint')).toBeTruthy();
+    // plain hebrew still renders as the secondary line since it differs from the nikud form
+    expect(screen.getByText('תלונה')).toBeTruthy();
+    expect(screen.getByText('חום')).toBeTruthy();
   });
   it('filters as the user types', async () => {
     renderPage();
-    await screen.findByText('תלונה');
+    await screen.findByText('תְּלוּנָה');
     await userEvent.type(screen.getByRole('searchbox'), 'fever');
-    expect(screen.queryByText('תלונה')).toBeNull();
-    expect(screen.getByText('חום')).toBeTruthy();
+    expect(screen.queryByText('תְּלוּנָה')).toBeNull();
+    expect(screen.getByText('חוֹם')).toBeTruthy();
   });
 });

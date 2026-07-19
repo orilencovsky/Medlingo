@@ -114,7 +114,9 @@
     "title": "מילון",
     "searchPlaceholder": "חיפוש מילים…",
     "empty": "אין מילים שתואמות לחיפוש.",
-    "count": "{{count}} מילים"
+    "count_one": "מילה אחת",
+    "count_two": "{{count}} מילים",
+    "count_other": "{{count}} מילים"
   },
   "admin": {
     "dictionary": "סקירת מילים",

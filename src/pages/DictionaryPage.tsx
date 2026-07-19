@@ -38,11 +38,11 @@ export function DictionaryPage() {
           {shown.map((e) => (
             <li key={e.id} className="py-3">
               <div className="flex items-baseline justify-between gap-3">
-                <He className="text-lg font-bold text-ink">{e.hebrew}</He>
+                <He className="text-lg font-bold text-ink">{e.hebrewNikud}</He>
                 <span className="text-xs text-ink-muted">{e.partOfSpeech} · L{e.level}</span>
               </div>
-              {e.hebrewNikud && e.hebrewNikud !== e.hebrew && (
-                <He className="block text-sm text-ink-subtle">{e.hebrewNikud}</He>
+              {e.hebrew && e.hebrew !== e.hebrewNikud && (
+                <He className="block text-sm text-ink-subtle">{e.hebrew}</He>
               )}
               <div className="text-sm text-ink-muted">{e.translations.en}</div>
               {e.everydaySynonym && (

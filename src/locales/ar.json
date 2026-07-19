@@ -109,7 +109,12 @@
     "title": "القاموس",
     "searchPlaceholder": "ابحث عن كلمات…",
     "empty": "لا توجد كلمات تطابق بحثك.",
-    "count": "{{count}} كلمة"
+    "count_zero": "{{count}} كلمة",
+    "count_one": "كلمة واحدة",
+    "count_two": "كلمتان",
+    "count_few": "{{count}} كلمات",
+    "count_many": "{{count}} كلمة",
+    "count_other": "{{count}} كلمة"
   },
   "admin": {
     "dictionary": "مراجعة الكلمات",
