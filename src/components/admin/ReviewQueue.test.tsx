@@ -21,7 +21,7 @@ import { ReviewQueue } from './ReviewQueue';
 const entries: AdminEntry[] = [{
   id: 'a', hebrew: 'חום', hebrewNikud: 'חוֹם', partOfSpeech: 'noun', level: 2, gender: 'ז',
   plural: null, root: null, everydaySynonym: null, translations: { en: 'fever' }, notes: null,
-  category: null, reviewState: 'edit_pending', reviewPriority: 0, isDeprecated: false,
+  category: null, topic: null, reviewState: 'edit_pending', reviewPriority: 0, isDeprecated: false,
 }];
 
 describe('ReviewQueue', () => {

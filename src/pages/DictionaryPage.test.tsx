@@ -7,9 +7,9 @@ import type { DictionaryEntry } from '../lib/types';
 
 const entries: DictionaryEntry[] = [
   { id: 'a', hebrew: 'תלונה', hebrewNikud: 'תְּלוּנָה', partOfSpeech: 'noun', level: 1, gender: 'נ',
-    plural: 'תלונות', root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null, category: null },
+    plural: 'תלונות', root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null, category: null, topic: null },
   { id: 'b', hebrew: 'חום', hebrewNikud: 'חוֹם', partOfSpeech: 'noun', level: 1, gender: 'ז',
-    plural: null, root: null, everydaySynonym: null, translations: { en: 'fever' }, notes: null, category: null },
+    plural: null, root: null, everydaySynonym: null, translations: { en: 'fever' }, notes: null, category: null, topic: null },
 ];
 vi.mock('../data/dictionary', () => ({
   fetchDictionary: vi.fn(async () => entries),

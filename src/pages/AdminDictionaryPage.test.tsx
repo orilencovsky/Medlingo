@@ -8,7 +8,7 @@ import type { AdminEntry, EntryPayload } from '../lib/types';
 const entries: AdminEntry[] = [
   { id: 'a', hebrew: 'תלונה', hebrewNikud: 'תְּלוּנָה', partOfSpeech: 'noun', level: 1, gender: 'נ',
     plural: null, root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null,
-    category: null, reviewState: 'unreviewed', reviewPriority: 1, isDeprecated: false },
+    category: null, topic: null, reviewState: 'unreviewed', reviewPriority: 1, isDeprecated: false },
 ];
 const { saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit, getProfile } =
   vi.hoisted(() => ({
