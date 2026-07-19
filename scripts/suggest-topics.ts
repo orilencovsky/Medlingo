@@ -9,7 +9,7 @@ export function parseTopicResponse(text: string): Topic | null {
   return found.length === 1 ? found[0] : null;
 }
 
-async function classify(hebrew: string, en: string, notes: string | null): Promise<Topic | null> {
+export async function classify(hebrew: string, en: string, notes: string | null): Promise<Topic | null> {
   const list = TOPICS.join(', ');
   const prompt =
     `Classify this Hebrew medical term into exactly ONE topic from this fixed list:\n${list}\n\n` +
@@ -28,7 +28,11 @@ async function classify(hebrew: string, en: string, notes: string | null): Promi
       messages: [{ role: 'user', content: prompt }],
     }),
   });
-  if (!res.ok) throw new Error(`anthropic ${res.status}`);
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    const detail = body?.error?.message ?? JSON.stringify(body) ?? '(no body)';
+    throw new Error(`anthropic ${res.status}: ${detail}`);
+  }
   const json = await res.json();
   return parseTopicResponse(json.content?.[0]?.text ?? '');
 }

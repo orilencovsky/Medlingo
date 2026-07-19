@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { parseTopicResponse } from './suggest-topics';
+import { describe, it, expect, vi, afterEach } from 'vitest';
+import { parseTopicResponse, classify } from './suggest-topics';
 
 describe('parseTopicResponse', () => {
   it('accepts a bare valid slug', () => {
@@ -26,5 +26,18 @@ describe('parseTopicResponse', () => {
   });
   it('returns the slug when it repeats (not ambiguous)', () => {
     expect(parseTopicResponse('cardiology, cardiology')).toBe('cardiology');
+  });
+});
+
+describe('classify', () => {
+  afterEach(() => { vi.unstubAllGlobals(); });
+
+  it('includes the response body in the thrown error on a non-ok response', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: false,
+      status: 400,
+      json: async () => ({ error: { type: 'invalid_request_error', message: 'model: not found' } }),
+    })));
+    await expect(classify('חום', 'fever', null)).rejects.toThrow(/400.*not found/s);
   });
 });
