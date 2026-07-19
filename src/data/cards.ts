@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { applyReview, deriveRating, isDue, newCardState } from '../lib/fsrs';
+import { mapEntryRow, type EntryRow } from './entryMapper';
 import type {
   CardState, ContextSentence, DictionaryEntry, PracticeForm, Rating, ReviewCard,
 } from '../lib/types';
@@ -11,12 +12,6 @@ type CardRow = {
   reps: number; lapses: number; learning_steps?: number;
   state: CardState['state']; last_review: string | null;
 };
-type EntryRow = {
-  id: string; hebrew: string; hebrew_nikud: string; part_of_speech: DictionaryEntry['partOfSpeech'];
-  level: 1 | 2 | 3; gender: 'ז' | 'נ' | null; plural: string | null; root: string | null;
-  everyday_synonym: string | null; translations: DictionaryEntry['translations']; notes: string | null;
-  category: DictionaryEntry['category'];
-};
 
 function mapCardRow(r: CardRow): CardState {
   return {
@@ -24,15 +19,6 @@ function mapCardRow(r: CardRow): CardState {
     difficulty: r.difficulty, reps: r.reps, lapses: r.lapses,
     learningSteps: r.learning_steps ?? 0, state: r.state,
     lastReview: r.last_review ? new Date(r.last_review) : null,
-  };
-}
-
-function mapEntryRow(r: EntryRow): DictionaryEntry {
-  return {
-    id: r.id, hebrew: r.hebrew, hebrewNikud: r.hebrew_nikud, partOfSpeech: r.part_of_speech,
-    level: r.level, gender: r.gender, plural: r.plural, root: r.root,
-    everydaySynonym: r.everyday_synonym, translations: r.translations, notes: r.notes,
-    category: r.category ?? null,
   };
 }
 

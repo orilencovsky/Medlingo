@@ -3,7 +3,9 @@
   "nav": {
     "home": "Home",
     "review": "Review",
-    "drill": "Drill"
+    "drill": "Drill",
+    "dictionary": "Dictionary",
+    "dictionaryAdmin": "Review"
   },
   "common": {
     "continue": "Continue",
@@ -104,5 +106,36 @@
     "usedIncorrectly": "Needs work",
     "quota": "You've used today's 3 drills. Come back tomorrow!",
     "unavailable": "The practice coach is unavailable right now — your reviews still work."
+  },
+  "dictionary": {
+    "title": "Dictionary",
+    "searchPlaceholder": "Search words…",
+    "empty": "No words match your search.",
+    "count_one": "{{count}} word",
+    "count_other": "{{count}} words"
+  },
+  "admin": {
+    "dictionary": "Review words",
+    "progress": "{{reviewed}} / {{total}} reviewed",
+    "stateUnreviewed": "Unreviewed",
+    "stateReviewed": "Reviewed",
+    "statePending": "Pending",
+    "edit": "Edit",
+    "saveDraft": "Save draft",
+    "markReviewed": "Mark reviewed",
+    "flagDelete": "Flag for deletion",
+    "addWord": "Add word",
+    "note": "Note for approver",
+    "cancel": "Cancel",
+    "queue": "Pending edits",
+    "approve": "Approve",
+    "reject": "Reject",
+    "noPending": "Nothing waiting for review.",
+    "changeCreate": "New word",
+    "changeDelete": "Delete",
+    "changeUpdate": "Edit",
+    "alreadyPending": "This word already has a pending edit awaiting a decision.",
+    "actionFailed": "Action failed: {{message}}",
+    "dismiss": "Dismiss"
   }
 }

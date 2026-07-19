@@ -3,7 +3,9 @@
   "nav": {
     "home": "בית",
     "review": "חזרה",
-    "drill": "תרגול"
+    "drill": "תרגול",
+    "dictionary": "מילון",
+    "dictionaryAdmin": "סקירה"
   },
   "common": {
     "continue": "המשך",
@@ -107,5 +109,37 @@
     "usedIncorrectly": "דורש עבודה",
     "quota": "ניצלת את 3 התרגולים של היום. חזור מחר!",
     "unavailable": "המאמן אינו זמין כרגע — החזרות שלך עדיין עובדות."
+  },
+  "dictionary": {
+    "title": "מילון",
+    "searchPlaceholder": "חיפוש מילים…",
+    "empty": "אין מילים שתואמות לחיפוש.",
+    "count_one": "מילה אחת",
+    "count_two": "{{count}} מילים",
+    "count_other": "{{count}} מילים"
+  },
+  "admin": {
+    "dictionary": "סקירת מילים",
+    "progress": "{{reviewed}} / {{total}} נסקרו",
+    "stateUnreviewed": "לא נסקר",
+    "stateReviewed": "נסקר",
+    "statePending": "ממתין",
+    "edit": "עריכה",
+    "saveDraft": "שמור טיוטה",
+    "markReviewed": "סמן כנבדק",
+    "flagDelete": "סמן למחיקה",
+    "addWord": "הוסף מילה",
+    "note": "הערה לגורם המאשר",
+    "cancel": "ביטול",
+    "queue": "עריכות ממתינות",
+    "approve": "אשר",
+    "reject": "דחה",
+    "noPending": "אין מה לאשר.",
+    "changeCreate": "מילה חדשה",
+    "changeDelete": "מחיקה",
+    "changeUpdate": "עריכה",
+    "alreadyPending": "למילה הזו כבר יש עריכה שממתינה לאישור.",
+    "actionFailed": "הפעולה נכשלה: {{message}}",
+    "dismiss": "סגור"
   }
 }

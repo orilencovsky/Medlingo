@@ -3,7 +3,9 @@
   "nav": {
     "home": "Accueil",
     "review": "Révision",
-    "drill": "Exercice"
+    "drill": "Exercice",
+    "dictionary": "Dictionnaire",
+    "dictionaryAdmin": "Révision"
   },
   "common": {
     "continue": "Continuer",
@@ -90,5 +92,36 @@
     "reportSubmit": "Envoyer le signalement",
     "reportSent": "Merci, votre signalement a été reçu.",
     "reportError": "Impossible d'envoyer le signalement. Réessayez."
+  },
+  "dictionary": {
+    "title": "Dictionnaire",
+    "searchPlaceholder": "Rechercher des mots…",
+    "empty": "Aucun mot ne correspond à votre recherche.",
+    "count_one": "{{count}} mot",
+    "count_other": "{{count}} mots"
+  },
+  "admin": {
+    "dictionary": "Révision des mots",
+    "progress": "{{reviewed}} / {{total}} révisés",
+    "stateUnreviewed": "Non révisé",
+    "stateReviewed": "Révisé",
+    "statePending": "En attente",
+    "edit": "Modifier",
+    "saveDraft": "Enregistrer le brouillon",
+    "markReviewed": "Marquer comme révisé",
+    "flagDelete": "Signaler pour suppression",
+    "addWord": "Ajouter un mot",
+    "note": "Note pour l'approbateur",
+    "cancel": "Annuler",
+    "queue": "Modifications en attente",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "noPending": "Aucune modification en attente.",
+    "changeCreate": "Nouveau mot",
+    "changeDelete": "Suppression",
+    "changeUpdate": "Modification",
+    "alreadyPending": "Ce mot a déjà une modification en attente de décision.",
+    "actionFailed": "Échec de l'action : {{message}}",
+    "dismiss": "Fermer"
   }
 }

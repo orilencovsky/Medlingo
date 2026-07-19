@@ -3,7 +3,9 @@
   "nav": {
     "home": "الرئيسية",
     "review": "مراجعة",
-    "drill": "تدريب"
+    "drill": "تدريب",
+    "dictionary": "القاموس",
+    "dictionaryAdmin": "مراجعة"
   },
   "common": {
     "continue": "متابعة",
@@ -102,5 +104,40 @@
     "reportSubmit": "إرسال البلاغ",
     "reportSent": "شكرًا، تم استلام بلاغك.",
     "reportError": "تعذّر إرسال البلاغ. حاول مرة أخرى."
+  },
+  "dictionary": {
+    "title": "القاموس",
+    "searchPlaceholder": "ابحث عن كلمات…",
+    "empty": "لا توجد كلمات تطابق بحثك.",
+    "count_zero": "{{count}} كلمة",
+    "count_one": "كلمة واحدة",
+    "count_two": "كلمتان",
+    "count_few": "{{count}} كلمات",
+    "count_many": "{{count}} كلمة",
+    "count_other": "{{count}} كلمة"
+  },
+  "admin": {
+    "dictionary": "مراجعة الكلمات",
+    "progress": "{{reviewed}} / {{total}} تمت مراجعتها",
+    "stateUnreviewed": "غير مُراجَعة",
+    "stateReviewed": "تمت المراجعة",
+    "statePending": "قيد الانتظار",
+    "edit": "تعديل",
+    "saveDraft": "حفظ المسودة",
+    "markReviewed": "وضع علامة \"تمت المراجعة\"",
+    "flagDelete": "وضع علامة للحذف",
+    "addWord": "إضافة كلمة",
+    "note": "ملاحظة للمُعتمِد",
+    "cancel": "إلغاء",
+    "queue": "تعديلات معلّقة",
+    "approve": "قبول",
+    "reject": "رفض",
+    "noPending": "لا يوجد ما يحتاج إلى مراجعة.",
+    "changeCreate": "كلمة جديدة",
+    "changeDelete": "حذف",
+    "changeUpdate": "تعديل",
+    "alreadyPending": "لهذه الكلمة تعديل معلّق بالفعل بانتظار القرار.",
+    "actionFailed": "فشل الإجراء: {{message}}",
+    "dismiss": "إغلاق"
   }
 }

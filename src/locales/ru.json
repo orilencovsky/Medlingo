@@ -3,7 +3,9 @@
   "nav": {
     "home": "Главная",
     "review": "Повторение",
-    "drill": "Тренировка"
+    "drill": "Тренировка",
+    "dictionary": "Словарь",
+    "dictionaryAdmin": "Проверка"
   },
   "common": {
     "continue": "Продолжить",
@@ -96,5 +98,38 @@
     "reportSubmit": "Отправить",
     "reportSent": "Спасибо, мы получили ваше сообщение.",
     "reportError": "Не удалось отправить сообщение. Попробуйте снова."
+  },
+  "dictionary": {
+    "title": "Словарь",
+    "searchPlaceholder": "Поиск слов…",
+    "empty": "Нет слов, соответствующих запросу.",
+    "count_one": "{{count}} слово",
+    "count_few": "{{count}} слова",
+    "count_many": "{{count}} слов",
+    "count_other": "{{count}} слова"
+  },
+  "admin": {
+    "dictionary": "Проверка слов",
+    "progress": "{{reviewed}} / {{total}} проверено",
+    "stateUnreviewed": "Не проверено",
+    "stateReviewed": "Проверено",
+    "statePending": "Ожидает",
+    "edit": "Изменить",
+    "saveDraft": "Сохранить черновик",
+    "markReviewed": "Отметить как проверенное",
+    "flagDelete": "Отметить на удаление",
+    "addWord": "Добавить слово",
+    "note": "Примечание для утверждающего",
+    "cancel": "Отмена",
+    "queue": "Ожидающие правки",
+    "approve": "Одобрить",
+    "reject": "Отклонить",
+    "noPending": "Нечего проверять.",
+    "changeCreate": "Новое слово",
+    "changeDelete": "Удаление",
+    "changeUpdate": "Правка",
+    "alreadyPending": "У этого слова уже есть правка, ожидающая решения.",
+    "actionFailed": "Действие не выполнено: {{message}}",
+    "dismiss": "Закрыть"
   }
 }

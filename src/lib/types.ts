@@ -3,6 +3,7 @@ export interface Profile {
   displayName: string;
   uiLanguage: string;
   isAdmin: boolean;
+  canApprove: boolean;
   streakCurrent: number;
   streakLongest: number;
   lastActiveDate: string | null; // 'YYYY-MM-DD'
@@ -64,3 +65,29 @@ export interface CardState {
 }
 
 export interface ReviewCard { card: CardState; entry: DictionaryEntry; contextSentences: ContextSentence[]; }
+
+export type ReviewState = 'unreviewed' | 'reviewed' | 'edit_pending';
+
+export interface AdminEntry extends DictionaryEntry {
+  reviewState: ReviewState;
+  reviewPriority: number;
+  isDeprecated: boolean;
+}
+
+export interface EntryPayload {
+  id?: string;
+  hebrew: string; hebrew_nikud: string; part_of_speech: PartOfSpeech;
+  level: number; gender: string | null; plural: string | null; root: string | null;
+  everyday_synonym: string | null; translations: Translations; notes: string | null;
+  category: string | null;
+}
+
+export interface EntryEdit {
+  id: string;
+  entryId: string | null;
+  changeType: 'create' | 'update' | 'delete';
+  payload: EntryPayload;
+  editorNote: string | null;
+  status: 'pending' | 'approved' | 'rejected';
+  createdAt: string;
+}
