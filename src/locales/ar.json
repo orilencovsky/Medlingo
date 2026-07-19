@@ -107,6 +107,7 @@
   },
   "dictionary": {
     "title": "القاموس",
+    "allWords": "كل الكلمات",
     "searchPlaceholder": "ابحث عن كلمات…",
     "empty": "لا توجد كلمات تطابق بحثك.",
     "count_zero": "{{count}} كلمة",

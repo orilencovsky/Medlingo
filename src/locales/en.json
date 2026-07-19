@@ -109,6 +109,7 @@
   },
   "dictionary": {
     "title": "Dictionary",
+    "allWords": "All words",
     "searchPlaceholder": "Search words…",
     "empty": "No words match your search.",
     "count_one": "{{count}} word",

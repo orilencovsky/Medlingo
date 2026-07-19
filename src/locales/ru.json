@@ -101,6 +101,7 @@
   },
   "dictionary": {
     "title": "Словарь",
+    "allWords": "Все слова",
     "searchPlaceholder": "Поиск слов…",
     "empty": "Нет слов, соответствующих запросу.",
     "count_one": "{{count}} слово",

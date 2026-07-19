@@ -112,6 +112,7 @@
   },
   "dictionary": {
     "title": "מילון",
+    "allWords": "כל המילים",
     "searchPlaceholder": "חיפוש מילים…",
     "empty": "אין מילים שתואמות לחיפוש.",
     "count_one": "מילה אחת",
