@@ -78,6 +78,40 @@ async function main() {
     metricsErr !== null || (metricsRows ?? []).length === 0,
   );
 
+  // deprecated rows are hidden from non-admin learners
+  await admin.from('dictionary_entries')
+    .update({ is_deprecated: true }).eq('id', sampleEntryId!);
+  const { data: depRows } = await user.from('dictionary_entries')
+    .select('id').eq('id', sampleEntryId!);
+  check('non-admin cannot read deprecated entries', (depRows ?? []).length === 0);
+  await admin.from('dictionary_entries')
+    .update({ is_deprecated: false }).eq('id', sampleEntryId!);
+
+  // non-admin cannot insert an entry_edit
+  const { error: editErr } = await user.from('entry_edits').insert({
+    entry_id: sampleEntryId!, change_type: 'update', payload: {}, editor_id: userId!,
+  });
+  check('non-admin cannot stage an entry_edit', editErr !== null);
+
+  // non-approver cannot run apply_entry_edit
+  const { error: rpcErr } = await user.rpc('apply_entry_edit', {
+    edit_id: '00000000-0000-0000-0000-000000000000', decision: 'approved',
+  });
+  check('non-approver cannot call apply_entry_edit', rpcErr !== null);
+
+  // a reviewer (or any non-approver) cannot bypass moderation with a direct content update.
+  // NOTE: this asserts the guard_entry_content trigger fires. `user` here is a plain
+  // learner; to exercise the reviewer path, temporarily set is_admin=true on this test
+  // user (admin client) so the update reaches the trigger rather than RLS.
+  await admin.from('profiles').update({ is_admin: true }).eq('user_id', userId!);
+  const { error: contentErr } = await user.from('dictionary_entries')
+    .update({ hebrew: 'TAMPERED' }).eq('id', sampleEntryId!);
+  const { data: afterEntry } = await admin.from('dictionary_entries')
+    .select('hebrew').eq('id', sampleEntryId!).single();
+  check('reviewer cannot directly edit content columns',
+    contentErr !== null || afterEntry?.hebrew !== 'TAMPERED');
+  await admin.from('profiles').update({ is_admin: false }).eq('user_id', userId!);
+
   // cleanup
   await admin.from('units').delete().eq('slug', 'rls-draft-unit');
   await admin.from('review_logs').delete().eq('id', seededLog.id);
