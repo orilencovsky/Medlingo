@@ -1,14 +1,20 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { Tag } from 'lucide-react';
 import { fetchDictionary, filterEntries } from '../data/dictionary';
 import { PageHeader } from '../components/ui/PageHeader';
 import { He } from '../components/He';
-import { isTopic } from '../lib/topics';
+import { isTopic, type Topic } from '../lib/topics';
+import { topicIcon } from '../lib/topicIcons';
 import type { DictionaryEntry } from '../lib/types';
 
 interface TopicGroup { slug: string; label: string; items: DictionaryEntry[]; }
 const MISC = '__misc__';
+
+function groupIcon(slug: string) {
+  return slug === MISC ? Tag : topicIcon(slug as Topic);
+}
 
 function EntryRow({ entry: e }: { entry: DictionaryEntry }) {
   return (
@@ -79,16 +85,20 @@ export function TopicPage() {
         : shown.length === 0 ? <p className="mt-6 text-ink-muted">{t('dictionary.empty')}</p>
         : groups ? (
         <ul className="mt-4">
-          {groups.map((g) => (
-            <li key={g.slug}>
-              <div className="sticky top-0 z-10 bg-bg px-1 py-2 text-xs font-bold uppercase tracking-wide text-ink-muted border-b border-border">
-                {g.label}
-              </div>
-              <ul className="divide-y divide-border">
-                {g.items.map((e) => <EntryRow key={e.id} entry={e} />)}
-              </ul>
-            </li>
-          ))}
+          {groups.map((g) => {
+            const Icon = groupIcon(g.slug);
+            return (
+              <li key={g.slug}>
+                <div className="sticky top-0 z-10 flex items-center gap-2 bg-primary-tint px-3 py-2 text-sm font-bold uppercase tracking-wide text-primary">
+                  <Icon className="size-4" />
+                  {g.label}
+                </div>
+                <ul className="divide-y divide-border">
+                  {g.items.map((e) => <EntryRow key={e.id} entry={e} />)}
+                </ul>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <ul className="mt-4 divide-y divide-border">
