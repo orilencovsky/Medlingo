@@ -129,7 +129,9 @@
   "anatomy": {
     "title": "Anatomy",
     "regionAll": "All",
-    "empty": "No anatomy terms ready yet."
+    "empty": "No anatomy terms ready yet.",
+    "close": "Close",
+    "wordMissing": "This word isn't available."
   },
   "regions": {
     "head_neck": "Head & neck", "chest": "Chest", "abdomen": "Abdomen",

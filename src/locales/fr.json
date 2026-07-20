@@ -115,7 +115,9 @@
   "anatomy": {
     "title": "Anatomie",
     "regionAll": "Tout",
-    "empty": "Aucun terme d'anatomie prêt pour l'instant."
+    "empty": "Aucun terme d'anatomie prêt pour l'instant.",
+    "close": "Fermer",
+    "wordMissing": "Ce mot n'est pas disponible."
   },
   "regions": {
     "head_neck": "Tête et cou", "chest": "Thorax", "abdomen": "Abdomen",
