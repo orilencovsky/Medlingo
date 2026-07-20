@@ -121,7 +121,9 @@
     "rootCrumb": "Corps",
     "breadcrumbLabel": "Emplacement anatomique",
     "openThisCard": "Ouvrir ce mot",
-    "explorerUnavailable": "La figure interactive n'est pas disponible pour le moment."
+    "explorerUnavailable": "La figure interactive n'est pas disponible pour le moment.",
+    "viewBrowse": "Parcourir",
+    "viewExplore": "Explorer"
   },
   "regions": {
     "head_neck": "Tête et cou", "chest": "Thorax", "abdomen": "Abdomen",

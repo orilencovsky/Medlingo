@@ -129,7 +129,9 @@
     "rootCrumb": "Тело",
     "breadcrumbLabel": "Анатомическое расположение",
     "openThisCard": "Открыть это слово",
-    "explorerUnavailable": "Интерактивная фигура сейчас недоступна."
+    "explorerUnavailable": "Интерактивная фигура сейчас недоступна.",
+    "viewBrowse": "Обзор",
+    "viewExplore": "Исследовать"
   },
   "regions": {
     "head_neck": "Голова и шея", "chest": "Грудь", "abdomen": "Живот",

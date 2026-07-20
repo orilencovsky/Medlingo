@@ -135,7 +135,9 @@
     "rootCrumb": "Body",
     "breadcrumbLabel": "Anatomy location",
     "openThisCard": "Open this word",
-    "explorerUnavailable": "The interactive figure isn't available right now."
+    "explorerUnavailable": "The interactive figure isn't available right now.",
+    "viewBrowse": "Browse",
+    "viewExplore": "Explore"
   },
   "regions": {
     "head_neck": "Head & neck", "chest": "Chest", "abdomen": "Abdomen",

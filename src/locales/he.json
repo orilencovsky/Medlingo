@@ -139,7 +139,9 @@
     "rootCrumb": "גוף",
     "breadcrumbLabel": "מיקום אנטומי",
     "openThisCard": "פתח מילה זו",
-    "explorerUnavailable": "האיור האינטראקטיבי אינו זמין כרגע."
+    "explorerUnavailable": "האיור האינטראקטיבי אינו זמין כרגע.",
+    "viewBrowse": "עיון",
+    "viewExplore": "חקור"
   },
   "regions": {
     "head_neck": "ראש וצוואר", "chest": "בית חזה", "abdomen": "בטן",

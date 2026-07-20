@@ -137,7 +137,9 @@
     "rootCrumb": "الجسم",
     "breadcrumbLabel": "الموقع التشريحي",
     "openThisCard": "افتح هذه الكلمة",
-    "explorerUnavailable": "الشكل التفاعلي غير متوفر حاليًا."
+    "explorerUnavailable": "الشكل التفاعلي غير متوفر حاليًا.",
+    "viewBrowse": "تصفح",
+    "viewExplore": "استكشف"
   },
   "regions": {
     "head_neck": "الرأس والرقبة", "chest": "الصدر", "abdomen": "البطن",
