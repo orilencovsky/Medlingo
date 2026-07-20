@@ -161,7 +161,10 @@ async function main() {
 
   const { error: termWriteErr } = await user.from('anatomy_terms')
     .update({ region: 'abdomen' }).eq('entry_id', sampleEntryId!);
-  check('non-admin cannot write anatomy_terms', termWriteErr !== null);
+  const { data: afterTerm } = await admin.from('anatomy_terms')
+    .select('region').eq('entry_id', sampleEntryId!).single();
+  check('non-admin cannot write anatomy_terms',
+    termWriteErr !== null || afterTerm?.region !== 'abdomen');
 
   const { error: primaryRpcErr } = await user.rpc('set_primary_anatomy_image', { image_id: imgRow.id });
   check('non-admin cannot call set_primary_anatomy_image', primaryRpcErr !== null);
