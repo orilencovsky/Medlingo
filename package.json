@@ -15,7 +15,8 @@
     "export:content": "tsx scripts/export-content.ts",
     "metrics": "tsx scripts/metrics.ts",
     "verify:rls": "tsx scripts/verify-rls.ts",
-    "suggest:topics": "tsx scripts/suggest-topics.ts"
+    "suggest:topics": "tsx scripts/suggest-topics.ts",
+    "generate:anatomy-images": "tsx scripts/generate-anatomy-images.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.2",
