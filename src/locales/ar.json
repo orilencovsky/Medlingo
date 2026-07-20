@@ -5,7 +5,9 @@
     "review": "مراجعة",
     "drill": "تدريب",
     "dictionary": "القاموس",
-    "dictionaryAdmin": "مراجعة"
+    "dictionaryAdmin": "مراجعة",
+    "anatomy": "التشريح",
+    "anatomyAdmin": "إدارة التشريح"
   },
   "common": {
     "continue": "متابعة",
@@ -126,6 +128,21 @@
     "lab_imaging": "المختبر والتصوير", "emergency": "الطوارئ والإصابات", "mental_health": "الصحة النفسية",
     "obgyn": "أمراض النساء والتوليد", "pediatrics": "طب الأطفال", "infectious": "الأمراض المعدية", "general": "عام وإداري"
   },
+  "anatomy": {
+    "title": "التشريح",
+    "regionAll": "الكل",
+    "empty": "لا توجد مصطلحات تشريح جاهزة بعد."
+  },
+  "regions": {
+    "head_neck": "الرأس والرقبة", "chest": "الصدر", "abdomen": "البطن",
+    "limbs": "الأطراف", "skeleton": "الهيكل العظمي"
+  },
+  "systems": {
+    "cardiovascular": "القلب والأوعية الدموية", "respiratory": "الجهاز التنفسي",
+    "gastrointestinal": "الجهاز الهضمي", "musculoskeletal": "العضلي الهيكلي",
+    "nervous": "الجهاز العصبي", "genitourinary": "البولي التناسلي", "endocrine": "الغدد الصماء",
+    "integumentary": "الجلد", "lymphatic": "الجهاز اللمفاوي"
+  },
   "admin": {
     "dictionary": "مراجعة الكلمات",
     "progress": "{{reviewed}} / {{total}} تمت مراجعتها",
@@ -151,6 +168,16 @@
     "changeUpdate": "تعديل",
     "alreadyPending": "لهذه الكلمة تعديل معلّق بالفعل بانتظار القرار.",
     "actionFailed": "فشل الإجراء: {{message}}",
-    "dismiss": "إغلاق"
+    "dismiss": "إغلاق",
+    "anatomyCoverage": "{{ready}} / {{total}} جاهزة للنشر",
+    "anatomyRegionLabel": "المنطقة",
+    "anatomySystemLabel": "الجهاز",
+    "anatomyNoRegion": "— بلا منطقة —",
+    "anatomyNoSystem": "— بلا جهاز —",
+    "anatomySetPrimary": "تعيين كصورة رئيسية",
+    "anatomyPrimary": "رئيسية",
+    "anatomyCurated": "منسقة",
+    "anatomyAi": "AI",
+    "anatomyNoImages": "لا توجد صور مرشحة بعد."
   }
 }

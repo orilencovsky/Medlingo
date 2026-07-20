@@ -5,7 +5,9 @@
     "review": "חזרה",
     "drill": "תרגול",
     "dictionary": "מילון",
-    "dictionaryAdmin": "סקירה"
+    "dictionaryAdmin": "סקירה",
+    "anatomy": "אנטומיה",
+    "anatomyAdmin": "ניהול אנטומיה"
   },
   "common": {
     "continue": "המשך",
@@ -128,6 +130,21 @@
     "lab_imaging": "מעבדה והדמיה", "emergency": "מיון וטראומה", "mental_health": "בריאות הנפש",
     "obgyn": "נשים ויולדות", "pediatrics": "ילדים", "infectious": "מחלות זיהומיות", "general": "כללי ואדמיניסטרציה"
   },
+  "anatomy": {
+    "title": "אנטומיה",
+    "regionAll": "הכל",
+    "empty": "עדיין אין מונחי אנטומיה מוכנים."
+  },
+  "regions": {
+    "head_neck": "ראש וצוואר", "chest": "בית חזה", "abdomen": "בטן",
+    "limbs": "גפיים", "skeleton": "שלד"
+  },
+  "systems": {
+    "cardiovascular": "לב וכלי דם", "respiratory": "נשימה",
+    "gastrointestinal": "מערכת העיכול", "musculoskeletal": "שרירים ושלד",
+    "nervous": "עצבים", "genitourinary": "מערכת השתן והמין", "endocrine": "אנדוקרינית",
+    "integumentary": "עור", "lymphatic": "לימפה"
+  },
   "admin": {
     "dictionary": "סקירת מילים",
     "progress": "{{reviewed}} / {{total}} נסקרו",
@@ -153,6 +170,16 @@
     "changeUpdate": "עריכה",
     "alreadyPending": "למילה הזו כבר יש עריכה שממתינה לאישור.",
     "actionFailed": "הפעולה נכשלה: {{message}}",
-    "dismiss": "סגור"
+    "dismiss": "סגור",
+    "anatomyCoverage": "{{ready}} / {{total}} מוכנות לפרסום",
+    "anatomyRegionLabel": "אזור",
+    "anatomySystemLabel": "מערכת",
+    "anatomyNoRegion": "— ללא אזור —",
+    "anatomyNoSystem": "— ללא מערכת —",
+    "anatomySetPrimary": "קבע כתמונה ראשית",
+    "anatomyPrimary": "ראשית",
+    "anatomyCurated": "אוצרת",
+    "anatomyAi": "AI",
+    "anatomyNoImages": "אין עדיין תמונות מועמדות."
   }
 }

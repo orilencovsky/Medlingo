@@ -5,7 +5,9 @@
     "review": "Повторение",
     "drill": "Тренировка",
     "dictionary": "Словарь",
-    "dictionaryAdmin": "Проверка"
+    "dictionaryAdmin": "Проверка",
+    "anatomy": "Анатомия",
+    "anatomyAdmin": "Управление анатомией"
   },
   "common": {
     "continue": "Продолжить",
@@ -118,6 +120,21 @@
     "lab_imaging": "Лаборатория и визуализация", "emergency": "Неотложная помощь и травмы", "mental_health": "Психическое здоровье",
     "obgyn": "Гинекология / акушерство", "pediatrics": "Педиатрия", "infectious": "Инфекционные болезни", "general": "Общее и административное"
   },
+  "anatomy": {
+    "title": "Анатомия",
+    "regionAll": "Все",
+    "empty": "Пока нет готовых анатомических терминов."
+  },
+  "regions": {
+    "head_neck": "Голова и шея", "chest": "Грудь", "abdomen": "Живот",
+    "limbs": "Конечности", "skeleton": "Скелет"
+  },
+  "systems": {
+    "cardiovascular": "Сердечно-сосудистая", "respiratory": "Дыхательная",
+    "gastrointestinal": "Пищеварительная", "musculoskeletal": "Опорно-двигательная",
+    "nervous": "Нервная", "genitourinary": "Мочеполовая", "endocrine": "Эндокринная",
+    "integumentary": "Кожа", "lymphatic": "Лимфатическая"
+  },
   "admin": {
     "dictionary": "Проверка слов",
     "progress": "{{reviewed}} / {{total}} проверено",
@@ -143,6 +160,16 @@
     "changeUpdate": "Правка",
     "alreadyPending": "У этого слова уже есть правка, ожидающая решения.",
     "actionFailed": "Действие не выполнено: {{message}}",
-    "dismiss": "Закрыть"
+    "dismiss": "Закрыть",
+    "anatomyCoverage": "{{ready}} / {{total}} готово к публикации",
+    "anatomyRegionLabel": "Область",
+    "anatomySystemLabel": "Система",
+    "anatomyNoRegion": "— без области —",
+    "anatomyNoSystem": "— без системы —",
+    "anatomySetPrimary": "Сделать основной",
+    "anatomyPrimary": "Основная",
+    "anatomyCurated": "Отобрано",
+    "anatomyAi": "ИИ",
+    "anatomyNoImages": "Пока нет вариантов изображений."
   }
 }
