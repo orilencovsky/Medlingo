@@ -14,6 +14,13 @@ const WORD = (imageUrl: string | null) => ({
   imageUrl, imageCredit: imageUrl ? 'Gray' : null,
 });
 
+const WORD_LUNG = {
+  entry: { id: 'lung', hebrew: 'ריאה', hebrewNikud: 'רֵאָה', partOfSpeech: 'noun', level: 1, gender: 'נ',
+    plural: null, root: null, everydaySynonym: null, notes: null, translations: { en: 'lung' },
+    category: null, topic: 'anatomy' },
+  imageUrl: null, imageCredit: null,
+};
+
 describe('WordDetailCard', () => {
   it('shows the word fields and image when a primary image exists', async () => {
     fetchAnatomyWord.mockResolvedValueOnce(WORD('https://cdn.test/heart.png'));
@@ -37,5 +44,30 @@ describe('WordDetailCard', () => {
     await screen.findByText('heart');
     await userEvent.click(screen.getByRole('button', { name: /close|סגור|إغلاق|закрыть|fermer/i }));
     expect(onClose).toHaveBeenCalled();
+  });
+
+  it('stops loading and shows the wordMissing text when the fetch rejects', async () => {
+    fetchAnatomyWord.mockRejectedValueOnce(new Error('network down'));
+    render(<WordDetailCard entryId="heart" onClose={() => {}} />);
+    expect(await screen.findByText("This word isn't available.")).toBeInTheDocument();
+    expect(screen.queryByText('Loading…')).not.toBeInTheDocument();
+  });
+
+  it('does not show the previous word while reloading for a new entryId', async () => {
+    fetchAnatomyWord.mockResolvedValueOnce(WORD(null));
+    const { rerender } = render(<WordDetailCard entryId="heart" onClose={() => {}} />);
+    expect(await screen.findByText('heart')).toBeInTheDocument();
+
+    let resolveLung!: (value: typeof WORD_LUNG) => void;
+    fetchAnatomyWord.mockImplementationOnce(() => new Promise((resolve) => { resolveLung = resolve; }));
+    rerender(<WordDetailCard entryId="lung" onClose={() => {}} />);
+
+    // Stale title from the previous word must not linger during the reload.
+    expect(screen.queryByText('heart')).not.toBeInTheDocument();
+    expect(screen.queryByText('לֵב')).not.toBeInTheDocument();
+
+    resolveLung(WORD_LUNG);
+    expect(await screen.findByText('lung')).toBeInTheDocument();
+    expect(screen.getByText('רֵאָה')).toBeInTheDocument();
   });
 });

@@ -13,8 +13,11 @@ export function WordDetailCard({ entryId, onClose }: { entryId: string; onClose:
 
   useEffect(() => {
     let live = true;
+    setWord(null);
     setLoading(true);
-    fetchAnatomyWord(entryId).then((w) => { if (live) { setWord(w); setLoading(false); } });
+    fetchAnatomyWord(entryId)
+      .then((w) => { if (live) { setWord(w); setLoading(false); } })
+      .catch(() => { if (live) { setWord(null); setLoading(false); } });
     return () => { live = false; };
   }, [entryId]);
 
