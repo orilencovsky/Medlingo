@@ -5,7 +5,9 @@
     "review": "Révision",
     "drill": "Exercice",
     "dictionary": "Dictionnaire",
-    "dictionaryAdmin": "Révision"
+    "dictionaryAdmin": "Révision",
+    "anatomy": "Anatomie",
+    "anatomyAdmin": "Administration anatomie"
   },
   "common": {
     "continue": "Continuer",
@@ -110,6 +112,21 @@
     "lab_imaging": "Labo et imagerie", "emergency": "Urgences et traumatologie", "mental_health": "Santé mentale",
     "obgyn": "Gynéco-obstétrique", "pediatrics": "Pédiatrie", "infectious": "Maladies infectieuses", "general": "Général et administratif"
   },
+  "anatomy": {
+    "title": "Anatomie",
+    "regionAll": "Tout",
+    "empty": "Aucun terme d'anatomie prêt pour l'instant."
+  },
+  "regions": {
+    "head_neck": "Tête et cou", "chest": "Thorax", "abdomen": "Abdomen",
+    "limbs": "Membres", "skeleton": "Squelette"
+  },
+  "systems": {
+    "cardiovascular": "Cardiovasculaire", "respiratory": "Respiratoire",
+    "gastrointestinal": "Digestif", "musculoskeletal": "Musculo-squelettique",
+    "nervous": "Nerveux", "genitourinary": "Génito-urinaire", "endocrine": "Endocrinien",
+    "integumentary": "Peau", "lymphatic": "Lymphatique"
+  },
   "admin": {
     "dictionary": "Révision des mots",
     "progress": "{{reviewed}} / {{total}} révisés",
@@ -135,6 +152,16 @@
     "changeUpdate": "Modification",
     "alreadyPending": "Ce mot a déjà une modification en attente de décision.",
     "actionFailed": "Échec de l'action : {{message}}",
-    "dismiss": "Fermer"
+    "dismiss": "Fermer",
+    "anatomyCoverage": "{{ready}} / {{total}} prêts à publier",
+    "anatomyRegionLabel": "Région",
+    "anatomySystemLabel": "Système",
+    "anatomyNoRegion": "— aucune région —",
+    "anatomyNoSystem": "— aucun système —",
+    "anatomySetPrimary": "Définir comme principale",
+    "anatomyPrimary": "Principale",
+    "anatomyCurated": "Sélectionnée",
+    "anatomyAi": "IA",
+    "anatomyNoImages": "Aucune image candidate pour l'instant."
   }
 }

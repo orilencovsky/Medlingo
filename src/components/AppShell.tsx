@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { Home, Clock, Stethoscope, Library, ClipboardCheck } from 'lucide-react';
+import { Home, Clock, Stethoscope, Library, ClipboardCheck, PersonStanding } from 'lucide-react';
 import { drillEnabled } from '../lib/flags';
 import { getProfile } from '../data/profile';
 
@@ -29,10 +29,20 @@ export function AppShell() {
           <Library className="size-4" />
           {t('nav.dictionary')}
         </NavLink>
+        <NavLink to="/anatomy" className={NAV_ITEM_CLASSES}>
+          <PersonStanding className="size-4" />
+          {t('nav.anatomy')}
+        </NavLink>
         {isAdmin && (
           <NavLink to="/admin/dictionary" className={NAV_ITEM_CLASSES}>
             <ClipboardCheck className="size-4" />
             {t('nav.dictionaryAdmin')}
+          </NavLink>
+        )}
+        {isAdmin && (
+          <NavLink to="/admin/anatomy" className={NAV_ITEM_CLASSES}>
+            <ClipboardCheck className="size-4" />
+            {t('nav.anatomyAdmin')}
           </NavLink>
         )}
         {drillEnabled() && (

@@ -144,6 +144,53 @@ async function main() {
     .insert({ user_id: userId!, display_name: 'RLS Check' });
   check('profile insert without can_approve succeeds', restoreErr === null);
 
+  // anatomy: tag the sample entry as an anatomy term (admin client, bypasses RLS to seed)
+  await admin.from('dictionary_entries').update({ topic: 'anatomy' }).eq('id', sampleEntryId!);
+  await admin.from('anatomy_terms').upsert({
+    entry_id: sampleEntryId!, region: 'chest', system: 'cardiovascular', display_order: 0,
+  });
+  const { data: imgRow, error: imgSeedErr } = await admin.from('anatomy_images').insert({
+    entry_id: sampleEntryId!, storage_path: 'rls-check/placeholder.png', source: 'curated',
+    credit: 'RLS check fixture', is_primary: false,
+  }).select('id').single();
+  if (imgSeedErr) throw imgSeedErr;
+
+  const { data: termRead, error: termReadErr } = await user.from('anatomy_terms')
+    .select('entry_id').eq('entry_id', sampleEntryId!);
+  check('signed-in user can read anatomy_terms', termReadErr === null && (termRead ?? []).length === 1);
+
+  const { error: termWriteErr } = await user.from('anatomy_terms')
+    .update({ region: 'abdomen' }).eq('entry_id', sampleEntryId!);
+  const { data: afterTerm } = await admin.from('anatomy_terms')
+    .select('region').eq('entry_id', sampleEntryId!).single();
+  check('non-admin cannot write anatomy_terms',
+    termWriteErr !== null || afterTerm?.region !== 'abdomen');
+
+  const { error: primaryRpcErr } = await user.rpc('set_primary_anatomy_image', { image_id: imgRow.id });
+  check('non-admin cannot call set_primary_anatomy_image', primaryRpcErr !== null);
+
+  await admin.from('profiles').update({ is_admin: true }).eq('user_id', userId!);
+  const { error: primaryAdminErr } = await user.rpc('set_primary_anatomy_image', { image_id: imgRow.id });
+  const { data: afterPrimary } = await admin.from('anatomy_images')
+    .select('is_primary').eq('id', imgRow.id).single();
+  check('admin can set a primary anatomy image via RPC',
+    primaryAdminErr === null && afterPrimary?.is_primary === true);
+  await admin.from('profiles').update({ is_admin: false }).eq('user_id', userId!);
+
+  const { error: secondPrimaryErr } = await admin.from('anatomy_images').insert({
+    entry_id: sampleEntryId!, storage_path: 'rls-check/second.png', source: 'ai', is_primary: true,
+  });
+  check('a second is_primary=true row for the same entry is rejected', secondPrimaryErr !== null);
+
+  const { error: uncreditedCuratedErr } = await admin.from('anatomy_images').insert({
+    entry_id: sampleEntryId!, storage_path: 'rls-check/no-credit.png', source: 'curated', credit: null,
+  });
+  check('a curated image without credit is rejected', uncreditedCuratedErr !== null);
+
+  await admin.from('anatomy_images').delete().eq('entry_id', sampleEntryId!);
+  await admin.from('anatomy_terms').delete().eq('entry_id', sampleEntryId!);
+  await admin.from('dictionary_entries').update({ topic: null }).eq('id', sampleEntryId!);
+
   // cleanup
   await admin.from('units').delete().eq('slug', 'rls-draft-unit');
   await admin.from('review_logs').delete().eq('id', seededLog.id);

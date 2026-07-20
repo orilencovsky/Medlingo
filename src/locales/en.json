@@ -5,7 +5,9 @@
     "review": "Review",
     "drill": "Drill",
     "dictionary": "Dictionary",
-    "dictionaryAdmin": "Review"
+    "dictionaryAdmin": "Review",
+    "anatomy": "Anatomy",
+    "anatomyAdmin": "Anatomy admin"
   },
   "common": {
     "continue": "Continue",
@@ -124,6 +126,21 @@
     "lab_imaging": "Lab & imaging", "emergency": "Emergency & trauma", "mental_health": "Mental health",
     "obgyn": "OB / GYN", "pediatrics": "Pediatrics", "infectious": "Infectious disease", "general": "General & admin"
   },
+  "anatomy": {
+    "title": "Anatomy",
+    "regionAll": "All",
+    "empty": "No anatomy terms ready yet."
+  },
+  "regions": {
+    "head_neck": "Head & neck", "chest": "Chest", "abdomen": "Abdomen",
+    "limbs": "Limbs", "skeleton": "Skeleton"
+  },
+  "systems": {
+    "cardiovascular": "Cardiovascular", "respiratory": "Respiratory",
+    "gastrointestinal": "Gastrointestinal", "musculoskeletal": "Musculoskeletal",
+    "nervous": "Nervous", "genitourinary": "Genitourinary", "endocrine": "Endocrine",
+    "integumentary": "Skin", "lymphatic": "Lymphatic"
+  },
   "admin": {
     "dictionary": "Review words",
     "progress": "{{reviewed}} / {{total}} reviewed",
@@ -149,6 +166,16 @@
     "changeUpdate": "Edit",
     "alreadyPending": "This word already has a pending edit awaiting a decision.",
     "actionFailed": "Action failed: {{message}}",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "anatomyCoverage": "{{ready}} / {{total}} publish-ready",
+    "anatomyRegionLabel": "Region",
+    "anatomySystemLabel": "System",
+    "anatomyNoRegion": "— no region —",
+    "anatomyNoSystem": "— no system —",
+    "anatomySetPrimary": "Set primary",
+    "anatomyPrimary": "Primary",
+    "anatomyCurated": "Curated",
+    "anatomyAi": "AI",
+    "anatomyNoImages": "No candidate images yet."
   }
 }
