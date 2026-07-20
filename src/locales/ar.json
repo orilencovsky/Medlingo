@@ -107,6 +107,8 @@
   },
   "dictionary": {
     "title": "القاموس",
+    "allWords": "كل الكلمات",
+    "miscTopic": "متفرقات",
     "searchPlaceholder": "ابحث عن كلمات…",
     "empty": "لا توجد كلمات تطابق بحثك.",
     "count_zero": "{{count}} كلمة",
@@ -116,9 +118,20 @@
     "count_many": "{{count}} كلمة",
     "count_other": "{{count}} كلمة"
   },
+  "topics": {
+    "anatomy": "التشريح", "symptoms": "الأعراض", "cardiology": "أمراض القلب",
+    "respiratory": "الجهاز التنفسي", "gastro": "الجهاز الهضمي / البطن", "neuro": "طب الأعصاب",
+    "msk": "العضلات والعظام", "genitourinary": "الجهاز البولي التناسلي", "endocrine": "الغدد الصماء / الأيض",
+    "dermatology": "الأمراض الجلدية", "medications": "الأدوية", "procedures": "الإجراءات والفحوصات",
+    "lab_imaging": "المختبر والتصوير", "emergency": "الطوارئ والإصابات", "mental_health": "الصحة النفسية",
+    "obgyn": "أمراض النساء والتوليد", "pediatrics": "طب الأطفال", "infectious": "الأمراض المعدية", "general": "عام وإداري"
+  },
   "admin": {
     "dictionary": "مراجعة الكلمات",
     "progress": "{{reviewed}} / {{total}} تمت مراجعتها",
+    "topicCoverage": "{{tagged}} / {{total}} مُصنَّفة",
+    "untagged": "— بدون تصنيف —",
+    "topicLabel": "الموضوع",
     "stateUnreviewed": "غير مُراجَعة",
     "stateReviewed": "تمت المراجعة",
     "statePending": "قيد الانتظار",

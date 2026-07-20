@@ -6,7 +6,7 @@ import type { DictionaryEntry } from '../lib/types';
 function e(id: string, hebrew: string, en: string, synonym: string | null = null): DictionaryEntry {
   return {
     id, hebrew, hebrewNikud: hebrew, partOfSpeech: 'noun', level: 1, gender: null,
-    plural: null, root: null, everydaySynonym: synonym, translations: { en }, notes: null, category: null,
+    plural: null, root: null, everydaySynonym: synonym, translations: { en }, notes: null, category: null, topic: null,
   };
 }
 const pool = [e('a', 'תלונה', 'complaint', 'מה מפריע'), e('b', 'חום', 'fever'), e('c', 'ספסיס', 'sepsis')];

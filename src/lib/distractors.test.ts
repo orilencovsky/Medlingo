@@ -6,7 +6,7 @@ function entry(id: string, level: 1 | 2 | 3, pos: DictionaryEntry['partOfSpeech'
   return {
     id, hebrew: id, hebrewNikud: id, partOfSpeech: pos, level,
     gender: null, plural: null, root: null, everydaySynonym: null,
-    translations: { en }, notes: null, category: null,
+    translations: { en }, notes: null, category: null, topic: null,
   };
 }
 

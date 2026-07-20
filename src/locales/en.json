@@ -109,14 +109,27 @@
   },
   "dictionary": {
     "title": "Dictionary",
+    "allWords": "All words",
+    "miscTopic": "Miscellaneous",
     "searchPlaceholder": "Search words…",
     "empty": "No words match your search.",
     "count_one": "{{count}} word",
     "count_other": "{{count}} words"
   },
+  "topics": {
+    "anatomy": "Anatomy", "symptoms": "Symptoms", "cardiology": "Cardiology",
+    "respiratory": "Respiratory", "gastro": "Gastro / abdomen", "neuro": "Neurology",
+    "msk": "Musculoskeletal", "genitourinary": "Genitourinary", "endocrine": "Endocrine / metabolic",
+    "dermatology": "Dermatology", "medications": "Medications", "procedures": "Procedures & exams",
+    "lab_imaging": "Lab & imaging", "emergency": "Emergency & trauma", "mental_health": "Mental health",
+    "obgyn": "OB / GYN", "pediatrics": "Pediatrics", "infectious": "Infectious disease", "general": "General & admin"
+  },
   "admin": {
     "dictionary": "Review words",
     "progress": "{{reviewed}} / {{total}} reviewed",
+    "topicCoverage": "{{tagged}} / {{total}} tagged",
+    "untagged": "— untagged —",
+    "topicLabel": "Topic",
     "stateUnreviewed": "Unreviewed",
     "stateReviewed": "Reviewed",
     "statePending": "Pending",

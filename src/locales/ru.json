@@ -101,6 +101,8 @@
   },
   "dictionary": {
     "title": "Словарь",
+    "allWords": "Все слова",
+    "miscTopic": "Разное",
     "searchPlaceholder": "Поиск слов…",
     "empty": "Нет слов, соответствующих запросу.",
     "count_one": "{{count}} слово",
@@ -108,9 +110,20 @@
     "count_many": "{{count}} слов",
     "count_other": "{{count}} слова"
   },
+  "topics": {
+    "anatomy": "Анатомия", "symptoms": "Симптомы", "cardiology": "Кардиология",
+    "respiratory": "Дыхательная система", "gastro": "ЖКТ / живот", "neuro": "Неврология",
+    "msk": "Опорно-двигательная система", "genitourinary": "Мочеполовая система", "endocrine": "Эндокринология / обмен веществ",
+    "dermatology": "Дерматология", "medications": "Лекарства", "procedures": "Процедуры и осмотры",
+    "lab_imaging": "Лаборатория и визуализация", "emergency": "Неотложная помощь и травмы", "mental_health": "Психическое здоровье",
+    "obgyn": "Гинекология / акушерство", "pediatrics": "Педиатрия", "infectious": "Инфекционные болезни", "general": "Общее и административное"
+  },
   "admin": {
     "dictionary": "Проверка слов",
     "progress": "{{reviewed}} / {{total}} проверено",
+    "topicCoverage": "{{tagged}} / {{total}} размечено",
+    "untagged": "— без темы —",
+    "topicLabel": "Тема",
     "stateUnreviewed": "Не проверено",
     "stateReviewed": "Проверено",
     "statePending": "Ожидает",

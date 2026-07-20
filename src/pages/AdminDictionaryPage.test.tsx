@@ -8,9 +8,9 @@ import type { AdminEntry, EntryPayload } from '../lib/types';
 const entries: AdminEntry[] = [
   { id: 'a', hebrew: 'תלונה', hebrewNikud: 'תְּלוּנָה', partOfSpeech: 'noun', level: 1, gender: 'נ',
     plural: null, root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null,
-    category: null, reviewState: 'unreviewed', reviewPriority: 1, isDeprecated: false },
+    category: null, topic: null, reviewState: 'unreviewed', reviewPriority: 1, isDeprecated: false },
 ];
-const { saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit, getProfile } =
+const { saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit, setTopic, getProfile } =
   vi.hoisted(() => ({
     saveEditDraft: vi.fn(async (_entryId: string, _payload: EntryPayload, _note: string | null) => {}),
     markReviewed: vi.fn(async (_id: string) => {}),
@@ -18,6 +18,7 @@ const { saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingE
     flagDelete: vi.fn(async (_entryId: string, _note: string | null) => {}),
     fetchPendingEdits: vi.fn(async () => [] as import('../lib/types').EntryEdit[]),
     decideEdit: vi.fn(async (_editId: string, _decision: 'approved' | 'rejected') => {}),
+    setTopic: vi.fn(async (_entryId: string, _topic: import('../lib/topics').Topic | null) => {}),
     // Reviewer console tests don't need approver access; the one owner-view test below opts in per-call.
     getProfile: vi.fn(async (): Promise<{ canApprove: boolean } | null> => null),
   }));
@@ -26,7 +27,7 @@ vi.mock('../data/reviewConsole', () => ({
   entryToPayload: (e: AdminEntry) => ({ id: e.id, hebrew: e.hebrew, hebrew_nikud: e.hebrewNikud,
     part_of_speech: e.partOfSpeech, level: e.level, gender: e.gender, plural: e.plural, root: e.root,
     everyday_synonym: e.everydaySynonym, translations: e.translations, notes: e.notes, category: e.category }),
-  saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit,
+  saveEditDraft, markReviewed, createEntryDraft, flagDelete, fetchPendingEdits, decideEdit, setTopic,
 }));
 vi.mock('../data/profile', () => ({ getProfile }));
 
@@ -39,7 +40,9 @@ describe('AdminDictionaryPage', () => {
     expect(await screen.findByText('תְּלוּנָה')).toBeTruthy();
     // plain hebrew still renders as the secondary line since it differs from the nikud form
     expect(screen.getByText('תלונה')).toBeTruthy();
-    expect(screen.getByText(/0 \/ 1/)).toBeTruthy();
+    expect(screen.getByText(/0 \/ 1 reviewed/)).toBeTruthy();
+    // topic-coverage counter beside the review-progress line (Task 4)
+    expect(screen.getByText(/0 \/ 1 tagged/)).toBeTruthy();
   });
   it('marks a word reviewed', async () => {
     render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
@@ -120,5 +123,20 @@ describe('AdminDictionaryPage', () => {
     await userEvent.click(screen.getByRole('button', { name: /^edit$/i }));
     await userEvent.click(await screen.findByRole('button', { name: /save draft/i }));
     expect(await screen.findByRole('alert')).toHaveTextContent(/already has a pending edit/i);
+  });
+  it('sets a topic directly from the row select', async () => {
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText(/תלונה|חום/);
+    const select = screen.getByLabelText(/topic/i);
+    await userEvent.selectOptions(select, 'cardiology');
+    expect(setTopic).toHaveBeenCalledWith('a', 'cardiology');
+  });
+  it('shows a friendly alert when setTopic fails', async () => {
+    setTopic.mockRejectedValueOnce(new Error('network error'));
+    render(<MemoryRouter><AdminDictionaryPage /></MemoryRouter>);
+    await screen.findByText(/תלונה|חום/);
+    const select = screen.getByLabelText(/topic/i);
+    await userEvent.selectOptions(select, 'cardiology');
+    expect(await screen.findByRole('alert')).toHaveTextContent(/action failed/i);
   });
 });

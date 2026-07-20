@@ -1,15 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import '../lib/i18n';
 import type { DictionaryEntry } from '../lib/types';
 
 const entries: DictionaryEntry[] = [
   { id: 'a', hebrew: 'תלונה', hebrewNikud: 'תְּלוּנָה', partOfSpeech: 'noun', level: 1, gender: 'נ',
-    plural: 'תלונות', root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null, category: null },
+    plural: 'תלונות', root: null, everydaySynonym: null, translations: { en: 'complaint' }, notes: null, category: null, topic: 'cardiology' },
   { id: 'b', hebrew: 'חום', hebrewNikud: 'חוֹם', partOfSpeech: 'noun', level: 1, gender: 'ז',
-    plural: null, root: null, everydaySynonym: null, translations: { en: 'fever' }, notes: null, category: null },
+    plural: null, root: null, everydaySynonym: null, translations: { en: 'fever' }, notes: null, category: null, topic: 'symptoms' },
 ];
 vi.mock('../data/dictionary', () => ({
   fetchDictionary: vi.fn(async () => entries),
@@ -25,20 +24,19 @@ function renderPage() {
 
 describe('DictionaryPage', () => {
   beforeEach(() => vi.clearAllMocks());
-  it('lists fetched words with nikud as the primary heading', async () => {
+  it('renders a card per non-empty topic with counts and links to the topic', async () => {
     renderPage();
-    expect(await screen.findByText('תְּלוּנָה')).toBeTruthy();
-    expect(screen.getByText('חוֹם')).toBeTruthy();
-    expect(screen.getByText('complaint')).toBeTruthy();
-    // plain hebrew still renders as the secondary line since it differs from the nikud form
-    expect(screen.getByText('תלונה')).toBeTruthy();
-    expect(screen.getByText('חום')).toBeTruthy();
+    const card = await screen.findByRole('link', { name: /Cardiology/i });
+    expect(card.getAttribute('href')).toBe('/dictionary/cardiology');
   });
-  it('filters as the user types', async () => {
+  it('always offers an all-words card', async () => {
     renderPage();
-    await screen.findByText('תְּלוּנָה');
-    await userEvent.type(screen.getByRole('searchbox'), 'fever');
-    expect(screen.queryByText('תְּלוּנָה')).toBeNull();
-    expect(screen.getByText('חוֹם')).toBeTruthy();
+    const all = await screen.findByRole('link', { name: /all words/i });
+    expect(all.getAttribute('href')).toBe('/dictionary/all');
+  });
+  it('omits a topic with zero entries from the grid', async () => {
+    renderPage();
+    await screen.findByRole('link', { name: /Cardiology/i });
+    expect(screen.queryByRole('link', { name: /Anatomy/i })).toBeNull();
   });
 });

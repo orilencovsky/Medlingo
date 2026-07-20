@@ -36,6 +36,7 @@ export interface DictionaryEntry {
   translations: Translations;
   notes: string | null;
   category: EntryCategory | null;
+  topic: import('./topics').Topic | null;
 }
 
 export interface ContextSentence { he: string; translations: Translations; }

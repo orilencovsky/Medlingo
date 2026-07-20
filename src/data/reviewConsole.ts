@@ -2,6 +2,7 @@ import { supabase } from '../lib/supabase';
 import { fetchAllRows } from './fetchAll';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type { AdminEntry, EntryEdit, EntryPayload } from '../lib/types';
+import type { Topic } from '../lib/topics';
 
 type AdminEntryRow = EntryRow & { review_state: AdminEntry['reviewState']; review_priority: number; is_deprecated: boolean };
 type EditRow = {
@@ -82,6 +83,14 @@ export async function flagDelete(entryId: string, note: string | null): Promise<
 export async function markReviewed(entryId: string): Promise<void> {
   const { error } = await supabase.from('dictionary_entries')
     .update({ review_state: 'reviewed' }).eq('id', entryId);
+  if (error) throw error;
+}
+
+// Direct write — topic is intentionally NOT routed through entry_edits (see 0012 migration
+// comment): it's a browsing tag, not moderated content, so reviewers set it without a draft.
+export async function setTopic(entryId: string, topic: Topic | null): Promise<void> {
+  const { error } = await supabase.from('dictionary_entries')
+    .update({ topic }).eq('id', entryId);
   if (error) throw error;
 }
 

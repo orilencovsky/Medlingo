@@ -112,15 +112,28 @@
   },
   "dictionary": {
     "title": "מילון",
+    "allWords": "כל המילים",
+    "miscTopic": "שונות",
     "searchPlaceholder": "חיפוש מילים…",
     "empty": "אין מילים שתואמות לחיפוש.",
     "count_one": "מילה אחת",
     "count_two": "{{count}} מילים",
     "count_other": "{{count}} מילים"
   },
+  "topics": {
+    "anatomy": "אנטומיה", "symptoms": "תסמינים", "cardiology": "קרדיולוגיה",
+    "respiratory": "מערכת הנשימה", "gastro": "מערכת העיכול / בטן", "neuro": "נוירולוגיה",
+    "msk": "שרירים ושלד", "genitourinary": "מערכת השתן והמין", "endocrine": "אנדוקרינולוגיה / מטבוליזם",
+    "dermatology": "עור", "medications": "תרופות", "procedures": "הליכים ובדיקות",
+    "lab_imaging": "מעבדה והדמיה", "emergency": "מיון וטראומה", "mental_health": "בריאות הנפש",
+    "obgyn": "נשים ויולדות", "pediatrics": "ילדים", "infectious": "מחלות זיהומיות", "general": "כללי ואדמיניסטרציה"
+  },
   "admin": {
     "dictionary": "סקירת מילים",
     "progress": "{{reviewed}} / {{total}} נסקרו",
+    "topicCoverage": "{{tagged}} / {{total}} מתויגות",
+    "untagged": "— ללא נושא —",
+    "topicLabel": "נושא",
     "stateUnreviewed": "לא נסקר",
     "stateReviewed": "נסקר",
     "statePending": "ממתין",
