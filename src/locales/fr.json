@@ -117,7 +117,11 @@
     "regionAll": "Tout",
     "empty": "Aucun terme d'anatomie prêt pour l'instant.",
     "close": "Fermer",
-    "wordMissing": "Ce mot n'est pas disponible."
+    "wordMissing": "Ce mot n'est pas disponible.",
+    "rootCrumb": "Corps",
+    "breadcrumbLabel": "Emplacement anatomique",
+    "openThisCard": "Ouvrir ce mot",
+    "explorerUnavailable": "La figure interactive n'est pas disponible pour le moment."
   },
   "regions": {
     "head_neck": "Tête et cou", "chest": "Thorax", "abdomen": "Abdomen",

@@ -133,7 +133,11 @@
     "regionAll": "الكل",
     "empty": "لا توجد مصطلحات تشريح جاهزة بعد.",
     "close": "إغلاق",
-    "wordMissing": "هذه الكلمة غير متوفرة."
+    "wordMissing": "هذه الكلمة غير متوفرة.",
+    "rootCrumb": "الجسم",
+    "breadcrumbLabel": "الموقع التشريحي",
+    "openThisCard": "افتح هذه الكلمة",
+    "explorerUnavailable": "الشكل التفاعلي غير متوفر حاليًا."
   },
   "regions": {
     "head_neck": "الرأس والرقبة", "chest": "الصدر", "abdomen": "البطن",

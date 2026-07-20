@@ -131,7 +131,11 @@
     "regionAll": "All",
     "empty": "No anatomy terms ready yet.",
     "close": "Close",
-    "wordMissing": "This word isn't available."
+    "wordMissing": "This word isn't available.",
+    "rootCrumb": "Body",
+    "breadcrumbLabel": "Anatomy location",
+    "openThisCard": "Open this word",
+    "explorerUnavailable": "The interactive figure isn't available right now."
   },
   "regions": {
     "head_neck": "Head & neck", "chest": "Chest", "abdomen": "Abdomen",

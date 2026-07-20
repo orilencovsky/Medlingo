@@ -135,7 +135,11 @@
     "regionAll": "הכל",
     "empty": "עדיין אין מונחי אנטומיה מוכנים.",
     "close": "סגור",
-    "wordMissing": "המילה הזו אינה זמינה."
+    "wordMissing": "המילה הזו אינה זמינה.",
+    "rootCrumb": "גוף",
+    "breadcrumbLabel": "מיקום אנטומי",
+    "openThisCard": "פתח מילה זו",
+    "explorerUnavailable": "האיור האינטראקטיבי אינו זמין כרגע."
   },
   "regions": {
     "head_neck": "ראש וצוואר", "chest": "בית חזה", "abdomen": "בטן",

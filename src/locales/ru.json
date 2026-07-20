@@ -125,7 +125,11 @@
     "regionAll": "Все",
     "empty": "Пока нет готовых анатомических терминов.",
     "close": "Закрыть",
-    "wordMissing": "Это слово недоступно."
+    "wordMissing": "Это слово недоступно.",
+    "rootCrumb": "Тело",
+    "breadcrumbLabel": "Анатомическое расположение",
+    "openThisCard": "Открыть это слово",
+    "explorerUnavailable": "Интерактивная фигура сейчас недоступна."
   },
   "regions": {
     "head_neck": "Голова и шея", "chest": "Грудь", "abdomen": "Живот",
