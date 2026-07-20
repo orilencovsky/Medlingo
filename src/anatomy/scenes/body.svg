@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" role="img" aria-label="Body figure (placeholder)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400">
   <rect x="0" y="0" width="200" height="400" fill="#f1f5f9"/>
   <circle data-node="eye" cx="100" cy="60" r="18" fill="#cbd5e1"/>
   <rect data-node="heart" x="78" y="150" width="44" height="40" rx="6" fill="#cbd5e1"/>

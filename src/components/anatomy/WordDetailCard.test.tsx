@@ -37,6 +37,13 @@ describe('WordDetailCard', () => {
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
+  it('moves focus into the dialog (close button) when it opens', async () => {
+    fetchAnatomyWord.mockResolvedValueOnce(WORD(null));
+    render(<WordDetailCard entryId="heart" onClose={() => {}} />);
+    await screen.findByText('heart');
+    expect(screen.getByRole('button', { name: /close|סגור|إغلاق|закрыть|fermer/i })).toHaveFocus();
+  });
+
   it('calls onClose when the close button is clicked', async () => {
     fetchAnatomyWord.mockResolvedValueOnce(WORD(null));
     const onClose = vi.fn();

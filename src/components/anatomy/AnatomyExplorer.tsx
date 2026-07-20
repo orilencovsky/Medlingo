@@ -18,7 +18,7 @@ export function AnatomyExplorer() {
   const [labels, setLabels] = useState<SceneLabels>({});
   const [openEntryId, setOpenEntryId] = useState<string | null>(null);
 
-  useEffect(() => { fetchSceneLabels(ALL_ENTRY_IDS).then(setLabels); }, []);
+  useEffect(() => { fetchSceneLabels(ALL_ENTRY_IDS).then(setLabels).catch(() => {}); }, []);
 
   const current = stack[stack.length - 1];
   const scene = getScene(current.sceneId);
