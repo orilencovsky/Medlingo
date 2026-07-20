@@ -39,6 +39,12 @@ export function AppShell() {
             {t('nav.dictionaryAdmin')}
           </NavLink>
         )}
+        {isAdmin && (
+          <NavLink to="/admin/anatomy" className={NAV_ITEM_CLASSES}>
+            <ClipboardCheck className="size-4" />
+            {t('nav.anatomyAdmin')}
+          </NavLink>
+        )}
         {drillEnabled() && (
           <NavLink to="/drill" className={NAV_ITEM_CLASSES}>
             <Stethoscope className="size-4" />

@@ -9,6 +9,7 @@ import { DictionaryPage } from './pages/DictionaryPage';
 import { TopicPage } from './pages/TopicPage';
 import { AnatomyPage } from './pages/AnatomyPage';
 import { AdminDictionaryPage } from './pages/AdminDictionaryPage';
+import { AdminAnatomyPage } from './pages/AdminAnatomyPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { AdminRoute } from './components/AdminRoute';
 import { AppShell } from './components/AppShell';
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/dictionary/:topic" element={<TopicPage />} />
         <Route path="/anatomy" element={<AnatomyPage />} />
         <Route path="/admin/dictionary" element={<AdminRoute><AdminDictionaryPage /></AdminRoute>} />
+        <Route path="/admin/anatomy" element={<AdminRoute><AdminAnatomyPage /></AdminRoute>} />
       </Route>
     </Routes>
   );
