@@ -96,6 +96,7 @@
   "dictionary": {
     "title": "Dictionnaire",
     "allWords": "Tous les mots",
+    "miscTopic": "Divers",
     "searchPlaceholder": "Rechercher des mots…",
     "empty": "Aucun mot ne correspond à votre recherche.",
     "count_one": "{{count}} mot",
