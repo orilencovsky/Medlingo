@@ -43,6 +43,9 @@ export async function fetchAnatomyCards(): Promise<AnatomyCard[]> {
 
   const cards: AnatomyCard[] = [];
   for (const row of rows) {
+    // dictionary_entries RLS (`using (is_deprecated = false or is_admin())`) returns
+    // null for the embedded row when a term's entry is deprecated/hidden from non-admins,
+    // so this guard also drops those deprecated/hidden entries for real learners.
     if (!row.region || !row.system || !row.dictionary_entries) continue;
     const primary = (row.anatomy_images ?? []).find((img) => img.is_primary);
     if (!primary) continue;

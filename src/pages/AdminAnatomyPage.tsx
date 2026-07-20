@@ -13,7 +13,11 @@ export function AdminAnatomyPage() {
   const [error, setError] = useState<string | null>(null);
 
   const reload = () => fetchAnatomyAdmin().then(setRows);
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    reload().catch((err) => {
+      setError(String((err as { message?: string })?.message ?? err));
+    });
+  }, []);
 
   const readyCount = useMemo(
     () => rows.filter((r) => r.region && r.system && r.images.some((i) => i.isPrimary)).length,
