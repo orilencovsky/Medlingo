@@ -2,6 +2,7 @@ id	hebrew	hebrew_nikud	part_of_speech	level	gender	plural	root	everyday_synonym	
 aba	אבא	אַבָּא	noun	1	ז	אבות			dad, father					
 absces	אבצס	אַבְּצֶס	noun	3	ז			מורסה	abscess				loanword; Hebrew מורסה	medical_loanword
 ach	אח	אָח	noun	1	ז	אחים			brother				also = male nurse	
+ach-aval	אך	אַךְ	conjunction	2					but; however				formal register; colloquial אבל	
 achal	אכל	אָכַל	verb	1			א-כ-ל		to eat					
 achar-kach	אחר-כך	אַחַר-כָּךְ	adverb	1					afterwards, later					
 acharei	אחרי	אַחֲרֵי	preposition	1					after					
@@ -9,13 +10,16 @@ acharon	אחרון	אַחֲרוֹן	adjective	2			א-ח-ר		last, latest
 achat	אחת	אַחַת	numeral	1					one (feminine)					
 achat-esre	אחת-עשרה	אַחַת-עֶשְׂרֵה	numeral	2					eleven (feminine)					
 achbar	עכבר	עַכְבָּר	noun	2	ז	עכברים	ע-כ-ב-ר		mouse				also computer mouse	
+achen	אכן	אָכֵן	adverb	2					indeed; in fact					
 acher	אחר	אַחֵר	adjective	1			א-ח-ר		other, another					
 achora	אחורה	אֲחוֹרָה	adverb	2					backwards					
 achot	אחות	אָחוֹת	noun	1	נ	אחיות			sister				also = nurse	
 achrai	אחראי	אַחְרַאי	adjective	2			א-ח-ר		responsible; in charge					
 achrayut	אחריות	אַחְרָיוּת	noun	2	נ		א-ח-ר		responsibility; warranty				also means warranty	
 achshav	עכשיו	עַכְשָׁיו	adverb	1					now					
+achshavi	עכשווי	עַכְשָׁוִי	adjective	3					contemporary; current					
 achuz	אחוז	אָחוּז	noun	2	ז	אחוזים	א-ח-ז		percent, percentage					
+achyan	אחיין	אַחְיָן	noun	2	ז	אחיינים			nephew					
 ad	עד	עַד	preposition	1					until; up to; by				homograph: also עֵד 'witness'	
 adam	אדם	אָדָם	noun	2	ז		א-ד-מ		person, human being					
 adama	אדמה	אֲדָמָה	noun	2	נ		א-ד-מ		earth, soil, ground					
@@ -24,82 +28,123 @@ adif	עדיף	עָדִיף	adjective	2			ע-ד-ף		preferable; better
 adifut	עדיפות	עֲדִיפוּת	noun	2	נ	עדיפויות	ע-ד-ף		priority / preference					
 adin	עדין	עָדִין	adjective	2			ע-ד-ן		delicate / gentle				distinct from עדיין (still)	
 adom	אדום	אָדֹם	adjective	1			א-ד-מ		red					
+adon	אדון	אָדוֹן	noun	2	ז	אדונים			sir; mister					
 af	אף	אַף	noun	1	ז				nose				also particle 'even/also'	
 af-echad	אף-אחד	אַף-אֶחָד	pronoun	1					nobody, no one					
+afiya	אפייה	אֲפִיָּה	noun	2	נ		א-פ-ה		baking					
 afor	אפור	אָפֹר	adjective	2			א-פ-ר		gray					
+afuy	אפוי	אָפוּי	adjective	2			א-פ-ה		baked					
 agaf	אגף	אֲגַף	noun	2	ז	אגפים			wing, department, ward				hospital ward/department	
 agala	עגלה	עֲגָלָה	noun	2	נ	עגלות	ע-ג-ל		cart; (baby) stroller				clinical: gurney/trolley	
+agil	עגיל	עָגִיל	noun	2	ז	עגילים			earring					
 agudal	אגודל	אֲגוּדָל	noun	2	ז	אגודלים			thumb				also = big toe	
 agvaniya	עגבנייה	עַגְבָנִיָּה	noun	2	נ	עגבניות			tomato					
 ahav	אהב	אָהַב	verb	2			א-ה-ב		to love					
 ahava	אהבה	אַהֲבָה	noun	2	נ		א-ה-ב		love					
+akatz	עקץ	עָקַץ	verb	2			ע-ק-צ		to sting; to bite (insect)					
 akavish	עכביש	עַכָּבִישׁ	noun	2	ז	עכבישים	ע-כ-ב-ש		spider					
+akeret-bait	עקרת-בית	עֲקֶרֶת-בַּיִת	noun	2	נ	עקרות-בית			homemaker					
+akev	עקב	עָקֵב	noun	3	ז	עקבים			heel				כאב בעקב = heel pain	
+akira	עקירה	עֲקִירָה	noun	3	נ	עקירות	ע-ק-ר		extraction				עקירת שן = tooth extraction	
+akitza	עקיצה	עֲקִיצָה	noun	2	נ	עקיצות	ע-ק-צ		sting; insect bite					
+akiv	עקבי	עִקְבִי	adjective	3			ע-ק-ב		consistent					
+aklim	אקלים	אַקְלִים	noun	3	ז				climate					
 akom	עקום	עָקוֹם	adjective	2			ע-ק-ם		crooked / bent					
+akshan	עקשן	עַקְשָׁן	adjective	2					stubborn					
 akuti	אקוטי	אָקוּטִי	adjective	2				חריף	acute				loanword; Hebrew חריף	medical_loanword
 al	על	עַל	preposition	1					on; about; upon					
+al-menat	על-מנת	עַל-מְנָת	conjunction	3					in order to					
 ala	עלה	עָלָה	verb	1			ע-ל-ה		to go up / to rise / to cost					
 albumin	אלבומין	אַלְבּוּמִין	noun	3	ז				albumin				loanword; blood-protein lab	medical_loanword
 ale	עלה	עָלֶה	noun	2	ז	עלים	ע-ל-ה		leaf				homograph: עָלָה = 'rose/went up' (verb)	
 alergi	אלרגי	אַלֶרְגִּי	adjective	2					allergic				loanword	medical_loanword
 alergia	אלרגיה	אָלֶרְגְּיָה	noun	1	נ	אלרגיות		רגישות	allergy				loanword	medical_loanword
+alim	אלים	אַלִּים	adjective	2					violent					
+alimut	אלימות	אַלִּימוּת	noun	2	נ				violence				אלימות במשפחה = domestic violence	
 alkohol	אלכוהול	אַלְכּוֹהוֹל	noun	2	ז				alcohol				loanword	
 alpayim	אלפיים	אַלְפַּיִם	numeral	2					two thousand					
+alternativi	אלטרנטיבי	אַלְטֶרְנָטִיבִי	adjective	3					alternative				רפואה אלטרנטיבית = alternative medicine	
+alul	עלול	עָלוּל	adjective	3					liable to; may (of something bad)				עלול לגרום לסחרחורת = may cause dizziness	
 amad	עמד	עָמַד	verb	1			ע-מ-ד		to stand					
 amar	אמר	אָמַר	verb	1			א-מ-ר		to say					
 ambatia	אמבטיה	אַמְבַּטְיָה	noun	2	נ	אמבטיות			bath, bathtub				loanword	
 ambulans	אמבולנס	אַמְבּוּלַנְס	noun	1	ז	אמבולנסים			ambulance				loanword	medical_loanword
+amen	אמן	אָמֵן	interjection	2					amen				religious response; distinct from אָמָּן (artist)	
 amiti	אמיתי	אֲמִתִּי	adjective	2			א-מ-ת		real, true					
 amok	עמוק	עָמוֹק	adjective	2			ע-מ-ק		deep					
 amud	עמוד	עַמּוּד	noun	2	ז	עמודים	ע-מ-ד		page; pillar; column				spine = עמוד השדרה	
+amud-shidra	עמוד-שדרה	עַמּוּד-שִׁדְרָה	noun	3	ז				spine; vertebral column				כאבים בעמוד השדרה = spinal pain	
+amuda	עמודה	עַמּוּדָה	noun	2	נ	עמודות			column					
 ana	ענה	עָנָה	verb	1			ע-נ-ה		to answer					
 anachnu	אנחנו	אֲנַחְנוּ	pronoun	1					we					
 anaf	ענף	עָנָף	noun	2	ז	ענפים	ע-נ-ף		branch (tree; field)					
 anak	ענק	עָנָק	noun	2	ז	ענקים	ע-נ-ק		giant				colloquially "huge / great"	
 anamneza	אנמנזה	אָנַמְנֶזָה	noun	1	נ			תולדות המחלה	medical history				loanword; the intake interview	medical_loanword
 anan	ענן	עָנָן	noun	2	ז	עננים			cloud					
+anavim	ענבים	עֲנָבִים	noun	2	ז				grapes				sing. עֵנָב	
 ani	אני	אֲנִי	pronoun	1					I					
+ani-poor	עני	עָנִי	adjective	2					poor					
 antibiotika	אנטיביוטיקה	אַנְטִיבִּיּוֹטִיקָה	noun	2	נ				antibiotics				loanword	medical_loanword
+aplikatzia	אפליקציה	אַפְּלִיקַצְיָה	noun	2	נ	אפליקציות			app; application				loanword	
 april	אפריל	אַפְּרִיל	noun	2	ז				April				loanword	
+arach	ערך	עָרַךְ	verb	3			ע-ר-כ		to conduct; to arrange				ערך בדיקה = conducted an examination	
 arba	ארבע	אַרְבַּע	numeral	1					four (feminine)					
 arba-esre	ארבע-עשרה	אַרְבַּע-עֶשְׂרֵה	numeral	2					fourteen (feminine)					
 arbaim	ארבעים	אַרְבָּעִים	numeral	1					forty					
+aricha	עריכה	עֲרִיכָה	noun	2	נ		ע-ר-כ		editing					
 arie	אריה	אַרְיֵה	noun	2	ז	אריות			lion					
 aritmia	אריתמיה	אַרִיתְמְיָה	noun	3	נ			הפרעת קצב	arrhythmia				loanword	medical_loanword
+ariza	אריזה	אֲרִיזָה	noun	2	נ	אריזות	א-ר-ז		package; packaging				אריזת התרופה = the medication package	
+aroch	ארוך	אָרֹךְ	adjective	1			א-ר-כ		long					
 aron	ארון	אָרוֹן	noun	2	ז	ארונות			closet, cabinet					
+artzi	ארצי	אַרְצִי	adjective	3					national; countrywide					
 arucha	ארוחה	אֲרוּחָה	noun	2	נ	ארוחות	א-ר-ח		meal					
 asa	עשה	עָשָׂה	verb	1			ע-שׂ-ה		to do; to make					
 ashir	עשיר	עָשִׁיר	adjective	2			ע-ש-ר		rich / wealthy					
 asla	אסלה	אַסְלָה	noun	2	נ	אסלות			toilet (bowl)					
+ason	אסון	אָסוֹן	noun	2	ז	אסונות			disaster					
+asor	עשור	עָשׂוֹר	noun	3	ז	עשורים			decade					
 asuk	עסוק	עָסוּק	adjective	2			ע-ס-ק		busy					
 asur	אסור	אָסוּר	adjective	2			א-ס-ר		forbidden; not allowed					
+asuy	עשוי	עָשׂוּי	adjective	3			ע-שׂ-ה		may; made of				עשוי לגרום ל... = may cause	
 at	את	אַתְּ	pronoun	1					you (feminine singular)					
 ata	אתה	אַתָּה	pronoun	1					you (masculine singular)					
 atar	אתר	אֲתָר	noun	2	ז	אתרים			site; website				also means website	
 atem	אתם	אַתֶּם	pronoun	1					you (masculine plural)					
 aten	אתן	אַתֶּן	pronoun	1					you (feminine plural)					
 atid	עתיד	עָתִיד	noun	2	ז		ע-ת-ד		future					
+atidi	עתידי	עֲתִידִי	adjective	3					future					
+atik	עתיק	עַתִּיק	adjective	2					ancient					
 atrofia	אטרופיה	אַטְרוֹפְיָה	noun	3	נ			ניוון	atrophy				loanword; Hebrew ניוון	medical_loanword
 atsits	עציץ	עָצִיץ	noun	2	ז	עציצים			flowerpot; potted plant					
 atsuv	עצוב	עָצוּב	adjective	2			ע-צ-ב		sad					
 atzar	עצר	עָצַר	verb	2			ע-צ-ר		to stop / to arrest					
 atzav	עצב	עָצָב	noun	2	ז	עצבים	ע-צ-ב		nerve				plural עצבים also = "nerves / temper"	
 atzirut	עצירות	עֲצִירוּת	noun	2	נ		ע-צ-ר		constipation					
+atzmai	עצמאי	עַצְמָאִי	adjective	3					independent; self-employed				עצמאי בתפקוד יומיומי = independent in ADLs	
 atzmi	עצמי	עַצְמִי	adjective	2			ע-צ-ם		own / self-				e.g. autologous, self-	
 aura	אאורה	אָאוּרָה	noun	3	נ			הילה	aura				loanword; pre-seizure/pre-migraine sensation	medical_loanword
 avad	עבד	עָבַד	verb	1			ע-ב-ד		to work				homograph: also עֶבֶד 'slave'	
+avak	אבק	אָבָק	noun	2	ז				dust				אלרגיה לאבק = dust allergy; powder = אבקה	
 aval	אבל	אֲבָל	conjunction	1					but					
 avar	עבר	עָבַר	verb	1			ע-ב-ר		to pass / to cross				also noun עָבָר = past (e.g. medical history)	
+avatiach	אבטיח	אֲבַטִּיחַ	noun	1	ז	אבטיחים			watermelon					
 avchana	אבחנה	אַבְחָנָה	noun	3	נ	אבחנות	א-ב-ח-ן		diagnosis					
 ave	עבה	עָבֶה	adjective	2			ע-ב-ה		thick					
+avera	עבירה	עֲבֵרָה	noun	3	נ	עבירות	ע-ב-ר		offense; violation					
+avir	אוויר	אֲוִיר	noun	1	ז				air					
 aviv	אביב	אָבִיב	noun	2	ז				spring (season)					
 avoda	עבודה	עֲבוֹדָה	noun	1	נ	עבודות	ע-ב-ד		work / job					
 avokado	אבוקדו	אָבוֹקָדוֹ	noun	2	ז				avocado				loanword	
+avsha	אוושה	אִוְשָׁה	noun	3	נ	אוושות			murmur (auscultation)				אוושה לבבית = cardiac murmur	
 ayef	עייף	עָיֵף	adjective	2			ע-י-ף		tired					
 ayin	עין	עַיִן	noun	1	נ	עיניים			eye					
 az	אז	אָז	adverb	1					then, so					
+az-intense	עז	עַז	adjective	3					intense; strong				כאב עז = severe pain; also עֵז = goat	
 azar	עזר	עָזַר	verb	1			ע-ז-ר		to help					
 ba	בא	בָּא	verb	1			ב-ו-א		to come					
 baal	בעל	בַּעַל	noun	2	ז	בעלים			husband; owner				also means owner	
+baal-chaim	בעל-חיים	בַּעַל-חַיִּים	noun	2	ז	בעלי-חיים			animal					
 baat	בעט	בָּעַט	verb	2			ב-ע-ט		to kick					
 baaya	בעיה	בְּעָיָה	noun	2	נ	בעיות			problem					
 bacha	בכה	בָּכָה	verb	2			ב-כ-ה		to cry					
@@ -110,90 +155,142 @@ bachutz	בחוץ	בַּחוּץ	adverb	2					outside
 badak	בדק	בָּדַק	verb	2			ב-ד-ק		to check; to examine					
 bahir	בהיר	בָּהִיר	adjective	2			ב-ה-ר		bright; light					
 bai	ביי	בַּיי	interjection	1					bye				loanword	
+bakara	בקרה	בַּקָּרָה	noun	3	נ		ב-ק-ר		control; monitoring				בקרת סוכר = glucose monitoring	
 bakbuk	בקבוק	בַּקְבּוּק	noun	2	ז	בקבוקים			bottle					
 balagan	בלגן	בָּלָגָן	noun	2	ז				mess; chaos				loanword	
+baluta	בלוטה	בַּלּוּטָה	noun	3	נ	בלוטות			gland				בלוטת התריס = thyroid gland	
 banana	בננה	בַּנָנָה	noun	2	נ	בננות			banana				loanword	
 bank	בנק	בַּנְק	noun	2	ז	בנקים			bank				loanword	
 bari	בריא	בָּרִיא	adjective	2			ב-ר-א		healthy					
 barur	ברור	בָּרוּר	adjective	2			ב-ר-ר		clear; obvious					
 barzel	ברזל	בַּרְזֶל	noun	2	ז				iron					
 basar	בשר	בָּשָׂר	noun	2	ז				meat; flesh				also means flesh	
+bashel	בשל	בָּשֵׁל	adjective	2			ב-שׁ-ל		ripe; mature				also preposition בְּשֶׁל = due to	
 bat	בת	בַּת	noun	1	נ	בנות			daughter					
 batuach	בטוח	בָּטוּחַ	adjective	2			ב-ט-ח		sure; safe; certain					
 batzal	בצל	בָּצָל	noun	2	ז	בצלים			onion					
 batzeket	בצקת	בַּצֶּקֶת	noun	3	נ			נפיחות	edema; swelling					
 bayit	בית	בַּיִת	noun	1	ז	בתים	ב-י-ת		house; home					
+bayshan	ביישן	בַּיְשָׁן	adjective	2			ב-ו-שׁ		shy					
 bchila	בחילה	בְּחִילָה	noun	1	נ	בחילות	ב-ח-ל		nausea					
+bchina	בחינה	בְּחִינָה	noun	2	נ	בחינות	ב-ח-נ		exam; examination				also מבחינת = in terms of	
+bchirot	בחירות	בְּחִירוֹת	noun	2	נ		ב-ח-ר		elections				plural; sing. בחירה = choice	
+bdicha	בדיחה	בְּדִיחָה	noun	2	נ	בדיחות			joke					
 bdika	בדיקה	בְּדִיקָה	noun	2	נ	בדיקות	ב-ד-ק		test; examination					
 be	ב	בְּ	preposition	1					in; at; with				prefix preposition	
+bechi	בכי	בְּכִי	noun	2	ז		ב-כ-ה		crying					
 bechinam	בחינם	בְּחִנָּם	adverb	2					for free					
 bederech-klal	בדרך-כלל	בְּדֶרֶךְ כְּלָל	adverb	2					usually					
 bediyuk	בדיוק	בְּדִיּוּק	adverb	2					exactly					
+bedome-le	בדומה-ל	בְּדוֹמֶה-לְ	preposition	3					similar to					
 beemet	באמת	בֶּאֱמֶת	adverb	2					really; truly					
 beerech	בערך	בְּעֵרֶךְ	adverb	2					approximately; about					
 beetzem	בעצם	בְּעֶצֶם	adverb	2					actually; in fact					
 beged	בגד	בֶּגֶד	noun	2	ז	בגדים			garment; clothing item					
 behatzlacha	בהצלחה	בְּהַצְלָחָה	interjection	2					good luck					
+behechlet	בהחלט	בְּהֶחְלֵט	adverb	2					absolutely; definitely					
+behonot	בהונות	בְּהוֹנוֹת	noun	3	נ				toes				plural of בֹּהֶן (big toe)	
+beichur	באיחור	בְּאִחוּר	adverb	2			א-ח-ר		late; with a delay					
 beikar	בעיקר	בְּעִקָּר	adverb	2					mainly; mostly					
+beikvot	בעקבות	בְּעִקְבוֹת	preposition	3					following; as a result of					
 bein	בין	בֵּין	preposition	2					between; among					
+beinoni	בינוני	בֵּינוֹנִי	adjective	2					medium; moderate				כאב בעוצמה בינונית = moderate pain	
 beintayim	בינתיים	בֵּינְתַיִם	adverb	2					meanwhile					
 beit-cholim	בית-חולים	בֵּית חוֹלִים	noun	2	ז	בתי-חולים			hospital					
+beit-kafe	בית-קפה	בֵּית-קָפֶה	noun	2	ז	בתי-קפה			café					
+beit-knesset	בית-כנסת	בֵּית-כְּנֶסֶת	noun	2	ז	בתי-כנסת			synagogue					
 beit-sefer	בית-ספר	בֵּית סֵפֶר	noun	2	ז	בתי-ספר			school					
+beit-shechi	בית-שחי	בֵּית-שֶׁחִי	noun	3	ז	בתי-שחי			armpit; axilla					
+beita	בעיטה	בְּעִיטָה	noun	2	נ	בעיטות	ב-ע-ט		kick				בעיטות העובר = fetal kicks	
+beiti	ביתי	בֵּיתִי	adjective	2					home-made; domestic				טיפול ביתי = home care	
 beitza	ביצה	בֵּיצָה	noun	2	נ	ביצים			egg					
+beitzit	ביצית	בֵּיצִית	noun	3	נ	ביציות			ovum; egg cell					
 beka	בקע	בֶּקַע	noun	3	ז	בקעים	ב-ק-ע		hernia				colloquially called שבר	
 bekalut	בקלות	בְּקַלּוּת	adverb	2					easily					
+bekarov	בקרוב	בְּקָרוֹב	adverb	2			ק-ר-ב		soon					
 bekitzur	בקיצור	בְּקִצּוּר	adverb	2					in short; briefly					
 bekoshi	בקושי	בְּקוֹשִׁי	adverb	2					barely; hardly					
+bemeshech	במשך	בְּמֶשֶׁךְ	preposition	2					during; for (a period)				במשך שבוע = for a week	
 ben	בן	בֵּן	noun	1	ז	בנים			son					
+benigud	בניגוד	בְּנִיגּוּד	preposition	3					contrary to; unlike				בניגוד ל... = in contrast to	
+benosaf	בנוסף	בְּנוֹסָף	adverb	2					in addition; additionally					
 berach	ברך	בֵּרַךְ	verb	2			ב-ר-כ		to bless				homograph: noun ברך = knee	
 berech	ברך	בֶּרֶךְ	noun	2	נ	ברכיים			knee				homograph: verb ברך = to bless	
 berer	בירר	בֵּרֵר	verb	2			ב-ר-ר		to clarify; to find out					
 berez	ברז	בֶּרֶז	noun	2	ז	ברזים			faucet; tap					
 berur	בירור	בֵּרוּר	noun	2	ז	בירורים	ב-ר-ר		clarification; inquiry					
 beseder	בסדר	בְּסֵדֶר	adverb	1					okay; fine					
+beshone-mi	בשונה-מ	בְּשׁוֹנֶה-מִ	preposition	3					unlike; in contrast to					
 betach	בטח	בֶּטַח	adverb	2					sure; of course				colloquial: of course	
 beteavon	בתאבון	בְּתֵאָבוֹן	interjection	2					bon appetit					
 beten	בטן	בֶּטֶן	noun	2	נ	בטנים			belly; abdomen					
+betichut	בטיחות	בְּטִיחוּת	noun	2	נ		ב-ט-ח		safety					
 betoch	בתוך	בְּתוֹךְ	preposition	2					inside; within					
 bevadai	בוודאי	בְּוַדַּאי	adverb	2					certainly; surely					
 bevakasha	בבקשה	בְּבַקָּשָׁה	interjection	1			ב-ק-ש		please; you're welcome					
 beyachad	ביחד	בְּיַחַד	adverb	2					together					
+beyoter	ביותר	בְּיוֹתֵר	adverb	2					most; extremely				הכי... / ...ביותר = superlative	
 bichlal	בכלל	בִּכְלָל	adverb	2					at all; in general					
 bifnim	בפנים	בִּפְנִים	adverb	2					inside					
 biglal	בגלל	בִּגְלַל	preposition	2					because of					
 bikesh	ביקש	בִּקֵּשׁ	verb	2			ב-ק-ש		to ask; to request					
+bikoret	ביקורת	בִּקֹּרֶת	noun	2	נ		ב-ק-ר		criticism; audit; check-up				ביקורת חוזרת = follow-up check	
 bikur	ביקור	בִּקּוּר	noun	2	ז	ביקורים	ב-ק-ר		visit					
+bilbul	בלבול	בִּלְבּוּל	noun	3	ז		ב-ל-ב-ל		confusion				בלבול חדש = acute confusion	
 bilirubin	בילירובין	בִּילִירוּבִּין	noun	3	ז				bilirubin				loanword; liver lab	medical_loanword
+bilti-efshari	בלתי-אפשרי	בִּלְתִּי-אֶפְשָׁרִי	adjective	3					impossible					
+bilvad	בלבד	בִּלְבַד	adverb	2					only; solely				לשימוש חיצוני בלבד = external use only	
+bimkom	במקום	בִּמְקוֹם	preposition	2					instead of					
 bimyuchad	במיוחד	בִּמְיֻחָד	adverb	2					especially					
 binyan	בניין	בִּנְיָן	noun	2	ז	בניינים	ב-נ-ה		building					
+biologia	ביולוגיה	בִּיוֹלוֹגְיָה	noun	3	נ				biology				loanword	
 biopsia	ביופסיה	בְּיוֹפְּסְיָה	noun	3	נ	ביופסיות			biopsy				loanword	medical_loanword
+bira	בירה	בִּירָה	noun	2	נ				beer					
 bishel	בישל	בִּשֵּׁל	verb	2			ב-ש-ל		to cook					
 bishul	בישול	בִּשּׁוּל	noun	2	ז		ב-ש-ל		cooking					
 bishvil	בשביל	בִּשְׁבִיל	preposition	2					for; for the sake of					
 bitel	ביטל	בִּטֵּל	verb	2			ב-ט-ל		to cancel					
+bituach	ביטוח	בִּטּוּחַ	noun	2	ז		ב-ט-ח		insurance				ביטוח לאומי = National Insurance	
 bitul	ביטול	בִּטּוּל	noun	2	ז	ביטולים	ב-ט-ל		cancellation					
+bituy	ביטוי	בִּטּוּי	noun	2	ז	ביטויים	ב-ט-א		expression; phrase					
+bitzua	ביצוע	בִּצּוּעַ	noun	3	ז		ב-צ-ע		execution; performance				ביצוע הבדיקה = performing the test	
+bizbuz	בזבוז	בִּזְבּוּז	noun	2	ז				waste					
+bizman	בזמן	בַּזְּמַן	adverb	2					on time; while					
 bli	בלי	בְּלִי	preposition	2					without					
+blima	בלימה	בְּלִימָה	noun	3	נ		ב-ל-מ		braking; halting; containment					
+blita	בליטה	בְּלִיטָה	noun	3	נ	בליטות	ב-ל-ט		bulge; protrusion				בליטת דיסק = disc bulge	
+boded	בודד	בּוֹדֵד	adjective	2			ב-ד-ד		single; isolated; lonely				ממצא בודד = an isolated finding	
 boker	בוקר	בֹּקֶר	noun	1	ז	בקרים			morning					
+botnim	בוטנים	בֹּטְנִים	noun	2	ז				peanuts				אלרגיה לבוטנים = peanut allergy	
 botz	בוץ	בּוֹץ	noun	2	ז				mud					
 bradikardia	ברדיקרדיה	בְּרָדִיקַרְדְּיָה	noun	3	נ			דופק איטי	bradycardia				loanword; slow heart rate	medical_loanword
 bricha	בריכה	בְּרֵכָה	noun	2	נ	בריכות			pool					
 bruchim-habaim	ברוכים-הבאים	בְּרוּכִים הַבָּאִים	interjection	2					welcome					
 bsisi	בסיסי	בְּסִיסִי	adjective	2					basic					
+chabala	חבלה	חַבָּלָה	noun	3	נ	חבלות	ח-ב-ל		trauma; injury				חבלת ראש = head trauma	
 chacham	חכם	חָכָם	adjective	2			ח-כ-מ		smart / wise					
 chad	חד	חַד	adjective	2			ח-ד-ד		sharp					
+chad-paami	חד-פעמי	חַד-פַּעֲמִי	adjective	2					single-use; one-time				מזרק חד-פעמי = single-use syringe	
 chadash	חדש	חָדָשׁ	adjective	1			ח-ד-שׁ		new					
 chadashot	חדשות	חֲדָשׁוֹת	noun	2	נ		ח-ד-שׁ		news				grammatically plural	
+chafisa	חפיסה	חֲפִיסָה	noun	3	נ	חפיסות			pack				חפיסת סיגריות = pack of cigarettes	
 chag	חג	חַג	noun	2	ז	חגים	ח-ג-ג		holiday, festival					
 chai	חי	חַי	adjective	2			ח-י-ה		alive, living				also verb: to live	
+chaim	חיים	חַיִּים	noun	1	ז				life				plural in form; אורח חיים = lifestyle	
+chakira	חקירה	חֲקִירָה	noun	2	נ	חקירות	ח-ק-ר		investigation; interrogation					
+chalal	חלל	חָלָל	noun	3	ז	חללים			cavity; space				חלל הבטן = abdominal cavity	
 chalash	חלש	חַלָּשׁ	adjective	2			ח-ל-ש		weak					
 chalav	חלב	חָלָב	noun	1	ז		ח-ל-ב		milk					
 chalom	חלום	חֲלוֹם	noun	2	ז	חלומות	ח-ל-מ		dream					
 chalon	חלון	חַלּוֹן	noun	1	ז	חלונות	ח-ל-נ		window					
+chalufi	חלופי	חֲלוּפִי	adjective	3			ח-ל-פ		alternative				טיפול חלופי = alternative treatment	
+chaluk	חלוק	חָלוּק	noun	2	ז	חלוקים			robe; gown				חלוק בית חולים = hospital gown	
 cham	חם	חַם	adjective	1			ח-מ-מ		hot					
 chamesh	חמש	חָמֵשׁ	numeral	1					five					
 chamesh-esre	חמש-עשרה	חֲמֵשׁ-עֶשְׂרֵה	numeral	2					fifteen (f.)					
 chamishi	חמישי	חֲמִישִׁי	adjective	2			ח-מ-ש		fifth				also Thursday (יום חמישי)	
 chamishim	חמישים	חֲמִישִּׁים	numeral	1					fifty					
+chamor	חמור	חֲמוֹר	noun	2	ז	חמורים			donkey				distinct from חָמוּר = severe	
 chamtzan	חמצן	חַמְצָן	noun	2	ז		ח-מ-צ		oxygen					
 chamud	חמוד	חָמוּד	adjective	2			ח-מ-ד		cute					
 chamur	חמור	חָמוּר	adjective	2			ח-מ-ר		severe / serious				also noun חֲמוֹר = donkey	
@@ -202,53 +299,104 @@ chana	חנה	חָנָה	verb	2			ח-נ-ה		to park				also: to camp
 chaniya	חנייה	חֲנָיָה	noun	2	נ	חניות	ח-נ-ה		parking; parking spot					
 chanut	חנות	חֲנוּת	noun	2	נ	חנויות	ח-נ-ה		store / shop					
 charif	חריף	חָרִיף	adjective	2			ח-ר-פ		spicy; sharp; (medical) acute				medically: acute (vs. chronic)	
+charig	חריג	חָרִיג	adjective	3					abnormal; exceptional				ממצא חריג = abnormal finding	
+chasa	חסה	חַסָּה	noun	2	נ				lettuce					
+chasar-nisayon	חסר-ניסיון	חֲסַר-נִסָּיוֹן	adjective	3					inexperienced					
+chasar-savlanut	חסר-סבלנות	חֲסַר-סַבְלָנוּת	adjective	3					impatient					
 chaser	חסר	חָסֵר	adjective	2			ח-ס-ר		missing, lacking				also verb: to be lacking	
 chashav	חשב	חָשַׁב	verb	2			ח-ש-ב		to think					
 chashmal	חשמל	חַשְׁמַל	noun	2	ז		ח-שׁ-מ-ל		electricity					
+chashmali	חשמלי	חַשְׁמַלִּי	adjective	2			ח-שׁ-מ-ל		electric				כיסא גלגלים חשמלי = electric wheelchair	
+chashud	חשוד	חָשׁוּד	adjective	3			ח-שׁ-ד		suspicious; suspected				ממצא חשוד = suspicious finding	
 chashuv	חשוב	חָשׁוּב	adjective	2			ח-ש-ב		important					
+chasifa	חשיפה	חֲשִׂיפָה	noun	3	נ		ח-שׂ-פ		exposure				חשיפה לחומר מסוכן = exposure to a hazardous substance	
+chasima	חסימה	חֲסִימָה	noun	3	נ	חסימות	ח-ס-מ		obstruction; blockage				חסימת מעיים = bowel obstruction	
 chatach	חתך	חָתַךְ	verb	2			ח-ת-ך		to cut					
+chatan	חתן	חָתָן	noun	2	ז	חתנים			groom; son-in-law					
 chaticha	חתיכה	חֲתִיכָה	noun	2	נ	חתיכות	ח-ת-ך		piece					
 chatul	חתול	חָתוּל	noun	2	ז	חתולים	ח-ת-ל		cat					
+chatuna	חתונה	חֲתֻנָּה	noun	2	נ	חתונות			wedding					
+chatzer	חצר	חָצֵר	noun	2	נ	חצרות			yard; courtyard					
 chatzi	חצי	חֲצִי	noun	2	ז	חצאים	ח-צ-ה		half					
 chatzil	חציל	חָצִיל	noun	2	ז	חצילים	ח-צ-ל		eggplant					
+chatzot	חצות	חֲצוֹת	noun	2	נ		ח-צ-ה		midnight					
+chavaya	חוויה	חֲוָיָה	noun	2	נ	חוויות	ח-ו-ה		experience					
+chave	חווה	חוֹוֶה	verb	3			ח-ו-ה		to experience				חווה כאב = experiencing pain; also noun חַוָּה = farm	
 chaver	חבר	חָבֵר	noun	1	ז	חברים	ח-ב-ר		friend					
+chavisha	חבישה	חֲבִישָׁה	noun	3	נ		ח-ב-שׁ		bandaging; dressing					
 chaya	חיה	חַיָּה	noun	2	נ	חיות	ח-י-ה		animal					
 chayal	חייל	חַיָּל	noun	2	ז	חיילים	ח-י-ל		soldier					
 chayav	חייב	חַיָּב	adjective	2			ח-ו-ב		must; obligated; owe					
 chazak	חזק	חָזָק	adjective	2			ח-ז-ק		strong					
 chazar	חזר	חָזַר	verb	2			ח-ז-ר		to return					
+chazara	חזרה	חֲזָרָה	noun	2	נ		ח-ז-ר		return; repetition				חזרה של התסמינים = recurrence of symptoms	
 chaze	חזה	חָזֶה	noun	2	ז		ח-ז-ה		chest					
+chaziya	חזייה	חֲזִיָּה	noun	2	נ	חזיות			bra					
+chazon	חזון	חָזוֹן	noun	3	ז				vision (a plan or ideal)				eyesight is ראייה	
 cheder	חדר	חֶדֶר	noun	1	ז	חדרים	ח-ד-ר		room					
+chelbon	חלבון	חֶלְבּוֹן	noun	3	ז	חלבונים			protein				חלבון בשתן = proteinuria	
 chelek	חלק	חֵלֶק	noun	2	ז	חלקים	ח-ל-ק		part / portion				also adj חָלָק = smooth	
+chelki	חלקי	חֶלְקִי	adjective	2			ח-ל-ק		partial					
 chema	חמאה	חֶמְאָה	noun	2	נ				butter					
+chemla	חמלה	חֶמְלָה	noun	3	נ				compassion					
+chenek	חנק	חֶנֶק	noun	3	ז		ח-נ-ק		choking; suffocation				תחושת חנק = feeling of choking	
+cherek	חרק	חֶרֶק	noun	2	ז	חרקים			insect				עקיצת חרק = insect bite	
+cheresh	חירש	חֵרֵשׁ	adjective	3					deaf					
 cheshbon	חשבון	חֶשְׁבּוֹן	noun	2	ז	חשבונות	ח-שׁ-ב		account; bill; arithmetic					
+cheshek	חשק	חֵשֶׁק	noun	2	ז				desire; appetite (for)				חשק מיני = libido	
 chetech	חתך	חֶתֶךְ	noun	2	ז	חתכים	ח-ת-ך		cut, incision					
 chevel	חבל	חֶבֶל	noun	2	ז	חבלים	ח-ב-ל		rope				also interj חֲבָל = what a pity	
 chiber	חיבר	חִבֵּר	verb	2			ח-ב-ר		to connect, to join					
 chibuk	חיבוק	חִיבּוּק	noun	2	ז	חיבוקים	ח-ב-ק		hug					
+chibur	חיבור	חִבּוּר	noun	2	ז	חיבורים	ח-ב-ר		connection; addition					
 chika	חיכה	חִכָּה	verb	2			ח-כ-ה		to wait					
+chilazon	חילזון	חִלָּזוֹן	noun	3	ז	חלזונות			snail				the inner-ear cochlea is שַׁבְּלוּל	
+chiloni	חילוני	חִלּוֹנִי	adjective	2					secular					
+chiluk	חילוק	חִלּוּק	noun	2	ז		ח-ל-ק		division					
+chimum	חימום	חִמּוּם	noun	2	ז		ח-מ-מ		heating				כרית חימום = heating pad	
+chinuch	חינוך	חִנּוּךְ	noun	2	ז				education					
 chipes	חיפש	חִפֵּשׂ	verb	2			ח-פ-שׂ		to search, to look for					
+chipus	חיפוש	חִפּוּשׂ	noun	2	ז	חיפושים	ח-פ-שׂ		search					
+chishuv	חישוב	חִשּׁוּב	noun	2	ז		ח-שׁ-ב		calculation				חישוב מינון = dose calculation	
 chisun	חיסון	חִסּוּן	noun	2	ז	חיסונים	ח-ס-ן		vaccination, immunization					
+chisur	חיסור	חִסּוּר	noun	2	ז		ח-ס-ר		subtraction					
+chita	חיטה	חִטָּה	noun	2	נ				wheat				רגישות לחיטה = wheat sensitivity	
 chite	חיטא	חִטֵּא	verb	2			ח-ט-א		to disinfect					
 chitui	חיטוי	חִטּוּי	noun	2	ז		ח-ט-א		disinfection					
 chitul	חיתול	חִתּוּל	noun	2	ז	חיתולים	ח-ת-ל		diaper					
+chitzoni	חיצוני	חִיצוֹנִי	adjective	2			ח-ו-צ		external				לשימוש חיצוני = for external use	
+chiver	חיוור	חִוֵּר	adjective	3					pale				חיוורון = pallor	
 chiyech	חייך	חִיֵּךְ	verb	2			ח-י-ך		to smile					
 chiyuch	חיוך	חִיּוּךְ	noun	2	ז	חיוכים	ח-י-ך		smile					
+chiyuni	חיוני	חִיּוּנִי	adjective	3			ח-י-ה		vital; essential				סימנים חיוניים = vital signs	
 chodesh	חודש	חוֹדֶשׁ	noun	1	ז	חודשים	ח-ד-ש		month					
+chodshi	חודשי	חָדְשִׁי	adjective	2			ח-ד-שׁ		monthly					
 chof	חוף	חוֹף	noun	2	ז	חופים	ח-ו-פ		beach / coast					
 chofesh	חופש	חוֹפֶשׁ	noun	2	ז		ח-פ-שׁ		freedom; (school) vacation					
 chofshi	חופשי	חוֹפְשִׁי	adjective	2			ח-פ-שׁ		free (unrestricted)					
 chok	חוק	חוֹק	noun	2	ז	חוקים	ח-ק-ק		law					
+choker	חוקר	חוֹקֵר	noun	2	ז	חוקרים	ח-ק-ר		researcher; investigator					
 chol	חול	חוֹל	noun	2	ז		ח-ו-ל		sand					
 chole	חולה	חוֹלֶה	noun	1	ז	חולים	ח-ל-ה		patient / sick person					
 chom	חום	חֹם	noun	1	ז			חום גבוה	fever				also means heat	
+choma	חומה	חוֹמָה	noun	2	נ	חומות			wall (of a city or fortress)				a room's wall is קיר	
 chomer	חומר	חוֹמֶר	noun	2	ז	חומרים	ח-מ-ר		material, substance					
+chor	חור	חוֹר	noun	2	ז	חורים			hole					
 choref	חורף	חוֹרֶף	noun	2	ז		ח-ר-ף		winter					
+choser	חוסר	חֹסֶר	noun	2	ז		ח-ס-ר		lack; deficiency				חוסר ברזל = iron deficiency	
+choshech	חושך	חֹשֶׁךְ	noun	2	ז				darkness					
+choveret	חוברת	חוֹבֶרֶת	noun	2	נ	חוברות			booklet					
+chovesh	חובש	חוֹבֵשׁ	noun	3	ז	חובשים	ח-ב-שׁ		medic					
 chufsha	חופשה	חוּפְשָׁה	noun	2	נ	חופשות	ח-פ-שׁ		vacation, leave					
+chul	חוץ-לארץ	חוּץ-לָאָרֶץ	noun	2	ז				abroad				abbreviated חו"ל	
 chulsha	חולשה	חוּלְשָׁה	noun	2	נ		ח-ל-שׁ		weakness					
 chultza	חולצה	חוּלְצָה	noun	2	נ	חולצות	ח-ל-צ		shirt					
+chulya	חוליה	חֻלְיָה	noun	3	נ	חוליות			vertebra				עמוד השדרה בנוי מחוליות	
 chum	חום	חוּם	adjective	2					brown				also חוֹם (chom) = fever/heat	
+chumtza	חומצה	חֻמְצָה	noun	3	נ	חומצות			acid				חומצת קיבה = stomach acid; חומצה פולית = folic acid	
+chumus	חומוס	חֻמּוּס	noun	1	ז				hummus					
 chush	חוש	חוּשׁ	noun	2	ז	חושים	ח-ו-שׁ		sense (faculty)					
+chut	חוט	חוּט	noun	2	ז	חוטים			thread; wire				חוט תפירה = suture thread	
 chutz-mi	חוץ-מ	חוּץ-מִ	preposition	2					except for, besides					
 daag	דאג	דָּאַג	verb	2			ד-א-ג		to worry					
 dacha	דחה	דָּחָה	verb	2			ד-ח-ה		to reject, to postpone					
@@ -257,68 +405,106 @@ dachuf	דחוף	דָּחוּף	adjective	2			ד-ח-ף		urgent
 daf	דף	דַּף	noun	2	ז	דפים	ד-פ-ף		page, sheet					
 dafak	דפק	דָּפַק	verb	2			ד-פ-ק		to knock, to beat				also a noun: pulse (דֹּפֶק)	
 dag	דג	דָּג	noun	1	ז	דגים	ד-ו-ג		fish					
+dagan	דגן	דָּגָן	noun	3	ז	דגנים			grain; cereal				דגנים מלאים = whole grains	
 dai	די	דַּי	adverb	1					enough					
 dak	דק	דַּק	adjective	2			ד-ק-ק		thin					
 daka	דקה	דַּקָּה	noun	1	נ	דקות	ד-ק-ק		minute					
 dakar	דקר	דָּקַר	verb	2			ד-ק-ר		to stab, to prick					
+dal	דל	דַּל	adjective	3					low in; poor in				דל נתרן = low sodium	
 daleket	דלקת	דַּלֶּקֶת	noun	2	נ	דלקות	ד-ל-ק		inflammation, infection					
 dam	דם	דָּם	noun	1	ז		ד-מ-ם		blood					
+darach	דרך	דָּרַךְ	verb	2			ד-ר-כ		to step on; to tread				distinct from the noun דֶּרֶךְ = way	
+darash	דרש	דָּרַשׁ	verb	2			ד-ר-שׁ		to demand; to require					
 darom	דרום	דָּרוֹם	noun	2	ז		ד-ר-ם		south					
+dati	דתי	דָּתִי	adjective	2					religious					
 davar	דבר	דָּבָר	noun	1	ז	דברים	ד-ב-ר		thing, matter				also a verb: to speak (imperative)	
 davka	דווקא	דַּוְקָא	adverb	3					specifically, precisely (of all things)				Aramaic; hard to translate exactly	
+dchifa	דחיפה	דְּחִיפָה	noun	2	נ	דחיפות	ד-ח-פ		push; pushing					
 dchiya	דחייה	דְּחִיָּה	noun	2	נ	דחיות	ד-ח-ה		rejection, postponement				e.g. graft rejection	
 dea	דעה	דֵּעָה	noun	2	נ	דעות	ד-ע-ה		opinion					
+delek	דלק	דֶּלֶק	noun	2	ז				fuel					
 delet	דלת	דֶּלֶת	noun	1	נ	דלתות	ד-ל-ת		door					
 delirium	דליריום	דֶּלִירְיוּם	noun	3	ז			בלבול חריף	delirium				loanword	medical_loanword
 derech	דרך	דֶּרֶךְ	noun	1	נ	דרכים	ד-ר-ך		way, road				also a preposition: via	
 dermatitis	דרמטיטיס	דֶּרְמָטִיטִיס	noun	2	ז			דלקת עור	dermatitis				loanword	medical_loanword
 deshe	דשא	דֶּשֶׁא	noun	2	ז		ד-ש-א		grass, lawn					
 detsember	דצמבר	דֶּצֶמְבֶּר	noun	2	ז				December				loanword	
+devek	דבק	דֶּבֶק	noun	2	ז		ד-ב-ק		glue; adhesive					
 dfika	דפיקה	דְּפִיקָה	noun	2	נ	דפיקות	ד-פ-ק		knock, beat					
+dgima	דגימה	דְּגִימָה	noun	3	נ	דגימות			sample; specimen				דגימת שתן = urine sample	
 diagnoza	דיאגנוזה	דִּיאַגְנוֹזָה	noun	2	נ			אבחנה	diagnosis				loanword; Hebrew אבחנה	medical_loanword
 dializa	דיאליזה	דִּיאָלִיזָה	noun	2	נ				dialysis				loanword	medical_loanword
 diastoli	דיאסטולי	דִּיאַסְטוֹלִי	adjective	3					diastolic				loanword; heart-relaxation phase	medical_loanword
 diber	דיבר	דִּבֵּר	verb	1			ד-ב-ר		to speak, to talk					
 difuzi	דיפוזי	דִיפוּזִי	adjective	3				מפושט	diffuse				loanword; Hebrew מפושט	medical_loanword
+digitali	דיגיטלי	דִּיגִיטָלִי	adjective	2					digital				מדחום דיגיטלי = digital thermometer	
 dikaon	דיכאון	דִּכָּאוֹן	noun	2	ז		ד-כ-א		depression					
+dilul	דילול	דִּלּוּל	noun	3	ז		ד-ל-ל		thinning; dilution				דילול דם = blood thinning	
 dimum	דימום	דִּמּוּם	noun	2	ז	דימומים	ד-מ-ם		bleeding, hemorrhage					
+dimyon	דמיון	דִּמְיוֹן	noun	3	ז		ד-מ-ה		imagination; similarity					
 dira	דירה	דִּירָה	noun	2	נ	דירות	ד-ו-ר		apartment					
 dislipidemia	דיסליפידמיה	דִיסְלִיפִּידֶמְיָה	noun	3	נ			שומנים גבוהים בדם	dyslipidemia				loanword	medical_loanword
 dislokatzya	דיסלוקציה	דִיסְלוֹקַצְיָה	noun	2	נ			פריקה	dislocation				loanword; joint dislocation	medical_loanword
 dispnea	דיספניאה	דִיסְפְּנֵאָה	noun	2	נ			קוצר נשימה	dyspnea				loanword; Hebrew קוצר נשימה	medical_loanword
 distali	דיסטלי	דִיסְטָלִי	adjective	3				מרוחק	distal				loanword; farther from the center	medical_loanword
 divuach	דיווח	דִּוּוּחַ	noun	2	ז	דיווחים	ד-ו-ח		report, reporting				verb form (to report) is spelled the same	
+diyun	דיון	דִּיּוּן	noun	2	ז	דיונים			discussion					
 dkira	דקירה	דְּקִירָה	noun	2	נ	דקירות	ד-ק-ר		prick, puncture, stab					
 doar	דואר	דֹּאַר	noun	2	ז				mail, post					
+dod	דוד	דּוֹד	noun	1	ז	דודים			uncle				also דּוּד = water heater	
 dofek	דופק	דֹּפֶק	noun	1	ז		ד-פ-ק		pulse					
+dofen	דופן	דֹּפֶן	noun	3	נ	דפנות			wall (of an organ or vessel)				דופן הבטן = abdominal wall	
 dome	דומה	דּוֹמֶה	adjective	2			ד-מ-ה		similar					
 duch	דו"ח	דּוּ"חַ	abbreviation	2	ז	דוחות			report				abbreviation of דין וחשבון	
 dugma	דוגמה	דֻּגְמָה	noun	2	נ	דוגמאות			example				loanword	
 dvora	דבורה	דְּבוֹרָה	noun	2	נ	דבורים	ד-ב-ר		bee				also the name Deborah	
 echad	אחד	אֶחָד	numeral	1					one (masculine)					
 edema	אדמה	אֶדֶמָה	noun	3	נ			בצקת	edema				loanword; Hebrew בצקת (distinct from אֲדָמָה "soil")	medical_loanword
+edim	אדים	אֵדִים	noun	3	ז				vapor; steam				plural form; שאיפת אדים = steam inhalation	
+edut	עדות	עֵדוּת	noun	3	נ	עדויות	ע-ו-ד		testimony; evidence					
 efshar	אפשר	אֶפְשָׁר	adverb	1					possible; it is possible					
+efshari	אפשרי	אֶפְשָׁרִי	adjective	2			א-פ-שׁ-ר		possible					
+efsharut	אפשרות	אֶפְשָׁרוּת	noun	2	נ	אפשרויות	א-פ-שׁ-ר		possibility; option					
 egoz	אגוז	אֱגוֹז	noun	2	ז	אגוזים			nut					
+egrof	אגרוף	אֶגְרוֹף	noun	2	ז	אגרופים			fist					
 eich	איך	אֵיךְ	adverb	1					how					
+eichut	איכות	אֵיכוּת	noun	2	נ				quality				איכות חיים = quality of life	
 eifo	איפה	אֵיפֹה	adverb	1					where					
 ein	אין	אֵין	adverb	1					there is not; none					
 eirua	אירוע	אֵרוּעַ	noun	2	ז	אירועים	א-ר-ע		event				medical: אירוע מוחי = stroke	
 eize	איזה	אֵיזֶה	pronoun	1					which, what kind of					
+eizeshehu	איזשהו	אֵיזֶשֶׁהוּ	pronoun	2					some; some kind of				fem. איזושהי	
 ekdach	אקדח	אֶקְדָּח	noun	2	ז	אקדחים			pistol, handgun					
+ekev	עקב	עֵקֶב	preposition	3					due to; because of				עקב החמרה במצב = due to deterioration	
+elasti	אלסטי	אֶלַסְטִי	adjective	2					elastic				תחבושת אלסטית = elastic bandage	
 ele	אלה	אֵלֶּה	pronoun	1					these					
 elef	אלף	אֶלֶף	numeral	1					thousand					
 elektrolitim	אלקטרוליטים	אֶלֶקְטְרוֹלִיטִים	noun	3	ז			מלחים	electrolytes				loanword; already plural form	medical_loanword
+elohim	אלוהים	אֱלֹהִים	noun	2	ז				God					
 emboliya	אמבוליה	אֶמְבּוֹלְיָה	noun	3	נ			תסחיף	embolism				loanword; Hebrew תסחיף	medical_loanword
+emda	עמדה	עֶמְדָּה	noun	3	נ	עמדות	ע-מ-ד		position; station				עמדת אחיות = nurses' station	
+emek	עמק	עֵמֶק	noun	2	ז	עמקים			valley					
+empatia	אמפתיה	אֶמְפַּתְיָה	noun	3	נ				empathy				loanword	
 empiri	אמפירי	אֶמְפִּירִי	adjective	3				ניסיוני	empiric				loanword; empiric (treatment)	medical_loanword
+emtza	אמצע	אֶמְצַע	noun	2	ז				middle					
+emtzai	אמצעי	אֶמְצָעִי	noun	2	ז	אמצעים			means; device				אמצעי מניעה = contraception; also adj. "middle"	
+emun	אמון	אֵמוּן	noun	2	ז		א-מ-נ		trust					
+emuna	אמונה	אֱמוּנָה	noun	2	נ	אמונות	א-מ-נ		belief; faith					
 endokarditis	אנדוקרדיטיס	אֶנְדוֹקַרְדִּיטִיס	noun	3	ז			דלקת פנים הלב	endocarditis				loanword	medical_loanword
+energia	אנרגיה	אֶנֶרְגְיָה	noun	2	נ				energy				loanword	
 enoshi	אנושי	אֱנוֹשִׁי	adjective	2			א-נ-שׁ		human					
 er	ער	עֵר	adjective	2			ע-ו-ר		awake; alert					
+erech	ערך	עֵרֶךְ	noun	3	ז	ערכים			value				ערכי מעבדה = lab values	
+eretz	ארץ	אֶרֶץ	noun	1	נ	ארצות			country; land					
 erev	ערב	עֶרֶב	noun	1	ז	ערבים			evening					
+esek	עסק	עֵסֶק	noun	2	ז	עסקים	ע-ס-ק		business					
 eser	עשר	עֶשֶׂר	numeral	1					ten					
 esh	אש	אֵשׁ	noun	1	נ				fire					
+eshech	אשך	אֶשֶׁךְ	noun	3	ז	אשכים			testicle					
 esrim	עשרים	עֶשְׂרִים	numeral	1					twenty					
 et	את	אֵת	particle	1					(direct-object marker)				direct-object marker, untranslated	
 et-pen	עט	עֵט	noun	2	ז	עטים			pen					
+etgar	אתגר	אֶתְגָּר	noun	2	ז	אתגרים			challenge					
 etiologia	אטיולוגיה	אֶטְיוֹלוֹגְיָה	noun	3	נ			גורם המחלה	etiology				loanword; cause of disease	medical_loanword
 etmol	אתמול	אֶתְמוֹל	adverb	1					yesterday					
 ets	עץ	עֵץ	noun	1	ז	עצים			tree; wood					
@@ -327,83 +513,169 @@ etzba	אצבע	אֶצְבַּע	noun	2	נ	אצבעות			finger
 etzel	אצל	אֵצֶל	preposition	2					at, by, at the place of					
 etzem	עצם	עֶצֶם	noun	1	נ	עצמות	ע-צ-ם		bone				also means object / essence	
 even	אבן	אֶבֶן	noun	2	נ	אבנים			stone				medical: אבן בכליה = kidney stone	
+ever	איבר	אֵבֶר	noun	2	ז	איברים			organ; limb					
 eyn-al-ma	אין-על-מה	אֵין עַל מָה	phrase	2					you're welcome				response to thanks	
 ezor	אזור	אֵזוֹר	noun	2	ז	אזורים	א-ז-ר		area, region, zone					
 ezra	עזרה	עֶזְרָה	noun	1	נ		ע-ז-ר		help / aid				עזרה ראשונה = first aid	
+ezrach	אזרח	אֶזְרָח	noun	2	ז	אזרחים			citizen					
 februar	פברואר	פֶבְּרוּאָר	noun	2	ז				February				loanword	
+fizi	פיזי	פִיזִי	adjective	2					physical				loanword; Hebrew גופני	
+fiziologi	פיזיולוגי	פִיזְיוֹלוֹגִי	adjective	3					physiological				loanword	
 fotofobia	פוטופוביה	פוֹטוֹפוֹבְּיָה	noun	3	נ			רגישות לאור	photophobia				loanword	medical_loanword
+gabot	גבות	גַּבּוֹת	noun	2	נ				eyebrows				plural of גַּבָּה	
 gader	גדר	גָּדֵר	noun	2	נ	גדרות			fence					
 gadol	גדול	גָּדוֹל	adjective	1			ג-ד-ל		big; large					
 gag	גג	גַּג	noun	2	ז	גגות	ג-ג-ג		roof					
 galgal	גלגל	גַּלְגַּל	noun	2	ז	גלגלים	ג-ל-ג-ל		wheel					
+galuy	גלוי	גָּלוּי	adjective	3			ג-ל-ה		open; overt; visible					
 gam	גם	גַּם	adverb	1					also, too					
+gamish	גמיש	גָּמִישׁ	adjective	3					flexible					
 gan	גן	גַּן	noun	1	ז	גנים	ג-נ-ן		garden, kindergarten					
 gar	גר	גָּר	verb	2			ג-ו-ר		to live, to reside				also a noun: convert (גֵּר)	
 garin	גרעין	גַּרְעִין	noun	2	ז	גרעינים	ג-ר-ע-ן		nucleus, seed, kernel				seed; also cell nucleus	
 garon	גרון	גָּרוֹן	noun	2	ז	גרונות	ג-ר-ן		throat					
 garua	גרוע	גָּרוּעַ	adjective	2			ג-ר-ע		bad, poor, terrible					
+garush	גרוש	גָּרוּשׁ	adjective	2			ג-ר-שׁ		divorced					
 gaut	גאוט	גָּאוּט	noun	2	ז			שיגדון	gout				loanword; Hebrew שיגדון	medical_loanword
 gav	גב	גַּב	noun	2	ז	גבים			back					
 gavoah	גבוה	גָּבוֹהַּ	adjective	2			ג-ב-ה		tall, high					
+gaz	גז	גַּז	noun	2	ז	גזים			gas				גזים = flatulence	
+gehinom	גהינום	גֵּיהִנּוֹם	noun	3	ז				hell					
+geneti	גנטי	גֶּנֶטִי	adjective	3					genetic				loanword	
+genetika	גנטיקה	גֶּנֶטִיקָה	noun	3	נ				genetics				loanword	
 gerev	גרב	גֶּרֶב	noun	2	ז	גרביים	ג-ר-ב		sock				gender debated; Academy lists masculine	
 gerud	גירוד	גֵּרוּד	noun	2	ז		ג-ר-ד		itching, scratching					
+geruy	גירוי	גֵּרוּי	noun	3	ז	גירויים	ג-ר-ה		irritation; stimulus				distinct from גירוד = itching	
 geshem	גשם	גֶּשֶׁם	noun	2	ז	גשמים	ג-ש-ם		rain					
 gesher	גשר	גֶּשֶׁר	noun	2	ז	גשרים			bridge					
 gever	גבר	גֶּבֶר	noun	2	ז	גברים	ג-ב-ר		man, male				also a verb: to overcome	
 geves	גבס	גֶּבֶס	noun	2	ז				plaster cast				orthopedic cast; loanword	medical_loanword
+geza	גזע	גֶּזַע	noun	3	ז	גזעים			race; trunk; stem				תאי גזע = stem cells; גזע המוח = brainstem	
 gezer	גזר	גֶּזֶר	noun	2	ז	גזרים	ג-ז-ר		carrot				also a verb: to cut/sentence	
+gibor	גיבור	גִּבּוֹר	noun	2	ז	גיבורים			hero					
 gid	גיד	גִּיד	noun	2	ז	גידים	ג-י-ד		tendon, sinew					
+gidul	גידול	גִּדּוּל	noun	3	ז	גידולים	ג-ד-ל		tumor; growth				also means "raising / growing"	
 gil	גיל	גִּיל	noun	1	ז		ג-י-ל		age					
 gila	גילה	גִּלָּה	verb	2			ג-ל-ה		to discover, to reveal					
 gina	גינה	גִּנָּה	noun	2	נ	גינות	ג-נ-ן		garden					
+girsa	גרסה	גִּרְסָה	noun	3	נ	גרסאות			version					
+gisha	גישה	גִּישָׁה	noun	2	נ		נ-ג-שׁ		approach; access				גישה ורידית = venous access	
 gitara	גיטרה	גִּיטָרָה	noun	2	נ	גיטרות			guitar				loanword	
+givun	גיוון	גִּוּוּן	noun	3	ז				variety; diversification					
 glaukoma	גלאוקומה	גְלָאוּקוֹמָה	noun	2	נ			ברקית	glaucoma				loanword; Hebrew ברקית	medical_loanword
+glida	גלידה	גְּלִידָה	noun	1	נ				ice cream					
 glukoz	גלוקוז	גְּלוּקוֹז	noun	2	ז			סוכר	glucose				loanword; Hebrew סוכר	medical_loanword
+godesh	גודש	גֹּדֶשׁ	noun	3	ז		ג-ד-שׁ		congestion				גודש ריאתי = pulmonary congestion; גודש באף = nasal congestion	
+gorem	גורם	גּוֹרֵם	noun	2	ז	גורמים	ג-ר-מ		factor; cause				גורם סיכון = risk factor	
 govah	גובה	גֹּבַהּ	noun	2	ז		ג-ב-ה		height					
 guf	גוף	גּוּף	noun	1	ז		ג-ו-ף		body					
+gufani	גופני	גּוּפָנִי	adjective	2					physical; bodily				פעילות גופנית = physical activity	
+gufiya	גופייה	גּוּפִיָּה	noun	2	נ	גופיות			undershirt; tank top					
+gulgolet	גולגולת	גֻּלְגֹּלֶת	noun	3	נ	גולגולות			skull					
+gumi	גומי	גּוּמִי	noun	2	ז				rubber				כפפות גומי = rubber gloves	
+gveret	גברת	גְּבֶרֶת	noun	1	נ	גברות			madam; Mrs.					
 ha	ה	הַ	particle	1					the (definite article)				prefix definite article	
 haaracha	הערכה	הַעֲרָכָה	noun	2	נ	הערכות	ע-ר-ך		assessment, evaluation, estimate					
+haavara	העברה	הַעֲבָרָה	noun	2	נ		ע-ב-ר		transfer				העברה למחלקה = transfer to the ward	
 haba	הבא	הַבָּא	adjective	2			ב-ו-א		next, the coming one				also imperative: bring!	
 hachi	הכי	הֲכִי	adverb	1					most (superlative)					
+hachlafa	החלפה	הַחְלָפָה	noun	2	נ		ח-ל-פ		replacement; change				החלפת תחבושת = dressing change	
 hachlama	החלמה	הַחְלָמָה	noun	2	נ		ח-ל-מ		recovery / convalescence					
 hachlata	החלטה	הַחְלָטָה	noun	2	נ	החלטות	ח-ל-ט		decision					
 hachmara	החמרה	הַחְמָרָה	noun	3	נ	החמרות	ח-מ-ר		worsening / exacerbation					
+hachnasa	הכנסה	הַכְנָסָה	noun	2	נ	הכנסות	כ-נ-ס		income; insertion					
+hachshara	הכשרה	הַכְשָׁרָה	noun	3	נ		כ-שׁ-ר		training; qualification					
+hadbaka	הדבקה	הַדְבָּקָה	noun	3	נ		ד-ב-ק		infection transmission; sticking				מחלה מדבקת = contagious disease	
+hadgasha	הדגשה	הַדְגָּשָׁה	noun	3	נ		ד-ג-שׁ		emphasis					
+hadlaka	הדלקה	הַדְלָקָה	noun	2	נ		ד-ל-ק		turning on; lighting				distinct from דלקת = inflammation	
+hadracha	הדרכה	הַדְרָכָה	noun	2	נ		ד-ר-כ		guidance; instruction				הדרכת מטופל = patient education	
+haduk	הדוק	הָדוּק	adjective	3					tight; close				מעקב הדוק = close follow-up	
+hafchata	הפחתה	הַפְחָתָה	noun	3	נ		פ-ח-ת		reduction; lowering				הפחתת מינון = dose reduction	
 hafnaya	הפנייה	הַפְנָיָה	noun	2	נ	הפניות	פ-נ-ה		referral					
+hafrada	הפרדה	הַפְרָדָה	noun	3	נ		פ-ר-ד		separation					
+hafrasha	הפרשה	הַפְרָשָׁה	noun	3	נ	הפרשות	פ-ר-שׁ		secretion; discharge				הפרשה מהנרתיק = vaginal discharge	
+hafraya	הפריה	הַפְרָיָה	noun	3	נ		פ-ר-ה		fertilization				הפריה חוץ-גופית = IVF	
 hafsaka	הפסקה	הַפְסָקָה	noun	2	נ	הפסקות	פ-ס-ק		break, pause, recess					
+hafsakat-chashmal	הפסקת-חשמל	הַפְסָקַת-חַשְׁמַל	noun	2	נ				power outage					
+hafuch	הפוך	הָפוּךְ	adjective	2			ה-פ-כ		reversed; upside down				also קפה הפוך = latte	
+hagdara	הגדרה	הַגְדָּרָה	noun	3	נ	הגדרות			definition; setting					
 hakaa	הקאה	הֲקָאָה	noun	1	נ	הקאות	ק-י-א		vomiting					
+hakala	הקלה	הֲקָלָה	noun	3	נ		ק-ל-ל		relief				הקלה על הכאב = pain relief	
+hakara	הכרה	הַכָּרָה	noun	3	נ		נ-כ-ר		consciousness; recognition				מצב הכרה = level of consciousness; איבד הכרה	
+hakdama	הקדמה	הַקְדָּמָה	noun	3	נ		ק-ד-מ		introduction; preface					
+haklata	הקלטה	הַקְלָטָה	noun	2	נ	הקלטות			recording					
 hakodem	הקודם	הַקּוֹדֵם	adjective	2			ק-ד-ם		previous, former					
 hakol	הכל	הַכֹּל	pronoun	1					everything, all					
 halach	הלך	הָלַךְ	verb	1			ה-ל-ך		to go, to walk					
 halicha	הליכה	הֲלִיכָה	noun	2	נ	הליכות	ה-ל-כ		walking					
+halichon	הליכון	הֲלִיכוֹן	noun	3	ז	הליכונים	ה-ל-כ		walker; treadmill				מבחן מאמץ בהליכון = treadmill stress test	
+hamon	המון	הָמוֹן	adverb	2					a lot; lots of					
+hamtana	המתנה	הַמְתָּנָה	noun	2	נ				waiting				חדר המתנה = waiting room	
+hana-a	הנאה	הֲנָאָה	noun	2	נ				pleasure; enjoyment					
+handasa	הנדסה	הַנְדָּסָה	noun	3	נ				engineering					
+hanhala	הנהלה	הַנְהָלָה	noun	2	נ		נ-ה-ל		management					
+hapala	הפלה	הַפָּלָה	noun	3	נ	הפלות	נ-פ-ל		miscarriage; abortion				הפלה טבעית vs הפסקת היריון	
 har	הר	הַר	noun	2	ז	הרים	ה-ר-ר		mountain					
 harbe	הרבה	הַרְבֵּה	adverb	1					a lot, many, much					
+harchava	הרחבה	הַרְחָבָה	noun	3	נ		ר-ח-ב		widening; dilation; expansion				הרחבת כלי דם = vasodilation	
+hartzaa	הרצאה	הַרְצָאָה	noun	2	נ	הרצאות			lecture					
+hasara	הסרה	הֲסָרָה	noun	3	נ		ס-ו-ר		removal				הסרת תפרים = suture removal	
 hashaara	השערה	הַשְׁעָרָה	noun	3	נ	השערות	ש-ע-ר		hypothesis, conjecture					
+hashpaa	השפעה	הַשְׁפָּעָה	noun	2	נ	השפעות	שׁ-פ-ע		effect; influence				תופעות לוואי vs השפעת התרופה	
+hashtala	השתלה	הַשְׁתָּלָה	noun	3	נ	השתלות	שׁ-ת-ל		transplant				השתלת כליה = kidney transplant	
+hashvaa	השוואה	הַשְׁוָאָה	noun	3	נ		שׁ-ו-ה		comparison				בהשוואה ל... = compared to	
+haskala	השכלה	הַשְׂכָּלָה	noun	2	נ		שׂ-כ-ל		education					
+haskama	הסכמה	הַסְכָּמָה	noun	3	נ		ס-כ-מ		consent; agreement				טופס הסכמה מדעת = informed consent form	
 hatchala	התחלה	הַתְחָלָה	noun	2	נ	התחלות	ח-ל-ל		beginning, start					
+hatra-a	התרעה	הַתְרָעָה	noun	3	נ	התרעות			alert; warning					
 hatzaa	הצעה	הַצָּעָה	noun	2	נ	הצעות	י-צ-ע		offer, proposal, suggestion					
+hatzaga	הצגה	הַצָּגָה	noun	2	נ	הצגות	י-צ-ג		show; presentation				הצגת מקרה = case presentation	
+hatzara	הצרה	הַצָּרָה	noun	3	נ		צ-ר-ר		narrowing; stenosis				הצרות בעורקים = arterial narrowing	
+hatzba-a	הצבעה	הַצְבָּעָה	noun	2	נ		צ-ב-ע		voting; pointing					
 hatzlacha	הצלחה	הַצְלָחָה	noun	2	נ	הצלחות	צ-ל-ח		success					
+havtacha	הבטחה	הַבְטָחָה	noun	2	נ	הבטחות	ב-ט-ח		promise					
+haza-a	הזעה	הַזָּעָה	noun	3	נ		ז-ו-ע		sweating				הזעות לילה = night sweats	
+hazaya	הזיה	הֲזָיָה	noun	3	נ	הזיות			hallucination					
+he-eder	היעדר	הֵעָדֵר	noun	3	ז				absence; lack				היעדר תסמינים = absence of symptoms	
+he-ela	העלה	הֶעֱלָה	verb	2			ע-ל-ה		to raise; to bring up					
 hechlit	החליט	הֶחְלִיט	verb	2			ח-ל-ט		to decide					
+hechrechi	הכרחי	הֶכְרֵחִי	adjective	3					essential; necessary					
 hechzik	החזיק	הֶחֱזִיק	verb	2			ח-ז-ק		to hold					
 heemin	האמין	הֶאֱמִין	verb	2			א-מ-נ		to believe					
+hefsed	הפסד	הֶפְסֵד	noun	2	ז	הפסדים	פ-ס-ד		loss (in a game, financial)				not medical loss — that is אובדן	
 hege	הגה	הֶגֶה	noun	2	ז		ה-ג-ה		steering wheel				also means a syllable; verb הָגָה = to utter	
 hegiv	הגיב	הֵגִיב	verb	2			ג-ו-ב		to react					
+heikerut	היכרות	הֶכֵּרוּת	noun	3	נ		נ-כ-ר		acquaintance; familiarity					
+heitev	היטב	הֵיטֵב	adverb	2					well; thoroughly					
+hekef	היקף	הֶקֵּף	noun	3	ז		נ-ק-פ		circumference; scope				היקף בטן = abdominal circumference	
+hekim	הקים	הֵקִים	verb	2			ק-ו-מ		to establish; to set up					
+helem	הלם	הֶלֶם	noun	3	ז				shock (circulatory)				הלם ספטי = septic shock; הלם קרב = combat shock	
 hem	הם	הֵם	pronoun	1					they (m)					
 hematoma	המטומה	הֶמָטוֹמָה	noun	3	נ			שטף דם	hematoma				loanword	medical_loanword
 hemshech	המשך	הֶמְשֵׁךְ	noun	2	ז	המשכים	מ-ש-כ		continuation					
 hen	הן	הֵן	pronoun	1					they (f)					
+herayon	היריון	הֵרָיוֹן	noun	2	ז	הריונות			pregnancy				שבוע 12 להריון = 12 weeks pregnant	
+hetkef	התקף	הֶתְקֵף	noun	3	ז	התקפים	ת-ק-פ		attack; seizure				התקף לב = heart attack; התקף אפילפטי = seizure	
+hetzig	הציג	הִצִּיג	verb	2			י-צ-ג		to present; to introduce					
 hevdel	הבדל	הֶבְדֵּל	noun	2	ז	הבדלים	ב-ד-ל		difference					
 hevi	הביא	הֵבִיא	verb	2			ב-ו-א		to bring					
 hey	היי	הַיי	interjection	1					hi, hey				loanword; colloquial greeting	
 hi	היא	הִיא	pronoun	1					she, it					
 hichiv	הכאיב	הִכְאִיב	verb	2			כ-א-ב		to hurt / cause pain					
+hidarderut	הידרדרות	הִדַּרְדְּרוּת	noun	3	נ				deterioration				הידרדרות במצב = clinical deterioration	
+hidgim	הדגים	הִדְגִּים	verb	3			ד-ג-מ		to demonstrate					
 hidlik	הדליק	הִדְלִיק	verb	2			ד-ל-ק		to light / turn on					
 hidpis	הדפיס	הִדְפִּיס	verb	2			ד-פ-ס		to print					
 hidronefrozis	הידרונפרוזיס	הִידְרוֹנֶפְרוֹזִיס	noun	3	ז			מיימת בכליה	hydronephrosis				loanword; urinary tract dilation	medical_loanword
 hifria	הפריע	הִפְרִיעַ	verb	2			פ-ר-ע		to disturb					
 hifsik	הפסיק	הִפְסִיק	verb	2			פ-ס-ק		to stop, to cease					
+higayoni	הגיוני	הֶגְיוֹנִי	adjective	2					logical; reasonable					
 higia	הגיע	הִגִּיעַ	verb	2			נ-ג-ע		to arrive					
 hikdim	הקדים	הִקְדִּים	verb	2			ק-ד-מ		to be early / precede					
 hikir	הכיר	הִכִּיר	verb	2			נ-כ-ר		to know / recognize					
+hikpid	הקפיד	הִקְפִּיד	verb	3			ק-פ-ד		to be strict; to adhere				הקפיד על נטילת התרופות = adhered to the medications	
 hikshiv	הקשיב	הִקְשִׁיב	verb	2			ק-ש-ב		to listen					
+himanut	הימנעות	הִמָּנְעוּת	noun	3	נ		מ-נ-ע		avoidance; abstaining					
 himlitz	המליץ	הִמְלִיץ	verb	2			מ-ל-ץ		to recommend					
 himshich	המשיך	הִמְשִׁיךְ	verb	2			מ-ש-כ		to continue					
 hine	הנה	הִנֵּה	adverb	2					here (is), behold					
@@ -413,6 +685,7 @@ hipovolemia	היפוולמיה	הִיפּוֹווֹלֶמְיָה	noun	3	נ			ח
 hirgia	הרגיע	הִרְגִּיעַ	verb	2			ר-ג-ע		to calm					
 hirgish	הרגיש	הִרְגִּישׁ	verb	2			ר-ג-ש		to feel					
 hisbir	הסביר	הִסְבִּיר	verb	2			ס-ב-ר		to explain					
+hisha-anut	הישענות	הִשָּׁעֲנוּת	noun	3	נ		שׁ-ע-נ		leaning; reliance					
 hishtamesh	השתמש	הִשְׁתַּמֵּשׁ	verb	2			ש-מ-ש		to use					
 hishtaper	השתפר	הִשְׁתַּפֵּר	verb	2			ש-פ-ר		to improve					
 hispik	הספיק	הִסְפִּיק	verb	2			ס-פ-ק		to manage / have enough time					
@@ -420,37 +693,61 @@ histakel	הסתכל	הִסְתַּכֵּל	verb	2			ס-כ-ל		to look
 historia	היסטוריה	הִיסְטוֹרְיָה	noun	2	נ				history				loanword	
 hitakesh	התעקש	הִתְעַקֵּשׁ	verb	2			ע-ק-ש		to insist					
 hitalef	התעלף	הִתְעַלֵּף	verb	2			ע-ל-פ		to faint					
+hitatshut	התעטשות	הִתְעַטְּשׁוּת	noun	3	נ		ע-ט-שׁ		sneezing					
 hitchaten	התחתן	הִתְחַתֵּן	verb	2			ח-ת-נ		to get married					
 hitchil	התחיל	הִתְחִיל	verb	2			ח-ל-ל		to begin, to start					
 hitkaleach	התקלח	הִתְקַלֵּחַ	verb	2			ק-ל-ח		to shower					
 hitkasher	התקשר	הִתְקַשֵּׁר	verb	2			ק-ש-ר		to call, to phone					
+hitkavtzut	התכווצות	הִתְכַּוְּצוּת	noun	3	נ	התכווצויות	כ-ו-צ		contraction; cramp				התכווצויות שרירים = muscle cramps; צירים = labor contractions	
+hitlabtut	התלבטות	הִתְלַבְּטוּת	noun	3	נ				indecision; deliberation					
 hitlonen	התלונן	הִתְלוֹנֵן	verb	2			ל-ו-ן		to complain					
+hitmachut	התמחות	הִתְמַחוּת	noun	3	נ				residency; specialization				מתמחה = resident	
+hitmakrut	התמכרות	הִתְמַכְּרוּת	noun	3	נ		מ-כ-ר		addiction					
+hitmatzut	התמצאות	הִתְמַצְּאוּת	noun	3	נ		מ-צ-א		orientation				מתמצא בזמן ובמקום = oriented to time and place	
+hitnagdut	התנגדות	הִתְנַגְּדוּת	noun	3	נ		נ-ג-ד		resistance; objection					
+hitnahagut	התנהגות	הִתְנַהֲגוּת	noun	3	נ		נ-ה-ג		behavior					
 hitnatzel	התנצל	הִתְנַצֵּל	verb	2			נ-צ-ל		to apologize					
 hitorer	התעורר	הִתְעוֹרֵר	verb	2			ע-ו-ר		to wake up					
 hitoshesh	התאושש	הִתְאוֹשֵׁשׁ	verb	2			א-ש-ש		to recover					
 hitosheshut	התאוששות	הִתְאוֹשְׁשׁוּת	noun	2	נ		א-ש-ש		recovery					
+hitpatrut	התפטרות	הִתְפַּטְּרוּת	noun	3	נ		פ-ט-ר		resignation					
 hitragel	התרגל	הִתְרַגֵּל	verb	2			ר-ג-ל		to get used to					
 hitvakeach	התווכח	הִתְוַכֵּחַ	verb	2			ו-כ-ח		to argue					
+hityaatzut	התייעצות	הִתְיָעֲצוּת	noun	3	נ		י-ע-צ		consultation					
+hityabshut	התייבשות	הִתְיַבְּשׁוּת	noun	3	נ		י-ב-שׁ		dehydration					
+hityachasut	התייחסות	הִתְיַחֲסוּת	noun	3	נ				reference; attitude; relating to					
 hitzia	הציע	הִצִּיעַ	verb	2			י-צ-ע		to offer, to suggest					
 hitzliach	הצליח	הִצְלִיחַ	verb	2			צ-ל-ח		to succeed					
+hitztabrut	הצטברות	הִצְטַבְּרוּת	noun	3	נ		צ-ב-ר		accumulation; buildup				הצטברות נוזלים = fluid accumulation	
 hitztaer	הצטער	הִצְטַעֵר	verb	2			צ-ע-ר		to be sorry / regret					
 hivtiach	הבטיח	הִבְטִיחַ	verb	2			ב-ט-ח		to promise					
 hizdamnut	הזדמנות	הִזְדַּמְּנוּת	noun	2	נ	הזדמנויות	ז-מ-ן		opportunity, chance					
 hizmin	הזמין	הִזְמִין	verb	2			ז-מ-נ		to order / invite					
+hochacha	הוכחה	הוֹכָחָה	noun	3	נ	הוכחות	י-כ-ח		proof; evidence					
 hoda	הודה	הוֹדָה	verb	2			י-ד-ה		to thank / admit					
 hodaa	הודעה	הוֹדָעָה	noun	2	נ	הודעות	י-ד-ע		message, notification					
+hora-a	הוראה	הוֹרָאָה	noun	2	נ	הוראות	י-ר-ה		instruction; order				הוראות שימוש = directions for use; הוראת רופא = doctor's order	
 horid	הוריד	הוֹרִיד	verb	2			י-ר-ד		to lower, to take down					
 horim	הורים	הוֹרִים	noun	1	ז		ה-ר-ה		parents				plural; singular הוֹרֶה (parent)	
+hosafa	הוספה	הוֹסָפָה	noun	2	נ		י-ס-פ		addition					
 hu	הוא	הוּא	pronoun	1					he, it					
+humor	הומור	הוּמוֹר	noun	2	ז				humor				loanword	
+ibed	איבד	אִבֵּד	verb	2			א-ב-ד		to lose				איבד הכרה = lost consciousness	
+ibuy	עיבוי	עִבּוּי	noun	3	ז				thickening				עיבוי דופן = wall thickening	
 icher	איחר	אִחֵר	verb	2			א-ח-ר		to be late					
 ichur	איחור	אִחוּר	noun	2	ז	איחורים	א-ח-ר		delay; lateness					
+ichuy	איחוי	אִחוּי	noun	3	ז				closure; union (of wound or fracture)				איחוי פצע; איחוי שבר	
+idkani	עדכני	עַדְכָּנִי	adjective	3					up-to-date				מרשם עדכני = current prescription	
 igul	עיגול	עִגּוּל	noun	2	ז	עיגולים	ע-ג-ל		circle					
+ikari	עיקרי	עִקָּרִי	adjective	3					main; principal				התלונה העיקרית = the chief complaint	
+ikuv	עיכוב	עִכּוּב	noun	3	ז	עיכובים	ע-כ-ב		delay				עיכוב התפתחותי = developmental delay	
 im	אם	אִם	conjunction	1					if					
 im-with	עם	עִם	preposition	1					with				homograph עַם = people / nation	
 ima	אמא	אִמָּא	noun	1	נ	אמהות			mom, mother					
 imeil	אימייל	אִימֵייל	noun	2	ז	אימיילים			email				loanword	
 infuzya	אינפוזיה	אִינְפוּזְיָה	noun	2	נ			עירוי	infusion (IV drip)				loanword; Hebrew עירוי	medical_loanword
 insulin	אינסולין	אִינְסוּלִין	noun	2	ז				insulin				loanword	medical_loanword
+interes	אינטרס	אִינְטֶרֶס	noun	3	ז	אינטרסים			interest; stake				loanword	
 internet	אינטרנט	אִינְטֶרְנֶט	noun	2	ז				internet				loanword	
 intubatzya	אינטובציה	אִינְטוּבַּצְיָה	noun	3	נ			החדרת צינור הנשמה	intubation				loanword	medical_loanword
 inyan	עניין	עִנְיָן	noun	2	ז	עניינים			matter / affair / interest					
@@ -458,26 +755,48 @@ ir	עיר	עִיר	noun	1	נ	ערים			city; town
 irgun	ארגון	אִרְגּוּן	noun	2	ז	ארגונים	א-ר-ג-ן		organization					
 ish	איש	אִישׁ	noun	1	ז	אנשים			man, person				irregular plural אנשים	
 isha	אישה	אִשָּׁה	noun	1	נ	נשים			woman, wife				irregular plural נשים	
+ishen	עישן	עִשֵּׁן	verb	2			ע-שׁ-נ		to smoke				מעשן? כמה שנים? = do you smoke? for how many years?	
 ishi	אישי	אִישִׁי	adjective	2					personal					
+ishon	אישון	אִישׁוֹן	noun	3	ז	אישונים			pupil (of the eye)				אישונים שווים ומגיבים = pupils equal and reactive	
 ishpuz	אשפוז	אִשְׁפּוּז	noun	2	ז	אשפוזים	א-ש-פ-ז		hospitalization					
 ishur	אישור	אִשּׁוּר	noun	2	ז	אישורים	א-שׁ-ר		approval, confirmation, certificate					
+isuf	איסוף	אִסּוּף	noun	2	ז		א-ס-פ		collection; gathering				איסוף שתן 24 שעות = 24-hour urine collection	
+isuk	עיסוק	עִסּוּק	noun	3	ז	עיסוקים	ע-ס-ק		occupation				ריפוי בעיסוק = occupational therapy	
 iti	איטי	אִטִּי	adjective	2					slow					
 iton	עיתון	עִתּוֹן	noun	2	ז	עיתונים			newspaper					
+itonai	עיתונאי	עִתּוֹנַאי	noun	2	ז	עיתונאים			journalist					
+itzuv	עיצוב	עִצּוּב	noun	2	ז				design					
+iver	עיוור	עִוֵּר	adjective	2					blind					
+ka-ele	כאלה	כָּאֵלֶּה	pronoun	2					such (pl.)					
 kaas	כעס	כַּעַס	noun	2	ז		כ-ע-ס		anger					
+kaasher	כאשר	כַּאֲשֶׁר	conjunction	2					when				formal; colloquial כש-	
+kabaim	קביים	קַבַּיִם	noun	3	ז				crutches				הולך עם קביים = walks with crutches	
+kabala	קבלה	קַבָּלָה	noun	2	נ	קבלות	ק-ב-ל		reception; receipt; admission				קבלה למחלקה = admission to the ward	
+kach	כך	כָּךְ	adverb	2					so; thus				כך ש... = so that	
 kacha	ככה	כָּכָה	adverb	2					like this, so, thus					
 kachol	כחול	כָּחֹל	adjective	2					blue					
 kadima	קדימה	קָדִימָה	adverb	2					forward, ahead					
+kadosh	קדוש	קָדוֹשׁ	adjective	2					holy					
 kadur	כדור	כַּדּוּר	noun	2	ז	כדורים			ball; pill, tablet				also = pill/tablet	
+kaet	כעת	כָּעֵת	adverb	2					now; at present				formal; colloquial עכשיו	
 kaf	כף	כַּף	noun	2	נ	כפות			spoon; palm (of hand)				also palm of hand (כף יד)	
 kafats	קפץ	קָפַץ	verb	2			ק-פ-ץ		to jump					
 kafeh	קפה	קָפֶה	noun	2	ז				coffee				loanword	
 kaftor	כפתור	כַּפְתּוֹר	noun	2	ז	כפתורים			button					
+kafu	קפוא	קָפוּא	adjective	2			ק-פ-א		frozen				כתף קפואה = frozen shoulder	
+kafuf	כפוף	כָּפוּף	adjective	3			כ-פ-פ		bent; subordinate to				ברך כפופה = bent knee	
+kaful	כפול	כָּפוּל	adjective	2			כ-פ-ל		double; times (×)				ראייה כפולה = double vision	
+kakao	קקאו	קָקָאוֹ	noun	2	ז				cocoa					
 kal	קל	קַל	adjective	1			ק-ל-ל		easy; light					
+kala	כלה	כַּלָּה	noun	2	נ	כלות			bride; daughter-in-law					
 kam	קם	קָם	verb	1			ק-ו-ם		to get up, to rise					
 kama	כמה	כַּמָּה	adverb	1					how many, how much; some					
+kamut	כמות	כַּמּוּת	noun	2	נ	כמויות			amount; quantity					
 kan	כאן	כָּאן	adverb	1					here					
 kana	קנה	קָנָה	verb	1			ק-נ-ה		to buy				noun קָנֶה = trachea/cane	
+kanaf	כנף	כָּנָף	noun	2	נ	כנפיים			wing					
 kanire	כנראה	כַּנִּרְאֶה	adverb	2					probably, apparently					
+kanyon	קניון	קַנְיוֹן	noun	2	ז	קניונים			mall					
 kapit	כפית	כַּפִּית	noun	2	נ	כפיות			teaspoon					
 kar	קר	קַר	adjective	1			ק-ר-ר		cold					
 kara	קרא	קָרָא	verb	1			ק-ר-א		to read; to call					
@@ -485,48 +804,96 @@ kara-tore	קרע	קָרַע	verb	2			ק-ר-ע		to tear				homograph of קֶרַ�
 kardiali	קרדיאלי	קַרְדִּיאָלִי	adjective	2				לבבי	cardiac				loanword; Hebrew לבבי	medical_loanword
 kardiomiopatia	קרדיומיופתיה	קַרְדִיוֹמִיוֹפַּתְיָה	noun	3	נ			מחלת שריר הלב	cardiomyopathy				loanword	medical_loanword
 karega	כרגע	כָּרֶגַע	adverb	2					right now, at the moment					
+karich	כריך	כָּרִיךְ	noun	2	ז	כריכים			sandwich					
 karit	כרית	כָּרִית	noun	2	נ	כריות			pillow, cushion					
+karkefet	קרקפת	קַרְקֶפֶת	noun	3	נ				scalp					
+karnit	קרנית	קַרְנִית	noun	3	נ	קרניות			cornea				שריטה בקרנית = corneal abrasion	
 karotid	קרוטיד	קָרוֹטִיד	noun	3	ז			עורק הצוואר	carotid				loanword; neck artery	medical_loanword
 karov	קרוב	קָרוֹב	adjective	1			ק-ר-ב		near, close				also = a relative (family)	
+karov-mishpacha	קרוב-משפחה	קְרוֹב-מִשְׁפָּחָה	noun	2	ז	קרובי-משפחה			relative; family member					
 karsol	קרסול	קַרְסֹל	noun	2	ז	קרסוליים			ankle					
 kartsinoma	קרצינומה	קַרְצִינוֹמָה	noun	3	נ			סרטן	carcinoma				loanword	medical_loanword
 kasheh	קשה	קָשֶׁה	adjective	1			ק-ש-ה		hard, difficult					
+kasher	כשר	כָּשֵׁר	adjective	2					kosher; fit					
+kashish	קשיש	קָשִׁישׁ	noun	3	ז	קשישים			elderly person				מטופל קשיש = elderly patient	
+kashuach	קשוח	קָשׁוּחַ	adjective	3					tough; rigid					
 kashur	קשור	קָשׁוּר	adjective	2			ק-ש-ר		connected, related					
 katan	קטן	קָטָן	adjective	1			ק-ט-ן		small					
 katarakt	קטרקט	קָטָרַקְט	noun	2	ז			ירוד	cataract				loanword; Hebrew ירוד	medical_loanword
 katav	כתב	כָּתַב	verb	2			כ-ת-ב		to write					
+katava	כתבה	כַּתָּבָה	noun	2	נ	כתבות	כ-ת-ב		article; news report					
 katef	כתף	כָּתֵף	noun	2	נ	כתפיים			shoulder					
 kateter	קטטר	קָתֶטֶר	noun	2	ז	קטטרים		צנתר	catheter				loanword	medical_loanword
+katnit	קטניה	קִטְנִית	noun	3	נ	קטניות			legume				קטניות = legumes	
+katua	קטוע	קָטוּעַ	adjective	3			ק-ט-ע		amputated; severed					
 katuv	כתוב	כָּתוּב	adjective	2			כ-ת-ב		written					
+katzar	קצר	קָצָר	adjective	1			ק-צ-ר		short				קוצר נשימה = shortness of breath	
+katzin	קצין	קָצִין	noun	2	ז	קצינים			officer					
 kava	קבע	קָבַע	verb	2			ק-ב-ע		to set, to determine					
 kavana	כוונה	כַּוָּנָה	noun	2	נ	כוונות	כ-ו-ן		intention					
 kaved	כבד	כָּבֵד	noun	2	ז				liver				homograph: also כָּבֵד = heavy (adj.)	
+kavod	כבוד	כָּבוֹד	noun	2	ז				respect; honor					
+kavua	קבוע	קָבוּעַ	adjective	2			ק-ב-ע		permanent; regular				טיפול תרופתי קבוע = regular medication	
+kaze	כזה	כָּזֶה	pronoun	2					such; like this				fem. כזאת, pl. כאלה	
+kazot	כזאת	כָּזֹאת	pronoun	2					such (fem.)					
 kdai	כדאי	כְּדַאי	adjective	2					worthwhile, worth it					
 kdei	כדי	כְּדֵי	conjunction	2					in order to, so as to					
 keev	כאב	כְּאֵב	noun	1	ז	כאבים	כ-א-ב		pain					
 kef	כיף	כֵּיף	noun	2	ז				fun				colloquial; loanword	
+kefel	כפל	כֶּפֶל	noun	2	ז		כ-פ-ל		multiplication					
+kefel-fold	קפל	קֶפֶל	noun	3	ז	קפלים			fold				קפלי עור = skin folds	
 kehe	כהה	כֵּהֶה	adjective	2					dark (color)					
 kelev	כלב	כֶּלֶב	noun	1	ז	כלבים	כ-ל-ב		dog					
 kemach	קמח	קֶמַח	noun	2	ז		ק-מ-ח		flour					
+kemet	קמט	קֶמֶט	noun	2	ז	קמטים			wrinkle					
 ken	כן	כֵּן	adverb	1					yes					
+kenes	כנס	כֶּנֶס	noun	3	ז	כנסים	כ-נ-ס		conference					
 kera	קרע	קֶרַע	noun	2	ז	קרעים	ק-ר-ע		tear, rupture					
+kerach	קרח	קֶרַח	noun	2	ז				ice				שקית קרח = ice pack	
+kerur	קירור	קֵרוּר	noun	3	ז		ק-ר-ר		cooling				שמירה בקירור = keep refrigerated	
 kesef	כסף	כֶּסֶף	noun	1	ז				money; silver				also = silver	
+kesem	קסם	קֶסֶם	noun	2	ז				magic					
+keshel	כשל	כֶּשֶׁל	noun	3	ז		כ-שׁ-ל		failure				אי-ספיקה is the usual clinical term for organ failure	
 kesher	קשר	קֶשֶׁר	noun	2	ז	קשרים	ק-ש-ר		connection, contact					
+ketem	כתם	כֶּתֶם	noun	2	ז	כתמים			stain; spot				כתמים בעור = skin spots; דימום בין-וסתי = spotting	
 ketsev	קצב	קֶצֶב	noun	2	ז		ק-צ-ב		rhythm, rate				also קַצָּב = butcher	
+ketzef	קצף	קֶצֶף	noun	2	ז				foam					
 keva	קיבה	קֵבָה	noun	2	נ				stomach					
+kevel	כבל	כֶּבֶל	noun	2	ז	כבלים			cable					
+kfafot	כפפות	כְּפָפוֹת	noun	2	נ				gloves				sing. כְּפָפָה; כפפות סטריליות = sterile gloves	
 kfar	כפר	כְּפָר	noun	2	ז	כפרים			village					
+kfitza	קפיצה	קְפִיצָה	noun	2	נ	קפיצות	ק-פ-צ		jump					
 ki	כי	כִּי	conjunction	1					because, that					
 kiba	כיבה	כִּבָּה	verb	2			כ-ב-ה		to extinguish, to turn off					
+kibua	קיבוע	קִבּוּעַ	noun	3	ז		ק-ב-ע		fixation; immobilization				קיבוע הצוואר = cervical immobilization	
+kibuy	כיבוי	כִּבּוּי	noun	2	ז		כ-ב-ה		extinguishing; turning off				כיבוי אורות = lights out	
+kiluf	קילוף	קִלּוּף	noun	3	ז		ק-ל-פ		peeling				קילוף העור = skin peeling	
 kilya	כליה	כִּלְיָה	noun	2	נ	כליות			kidney				medical (organ)	
 kimat	כמעט	כִּמְעַט	adverb	1					almost					
+kineret	כנרת	כִּנֶּרֶת	noun	2	נ				the Sea of Galilee (Kinneret)					
+kinim	כינים	כִּנִּים	noun	2	נ				lice				sing. כִּנָּה; כינים בשיער = head lice	
+kipul	קיפול	קִפּוּל	noun	2	ז				folding					
 kir	קיר	קִיר	noun	2	ז	קירות	ק-י-ר		wall					
+kirva	קרבה	קִרְבָה	noun	3	נ		ק-ר-ב		proximity; kinship				קרבה משפחתית = family relation	
+kis	כיס	כִּיס	noun	2	ז	כיסים			pocket; sac				כיס מרה = gallbladder	
 kise	כיסא	כִּסֵּא	noun	1	ז	כיסאות			chair					
+kise-galgalim	כיסא-גלגלים	כִּסֵּא-גַּלְגַּלִּים	noun	2	ז	כיסאות-גלגלים			wheelchair					
+kishron	כישרון	כִּשָּׁרוֹן	noun	2	ז	כישרונות			talent					
+kishur	קישור	קִשּׁוּר	noun	2	ז	קישורים	ק-שׁ-ר		link					
+kisuy	כיסוי	כִּסּוּי	noun	3	ז		כ-ס-ה		cover; coverage				כיסוי ביטוחי = insurance coverage	
 kita	כיתה	כִּתָּה	noun	2	נ	כיתות			class, classroom, grade					
+kitzoni	קיצוני	קִיצוֹנִי	adjective	3					extreme					
 kiyor	כיור	כִּיּוֹר	noun	2	ז	כיורים			sink, washbasin					
 klali	כללי	כְּלָלִי	adjective	2					general					
+kli	כלי	כְּלִי	noun	2	ז	כלים			tool; vessel				כלי דם = blood vessel	
+klik	קליק	קְלִיק	noun	3	ז	קליקים			click				loanword	
 klini	קליני	קְלִינִי	adjective	2					clinical				loanword	medical_loanword
+klipa	קליפה	קְלִפָּה	noun	2	נ	קליפות	ק-ל-פ		peel; shell					
+klita	קליטה	קְלִיטָה	noun	3	נ		ק-ל-ט		absorption; reception				משרד הקליטה = Ministry of Immigrant Absorption	
 klum	כלום	כְּלוּם	pronoun	2					nothing, anything					
 kmo	כמו	כְּמוֹ	preposition	1					like, as					
+knas	קנס	קְנָס	noun	2	ז	קנסות			fine (penalty)					
+knesiya	כנסייה	כְּנֵסִיָּה	noun	2	נ	כנסיות			church					
 knisa	כניסה	כְּנִיסָה	noun	2	נ	כניסות	כ-נ-ס		entrance, entry					
 koach	כוח	כֹּחַ	noun	2	ז	כוחות			strength, power, force					
 kochav	כוכב	כּוֹכָב	noun	2	ז	כוכבים			star					
@@ -534,79 +901,137 @@ kodem	קודם	קֹדֶם	adverb	2					before, earlier
 kodem-kol	קודם-כל	קֹדֶם-כֹּל	phrase	2					first of all					
 koev	כואב	כּוֹאֵב	verb	1			כ-א-ב		to hurt, to ache				present tense of כָּאַב	
 kof	קוף	קוֹף	noun	2	ז	קופים			monkey					
+kognitivi	קוגניטיבי	קוֹגְנִיטִיבִי	adjective	3					cognitive				ירידה קוגניטיבית = cognitive decline	medical_loanword
 kol	כל	כֹּל	noun	1	ז				all, every, everything					
+kol-hakavod	כל-הכבוד	כָּל-הַכָּבוֹד	interjection	1					well done!					
 kol-voice	קול	קוֹל	noun	1	ז	קולות	ק-ו-ל		voice, sound					
 kolecistitis	כולציסטיטיס	כוֹלֵצִיסְטִיטִיס	noun	3	ז			דלקת כיס המרה	cholecystitis				loanword	medical_loanword
+kolshehu	כלשהו	כָּלְשֶׁהוּ	pronoun	3					any; some				fem. כלשהי	
 koma	קומה	קוֹמָה	noun	2	נ	קומות			floor, story					
+kor	קור	קֹר	noun	2	ז				cold (temperature)				צמרמורת = chills	
+korban	קורבן	קָרְבָּן	noun	3	ז	קורבנות			victim					
+korkinet	קורקינט	קוֹרְקִינֵט	noun	2	ז	קורקינטים			scooter				תאונת קורקינט = scooter accident	
 kos	כוס	כּוֹס	noun	1	נ	כוסות			cup, glass					
 kosher	כושר	כֹּשֶׁר	noun	2	ז		כ-ש-ר		fitness, ability					
 koshi	קושי	קֹשִׁי	noun	2	ז	קשיים	ק-ש-ה		difficulty					
+koteret	כותרת	כּוֹתֶרֶת	noun	2	נ	כותרות			headline; title					
 kotzer-neshima	קוצר נשימה	קֹצֶר נְשִׁימָה	phrase	1	ז			קשה לנשום	shortness of breath					
+kotzev-lev	קוצב-לב	קוֹצֵב-לֵב	noun	3	ז	קוצבי-לב			pacemaker				השתלת קוצב לב = pacemaker implantation	
 kova	כובע	כּוֹבַע	noun	2	ז	כובעים			hat					
 kovets	קובץ	קֹבֶץ	noun	2	ז	קבצים	ק-ב-ץ		file					
 kreatinin	קריאטינין	קְרֵאָטִינִין	noun	3	ז				creatinine				loanword; kidney-function lab	medical_loanword
 krepitatzyot	קרפיטציות	קְרֶפִּיטַצְיוֹת	noun	3	נ			חרחורים	crepitations (crackles)				lung sounds on auscultation; loanword	medical_loanword
+krisa	קריסה	קְרִיסָה	noun	3	נ		ק-ר-ס		collapse				קריסת ריאה = lung collapse	
+krita	כריתה	כְּרִיתָה	noun	3	נ	כריתות	כ-ר-ת		resection; excision				כריתת תוספתן = appendectomy	
 kroni	כרוני	כְרוֹנִי	adjective	3				מתמשך	chronic				loanword; medical	medical_loanword
 kshe	כש	כְּשֶׁ	conjunction	2					when (prefix)				prefix meaning 'when'	
+ktia	קטיעה	קְטִיעָה	noun	3	נ	קטיעות	ק-ט-ע		amputation					
 ktovet	כתובת	כְּתֹבֶת	noun	2	נ	כתובות	כ-ת-ב		address					
 ktsat	קצת	קְצָת	adverb	1					a little, a bit					
+kufsa	קופסה	קֻפְסָה	noun	2	נ	קופסאות			box				קופסת תרופות = pillbox	
 kvar	כבר	כְּבָר	adverb	1					already					
+kvisa	כביסה	כְּבִיסָה	noun	2	נ				laundry					
 kvish	כביש	כְּבִישׁ	noun	2	ז	כבישים	כ-ב-ש		road, highway					
 kviya	כווייה	כְּוִיָּה	noun	2	נ	כוויות	כ-ו-ה		burn (injury)				burn injury (medical)	
+kvutza	קבוצה	קְבוּצָה	noun	2	נ	קבוצות			group				קבוצת דם = blood group	
 laachrona	לאחרונה	לָאַחֲרוֹנָה	adverb	2					recently, lately					
 lach	לח	לַח	adjective	2					moist, damp, humid					
 lachatz	לחץ	לַחַץ	noun	2	ז	לחצים	ל-ח-צ		pressure, stress				as in לחץ דם = blood pressure	
 lachatz-dam	לחץ דם	לַחַץ דָּם	noun	1	ז			לחץ	blood pressure					
+lachen	לכן	לָכֵן	conjunction	2					therefore					
+lachmaniya	לחמנייה	לַחְמָנִיָּה	noun	2	נ	לחמניות	ל-ח-מ		bread roll					
 lachut	לחות	לַחוּת	noun	2	נ				humidity, moisture					
+lachutz	לחוץ	לָחוּץ	adjective	2			ל-ח-צ		stressed; pressed					
 lakach	לקח	לָקַח	verb	2			ל-ק-ח		to take					
 lakoach	לקוח	לָקוֹחַ	noun	2	ז	לקוחות			customer, client					
 lama	למה	לָמָּה	adverb	1					why					
 lamad	למד	לָמַד	verb	2			ל-מ-ד		to learn, to study					
+lamrot	למרות	לַמְרוֹת	preposition	2					despite; although					
+larov	לרוב	לָרֹב	adverb	3					usually; mostly					
 lashon	לשון	לָשׁוֹן	noun	2	נ	לשונות			tongue; language				medical = tongue; also = language	
 lavan	לבן	לָבָן	adjective	1			ל-ב-ן		white					
 lavlav	לבלב	לַבְלָב	noun	3	ז				pancreas				medical (anatomy)	
 layla	לילה	לַיְלָה	noun	1	ז	לילות			night				masculine despite ־ה ending	
 le	ל	לְ	preposition	1					to, for				prefix preposition	
+leachar	לאחר	לְאַחַר	preposition	2					after				formal; colloquial אחרי	
 lean	לאן	לְאָן	adverb	2					where to					
 leat	לאט	לְאַט	adverb	2					slowly					
 lechem	לחם	לֶחֶם	noun	1	ז				bread					
+lechi	לחי	לְחִי	noun	2	נ	לחיים			cheek					
+leda	לידה	לֵדָה	noun	2	נ	לידות	י-ל-ד		birth; delivery				חדר לידה = delivery room; תאריך לידה = date of birth	
 ledaati	לדעתי	לְדַעְתִּי	adverb	2					in my opinion					
 lefachot	לפחות	לְפָחוֹת	adverb	2					at least					
+lefeta	לפתע	לְפֶתַע	adverb	3					suddenly				colloquial פתאום	
+lefi	לפי	לְפִי	preposition	2					according to				לפי הצורך = as needed (PRN)	
 legamrei	לגמרי	לְגַמְרֵי	adverb	2					completely, entirely					
 lehitraot	להתראות	לְהִתְרָאוֹת	interjection	1					goodbye, see you					
+leitim	לעתים	לְעִתִּים	adverb	3					sometimes; at times					
+leitim-krovot	לעתים-קרובות	לְעִתִּים-קְרוֹבוֹת	adverb	3					often; frequently					
+leitim-rechokot	לעתים-רחוקות	לְעִתִּים-רְחוֹקוֹת	adverb	3					rarely					
+lelo	ללא	לְלֹא	preposition	2					without				formal; colloquial בלי	
+lemaan	למען	לְמַעַן	preposition	3					for the sake of					
 lemala	למעלה	לְמַעְלָה	adverb	2					up, above, upstairs					
+lemarbe-hatzaar	למרבה-הצער	לְמַרְבֵּה-הַצַּעַר	adverb	3					unfortunately				formal register	
 lemashal	למשל	לְמָשָׁל	adverb	2					for example					
 lemata	למטה	לְמַטָּה	adverb	2					down, below, downstairs					
+lemida	למידה	לְמִידָה	noun	2	נ		ל-מ-ד		learning				לקויות למידה = learning disabilities	
+leset	לסת	לֶסֶת	noun	3	נ	לסתות			jaw				כאב בלסת = jaw pain	
+letzaari	לצערי	לְצַעֲרִי	adverb	2					unfortunately; I'm sorry to say					
 leukotsitozis	לויקוציטוזיס	לֵאוּקוֹצִיטוֹזִיס	noun	3	ז			ריבוי תאי דם לבנים	leukocytosis				loanword	medical_loanword
+leumat	לעומת	לְעֻמַּת	preposition	3					compared to; versus					
+leumat-zot	לעומת-זאת	לְעֻמַּת-זֹאת	adverb	3					on the other hand					
+leumi	לאומי	לְאֻמִּי	adjective	2					national				ביטוח לאומי = National Insurance	
 lev	לב	לֵב	noun	1	ז	לבבות			heart					
 levad	לבד	לְבַד	adverb	2					alone, by oneself					
+licha	ליחה	לֵחָה	noun	3	נ				phlegm; sputum				שיעול עם ליחה = productive cough	
 lifamim	לפעמים	לִפְעָמִים	adverb	2					sometimes					
 lifnei	לפני	לִפְנֵי	preposition	1					before, in front of					
+lihyot	להיות	לִהְיוֹת	verb	1			ה-י-ה		to be				infinitive of היה	
+likrat	לקראת	לִקְרַאת	preposition	3					towards; in preparation for					
+likuy	ליקוי	לִקּוּי	noun	3	ז	ליקויים			impairment; defect				ליקוי שמיעה = hearing impairment	
 limon	לימון	לִימוֹן	noun	2	ז	לימונים			lemon					
 limudim	לימודים	לִמּוּדִים	noun	2	ז		ל-מ-ד		studies, schooling				plural form (sg. לימוד)	
+litut	ליטוף	לִטּוּף	noun	2	ז		ל-ט-פ		caress; stroking					
 lo	לא	לֹא	adverb	1					no, not					
+loa	לוע	לוֹעַ	noun	3	ז				throat; pharynx				בדיקת לוע = throat exam; משטח לוע = throat swab	
+lochesh	לוחש	לוֹחֵשׁ	verb	2			ל-ח-שׁ		to whisper; whispers					
+lovesh	לובש	לוֹבֵשׁ	verb	2			ל-ב-שׁ		to wear; wears					
 ma	מה	מָה	pronoun	1					what					
 maabada	מעבדה	מַעְבָּדָה	noun	2	נ	מעבדות	ע-ב-ד		laboratory					
+maafiya	מאפייה	מַאֲפִיָּה	noun	2	נ	מאפיות	א-פ-ה		bakery					
 maagal	מעגל	מַעְגָּל	noun	2	ז	מעגלים	ע-ג-ל		circle					
+maakav	מעקב	מַעֲקָב	noun	3	ז		ע-ק-ב		follow-up; monitoring				מעקב אחרי מטופל = patient follow-up	
 maalit	מעלית	מַעֲלִית	noun	2	נ	מעליות	ע-ל-ה		elevator, lift					
+maamar	מאמר	מַאֲמָר	noun	2	ז	מאמרים			article (written)					
+maamatz	מאמץ	מַאֲמָץ	noun	2	ז	מאמצים	א-מ-צ		effort; exertion				כאב במאמץ = pain on exertion; מבחן מאמץ = stress test	
+maane	מענה	מַעֲנֶה	noun	3	ז		ע-נ-ה		response; answer				מענה טלפוני = phone answering service	
 maarav	מערב	מַעֲרָב	noun	2	ז		ע-ר-ב		west					
 maarechet	מערכת	מַעֲרֶכֶת	noun	2	נ	מערכות	ע-ר-ך		system					
+maarechet-yechasim	מערכת-יחסים	מַעֲרֶכֶת-יְחָסִים	noun	3	נ	מערכות-יחסים			relationship					
+maavak	מאבק	מַאֲבָק	noun	3	ז	מאבקים			struggle					
 machala	מחלה	מַחֲלָה	noun	2	נ	מחלות	ח-ל-ה		illness, disease					
+machanak	מחנק	מַחְנָק	noun	3	ז		ח-נ-ק		suffocation; stifling					
 machar	מחר	מָחָר	adverb	1					tomorrow					
 machat	מחט	מַחַט	noun	2	נ	מחטים			needle					
+machavat	מחבת	מַחֲבַת	noun	2	נ	מחבתות			frying pan					
 machberet	מחברת	מַחְבֶּרֶת	noun	2	נ	מחברות	ח-ב-ר		notebook					
 machlaka	מחלקה	מַחְלָקָה	noun	2	נ	מחלקות	ח-ל-ק		department, ward				hospital ward	
 machshava	מחשבה	מַחְשָׁבָה	noun	2	נ	מחשבות	ח-ש-ב		thought					
 machshev	מחשב	מַחְשֵׁב	noun	2	ז	מחשבים	ח-ש-ב		computer					
 machshir	מכשיר	מַכְשִׁיר	noun	2	ז	מכשירים	כ-ש-ר		device/instrument					
+machsor	מחסור	מַחְסוֹר	noun	3	ז		ח-ס-ר		shortage; deficiency				מחסור בוויטמין = vitamin deficiency	
 mada	מדע	מַדָּע	noun	2	ז	מדעים	י-ד-ע		science					
 madad	מדד	מָדַד	verb	2			מ-ד-ד		to measure				verb; noun מַדָּד = index	
+madaf	מדף	מַדָּף	noun	2	ז	מדפים			shelf					
 madan	מדען	מַדְעָן	noun	2	ז	מדענים	י-ד-ע		scientist					
 madhim	מדהים	מַדְהִים	adjective	2			ד-ה-ם		amazing, astonishing					
+madim	מדים	מַדִּים	noun	2	ז				uniform				plural in form	
 madpeset	מדפסת	מַדְפֶּסֶת	noun	2	נ	מדפסות	ד-פ-ס		printer					
 madregot	מדרגות	מַדְרֵגוֹת	noun	2	נ		ד-ר-ג		stairs, steps				plural of מַדְרֵגָה	
+madrich	מדריך	מַדְרִיךְ	noun	2	ז	מדריכים	ד-ר-כ		guide; instructor					
 mafchid	מפחיד	מַפְחִיד	adjective	2			פ-ח-ד		scary, frightening					
 mafteach	מפתח	מַפְתֵּחַ	noun	2	ז	מפתחות	פ-ת-ח		key					
+maftia	מפתיע	מַפְתִּיעַ	adjective	2					surprising					
 maga	מגע	מַגָּע	noun	2	ז	מגעים	נ-ג-ע		contact/touch					
 magash	מגש	מַגָּשׁ	noun	2	ז	מגשים			tray					
 magefa	מגפה	מַגֵּפָה	noun	2	נ	מגפות	נ-ג-ף		epidemic, plague					
@@ -615,30 +1040,65 @@ maher	מהר	מַהֵר	adverb	1			מ-ה-ר		quickly, fast
 mahir	מהיר	מָהִיר	adjective	2			מ-ה-ר		fast, quick					
 mai	מאי	מַאי	noun	2	ז				May				month name	
 maka	מכה	מַכָּה	noun	2	נ	מכות	נ-כ-ה		blow, hit; wound					
+makar	מכר	מַכָּר	noun	3	ז	מכרים	נ-כ-ר		acquaintance					
+makbil	מקביל	מַקְבִּיל	adjective	3					parallel				במקביל = simultaneously	
+makel	מקל	מַקֵּל	noun	2	ז	מקלות			stick; cane				הולך עם מקל = walks with a cane	
+makif	מקיף	מַקִּיף	adjective	3			נ-ק-פ		comprehensive				בדיקה מקיפה = comprehensive examination	
+makolet	מכולת	מַכֹּלֶת	noun	2	נ				grocery store					
 makom	מקום	מָקוֹם	noun	1	ז	מקומות	ק-ו-ם		place, spot					
+makor	מקור	מָקוֹר	noun	2	ז	מקורות			source				מקור הזיהום = source of infection	
+makpi	מקפיא	מַקְפִּיא	noun	2	ז	מקפיאים	ק-פ-א		freezer					
+malben	מלבן	מַלְבֵּן	noun	2	ז	מלבנים			rectangle					
 male	מלא	מָלֵא	adjective	2			מ-ל-א		full				also verb: to fill (מִלֵּא)	
+malka	מלכה	מַלְכָּה	noun	2	נ	מלכות			queen					
 maluach	מלוח	מָלוּחַ	adjective	2			מ-ל-ח		salty					
 mamash	ממש	מַמָּשׁ	adverb	2					really, actually					
+mana	מנה	מָנָה	noun	3	נ	מנות			dose; portion				מנת תרופה = drug dose; מנת דם = unit of blood	
+manoa	מנוע	מָנוֹעַ	noun	2	ז	מנועים			engine				also מָנוּעַ = prevented/barred	
+manul	מנעול	מַנְעוּל	noun	2	ז	מנעולים	נ-ע-ל		lock					
+mapa	מפה	מַפָּה	noun	2	נ	מפות			map; tablecloth					
 mar	מר	מַר	adjective	2			מ-ר-ר		bitter				also: Mr. (courtesy title)	
+mar-a	מראה	מַרְאָה	noun	2	נ	מראות	ר-א-ה		mirror; appearance				מַרְאֶה = appearance; מַרְאָה = mirror	
 marak	מרק	מָרָק	noun	2	ז	מרקים	מ-ר-ק		soup					
+markiv	מרכיב	מַרְכִּיב	noun	3	ז	מרכיבים	ר-כ-ב		component; ingredient				המרכיב הפעיל = the active ingredient	
 marpek	מרפק	מַרְפֵּק	noun	2	ז	מרפקים	ר-פ-ק		elbow					
+martze	מרצה	מַרְצֶה	noun	2	ז	מרצים			lecturer					
+masa	מסה	מַסָּה	noun	3	נ	מסות			mass				מסה בבטן = abdominal mass	
 masach	מסך	מָסָךְ	noun	2	ז	מסכים	מ-ס-ך		screen					
+masait	משאית	מַשָּׂאִית	noun	2	נ	משאיות			truck					
 mashehu	משהו	מַשֶּׁהוּ	pronoun	2					something					
+mashlim	משלים	מַשְׁלִים	adjective	3			שׁ-ל-מ		complementary				בדיקות משלימות = additional/complementary tests	
 mashmaut	משמעות	מַשְׁמָעוּת	noun	2	נ	משמעויות	ש-מ-ע		meaning/significance					
+mashmauti	משמעותי	מַשְׁמָעוּתִי	adjective	3					significant				שיפור משמעותי = significant improvement	
+masivi	מאסיבי	מָאסִיבִי	adjective	3					massive				דימום מסיבי = massive bleeding	
 maskana	מסקנה	מַסְקָנָה	noun	2	נ	מסקנות			conclusion					
 maskoret	משכורת	מַשְׂכֹּרֶת	noun	2	נ	משכורות	ש-כ-ר		salary					
+maslul	מסלול	מַסְלוּל	noun	3	ז	מסלולים			track; route; pathway					
+masoret	מסורת	מָסֹרֶת	noun	2	נ				tradition					
+masorti	מסורתי	מָסָרְתִּי	adjective	2					traditional					
 maspik	מספיק	מַסְפִּיק	adverb	2			ס-פ-ק		enough					
+masrek	מסרק	מַסְרֵק	noun	2	ז	מסרקים	ס-ר-ק		comb					
 matai	מתי	מָתַי	adverb	1					when					
+matala	מטלה	מְטָלָה	noun	3	נ	מטלות			assignment; chore				מטלות יום-יום = activities of daily living	
 matana	מתנה	מַתָּנָה	noun	2	נ	מתנות	נ-ת-ן		gift, present					
 matara	מטרה	מַטָּרָה	noun	2	נ	מטרות			goal, target, aim					
 matayim	מאתיים	מָאתַיִם	numeral	2					two hundred					
+matechet	מתכת	מַתֶּכֶת	noun	2	נ	מתכות			metal				שתל ממתכת = metal implant	
+matematika	מתמטיקה	מָתֵמָטִיקָה	noun	2	נ				mathematics					
 matim	מתאים	מַתְאִים	adjective	2			ת-א-ם		suitable, appropriate					
+matkon	מתכון	מַתְכּוֹן	noun	2	ז	מתכונים			recipe					
+matlit	מטלית	מַטְלִית	noun	3	נ	מטליות			cloth; wipe					
 matok	מתוק	מָתוֹק	adjective	2			מ-ת-ק		sweet					
 matos	מטוס	מָטוֹס	noun	2	ז	מטוסים	ט-ו-ס		airplane					
+matuach	מתוח	מָתוּחַ	adjective	2			מ-ת-ח		tense; stressed					
+matun	מתון	מָתוּן	adjective	3					mild; moderate				כאב מתון = mild pain	
 matza	מצא	מָצָא	verb	2			מ-צ-א		to find					
+matzaim	מצעים	מַצָּעִים	noun	2	ז				bedding; linens				החלפת מצעים = changing the linens	
 matzav	מצב	מַצָּב	noun	2	ז	מצבים	נ-צ-ב		situation/condition					
 matzchik	מצחיק	מַצְחִיק	adjective	2			צ-ח-ק		funny					
+matzeget	מצגת	מַצֶּגֶת	noun	2	נ	מצגות			presentation (slides)					
 matzlema	מצלמה	מַצְלֵמָה	noun	2	נ	מצלמות	צ-ל-ם		camera					
+mavchena	מבחנה	מַבְחֵנָה	noun	3	נ	מבחנות	ב-ח-נ		test tube				הפריית מבחנה = IVF	
 mavet	מוות	מָוֶת	noun	2	ז		מ-ו-ת		death					
 maximum	מקסימום	מַקְסִימוּם	noun	2	ז				maximum				loanword	
 mayim	מים	מַיִם	noun	1	ז				water				grammatically plural, no singular	
@@ -646,115 +1106,238 @@ mazal	מזל	מַזָּל	noun	2	ז				luck
 mazgan	מזגן	מַזְגָן	noun	2	ז	מזגנים	מ-ז-ג		air conditioner					
 mazkira	מזכירה	מַזְכִּירָה	noun	2	נ	מזכירות	ז-כ-ר		secretary					
 mazleg	מזלג	מַזְלֵג	noun	2	ז	מזלגות	ז-ל-ג		fork					
+mazon	מזון	מָזוֹן	noun	2	ז				food				הרעלת מזון = food poisoning	
 mazrek	מזרק	מַזְרֵק	noun	2	ז	מזרקים	ז-ר-ק		syringe					
 me	מ	מִ	preposition	1					from				prefix 'from-'	
 mea	מאה	מֵאָה	numeral	1					hundred					
+meabtech	מאבטח	מְאַבְטֵחַ	noun	2	ז	מאבטחים	א-ב-ט-ח		security guard					
 meachorei	מאחורי	מֵאֲחוֹרֵי	preposition	2					behind					
+meafyen	מאפיין	מְאַפְיֵן	noun	3	ז	מאפיינים	א-פ-נ		characteristic; feature					
 meal	מעל	מֵעַל	preposition	1					above/over					
 meanyen	מעניין	מְעַנְיֵן	adjective	2			ע-נ-י-ן		interesting					
+meara	מערה	מְעָרָה	noun	2	נ	מערות			cave					
 meat	מעט	מְעַט	adverb	1					a little; few					
 meavrer	מאוורר	מְאַוְרֵר	noun	2	ז	מאווררים	א-ו-ר-ר		fan; ventilator				also: mechanical ventilator (medical)	
+meayef	מעייף	מְעַיֵּף	adjective	2			ע-י-פ		tiring					
+meaz	מאז	מֵאָז	preposition	2					since					
+mechabei-esh	מכבי-אש	מְכַבֵּי-אֵשׁ	noun	2	ז				fire department					
+mechika	מחיקה	מְחִיקָה	noun	2	נ		מ-ח-ק		deletion; erasing					
 mechir	מחיר	מְחִיר	noun	2	ז	מחירים	מ-ח-ר		price					
 mechkar	מחקר	מֶחְקָר	noun	2	ז	מחקרים	ח-ק-ר		research/study					
 mechoar	מכוער	מְכֹעָר	adjective	2			כ-ע-ר		ugly					
 mechona	מכונה	מְכוֹנָה	noun	2	נ	מכונות	כ-ו-ן		machine					
 mechonit	מכונית	מְכוֹנִית	noun	2	נ	מכוניות			car, automobile					
+mechusan	מחוסן	מְחֻסָּן	adjective	3			ח-ס-נ		vaccinated; immune				מחוסן נגד שפעת = vaccinated against flu	
 medida	מדידה	מְדִידָה	noun	2	נ	מדידות	מ-ד-ד		measurement					
 medina	מדינה	מְדִינָה	noun	2	נ	מדינות	ד-י-ן		country/state					
+meduza	מדוזה	מֶדוּזָה	noun	2	נ	מדוזות			jellyfish				עקיצת מדוזה = jellyfish sting	
+mefutach	מפותח	מְפֻתָּח	adjective	3					developed					
+mefuzar	מפוזר	מְפֻזָּר	adjective	3			פ-ז-ר		scattered; absent-minded				טרשת נפוצה is MS — not this word	
+megavan	מגוון	מְגֻוָּן	adjective	3					varied; diverse				also noun מִגְוָן = range/variety	
 megera	מגירה	מְגֵרָה	noun	2	נ	מגירות	ג-ר-ר		drawer					
 mehirut	מהירות	מְהִירוּת	noun	2	נ		מ-ה-ר		speed, velocity					
 mei	מעי	מְעִי	noun	2	ז	מעיים	מ-ע-ה		intestine/bowel					
+meid	מעיד	מֵעִיד	verb	3			ע-ו-ד		indicates; testifies				ממצא המעיד על... = a finding indicating	
+meida	מידע	מֵידָע	noun	2	ז		י-ד-ע		information					
 meil	מעיל	מְעִיל	noun	2	ז	מעילים			coat					
 meila	מילא	מֵילָא	interjection	2					never mind, oh well				colloquial discourse particle (Aramaic)	
+mekarer	מקרר	מְקָרֵר	noun	1	ז	מקררים	ק-ר-ר		refrigerator				תרופה שנשמרת במקרר = refrigerated medication	
+mekomi	מקומי	מְקוֹמִי	adjective	2					local				הרדמה מקומית = local anesthesia	
+mekubal	מקובל	מְקֻבָּל	adjective	3			ק-ב-ל		accepted; customary					
 melach	מלח	מֶלַח	noun	2	ז	מלחים	מ-ל-ח		salt				also: sailor (מַלָּח)	
+melachuti	מלאכותי	מְלָאכוּתִי	adjective	3					artificial				הנשמה מלאכותית = artificial ventilation	
 melafefon	מלפפון	מְלָפְפוֹן	noun	2	ז	מלפפונים			cucumber				loanword (Greek)	
+melai	מלאי	מְלַאי	noun	3	ז				stock; inventory					
 melanoma	מלנומה	מֶלָנוֹמָה	noun	3	נ				melanoma				loanword; skin cancer	medical_loanword
 melave	מלווה	מְלַוֶּה	noun	2	ז	מלווים	ל-ו-ה		escort, companion				also: loan (מִלְוֶה)	
+melech	מלך	מֶלֶךְ	noun	2	ז	מלכים			king					
 meluchlach	מלוכלך	מְלֻכְלָךְ	adjective	2			ל-כ-ל-ך		dirty					
+memaher	ממהר	מְמַהֵר	verb	2			מ-ה-ר		hurries; is in a hurry					
+memutza	ממוצע	מְמֻצָּע	noun	3	ז				average					
+menach	מנח	מַנָּח	noun	3	ז	מנחים		תנוחה	position; posture				מנח העובר = fetal position	
 menahel	מנהל	מְנַהֵל	noun	2	ז	מנהלים	נ-ה-ל		manager, director					
+menora	מנורה	מְנוֹרָה	noun	2	נ	מנורות			lamp					
 menucha	מנוחה	מְנוּחָה	noun	2	נ		נ-ו-ח		rest, repose					
+menuhal	מנוהל	מְנֻהָל	adjective	3			נ-ה-ל		managed					
+menuse	מנוסה	מְנֻסֶּה	adjective	3					experienced					
 meod	מאוד	מְאוֹד	adverb	1					very					
+meorer	מעורר	מְעוֹרֵר	adjective	3			ע-ו-ר		stimulating; arousing				מעורר דאגה = concerning	
+merageish	מרגש	מְרַגֵּשׁ	adjective	2			ר-ג-שׁ		exciting; moving					
+merchak	מרחק	מֶרְחָק	noun	2	ז		ר-ח-ק		distance					
+merchav	מרחב	מֶרְחָב	noun	3	ז				space; area					
 merkaz	מרכז	מֶרְכָּז	noun	2	ז	מרכזים	ר-כ-ז		center					
+merkazi	מרכזי	מֶרְכָּזִי	adjective	2			ר-כ-ז		central				מערכת העצבים המרכזית = CNS	
+merokan	מרוקן	מְרֻקָּן	adjective	3			ר-ק-נ		emptied; drained					
 merts	מרץ	מֶרְץ	noun	2	ז				March				month name	
+meruba	מרובע	מְרֻבָּע	adjective	2					square					
+merukaz	מרוכז	מְרֻכָּז	adjective	3			ר-כ-ז		concentrated; focused					
 merutze	מרוצה	מְרֻצֶּה	adjective	2			ר-צ-ה		satisfied, pleased					
+mervach	מרווח	מִרְוָח	noun	3	ז	מרווחים	ר-ו-ח		interval; spacing				מרווח בין המנות = interval between doses	
 meshaamem	משעמם	מְשַׁעֲמֵם	adjective	2			ש-ע-מ-ם		boring					
 meshakech	משכך	מְשַׁכֵּךְ	noun	2	ז	משככים	ש-כ-ך		painkiller (analgesic)				as in משכך כאבים	
+meshech	משך	מֶשֶׁךְ	noun	3	ז		מ-שׁ-כ		duration				משך הכאב = duration of the pain	
+meshek-bait	משק-בית	מֶשֶׁק-בַּיִת	noun	3	ז				household					
+meshoar	משוער	מְשֹׁעָר	adjective	3					estimated				משקל משוער = estimated weight	
 meshulash	משולש	מְשֻׁלָּשׁ	noun	2	ז	משולשים	ש-ל-ש		triangle					
+meshulav	משולב	מְשֻׁלָּב	adjective	3			שׁ-ל-ב		combined				טיפול משולב = combination therapy	
+meshumash	משומש	מְשֻׁמָּשׁ	adjective	2			שׁ-מ-שׁ		used; second-hand					
+meshutak	משותק	מְשֻׁתָּק	adjective	3			שׁ-ת-ק		paralyzed				צד ימין משותק = right side paralyzed	
+mesiba	מסיבה	מְסִבָּה	noun	2	נ	מסיבות			party					
+mesima	משימה	מְשִׂימָה	noun	2	נ	משימות			task; mission					
+mesubach	מסובך	מְסֻבָּךְ	adjective	2					complicated				also clinical: מסובך = with complications	
 mesudar	מסודר	מְסֻדָּר	adjective	2			ס-ד-ר		organized/tidy					
 mesugal	מסוגל	מְסֻגָּל	adjective	2			ס-ג-ל		capable/able					
 mesukan	מסוכן	מְסֻכָּן	adjective	2			ס-כ-ן		dangerous					
 mesuyam	מסוים	מְסֻיָּם	adjective	2			ס-י-ם		certain, specific					
 met	מת	מֵת	verb	2			מ-ו-ת		to die				also adjective: dead	
 metaboli	מטבולי	מֶטָבּוֹלִי	adjective	3				קשור בחילוף חומרים	metabolic				loanword	medical_loanword
+metach	מתח	מֶתַח	noun	2	ז		מ-ת-ח		tension; suspense; voltage				מתח נפשי = mental stress	
 metapel	מטפל	מְטַפֵּל	noun	2	ז	מטפלים	ט-פ-ל		caregiver, therapist					
+meteg	מתג	מֶתֶג	noun	2	ז	מתגים			switch					
+metugan	מטוגן	מְטֻגָּן	adjective	2			ט-ג-נ		fried					
 metupal	מטופל	מְטֻפָּל	noun	2	ז	מטופלים	ט-פ-ל		patient (under treatment)				medical: patient	
+metushtash	מטושטש	מְטֻשְׁטָשׁ	adjective	3					blurred; groggy				ראייה מטושטשת = blurred vision	
+metzach	מצח	מֵצַח	noun	2	ז				forehead					
+metziut	מציאות	מְצִיאוּת	noun	3	נ		מ-צ-א		reality					
+metziuti	מציאותי	מְצִיאוּתִי	adjective	3			מ-צ-א		realistic					
+metzoraf	מצורף	מְצֹרָף	adjective	3			צ-ר-פ		attached; enclosed					
+metzuka	מצוקה	מְצוּקָה	noun	3	נ		צ-ו-ק		distress				מצוקה נשימתית = respiratory distress	
 metzuyan	מצוין	מְצֻיָּן	adjective	2			צ-י-ן		excellent					
 meuchar	מאוחר	מְאֻחָר	adjective	2			א-ח-ר		late					
+meudkan	מעודכן	מְעֻדְכָּן	adjective	2					updated; up to date					
 meule	מעולה	מְעֻלֶּה	adjective	2			ע-ל-ה		excellent					
+meunan	מעונן	מְעֻנָּן	adjective	2					cloudy					
+meunyan	מעוניין	מְעֻנְיָן	adjective	2					interested					
 mevugar	מבוגר	מְבֻגָּר	adjective	2			ב-ג-ר		adult, grown-up					
+mevushal	מבושל	מְבֻשָּׁל	adjective	2			ב-שׁ-ל		cooked					
+mevutach	מבוטח	מְבֻטָּח	noun	3	ז	מבוטחים	ב-ט-ח		insured person				מבוטח בקופת חולים = insured by an HMO	
+meyubash	מיובש	מְיֻבָּשׁ	adjective	3			י-ב-שׁ		dried; dehydrated				פירות מיובשים = dried fruit	
 meyuchad	מיוחד	מְיֻחָד	adjective	2			י-ח-ד		special					
+mezeg-avir	מזג-אוויר	מֶזֶג-אֲוִיר	noun	2	ז				weather					
+mezoham	מזוהם	מְזֹהָם	adjective	3			ז-ה-מ		contaminated; infected				פצע מזוהם = infected wound	
 mi	מי	מִי	pronoun	1					who					
+mibchina	מבחינה	מִבְּחִינָה	preposition	3			ב-ח-נ		in terms of; from the standpoint of				מבחינה רפואית = medically speaking	
 michlala	מכללה	מִכְלָלָה	noun	2	נ	מכללות	כ-ל-ל		college					
 michnasayim	מכנסיים	מִכְנָסַיִם	noun	2	ז		כ-נ-ס		pants, trousers				dual form	
+michse	מכסה	מִכְסֶה	noun	2	ז	מכסים	כ-ס-ה		lid; cover					
+michtav	מכתב	מִכְתָּב	noun	2	ז	מכתבים	כ-ת-ב		letter				מכתב שחרור = discharge letter	
 miday	מדי	מִדַּי	adverb	2					too (excessively)					
 midei-paam	מדי-פעם	מִדֵּי-פַּעַם	adverb	2					occasionally					
 midracha	מדרכה	מִדְרָכָה	noun	2	נ	מדרכות	ד-ר-ך		sidewalk					
+mifgash	מפגש	מִפְגָּשׁ	noun	2	ז	מפגשים	פ-ג-שׁ		meeting; encounter					
+mifrak	מפרק	מִפְרָק	noun	3	ז	מפרקים	פ-ר-ק		joint				כאבי מפרקים = joint pain	
+migdal	מגדל	מִגְדָּל	noun	2	ז	מגדלים			tower					
 migrash	מגרש	מִגְרָשׁ	noun	2	ז	מגרשים	ג-ר-ש		field, lot, court					
 miklachat	מקלחת	מִקְלַחַת	noun	2	נ	מקלחות	ק-ל-ח		shower					
 mikledet	מקלדת	מִקְלֶדֶת	noun	2	נ	מקלדות	ק-ל-ד		keyboard					
 mikre	מקרה	מִקְרֶה	noun	2	ז	מקרים	ק-ר-ה		case, incident					
 miktzoa	מקצוע	מִקְצוֹעַ	noun	2	ז	מקצועות	ק-צ-ע		profession, occupation					
+miktzoi	מקצועי	מִקְצוֹעִי	adjective	2					professional				סודיות רפואית מקצועית = professional confidentiality	
 mila	מילה	מִלָּה	noun	2	נ	מילים	מ-ל-ל		word				also: circumcision (מִילָה)	
 milchama	מלחמה	מִלְחָמָה	noun	2	נ	מלחמות	ל-ח-ם		war					
+milga	מלגה	מִלְגָּה	noun	3	נ	מלגות			scholarship					
+miluli	מילולי	מִלּוּלִי	adjective	3					verbal; literal				תגובה מילולית = verbal response	
+milvad	מלבד	מִלְּבַד	preposition	3					apart from; except					
+mimtza	ממצא	מִמְצָא	noun	3	ז	ממצאים	מ-צ-א		finding				ממצא חריג בצילום = abnormal finding on imaging	
 min	מין	מִין	noun	2	ז	מינים			sex, gender				also: kind, type	
+mineral	מינרל	מִינֵרָל	noun	3	ז	מינרלים			mineral				ויטמינים ומינרלים	
+minhara	מנהרה	מִנְהָרָה	noun	3	נ	מנהרות			tunnel				תסמונת התעלה הקרפלית = carpal tunnel syndrome	
 minimum	מינימום	מִינִימוּם	noun	2	ז				minimum				loanword	
 minun	מינון	מִנּוּן	noun	2	ז	מינונים			dosage					
 mirsham	מרשם	מִרְשָׁם	noun	2	ז	מרשמים	ר-ש-ם		prescription				medical	
 misada	מסעדה	מִסְעָדָה	noun	2	נ	מסעדות	ס-ע-ד		restaurant					
 mischak	משחק	מִשְׂחָק	noun	2	ז	משחקים	ש-ח-ק		game					
+misgad	מסגד	מִסְגָּד	noun	2	ז	מסגדים			mosque					
+misgeret	מסגרת	מִסְגֶּרֶת	noun	3	נ	מסגרות			framework; frame				במסגרת = as part of	
+mishcha	משחה	מִשְׁחָה	noun	2	נ	משחות			ointment				משחה אנטיביוטית = antibiotic ointment	
 mishehu	מישהו	מִישֶׁהוּ	pronoun	2					someone					
+mishka	משקע	מִשְׁקָע	noun	3	ז	משקעים	שׁ-ק-ע		sediment; deposit				משקע בשתן = urine sediment	
 mishkafayim	משקפיים	מִשְׁקָפַיִם	noun	2	ז		ש-ק-ף		eyeglasses				dual form	
 mishkal	משקל	מִשְׁקָל	noun	2	ז		ש-ק-ל		weight					
+mishmaat	משמעת	מִשְׁמַעַת	noun	3	נ		שׁ-מ-ע		discipline					
 mishmeret	משמרת	מִשְׁמֶרֶת	noun	2	נ	משמרות	ש-מ-ר		(work) shift					
+mishni	משני	מִשְׁנִי	adjective	3			שׁ-נ-ה		secondary				יתר לחץ דם משני = secondary hypertension	
 mishpacha	משפחה	מִשְׁפָּחָה	noun	1	נ	משפחות	ש-פ-ח		family					
 mishpat	משפט	מִשְׁפָּט	noun	2	ז	משפטים	ש-פ-ט		sentence; trial				also: trial, justice	
+mishtane	משתנה	מִשְׁתַּנֶּה	adjective	3			שׁ-נ-ה		variable; changing				a diuretic is משתן	
 mishtara	משטרה	מִשְׁטָרָה	noun	2	נ		ש-ט-ר		police					
+mishtatef	משתתף	מִשְׁתַּתֵּף	noun	3	ז	משתתפים	שׁ-ת-פ		participant					
+mishush	מישוש	מִשּׁוּשׁ	noun	3	ז		מ-שׁ-שׁ		palpation				רגישות במישוש = tenderness on palpation	
+mismach	מסמך	מִסְמָךְ	noun	2	ז	מסמכים			document				מסמכים רפואיים = medical records	
 mispar	מספר	מִסְפָּר	noun	1	ז	מספרים	ס-פ-ר		number					
 misparayim	מספריים	מִסְפָּרַיִם	noun	2	ז		ס-פ-ר		scissors				dual form	
+misra	משרה	מִשְׂרָה	noun	2	נ	משרות			job position				חצי משרה = part-time	
 misrad	משרד	מִשְׂרָד	noun	2	ז	משרדים	ש-ר-ד		office					
 mita	מיטה	מִטָּה	noun	1	נ	מיטות			bed					
 mitachat	מתחת	מִתַּחַת	preposition	1					below/under					
 mitan	מטען	מִטְעָן	noun	2	ז	מטענים	ט-ע-ן		charger; load				phone charger or cargo/load	
+mitargen	מתארגן	מִתְאַרְגֵּן	verb	3			א-ר-ג-נ		gets organized					
 mitbach	מטבח	מִטְבָּח	noun	2	ז	מטבחים	ט-ב-ח		kitchen					
+mitbayesh	מתבייש	מִתְבַּיֵּשׁ	verb	2			ב-ו-שׁ		is embarrassed; ashamed					
+mitchalef	מתחלף	מִתְחַלֵּף	verb	3			ח-ל-פ		alternates; is replaced					
+mitgaagea	מתגעגע	מִתְגַּעְגֵּעַ	verb	2					misses (someone)					
+mitgalgel	מתגלגל	מִתְגַּלְגֵּל	verb	3			ג-ל-ג-ל		rolls; rolling					
+mitgorer	מתגורר	מִתְגּוֹרֵר	verb	3			ג-ו-ר		resides; lives (formal)					
+mitkadem	מתקדם	מִתְקַדֵּם	adjective	3			ק-ד-מ		advanced; progressing				מחלה מתקדמת = advanced disease	
+mitkashe	מתקשה	מִתְקַשֶּׁה	verb	3			ק-שׁ-ה		has difficulty				מתקשה בנשימה = has difficulty breathing	
+mitlabesh	מתלבש	מִתְלַבֵּשׁ	verb	2			ל-ב-שׁ		gets dressed					
+mitlahev	מתלהב	מִתְלַהֵב	verb	3					is enthusiastic					
+mitmaked	מתמקד	מִתְמַקֵּד	verb	3			מ-ק-ד		focuses on					
 mitnadev	מתנדב	מִתְנַדֵּב	noun	2	ז	מתנדבים	נ-ד-ב		volunteer					
+mitrageish	מתרגש	מִתְרַגֵּשׁ	verb	2			ר-ג-שׁ		is excited					
 mitriya	מטרייה	מִטְרִיָּה	noun	2	נ	מטריות	מ-ט-ר		umbrella					
 mitz	מיץ	מִיץ	noun	1	ז	מיצים			juice					
+mitztayen	מצטיין	מִצְטַיֵּן	adjective	3					outstanding; excels					
+mitzva	מצווה	מִצְוָה	noun	2	נ	מצוות			commandment; good deed					
 mivchan	מבחן	מִבְחָן	noun	2	ז	מבחנים	ב-ח-ן		test, exam					
+mivreshet	מברשת	מִבְרֶשֶׁת	noun	2	נ	מברשות			brush				מברשת שיניים = toothbrush	
 miyad	מייד	מִיָּד	adverb	2					immediately					
 miyun	מיון	מִיּוּן	noun	2	ז		מ-י-ן		emergency room; sorting/triage				in hospitals: ER (חדר מיון)	
 mizrach	מזרח	מִזְרָח	noun	2	ז		ז-ר-ח		east					
+mniya	מניעה	מְנִיעָה	noun	3	נ		מ-נ-ע		prevention				רפואה מונעת = preventive medicine; אמצעי מניעה = contraception	
 moach	מוח	מוֹחַ	noun	2	ז	מוחות	מ-ו-ח		brain					
 mocher	מוכר	מוֹכֵר	noun	2	ז	מוכרים	מ-כ-ר		seller/salesperson				also adj מֻכָּר = familiar/known	
+moil	מועיל	מוֹעִיל	adjective	3					beneficial; helpful					
 monit	מונית	מוֹנִית	noun	2	נ	מוניות	מ-נ-ה		taxi					
 monitor	מוניטור	מוֹנִיטוֹר	noun	2	ז	מוניטורים		צג ניטור	monitor				loanword; vital-signs monitor	medical_loanword
 more	מורה	מוֹרֶה	noun	2	ז	מורים	י-ר-ה		teacher					
+moshav	מושב	מוֹשָׁב	noun	2	ז	מושבים	י-שׁ-ב		seat; moshav					
+motza	מוצא	מוֹצָא	noun	3	ז		י-צ-א		origin; exit				ארץ מוצא = country of origin	
+motzetz	מוצץ	מוֹצֵץ	noun	2	ז	מוצצים	מ-צ-צ		pacifier					
+muar	מואר	מוּאָר	adjective	3			א-ו-ר		lit; illuminated					
 muchan	מוכן	מוּכָן	adjective	2			כ-ו-ן		ready					
+muchlat	מוחלט	מֻחְלָט	adjective	3			ח-ל-ט		absolute				מנוחה מוחלטת = complete bed rest	
+muda	מודע	מוּדָע	adjective	3			י-ד-ע		aware					
+mufchat	מופחת	מֻפְחָת	adjective	3			פ-ח-ת		reduced				מינון מופחת = reduced dose	
+mugbar	מוגבר	מֻגְבָּר	adjective	3			ג-ב-ר		increased; heightened				הזעה מוגברת = increased sweating	
+mugzam	מוגזם	מֻגְזָם	adjective	3					excessive; exaggerated					
+mukar	מוכר	מֻכָּר	adjective	3			נ-כ-ר		familiar; known				distinct from מוֹכֵר = seller	
 mukdam	מוקדם	מֻקְדָּם	adjective	2			ק-ד-ם		early					
 mul	מול	מוּל	preposition	1					opposite, facing					
+mumche	מומחה	מֻמְחֶה	noun	2	ז	מומחים			specialist; expert				רופא מומחה = specialist physician	
 murkav	מורכב	מֻרְכָּב	adjective	2			ר-כ-ב		complex, complicated					
 mushlam	מושלם	מֻשְׁלָם	adjective	2			ש-ל-ם		perfect					
+muslemi	מוסלמי	מֻסְלְמִי	adjective	2					Muslim					
 mutar	מותר	מֻתָּר	adjective	2			נ-ת-ר		permitted/allowed					
+mutzlach	מוצלח	מֻצְלָח	adjective	2			צ-ל-ח		successful				ניתוח מוצלח = successful surgery	
+muvtal	מובטל	מֻבְטָל	adjective	3					unemployed					
 muzar	מוזר	מוּזָר	adjective	2			ז-ו-ר		strange, weird					
 muzika	מוזיקה	מוּזִיקָה	noun	2	נ				music				loanword	
 naal	נעל	נַעַל	noun	1	נ	נעליים			shoe				also verb נָעַל = locked	
+naar	נער	נַעַר	noun	2	ז	נערים			adolescent boy; youth					
+naara	נערה	נַעֲרָה	noun	2	נ	נערות			adolescent girl					
 nach	נח	נָח	verb	2			נ-ו-ח		to rest					
 nachal	נחל	נַחַל	noun	2	ז	נחלים			stream; brook; wadi					
 nachash	נחש	נָחָשׁ	noun	2	ז	נחשים	נ-ח-ש		snake					
 nachat	נחת	נָחַת	verb	2			נ-ח-ת		to land					
 nachon	נכון	נָכוֹן	adjective	1			כ-ו-ן		correct/right					
+nachush	נחוש	נָחוּשׁ	adjective	3					determined					
 nadir	נדיר	נָדִיר	adjective	2			נ-ד-ר		rare					
 nafal	נפל	נָפַל	verb	1			נ-פ-ל		to fall					
+nafotz	נפוץ	נָפוֹץ	adjective	3			פ-ו-צ		common; widespread				תופעת לוואי נפוצה = common side effect; טרשת נפוצה = MS	
+nafshi	נפשי	נַפְשִׁי	adjective	3					mental; psychological				מצוקה נפשית = psychological distress	
 naga	נגע	נָגַע	verb	2			נ-ג-ע		to touch					
+nagish	נגיש	נָגִישׁ	adjective	3			נ-ג-שׁ		accessible					
 nahar	נהר	נָהָר	noun	2	ז	נהרות			river					
 naim	נעים	נָעִים	adjective	2			נ-ע-ם		pleasant					
 naki	נקי	נָקִי	adjective	2			נ-ק-ה		clean					
@@ -762,55 +1345,111 @@ namer	נמר	נָמֵר	noun	2	ז	נמרים	נ-מ-ר		tiger/leopard
 namuch	נמוך	נָמוּךְ	adjective	1			נ-מ-ך		low/short					
 nasa	נסע	נָסַע	verb	1			נ-ס-ע		to travel/ride					
 nasham	נשם	נָשַׁם	verb	2			נ-ש-ם		to breathe					
+nasich	נסיך	נָסִיךְ	noun	2	ז	נסיכים			prince					
 nasui	נשוי	נָשׂוּי	adjective	2			נ-שׂ-א		married				of a man; fem. נשואה	
+natal	נטל	נָטַל	verb	3			נ-ט-ל		to take (medication); to take up				נטילת תרופות = taking medications; also noun נֵטֶל = burden	
 natan	נתן	נָתַן	verb	1			נ-ת-ן		to give					
+nativ	נתיב	נָתִיב	noun	2	ז	נתיבים			lane; path					
+natun	נתון	נָתוּן	noun	3	ז	נתונים	נ-ת-נ		datum; data				נתוני המטופל = the patient's data	
+naul	נעול	נָעוּל	adjective	2			נ-ע-ל		locked					
+nayad	נייד	נַיָּד	adjective	2					mobile; portable				טלפון נייד = mobile phone; מיטה ניידת = gurney	
 nazelet	נזלת	נַזֶּלֶת	noun	2	נ		נ-ז-ל		runny nose; rhinorrhea					
 nealam	נעלם	נֶעֱלַם	verb	2			ע-ל-ם		to disappear; to vanish					
+nechbal	נחבל	נֶחְבַּל	verb	3			ח-ב-ל		was injured; got bruised				נחבל בראש = sustained a head injury	
+neched	נכד	נֶכֶד	noun	2	ז	נכדים			grandson					
 nechmad	נחמד	נֶחְמָד	adjective	2			ח-מ-ד		nice					
+nedar	נעדר	נֶעְדָּר	adjective	3					absent; missing					
+nefesh	נפש	נֶפֶשׁ	noun	2	נ	נפשות			soul; psyche				בריאות הנפש = mental health	
 nefichut	נפיחות	נְפִיחוּת	noun	2	נ		נ-פ-ח		swelling					
+nefila	נפילה	נְפִילָה	noun	2	נ	נפילות	נ-פ-ל		fall				נפילה מגובה = fall from height	
 nehag	נהג	נֶהָג	noun	2	ז	נהגים	נ-ה-ג		driver				also verb נָהַג = drove/behaved	
+nehedar	נהדר	נֶהְדָּר	adjective	2					great; splendid					
+neherag	נהרג	נֶהֱרַג	verb	3			ה-ר-ג		was killed					
+neitrali	נטרלי	נֵיטְרָלִי	adjective	3					neutral				usually spelled ניטרלי	
 neka	נקע	נֶקַע	noun	2	ז	נקעים	נ-ק-ע		sprain					
 nekeva	נקבה	נְקֵבָה	noun	2	נ	נקבות	נ-ק-ב		female				biological female	
 nekuda	נקודה	נְקֻדָּה	noun	2	נ	נקודות	נ-ק-ד		point/dot					
 nemala	נמלה	נְמָלָה	noun	2	נ	נמלים	נ-מ-ל		ant					
+nes	נס	נֵס	noun	2	ז	ניסים			miracle					
 neshek	נשק	נֶשֶׁק	noun	2	ז		נ-שׁ-ק		weapon; arms				homograph: also נָשַׁק 'kissed'	
 neshika	נשיקה	נְשִׁיקָה	noun	2	נ	נשיקות	נ-ש-ק		kiss					
 neshima	נשימה	נְשִׁימָה	noun	1	נ	נשימות	נ-ש-מ		breathing					
+neshira	נשירה	נְשִׁירָה	noun	3	נ		נ-שׁ-ר		shedding; hair loss				נשירת שיער = hair loss	
+nesia	נסיעה	נְסִיעָה	noun	2	נ	נסיעות	נ-ס-ע		trip; ride					
+netiya	נטייה	נְטִיָּה	noun	3	נ	נטיות	נ-ט-ה		tendency; predisposition				נטייה משפחתית = family predisposition	
+netul	נטול	נְטוּל	adjective	3			נ-ט-ל		free of; devoid of				נטול לקטוז = lactose-free	
 neutrofilia	נויטרופיליה	נֵאוּטְרוֹפִילְיָה	noun	3	נ			ריבוי נויטרופילים	neutrophilia				loanword	medical_loanword
 neyar	נייר	נְיָר	noun	2	ז	ניירות			paper					
 nichnas	נכנס	נִכְנַס	verb	1			כ-נ-ס		to enter					
 nifgash	נפגש	נִפְגַּשׁ	verb	2			פ-ג-ש		to meet					
+nifla	נפלא	נִפְלָא	adjective	2					wonderful					
+niftar	נפטר	נִפְטַר	verb	3			פ-ט-ר		died; passed away				נפטר בגיל 80; polite register	
 niftza	נפצע	נִפְצַע	verb	2			פ-צ-ע		to be injured/wounded					
+nihul	ניהול	נִהוּל	noun	2	ז		נ-ה-ל		management					
 nika	ניקה	נִקָּה	verb	2			נ-ק-ה		to clean					
+nikar	ניכר	נִכָּר	adjective	3			נ-כ-ר		considerable; noticeable				שיפור ניכר = marked improvement	
 nikayon	ניקיון	נִקָּיוֹן	noun	2	ז		נ-ק-ה		cleanliness					
+nimdad	נמדד	נִמְדַּד	verb	3			מ-ד-ד		was measured				לחץ הדם נמדד = the blood pressure was measured	
+nimol	נימול	נִמּוֹל	adjective	3			מ-ו-ל		circumcised				ברית מילה = circumcision ceremony	
+nin	נין	נִין	noun	3	ז	נינים			great-grandchild					
+ninoach	נינוח	נִינוֹחַ	adjective	3					relaxed; at ease					
 nira	נראה	נִרְאָה	verb	2			ר-א-ה		to seem; to appear; to be seen				present נִרְאֶה = 'seems, looks'	
+nirdam	נרדם	נִרְדָּם	verb	2			ר-ד-מ		falls asleep				מתקשה להירדם = difficulty falling asleep	
 nirga	נרגע	נִרְגַּע	verb	2			ר-ג-ע		to calm down					
 nisa	ניסה	נִסָּה	verb	2			נ-ס-ה		to try					
 nisayon	ניסיון	נִסָּיוֹן	noun	2	ז	ניסיונות	נ-ס-ה		experience; attempt					
 nishbar	נשבר	נִשְׁבַּר	verb	2			ש-ב-ר		to break (get broken)					
+nishlal	נשלל	נִשְׁלַל	verb	3			שׁ-ל-ל		was ruled out; was denied				זיהום נשלל = infection was ruled out	
+nishpach	נשפך	נִשְׁפַּךְ	verb	2			שׁ-פ-כ		was spilled					
+nisrat	נשרט	נִשְׂרַט	verb	3			שׂ-ר-ט		got scratched					
 nistagmus	ניסטגמוס	נִיסְטַגְמוּס	noun	3	ז			ריצוד עיניים	nystagmus				loanword	medical_loanword
+nistar	נסתר	נִסְתָּר	adjective	3					hidden; concealed					
 nisui	ניסוי	נִסּוּי	noun	2	ז	ניסויים	נ-ס-ה		experiment; trial				clinical trial = ניסוי קליני	
 nitek	ניתק	נִתֵּק	verb	2			נ-ת-ק		to disconnect; to cut off					
 nituach	ניתוח	נִתּוּחַ	noun	2	ז	ניתוחים	נ-ת-ח		surgery/operation				also means analysis	
+nitzachon	ניצחון	נִצָּחוֹן	noun	2	ז	ניצחונות			victory					
+nitzal	ניצל	נִצַּל	verb	3			נ-צ-ל		was saved; survived					
+nitzol	ניצול	נִצּוֹל	noun	3	ז	ניצולים			survivor; utilization				ניצול שואה = Holocaust survivor	
 nivhal	נבהל	נִבְהַל	verb	2			ב-ה-ל		to be alarmed/frightened					
 nizhar	נזהר	נִזְהַר	verb	2			ז-ה-ר		to be careful; to beware					
+noar	נוער	נֹעַר	noun	2	ז				youth				בני נוער = teenagers	
+nochechi	נוכחי	נוֹכְחִי	adjective	3					current; present				התלונה הנוכחית = the presenting complaint	
+nochechut	נוכחות	נוֹכְחוּת	noun	3	נ				presence; attendance				בנוכחות בן משפחה = in the presence of a family member	
+nof	נוף	נוֹף	noun	2	ז				landscape; view					
 nokturia	נוקטוריה	נוֹקְטוּרְיָה	noun	3	נ			השתנה לילית	nocturia				loanword	medical_loanword
 nora	נורא	נוֹרָא	adjective	2			י-ר-א		terrible/awful					
+nora-shot	נורה	נוֹרָה	verb	3			י-ר-ה		was shot				נורה בבטן = shot in the abdomen	
+nosaf	נוסף	נוֹסָף	adjective	2			י-ס-פ		additional; another				בדיקה נוספת = an additional test	
 nose	נושא	נוֹשֵׂא	noun	2	ז	נושאים	נ-ש-א		subject/topic					
+notzri	נוצרי	נוֹצְרִי	adjective	2					Christian					
 november	נובמבר	נוֹבֶמְבֶּר	noun	2	ז				November				loanword	
 nozel	נוזל	נוֹזֵל	noun	2	ז	נוזלים	נ-ז-ל		liquid/fluid					
+nura	נורה	נוּרָה	noun	2	נ	נורות			light bulb					
 o	או	אוֹ	conjunction	1					or					
 ochel	אוכל	אֹכֶל	noun	1	ז		א-כ-ל		food					
+ochlusiya	אוכלוסייה	אוּכְלוֹסִיָּה	noun	3	נ	אוכלוסיות			population					
 od	עוד	עוֹד	adverb	1					more; still; another					
 of	עוף	עוֹף	noun	2	ז	עופות			chicken; poultry; fowl					
 ofanayim	אופניים	אוֹפַנַּיִם	noun	2	ז				bicycle				grammatically dual	
+ofen	אופן	אֹפֶן	noun	2	ז	אופנים	א-פ-נ		manner; way				באופן קבוע = regularly	
+ofi	אופי	אֹפִי	noun	2	ז				character; nature					
 ofnoa	אופנוע	אוֹפַנּוֹעַ	noun	2	ז	אופנועים			motorcycle					
+ofyani	אופייני	אָפְיָנִי	adjective	3			א-פ-נ		characteristic; typical					
 ogust	אוגוסט	אוֹגוּסְט	noun	2	ז				August				loanword	
 oktober	אוקטובר	אוֹקְטוֹבֶּר	noun	2	ז				October				loanword	
 olam	עולם	עוֹלָם	noun	1	ז	עולמות	ע-ל-ם		world					
+olami	עולמי	עוֹלָמִי	adjective	2					global; worldwide				ארגון הבריאות העולמי = WHO	
+oman	אמן	אָמָּן	noun	2	ז	אמנים			artist					
+omanut	אומנות	אֻמָּנוּת	noun	2	נ				art					
+omnam	אמנם	אָמְנָם	adverb	3					indeed; admittedly					
 ona	עונה	עוֹנָה	noun	2	נ	עונות			season				homograph: also present-tense "answers" (f.)	
+onesh	עונש	עֹנֶשׁ	noun	2	ז	עונשים			punishment					
+optimi	אופטימי	אוֹפְּטִימִי	adjective	2					optimistic				loanword	
+optzia	אופציה	אוֹפְּצְיָה	noun	2	נ	אופציות		אפשרות	option				loanword	
 or	אור	אוֹר	noun	1	ז	אורות	א-ו-ר		light					
 or-skin	עור	עוֹר	noun	1	ז		ע-ו-ר		skin					
+oreach	אורח	אוֹרֵחַ	noun	2	ז	אורחים			guest; visitor				distinct from אֹרַח (אורח חיים = lifestyle)	
+orech	אורך	אֹרֶךְ	noun	2	ז		א-ר-כ		length					
 orech-din	עורך-דין	עוֹרֵךְ-דִּין	noun	2	ז	עורכי-דין			lawyer / attorney					
 orek	עורק	עוֹרֵק	noun	2	ז	עורקים	ע-ר-ק		artery					
 orez	אורז	אֹרֶז	noun	2	ז				rice					
@@ -818,45 +1457,86 @@ ortopnea	אורתופניאה	אוֹרְתּוֹפְּנֵאָה	noun	3	נ			ק�
 ot	אות	אוֹת	noun	2	נ	אותיות			letter (of the alphabet)				also (masc.) a sign/medal	
 oto	אוטו	אוֹטוֹ	noun	1	ז				car				loanword, colloquial	
 otobus	אוטובוס	אוֹטוֹבּוּס	noun	2	ז	אוטובוסים			bus				loanword	
+otzma	עוצמה	עָצְמָה	noun	3	נ				intensity; strength				עוצמת הכאב בסולם 1-10 = pain intensity on a 1-10 scale	
+otzmati	עוצמתי	עָצְמָתִי	adjective	3					powerful; intense					
+ovdan	אובדן	אָבְדַן	noun	2	ז		א-ב-ד		loss				אובדן הכרה = loss of consciousness	
 oved	עובד	עוֹבֵד	noun	2	ז	עובדים	ע-ב-ד		worker; employee				also present tense 'works'; fem. עובדת	
 ozen	אוזן	אֹזֶן	noun	1	נ	אוזניים			ear					
 paam	פעם	פַּעַם	noun	1	נ	פעמים	פ-ע-ם		time / once					
+paamon	פעמון	פַּעֲמוֹן	noun	2	ז	פעמונים			bell				לחצן קריאה = call button	
 pachad	פחד	פַּחַד	noun	2	ז	פחדים	פ-ח-ד		fear				also verb פָּחַד = feared	
+pachmimot	פחמימות	פַּחְמֵימוֹת	noun	3	נ				carbohydrates				sing. פַּחְמֵימָה; ספירת פחמימות = carb counting	
 pachot	פחות	פָּחוֹת	adverb	1					less / fewer					
 paga	פגע	פָּגַע	verb	2			פ-ג-ע		to hit / to harm / to hurt					
 pagash	פגש	פָּגַשׁ	verb	2			פ-ג-ש		to meet					
+pagua	פגוע	פָּגוּעַ	adjective	3			פ-ג-ע		impaired; injured				גפה פגועה = the affected limb	
 pail	פעיל	פָּעִיל	adjective	2			פ-ע-ל		active				also noun "activist"	
 palpitatzyot	פלפיטציות	פַּלְפִּיטַצְיוֹת	noun	3	נ			דפיקות לב	palpitations				loanword	medical_loanword
 panim	פנים	פָּנִים	noun	1	נ		פ-נ-ה		face				grammatically plural; treated as feminine	
 panui	פנוי	פָּנוּי	adjective	2			פ-נ-ה		free / available / vacant					
+paot	פעוט	פָּעוֹט	noun	3	ז	פעוטות			toddler					
+para	פרה	פָּרָה	noun	1	נ	פרות			cow					
+paramedik	פרמדיק	פָּרָמֶדִיק	noun	3	ז	פרמדיקים			paramedic				loanword	medical_loanword
 parenchima	פרנכימה	פָּרֶנְכִימָה	noun	3	נ			חלק תפקודי של איבר	parenchyma				loanword; functional tissue of an organ	medical_loanword
 park	פארק	פַּארְק	noun	2	ז	פארקים			park				loanword	
+paros	פרעוש	פַּרְעוֹשׁ	noun	3	ז	פרעושים			flea					
+parpar	פרפר	פַּרְפַּר	noun	2	ז	פרפרים			butterfly				פרפר ורידי = IV butterfly needle	
+parva	פרווה	פַּרְוָה	noun	2	נ				fur					
 pashut	פשוט	פָּשׁוּט	adjective	2			פ-ש-ט		simple				also adverb "simply"	
 pasta	פסטה	פַּסְטָה	noun	2	נ				pasta				loanword	
 patach	פתח	פָּתַח	verb	1			פ-ת-ח		to open				noun פֶּתַח = opening	
 patologia	פתולוגיה	פַּתוֹלוֹגְיָה	noun	3	נ				pathology				loanword	medical_loanword
+patuach	פתוח	פָּתוּחַ	adjective	1			פ-ת-ח		open				שבר פתוח = open fracture	
+patzua	פצוע	פָּצוּעַ	adjective	3			פ-צ-ע		wounded				פצועים = casualties	
 pe	פה	פֶּה	noun	1	ז	פיות	פ-ה		mouth				homograph פֹּה = here	
 peilut	פעילות	פְּעִילוּת	noun	2	נ	פעילויות	פ-ע-ל		activity					
+peima	פעימה	פְּעִימָה	noun	3	נ	פעימות	פ-ע-מ		beat				פעימות לב לדקה = heartbeats per minute	
+pensia	פנסיה	פֶּנְסְיָה	noun	2	נ				pension				loanword	
 perach	פרח	פֶּרַח	noun	2	ז	פרחים	פ-ר-ח		flower					
+perek	פרק	פֶּרֶק	noun	3	ז	פרקים	פ-ר-ק		joint; chapter				פרק כף היד = the wrist joint	
 pericha	פריחה	פְּרִיחָה	noun	2	נ	פריחות	פ-ר-ח		rash				also "blossoming"	
 periferi	פריפרי	פֶּרִיפֶרִי	adjective	2				היקפי	peripheral				loanword; Hebrew היקפי	medical_loanword
 perikardiali	פריקרדיאלי	פֶּרִיקַרְדִּיאָלִי	adjective	3				של קרום הלב	pericardial				loanword; around the heart	medical_loanword
 peristaltika	פריסטלטיקה	פֶּרִיסְטַלְטִיקָה	noun	3	נ			תנועתיות מעיים	peristalsis				loanword	medical_loanword
+peruk	פירוק	פֵּרוּק	noun	3	ז		פ-ר-ק		breakdown; disassembly				פירוק התרופה בכבד = drug breakdown in the liver	
+pesha	פשע	פֶּשַׁע	noun	2	ז	פשעים			crime					
+peshia	פשיעה	פְּשִׁיעָה	noun	3	נ				criminality; crime (as a phenomenon)					
+pesimi	פסימי	פֶּסִימִי	adjective	2					pessimistic				loanword	
+petek	פתק	פֶּתֶק	noun	2	ז	פתקים			note (slip of paper)					
 petza	פצע	פֶּצַע	noun	2	ז	פצעים	פ-צ-ע		wound					
 petzia	פציעה	פְּצִיעָה	noun	2	נ	פציעות	פ-צ-ע		injury					
+peula	פעולה	פְּעֻלָּה	noun	2	נ	פעולות	פ-ע-ל		action; procedure				פעולה פולשנית = invasive procedure	
 pgisha	פגישה	פְּגִישָׁה	noun	2	נ	פגישות	פ-ג-ש		meeting / appointment					
 pilpel	פלפל	פִּלְפֵּל	noun	2	ז	פלפלים	פ-ל-פ-ל		pepper					
+pina	פינה	פִּנָּה	noun	2	נ	פינות			corner					
+pinuy	פינוי	פִּנּוּי	noun	3	ז		פ-נ-ה		evacuation				פינוי באמבולנס = ambulance evacuation	
+pishpesh	פשפש	פִּשְׁפֵּשׁ	noun	3	ז	פשפשים			bedbug				עקיצות פשפשים = bedbug bites	
+pita	פיתה	פִּתָּה	noun	1	נ	פיתות			pita bread					
 pitaron	פתרון	פִּתְרוֹן	noun	2	ז	פתרונות	פ-ת-ר		solution					
+pitma	פטמה	פִּטְמָה	noun	3	נ	פטמות			nipple					
+pitom	פתאום	פִּתְאֹם	adverb	1					suddenly					
 pitriya	פטרייה	פִּטְרִיָּה	noun	2	נ	פטריות			fungus / mushroom				clinical: fungal infection	
+piturim	פיטורים	פִּטּוּרִים	noun	3	ז		פ-ט-ר		dismissal; layoff					
+pitzuy	פיצוי	פִּצּוּי	noun	3	ז		פ-צ-ה		compensation					
+pizur	פיזור	פִּזּוּר	noun	3	ז		פ-ז-ר		dispersal; scattering					
+pkak	פקק	פְּקָק	noun	2	ז	פקקים			traffic jam; cork; plug				פקקת = thrombosis (different word)	
 plaster	פלסטר	פְּלַסְטֶר	noun	2	ז	פלסטרים			band-aid / adhesive plaster				loanword	
 plastik	פלסטיק	פְּלַסְטִיק	noun	2	ז				plastic				loanword	
 pleurali	פלאורלי	פְּלֵאוּרָלִי	adjective	3				של קרום הריאה	pleural				loanword; of the lung lining	medical_loanword
 pnaumonia	פנאומוניה	פְּנֵאוּמוֹנְיָה	noun	2	נ			דלקת ריאות	pneumonia				loanword; Hebrew דלקת ריאות	medical_loanword
+pnimi	פנימי	פְּנִימִי	adjective	2			פ-נ-מ		internal				מחלקה פנימית = internal medicine ward	
+pniya	פנייה	פְּנִיָּה	noun	3	נ	פניות	פ-נ-ה		turn; approach; request				distinct from הפניה = referral	
 po	פה	פֹּה	adverb	1					here				distinct from פֶּה (mouth)	
+poel	פועל	פּוֹעֵל	noun	2	ז	פועלים	פ-ע-ל		laborer; verb					
+poriyut	פוריות	פּוֹרִיּוּת	noun	3	נ				fertility				טיפולי פוריות = fertility treatments	
+poshea	פושע	פּוֹשֵׁעַ	noun	2	ז	פושעים			criminal					
+prakti	פרקטי	פְּרַקְטִי	adjective	3					practical				loanword	
+pras	פרס	פְּרָס	noun	2	ז	פרסים			prize; award					
 prat	פרט	פְּרָט	noun	2	ז	פרטים	פ-ר-ט		detail / item				פרטים אישיים = personal details	
 prati	פרטי	פְּרָטִי	adjective	2			פ-ר-ט		private				e.g. רופא פרטי = private doctor	
 prativut	פרטיות	פְּרָטִיּוּת	noun	2	נ		פ-ר-ט		privacy					
 pri	פרי	פְּרִי	noun	1	ז	פירות	פ-ר-י		fruit					
+prika	פריקה	פְּרִיקָה	noun	3	נ	פריקות	פ-ר-ק		dislocation; unloading				פריקת כתף = shoulder dislocation	
 prognoza	פרוגנוזה	פְּרוֹגְנוֹזָה	noun	3	נ			תחזית	prognosis				loanword	medical_loanword
 proksimali	פרוקסימלי	פְּרוֹקְסִימָלִי	adjective	3				קרוב	proximal				loanword; closer to the center	medical_loanword
 proteinuria	פרוטאינוריה	פְּרוֹטֵאִינוּרְיָה	noun	3	נ			חלבון בשתן	proteinuria				loanword	medical_loanword
@@ -864,77 +1544,139 @@ protzedura	פרוצדורה	פְּרוֹצֵדוּרָה	noun	3	נ	פרוצדו�
 psanter	פסנתר	פְּסַנְתֵּר	noun	3	ז	פסנתרים			piano					
 ra	רע	רַע	adjective	1			ר-ע-ע		bad					
 raa	ראה	רָאָה	verb	1			ר-א-ה		to see					
+raad	רעד	רַעַד	noun	3	ז		ר-ע-ד		tremor; shaking				רעד בידיים = hand tremor	
 raal	רעל	רַעַל	noun	2	ז		ר-ע-ל		poison					
 raash	רעש	רַעַשׁ	noun	2	ז		ר-ע-ש		noise					
 raayon	רעיון	רַעְיוֹן	noun	2	ז	רעיונות			idea					
+rach	רך	רַךְ	adjective	2					soft				מזון רך = soft food	
 rachav	רחב	רָחָב	adjective	2			ר-ח-ב		wide, broad					
 rachok	רחוק	רָחוֹק	adjective	1			ר-ח-ק		far, distant					
 raev	רעב	רָעֵב	adjective	1			ר-ע-ב		hungry				noun רָעָב = hunger, famine	
+rafuy	רפוי	רָפוּי	adjective	3					flaccid; loose				שיתוק רפוי = flaccid paralysis	
 ragil	רגיל	רָגִיל	adjective	2			ר-ג-ל		usual, regular					
 ragish	רגיש	רָגִישׁ	adjective	2			ר-ג-ש		sensitive					
+ragua	רגוע	רָגוּעַ	adjective	2					calm					
 rail	רעיל	רָעִיל	adjective	3			ר-ע-ל		toxic, poisonous					
 rak	רק	רַק	adverb	1					only, just					
 rakevet	רכבת	רַכֶּבֶת	noun	2	נ	רכבות	ר-כ-ב		train					
+rama	רמה	רָמָה	noun	2	נ	רמות			level				רמת סוכר בדם = blood sugar level	
 ramzor	רמזור	רַמְזוֹר	noun	2	ז	רמזורים			traffic light					
 rashi	ראשי	רָאשִׁי	adjective	2			ר-א-ש		main, primary					
 ratov	רטוב	רָטוֹב	adjective	2			ר-ט-ב		wet					
 rats	רץ	רָץ	verb	2			ר-ו-ץ		to run				also = runner (noun)	
 ratsa	רצה	רָצָה	verb	1			ר-צ-ה		to want					
+ratzon	רצון	רָצוֹן	noun	2	ז		ר-צ-ה		will; desire				בקשת המטופל ורצונו	
+ratzuy	רצוי	רָצוּי	adjective	3			ר-צ-ה		desirable; preferably					
+raui	ראוי	רָאוּי	adjective	3					proper; worthy					
+rav	רב	רַב	noun	2	ז	רבנים			rabbi				also adj. רַב = many	
+rav-paami	רב-פעמי	רַב-פַּעֲמִי	adjective	3					reusable					
+ravak	רווק	רַוָּק	adjective	2					single (unmarried)					
 razeh	רזה	רָזֶה	adjective	2			ר-ז-ה		thin, skinny					
+reali	ריאלי	רֵאָלִי	adjective	3					realistic					
 rechev	רכב	רֶכֶב	noun	2	ז		ר-כ-ב		vehicle				verb רָכַב = rode	
 rechov	רחוב	רְחוֹב	noun	2	ז	רחובות	ר-ח-ב		street					
 refua	רפואה	רְפוּאָה	noun	2	נ		ר-פ-א		medicine					
+refui	רפואי	רְפוּאִי	adjective	2			ר-פ-א		medical				תיק רפואי = medical file	
 rega	רגע	רֶגַע	noun	1	ז	רגעים	ר-ג-ע		moment					
 regel	רגל	רֶגֶל	noun	1	נ	רגליים	ר-ג-ל		leg, foot					
+regesh	רגש	רֶגֶשׁ	noun	2	ז	רגשות	ר-ג-שׁ		emotion; feeling					
 regishut	רגישות	רְגִישׁוּת	noun	2	נ		ר-ג-ש		sensitivity					
 reiach	ריח	רֵיחַ	noun	2	ז	ריחות	ר-י-ח		smell, odor					
+reidat-adama	רעידת-אדמה	רְעִידַת-אֲדָמָה	noun	2	נ	רעידות-אדמה			earthquake					
 reik	ריק	רֵיק	adjective	2			ר-י-ק		empty					
+reiya	ראייה	רְאִיָּה	noun	2	נ		ר-א-ה		vision; eyesight				טשטוש ראייה = blurred vision	
+reka	רקע	רֶקַע	noun	3	ז				background				רקע רפואי = medical background	
+remez	רמז	רֶמֶז	noun	2	ז	רמזים			hint; clue					
+reshet	רשת	רֶשֶׁת	noun	2	נ	רשתות			network; net				also רשתית = retina	
 reshima	רשימה	רְשִׁימָה	noun	2	נ	רשימות	ר-ש-ם		list					
 respiratori	רספירטורי	רֶסְפִּירָטוֹרִי	adjective	3				נשימתי	respiratory				loanword; Hebrew נשימתי	medical_loanword
+retivut	רטיבות	רְטִיבוּת	noun	3	נ				moisture; wetness				הרטבת לילה = bedwetting	
 retraktzyot	רטרקציות	רֶטְרַקְצְיוֹת	noun	3	נ			משיכת שרירי נשימה	retractions				loanword; use of accessory breathing muscles	medical_loanword
 retsini	רציני	רְצִינִי	adjective	2			ר-צ-נ		serious					
+retzef	רצף	רֶצֶף	noun	3	ז				sequence; continuity				רצף טיפולי = continuity of care	
+retzua	רצועה	רְצוּעָה	noun	3	נ	רצועות			ligament; strap				קרע ברצועה = ligament tear	
 reva	רבע	רֶבַע	noun	2	ז	רבעים	ר-ב-ע		quarter					
 revii	רביעי	רְבִיעִי	adjective	1			ר-ב-ע		fourth					
 ribua	ריבוע	רִבּוּעַ	noun	2	ז	ריבועים	ר-ב-ע		square					
+rigi	רגעי	רִגְעִי	adjective	3					momentary					
+rigshi	רגשי	רִגְשִׁי	adjective	3			ר-ג-שׁ		emotional					
+rikma	רקמה	רִקְמָה	noun	3	נ	רקמות			tissue				רקמת שומן = adipose tissue	
+rikud	ריקוד	רִקּוּד	noun	2	ז	ריקודים	ר-ק-ד		dance					
 rikuz	ריכוז	רִכּוּז	noun	2	ז	ריכוזים	ר-כ-ז		concentration					
+ripuy	ריפוי	רִפּוּי	noun	3	ז		ר-פ-א		healing; therapy				ריפוי בעיסוק = occupational therapy	
+rir	ריר	רִיר	noun	3	ז				saliva; mucus				ריר בצואה = mucus in stool	
+rishayon	רישיון	רִשָּׁיוֹן	noun	2	ז	רישיונות			license				רישיון נהיגה = driver's license	
+rishmi	רשמי	רִשְׁמִי	adjective	2					official					
 rishon	ראשון	רִאשׁוֹן	adjective	1			ר-א-ש		first					
+rishoni	ראשוני	רִאשׁוֹנִי	adjective	3					initial; primary				הערכה ראשונית = initial assessment	
+rishrush	רשרוש	רִשְׁרוּשׁ	noun	3	ז				rustling					
+risim	ריסים	רִיסִים	noun	3	ז				eyelashes				sing. רִיס	
 ritspa	רצפה	רִצְפָּה	noun	2	נ	רצפות	ר-צ-ף		floor					
+rochsan	רוכסן	רוֹכְסָן	noun	2	ז	רוכסנים			zipper					
+roesh	רועש	רוֹעֵשׁ	adjective	2			ר-ע-שׁ		noisy					
 rofe	רופא	רוֹפֵא	noun	1	ז	רופאים	ר-פ-א		doctor, physician					
 rosh	ראש	רֹאשׁ	noun	1	ז	ראשים	ר-א-ש		head					
+roshem	רושם	רֹשֶׁם	noun	3	ז				impression				הרושם הקליני = the clinical impression	
+rotev	רוטב	רֹטֶב	noun	2	ז	רטבים			sauce					
 rov	רוב	רֹב	noun	2	ז		ר-ב-ב		majority, most					
 rove	רובה	רוֹבֶה	noun	2	ז	רובים			rifle					
 ruach	רוח	רוּחַ	noun	2	נ	רוחות	ר-ו-ח		wind; spirit					
+saara	שערה	שַׂעֲרָה	noun	2	נ	שערות			a hair				שיער = hair (collective)	
 saba	סבא	סַבָּא	noun	1	ז	סבים			grandfather					
 sababa	סבבה	סַבַּבָּה	interjection	2					cool; great; OK				slang, Arabic loan	
+sabon	סבון	סַבּוֹן	noun	1	ז				soap					
 sach-hakol	סך-הכל	סַךְ-הַכֹּל	noun	2	ז				total; sum total; all in all					
 sacha	שחה	שָׂחָה	verb	2			ש-ח-ה		to swim					
+sachkan	שחקן	שַׂחְקָן	noun	2	ז	שחקנים			actor; player					
 sadin	סדין	סָדִין	noun	2	ז	סדינים			(bed)sheet					
+sadir	סדיר	סָדִיר	adjective	3			ס-ד-ר		regular				דופק סדיר = regular pulse	
+saf	סף	סַף	noun	3	ז				threshold				סף כאב = pain threshold	
+safa	שפה	שָׂפָה	noun	1	נ	שפות			language; lip				שפת אם = mother tongue	
+safam	שפם	שָׂפָם	noun	2	ז				mustache					
+safek	ספק	סָפֵק	noun	2	ז	ספקות			doubt; supplier				ללא ספק = without a doubt	
+safsal	ספסל	סַפְסָל	noun	2	ז	ספסלים			bench					
 sagar	סגר	סָגַר	verb	1			ס-ג-ר		to close; to shut				also noun סֶגֶר 'lockdown/closure'	
 sagol	סגול	סָגֹל	adjective	2					purple; violet					
+sagur	סגור	סָגוּר	adjective	1			ס-ג-ר		closed				שבר סגור = closed fracture	
 sakana	סכנה	סַכָּנָה	noun	2	נ	סכנות	ס-כ-ן		danger					
 sakin	סכין	סַכִּין	noun	2	נ	סכינים			knife				gender m/f (used both)	
 sakit	שקית	שַׂקִּית	noun	2	נ	שקיות			bag, small bag					
 salat	סלט	סָלָט	noun	2	ז	סלטים			salad				loanword	
 sam	שם	שָׂם	verb	1			ש-י-ם		to put, to place				homograph: also "there" and "name"	
 sameach	שמח	שָׂמֵחַ	adjective	1			ש-מ-ח		happy, glad				verb שָׂמַח = rejoiced	
+samim	סמים	סַמִּים	noun	3	ז				drugs (narcotics)				sing. סַם; שימוש בסמים = drug use	
+samuch	סמוך	סָמוּךְ	adjective	3					nearby; adjacent				סמוך לארוחה = close to a meal	
+samuy	סמוי	סָמוּי	adjective	3					occult; covert				דם סמוי בצואה = fecal occult blood	
 sandal	סנדל	סַנְדָּל	noun	2	ז	סנדלים			sandal					
 sane	שנא	שָׂנֵא	verb	2			ש-נ-א		to hate					
 sapa	ספה	סַפָּה	noun	2	נ	ספות			sofa; couch					
+sarad	שרד	שָׂרַד	verb	3			שׂ-ר-ד		to survive					
 sarak	סרק	סָרַק	verb	2			ס-ר-ק		to scan; to comb				imaging scan	
 sartan	סרטן	סַרְטָן	noun	2	ז	סרטנים			cancer; crab				also 'crab'	
 saturatzya	סטורציה	סָטוּרַצְיָה	noun	2	נ			רוויון חמצן	oxygen saturation				loanword; often just "סטורציה"	medical_loanword
 saval	סבל	סָבַל	verb	2			ס-ב-ל		to suffer; to endure				homograph: also סַבָּל 'porter'	
+savir	סביר	סָבִיר	adjective	3					reasonable; plausible					
+savlani	סבלני	סַבְלָנִי	adjective	2			ס-ב-ל		patient (adj.)					
 savlanut	סבלנות	סַבְלָנוּת	noun	2	נ		ס-ב-ל		patience					
 savta	סבתא	סָבְתָא	noun	1	נ	סבתות			grandmother					
 scharchoret	סחרחורת	סְחַרְחֹרֶת	noun	2	נ		ס-ח-ר		dizziness; vertigo				symptom	
+schiya	שחייה	שְׂחִיָּה	noun	2	נ		שׂ-ח-ה		swimming					
+schum	סכום	סְכוּם	noun	2	ז	סכומים	ס-כ-מ		sum; amount of money					
 sear	שיער	שֵׂעָר	noun	2	ז	שערות	ש-ע-ר		hair					
 seder	סדר	סֵדֶר	noun	2	ז	סדרים	ס-ד-ר		order; arrangement					
+sefel	ספל	סֵפֶל	noun	2	ז	ספלים			cup; mug					
 sefer	ספר	סֵפֶר	noun	1	ז	ספרים	ס-פ-ר		book				homograph: also סַפָּר 'barber'	
 seker	סקר	סֶקֶר	noun	2	ז	סקרים	ס-ק-ר		survey; poll					
+semel	סמל	סֵמֶל	noun	2	ז	סמלים			symbol; sergeant					
 sepsis	ספסיס	סֶפְּסִיס	noun	3	ז			אלח דם	sepsis				loanword (Latin); formal Hebrew אלח דם is rarely spoken	medical_loanword
 september	ספטמבר	סֶפְּטֶמְבֶּר	noun	2	ז				September				loanword	
 seret	סרט	סֶרֶט	noun	2	ז	סרטים			film; movie; ribbon; tape					
 serologia	סרולוגיה	סֶרוֹלוֹגְיָה	noun	3	נ				serology				loanword; antibody blood tests	medical_loanword
+sfatayim	שפתיים	שְׂפָתַיִם	noun	2	נ				lips				שפתיים כחולות = cyanotic lips	
+sfiga	ספיגה	סְפִיגָה	noun	3	נ		ס-פ-ג		absorption				ספיגת התרופה במעי = drug absorption in the gut	
+sfika	ספיקה	סְפִיקָה	noun	3	נ		ס-פ-ק		sufficiency; output				אי-ספיקת לב = heart failure	
+sfira	ספירה	סְפִירָה	noun	3	נ	ספירות	ס-פ-ר		count				ספירת דם = blood count (CBC)	
+sgan	סגן	סְגָן	noun	3	ז	סגנים			deputy					
 shaa	שעה	שָׁעָה	noun	1	נ	שעות	ש-ע-ה		hour					
 shaal	שאל	שָׁאַל	verb	1			ש-א-ל		to ask					
 shabat	שבת	שַׁבָּת	noun	1	נ	שבתות	ש-ב-ת		Sabbath, Saturday					
@@ -943,6 +1685,7 @@ shachav	שכב	שָׁכַב	verb	2			ש-כ-ב		to lie down
 shachen	שכן	שָׁכֵן	noun	2	ז	שכנים	ש-כ-ן		neighbor					
 shachor	שחור	שָׁחוֹר	adjective	1			ש-ח-ר		black					
 shakal	שקל	שָׁקַל	verb	2			ש-ק-ל		to weigh; to consider				homograph: noun שֶׁקֶל = shekel	
+shaked	שקד	שָׁקֵד	noun	2	ז	שקדים			almond					
 shalach	שלח	שָׁלַח	verb	2			ש-ל-ח		to send					
 shalav	שלב	שָׁלָב	noun	2	ז	שלבים	ש-ל-ב		stage, phase					
 shalom	שלום	שָׁלוֹם	noun	1	ז		ש-ל-ם		hello; peace				also greeting: hello/goodbye	
@@ -955,6 +1698,8 @@ shamayim	שמיים	שָׁמַיִם	noun	2	ז				sky, heaven
 shana	שנה	שָׁנָה	noun	1	נ	שנים	ש-נ-ה		year					
 shaon	שעון	שָׁעוֹן	noun	2	ז	שעונים			clock, watch					
 shapir	שפיר	שָׁפִיר	adjective	3					benign				clinical (opp. ממאיר = malignant)	
+sharsheret	שרשרת	שַׁרְשֶׁרֶת	noun	2	נ	שרשראות			chain; necklace					
+shastom	שסתום	שַׁסְתּוֹם	noun	3	ז	שסתומים			valve				usually מסתם for a heart valve	
 shata	שתה	שָׁתָה	verb	1			ש-ת-ה		to drink					
 shataf	שטף	שָׁטַף	verb	2			ש-ט-ף		to rinse, wash, flush				also noun שֶׁטֶף = flow; שטף דם = hemorrhage	
 shatiach	שטיח	שָׁטִיחַ	noun	2	ז	שטיחים	ש-ט-ח		carpet, rug					
@@ -963,11 +1708,14 @@ shavar	שבר	שָׁבַר	verb	2			ש-ב-ר		to break				homograph: noun שֶׁ
 shave	שווה	שָׁוֶה	adjective	2			ש-ו-ה		equal; worth					
 shavua	שבוע	שָׁבוּעַ	noun	1	ז	שבועות	ש-ב-ע		week					
 shavur	שבור	שָׁבוּר	adjective	2			ש-ב-ר		broken					
+shchika	שחיקה	שְׁחִיקָה	noun	3	נ		שׁ-ח-ק		wear; erosion; burnout				שחיקת סחוס = cartilage wear	
 shchuna	שכונה	שְׁכוּנָה	noun	2	נ	שכונות	ש-כ-ן		neighborhood					
 sheela	שאלה	שְׁאֵלָה	noun	1	נ	שאלות	ש-א-ל		question					
+sheka	שקע	שֶׁקַע	noun	2	ז	שקעים	שׁ-ק-ע		socket; depression				שקע חשמלי = electrical outlet	
 sheker	שקר	שֶׁקֶר	noun	2	ז	שקרים	ש-ק-ר		lie, falsehood					
 sheket	שקט	שֶׁקֶט	noun	2	ז		ש-ק-ט		quiet, silence					
 shel	של	שֶׁל	preposition	1					of					
+sheled	שלד	שֶׁלֶד	noun	3	ז	שלדים			skeleton					
 sheleg	שלג	שֶׁלֶג	noun	2	ז		ש-ל-ג		snow					
 shelet	שלט	שֶׁלֶט	noun	2	ז	שלטים	ש-ל-ט		sign; remote control				also verb שָׁלַט = controlled	
 shem	שם	שֵׁם	noun	1	ז	שמות			name				homograph: also "there" and "put"	
@@ -976,78 +1724,131 @@ shemesh	שמש	שֶׁמֶשׁ	noun	2	נ		ש-מ-ש		sun				gender variable; usual
 shen	שן	שֵׁן	noun	2	נ	שיניים	ש-נ-ן		tooth					
 shena	שינה	שֵׁנָה	noun	2	נ		י-ש-ן		sleep				homograph: also verb שִׁנָּה = changed	
 sheni	שני	שֵׁנִי	adjective	1			ש-נ-י		second					
+sherut	שירות	שֵׁרוּת	noun	2	ז	שירותים			service				השירותים = the toilet	
+sherut-leumi	שירות-לאומי	שֵׁרוּת-לְאֻמִּי	noun	3	ז				national service					
 sherutim	שירותים	שֵׁרוּתִים	noun	2	ז		ש-ר-ת		toilet, restroom				plural form; lit. "services"	
 shesh	שש	שֵׁשׁ	numeral	1					six					
 shesh-esre	שש-עשרה	שֵׁשׁ-עֶשְׂרֵה	numeral	1					sixteen					
+shetach	שטח	שֶׁטַח	noun	2	ז	שטחים			area; territory					
+shetef	שטף	שֶׁטֶף	noun	3	ז		שׁ-ט-פ		flow; hemorrhage				שטף דם = hemorrhage; שטף דם מוחי = intracerebral hemorrhage	
 sheten	שתן	שֶׁתֶן	noun	2	ז		ש-ת-ן		urine					
 sheva	שבע	שֶׁבַע	numeral	1					seven					
 sheva-esre	שבע-עשרה	שְׁבַע-עֶשְׂרֵה	numeral	1					seventeen					
 shever	שבר	שֶׁבֶר	noun	2	ז	שברים	ש-ב-ר		fracture, break					
+shgia	שגיאה	שְׁגִיאָה	noun	2	נ	שגיאות			error; mistake					
 shichrur	שחרור	שִׁחְרוּר	noun	2	ז	שחרורים	ש-ח-ר-ר		release, discharge				medical: hospital discharge	
+shichrut	שכרות	שִׁכְרוּת	noun	3	נ				drunkenness; intoxication					
+shifshuf	שפשוף	שִׁפְשׁוּף	noun	3	ז	שפשופים	שׁ-פ-שׁ-פ		chafing; abrasion				שפשוף בעור = skin abrasion	
 shilem	שילם	שִׁלֵּם	verb	2			ש-ל-ם		to pay					
 shilshom	שלשום	שִׁלְשׁוֹם	adverb	2					the day before yesterday					
 shilshul	שלשול	שִׁלְשׁוּל	noun	2	ז	שלשולים	ש-ל-ש-ל		diarrhea					
+shiluv	שילוב	שִׁלּוּב	noun	3	ז		שׁ-ל-ב		combination; integration					
+shimush	שימוש	שִׁמּוּשׁ	noun	2	ז		שׁ-מ-שׁ		use				הוראות שימוש = directions for use	
 shina	שינה	שִׁנָּה	verb	2			ש-נ-ה		to change				homograph: also noun שֵׁנָה = sleep	
+shinuy	שינוי	שִׁנּוּי	noun	2	ז	שינויים	שׁ-נ-ה		change				שינוי במצב = change in condition	
 shipur	שיפור	שִׁפּוּר	noun	2	ז	שיפורים	ש-פ-ר		improvement					
 shir	שיר	שִׁיר	noun	2	ז	שירים	ש-י-ר		song, poem					
 shishi	שישי	שִׁשִּׁי	adjective	1			ש-ש-ה		sixth					
 shishim	שישים	שִׁשִּׁים	numeral	1					sixty					
+shita	שיטה	שִׁיטָה	noun	2	נ	שיטות			method					
+shituf	שיתוף	שִׁתּוּף	noun	3	ז		שׁ-ת-פ		sharing; cooperation				שיתוף פעולה = cooperation	
+shituk	שיתוק	שִׁתּוּק	noun	3	ז		שׁ-ת-ק		paralysis				שיתוק פנים = facial palsy	
+shiul	שיעול	שִׁעוּל	noun	2	ז		שׁ-ע-ל		cough				שיעול יבש / עם ליחה = dry / productive cough	
 shiur	שיעור	שִׁעוּר	noun	2	ז	שיעורים	ש-ע-ר		lesson; rate					
 shivim	שבעים	שִׁבְעִים	numeral	1					seventy					
+shkedim	שקדים	שְׁקֵדִים	noun	3	ז				tonsils				דלקת שקדים = tonsillitis	
 shkia	שקיעה	שְׁקִיעָה	noun	2	נ	שקיעות	ש-ק-ע		sunset; sedimentation				medical: שקיעת דם = ESR	
+shlila	שלילה	שְׁלִילָה	noun	3	נ		שׁ-ל-ל		negation; denial				שולל חום = denies fever	
 shlishi	שלישי	שְׁלִישִׁי	adjective	1			ש-ל-ש		third					
 shloshim	שלושים	שְׁלוֹשִׁים	numeral	1					thirty					
+shmia	שמיעה	שְׁמִיעָה	noun	2	נ		שׁ-מ-ע		hearing				ירידה בשמיעה = hearing loss	
 shmone	שמונה	שְׁמוֹנֶה	numeral	1					eight					
 shmone-esre	שמונה-עשרה	שְׁמוֹנֶה-עֶשְׂרֵה	numeral	1					eighteen					
 shmonim	שמונים	שְׁמוֹנִים	numeral	1					eighty					
+shnati	שנתי	שְׁנָתִי	adjective	2			שׁ-נ-ה		annual				בדיקה שנתית = annual check-up	
 shniya	שנייה	שְׁנִיָּה	noun	2	נ	שניות	ש-נ-ה		second (time)					
+shohe	שוהה	שׁוֹהֶה	verb	3					stays; resides				שוהה בבית החולים = staying in the hospital	
+shok	שוק	שׁוֹק	noun	3	נ	שוקיים			lower leg; shin				כאב בשוק = calf pain	
+shok-helem	שוק	שׁוֹק	noun	3	ז			הלם	shock (circulatory)				loanword usage: "בשוק"; Hebrew הלם	medical_loanword
 shokolad	שוקולד	שׁוֹקוֹלָד	noun	2	ז				chocolate				loanword	
 shone	שונה	שׁוֹנֶה	adjective	2			ש-נ-ה		different					
+shoresh	שורש	שֹׁרֶשׁ	noun	2	ז	שורשים			root				טיפול שורש = root canal	
 shoter	שוטר	שׁוֹטֵר	noun	2	ז	שוטרים	ש-ט-ר		police officer					
 shrir	שריר	שְׁרִיר	noun	2	ז	שרירים	ש-ר-ר		muscle					
+shtifa	שטיפה	שְׁטִיפָה	noun	3	נ	שטיפות	שׁ-ט-פ		rinsing; irrigation				שטיפת קיבה = gastric lavage	
 shtiya	שתייה	שְׁתִיָּה	noun	2	נ		ש-ת-ה		drinking; beverage					
 shulchan	שולחן	שֻׁלְחָן	noun	1	ז	שולחנות			table					
+shuli	שולי	שׁוּלִי	adjective	3					marginal; minor					
 shum-davar	שום-דבר	שׁוּם-דָּבָר	phrase	1					nothing					
+shuman	שומן	שֻׁמָּן	noun	3	ז	שומנים			fat; lipid				שומנים בדם = blood lipids	
 shuv	שוב	שׁוּב	adverb	1					again					
+shvil	שביל	שְׁבִיל	noun	2	ז	שבילים			path; trail					
 siba	סיבה	סִבָּה	noun	2	נ	סיבות	ס-ב-ב		reason; cause				clinical: cause/etiology	
 sicha	שיחה	שִׂיחָה	noun	2	נ	שיחות	ש-י-ח		conversation, call					
 sider	סידר	סִדֵּר	verb	2			ס-ד-ר		to arrange; to organize					
 sidra	סדרה	סִדְרָה	noun	2	נ	סדרות	ס-ד-ר		series					
 sifriya	ספרייה	סִפְרִיָּה	noun	2	נ	ספריות	ס-פ-ר		library					
+sigaria	סיגריה	סִיגַרְיָה	noun	2	נ	סיגריות			cigarette				כמה סיגריות ביום? = how many cigarettes a day?	
+signon	סגנון	סִגְנוֹן	noun	2	ז	סגנונות			style				סגנון חיים = lifestyle	
 sikui	סיכוי	סִכּוּי	noun	2	ז	סיכויים			chance; prospect; likelihood				clinical: prognosis/odds	
+sikum	סיכום	סִכּוּם	noun	2	ז	סיכומים	ס-כ-מ		summary				סיכום אשפוז = discharge summary	
 sikun	סיכון	סִכּוּן	noun	2	ז	סיכונים	ס-כ-ן		risk				clinical: risk factors	
+siman	סימן	סִימָן	noun	2	ז	סימנים			sign; mark				סימנים חיוניים = vital signs	
 simla	שמלה	שִׂמְלָה	noun	2	נ	שמלות	ש-מ-ל		dress					
 simptom	סימפטום	סִימְפְּטוֹם	noun	2	ז	סימפטומים		תסמין	symptom				loanword; Hebrew תסמין	medical_loanword
 sindrom	סינדרום	סִינְדְּרוֹם	noun	2	ז	סינדרומים		תסמונת	syndrome				loanword; Hebrew תסמונת	medical_loanword
 sinkope	סינקופה	סִינְקוֹפֵּה	noun	3	נ			התעלפות	syncope				loanword; Hebrew התעלפות	medical_loanword
+sinun	סינון	סִנּוּן	noun	3	ז		ס-נ-נ		filtration				סינון כלייתי = renal filtration	
 siper	סיפר	סִפֵּר	verb	2			ס-פ-ר		to tell; to narrate					
 sipur	סיפור	סִפּוּר	noun	2	ז	סיפורים	ס-פ-ר		story					
 sir	סיר	סִיר	noun	2	ז	סירים			pot; saucepan					
+siruk	סירוק	סֵרוּק	noun	2	ז		ס-ר-ק		combing					
 sisma	סיסמה	סִיסְמָה	noun	2	נ	סיסמאות			password; slogan					
 sistoli	סיסטולי	סִיסְטוֹלִי	adjective	3					systolic				loanword; heart-contraction phase	medical_loanword
 siud	סיעוד	סִעוּד	noun	2	ז		ס-ע-ד		nursing				profession/care	
+siudi	סיעודי	סִעוּדִי	adjective	3					nursing-care				מטופל סיעודי = a nursing-care patient	
+sivuch	סיבוך	סִבּוּךְ	noun	3	ז	סיבוכים	ס-ב-כ		complication				סיבוכי הניתוח = surgical complications	
 sivuv	סיבוב	סִבּוּב	noun	2	ז	סיבובים	ס-ב-ב		turn; rotation; round					
 siyem	סיים	סִיֵּם	verb	2			ס-י-ם		to finish; to complete					
+siyum	סיום	סִיּוּם	noun	2	ז				ending; completion					
+siyur	סיור	סִיּוּר	noun	3	ז	סיורים			tour; round				סיור רופאים = doctors' rounds	
 slicha	סליחה	סְלִיחָה	noun	1	נ	סליחות	ס-ל-ח		forgiveness; (interj.) sorry/excuse me					
+smicha	שמיכה	שְׂמִיכָה	noun	2	נ	שמיכות			blanket					
 smol	שמאל	שְׂמֹאל	noun	1	ז				left (side)				שמאלה = to the left	
 sof	סוף	סוֹף	noun	1	ז				end					
+sof-shavua	סוף-שבוע	סוֹף-שָׁבוּעַ	noun	1	ז				weekend					
+sofani	סופני	סוֹפָנִי	adjective	3					terminal				מחלה סופנית = terminal illness	
 sofer	סופר	סוֹפֵר	noun	2	ז	סופרים	ס-פ-ר		author; writer				also colloquial 'supermarket' (סוּפֶּר)	
+solela	סוללה	סוֹלְלָה	noun	2	נ	סוללות			battery				סוללת קוצב = pacemaker battery	
 spetsifi	ספציפי	סְפֶּצִיפִי	adjective	3					specific				loanword	
 sport	ספורט	סְפּוֹרְט	noun	2	ז				sport(s)				loanword	
+srefa	שריפה	שְׂרֵפָה	noun	2	נ	שריפות	שׂ-ר-פ		fire					
 srika	סריקה	סְרִיקָה	noun	2	נ	סריקות	ס-ר-ק		scan; scanning				imaging: CT/MRI	
+srita	שריטה	שְׂרִיטָה	noun	3	נ	שריטות	שׂ-ר-ט		scratch				שריטת חתול = cat scratch	
 stam	סתם	סְתָם	adverb	2					just; merely; for no reason					
 stav	סתיו	סְתָיו	noun	2	ז				autumn; fall					
 stent	סטנט	סְטֶנְט	noun	3	ז	סטנטים		תומכן	stent				loanword	medical_loanword
 sterili	סטרילי	סְטֶרִילִי	adjective	2				מחוטא	sterile				loanword; Hebrew עקר/מחוטא	medical_loanword
 student	סטודנט	סְטוּדֶנְט	noun	2	ז	סטודנטים			student (university)				loanword; fem. סטודנטית	
+sufa	סופה	סוּפָה	noun	2	נ	סופות			storm					
 sug	סוג	סוּג	noun	2	ז	סוגים			type; kind; sort					
 sukar	סוכר	סֻכָּר	noun	2	ז				sugar				clinical: blood sugar	
+sukeret	סוכרת	סֻכֶּרֶת	noun	3	נ				diabetes				also written סכרת; סוכרת סוג 2 = type 2 diabetes	
 sulam	סולם	סֻלָּם	noun	2	ז	סולמות			ladder; scale				e.g. pain scale = סולם כאב	
 sus	סוס	סוּס	noun	1	ז	סוסים			horse					
+sveder	סוודר	סְוֶדֶר	noun	2	ז	סוודרים			sweater					
+sviva	סביבה	סְבִיבָה	noun	2	נ				environment; surroundings					
+ta	תא	תָּא	noun	3	ז	תאים			cell; compartment				תאי דם אדומים = red blood cells	
 taam	טעם	טַעַם	noun	2	ז	טעמים	ט-ע-מ		taste, flavor					
+taarich	תאריך	תַּאֲרִיךְ	noun	1	ז	תאריכים			date				תאריך לידה = date of birth	
+taasiya	תעשייה	תַּעֲשִׂיָּה	noun	2	נ	תעשיות			industry					
+tabaat	טבעת	טַבַּעַת	noun	2	נ	טבעות			ring				also anatomical: פי הטבעת = anus	
 tachana	תחנה	תַּחֲנָה	noun	2	נ	תחנות	ח-נ-ה		station					
+tachboshet	תחבושת	תַּחְבֹּשֶׁת	noun	3	נ	תחבושות	ח-ב-שׁ		bandage; dressing				החלפת תחבושת = dressing change	
 tachikardia	טכיקרדיה	טַכִיקַרְדְּיָה	noun	3	נ			דופק מהיר	tachycardia				loanword; fast heart rate	medical_loanword
 tachipnea	טכיפניאה	טַכִיפְּנֵאָה	noun	3	נ			נשימה מהירה	tachypnea				loanword	medical_loanword
+tachtonim	תחתונים	תַּחְתּוֹנִים	noun	2	ז				underwear					
+taflit	תפליט	תַּפְלִיט	noun	3	ז	תפליטים			effusion				תפליט פלאורלי = pleural effusion	
 tafus	תפוס	תָּפוּס	adjective	2			ת-פ-ס		occupied, taken					
 tahalich	תהליך	תַּהֲלִיךְ	noun	2	ז	תהליכים	ה-ל-ך		process					
 taim	טעים	טָעִים	adjective	2			ט-ע-מ		tasty, delicious					
@@ -1057,42 +1858,82 @@ talmid	תלמיד	תַּלְמִיד	noun	2	ז	תלמידים	ל-מ-ד		student,
 talui	תלוי	תָּלוּי	adjective	2			ת-ל-ה		dependent; it depends					
 tamar	תמר	תָּמָר	noun	2	ז	תמרים			date (fruit)					
 tamid	תמיד	תָּמִיד	adverb	1					always					
+tanur	תנור	תַּנּוּר	noun	2	ז	תנורים			oven; heater					
 tapuach	תפוח	תַּפּוּחַ	noun	1	ז	תפוחים			apple					
 tapuach-adama	תפוח-אדמה	תַּפּוּחַ-אֲדָמָה	noun	1	ז	תפוחי-אדמה			potato					
 tapuz	תפוז	תַּפּוּז	noun	2	ז	תפוזים			orange (fruit)					
+tarbit	תרבית	תַּרְבִּית	noun	3	נ	תרביות			culture (lab)				תרבית שתן = urine culture	
 tas	טס	טָס	verb	2			ט-ו-ס		to fly (by plane)					
+tashush	תשוש	תָּשׁוּשׁ	adjective	3					exhausted; frail					
 taut	טעות	טָעוּת	noun	2	נ	טעויות	ט-ע-ה		mistake, error					
+tavla	טבלה	טַבְלָה	noun	2	נ	טבלאות			table (chart)					
+tavlin	תבלין	תַּבְלִין	noun	2	ז	תבלינים			spice; seasoning					
+tavliya	טבליה	טַבְלִיָּה	noun	3	נ	טבליות		כדור	tablet				תרופה בטבליות = medication in tablet form	
 tchelet	תכלת	תְּכֵלֶת	noun	2	נ				light blue, azure					
 tchol	טחול	טְחוֹל	noun	2	ז				spleen					
+tchusha	תחושה	תְּחוּשָׁה	noun	3	נ	תחושות			sensation; feeling				תחושת נימול = tingling sensation	
 te	תה	תֵּה	noun	1	ז				tea				loanword	
+techina	טחינה	טְחִינָה	noun	2	נ		ט-ח-נ		tahini; grinding					
 telefon	טלפון	טֶלֶפוֹן	noun	1	ז	טלפונים			telephone, phone				loanword	
 televizya	טלוויזיה	טֶלֶוִיזְיָה	noun	2	נ	טלוויזיות			television				loanword	
 temuta	תמותה	תְּמוּתָה	noun	3	נ		מ-ו-ת		mortality					
+teom	תאום	תְּאוֹם	noun	3	ז	תאומים			twin				היריון תאומים = twin pregnancy	
+terem	טרם	טֶרֶם	adverb	3					not yet; before				טרם = also the name of urgent-care clinics	
+teror	טרור	טֶרוֹר	noun	3	ז				terror; terrorism					
 tesha	תשע	תֵּשַׁע	numeral	1					nine					
 tesha-esre	תשע-עשרה	תְּשַׁע-עֶשְׂרֵה	numeral	1					nineteen					
+teshishut	תשישות	תְּשִׁישׁוּת	noun	3	נ				exhaustion					
 teuna	תאונה	תְּאוּנָה	noun	2	נ	תאונות			accident					
+teunat-avoda	תאונת-עבודה	תְּאוּנַת-עֲבוֹדָה	noun	3	נ	תאונות-עבודה			workplace accident					
+teunat-drachim	תאונת-דרכים	תְּאוּנַת-דְּרָכִים	noun	3	נ	תאונות-דרכים			road accident				נפגע בתאונת דרכים	
+teur	תיאור	תֵּאוּר	noun	2	ז	תיאורים			description				תיאור הכאב = description of the pain	
 teva	טבע	טֶבַע	noun	2	ז		ט-ב-ע		nature				also verb: to drown/sink	
+tfila	תפילה	תְּפִלָּה	noun	2	נ	תפילות			prayer					
+tfuka	תפוקה	תְּפוּקָה	noun	3	נ				output				תפוקת שתן = urine output	
 tguva	תגובה	תְּגוּבָה	noun	2	נ	תגובות			reaction, response				medical: תגובה אלרגית = allergic reaction	
+tifkud	תפקוד	תִּפְקוּד	noun	3	ז		פ-ק-ד		function; functioning				תפקודי כבד = liver function tests	
+tiftuf	טפטוף	טִפְטוּף	noun	3	ז		ט-פ-ט-פ		dripping; drip				טפטוף תוך-ורידי = IV drip	
+tigun	טיגון	טִגּוּן	noun	2	ז		ט-ג-נ		frying					
 tik	תיק	תִּיק	noun	2	ז	תיקים			bag; file				medical: תיק רפואי = medical file	
 tiken	תיקן	תִּקֵּן	verb	2			ת-ק-ן		to fix, repair, correct				homograph: also noun תִּיקָן (cockroach); verb sense taken (piel, 3ms past)	
+tikiya	תיקייה	תִּיקִיָּה	noun	2	נ	תיקיות			folder					
 tikra	תקרה	תִּקְרָה	noun	2	נ	תקרות			ceiling					
 tikva	תקווה	תִּקְוָה	noun	2	נ	תקוות	ק-ו-ה		hope					
 tinok	תינוק	תִּינוֹק	noun	2	ז	תינוקות			baby, infant					
+tipa	טיפה	טִפָּה	noun	2	נ	טיפות			drop				טיפות עיניים = eye drops; טיפת חלב = well-baby clinic	
 tipel	טיפל	טִפֵּל	verb	2			ט-פ-ל		to treat, to take care of					
 tipes	טיפס	טִפֵּס	verb	2			ט-פ-ס		to climb					
 tipesh	טיפש	טִפֵּשׁ	adjective	2			ט-פ-שׁ		stupid; fool					
 tipul	טיפול	טִפּוּל	noun	2	ז	טיפולים	ט-פ-ל		treatment, care					
+tipul-nimratz	טיפול-נמרץ	טִפּוּל-נִמְרָץ	noun	3	ז				intensive care				יחידה לטיפול נמרץ = ICU	
+tipuli	טיפולי	טִפּוּלִי	adjective	3			ט-פ-ל		therapeutic					
+tipusi	טיפוסי	טִיפּוּסִי	adjective	3					typical					
+tisa	טיסה	טִיסָה	noun	2	נ	טיסות	ט-ו-ס		flight					
 tishim	תשעים	תִּשְׁעִים	numeral	1					ninety					
+tishtush	טשטוש	טִשְׁטוּשׁ	noun	3	ז				blurring; sedation				טשטוש ראייה = blurred vision	
 tismin	תסמין	תַּסְמִין	noun	2	ז	תסמינים	ס-מ-ן		symptom					
 tivi	טבעי	טִבְעִי	adjective	2			ט-ב-ע		natural					
+tivoni	טבעוני	טִבְעוֹנִי	adjective	2					vegan					
 tiyul	טיול	טִיּוּל	noun	2	ז	טיולים	ט-י-ל		trip, hike, excursion					
+tizkoret	תזכורת	תִּזְכֹּרֶת	noun	2	נ	תזכורות	ז-כ-ר		reminder					
+tkufa	תקופה	תְּקוּפָה	noun	2	נ	תקופות			period of time				תקופת ההחלמה = the recovery period	
 tluna	תלונה	תְּלוּנָה	noun	1	נ	תלונות	ל-ו-נ	מה מפריע לך	complaint				the presenting complaint	
+tmicha	תמיכה	תְּמִיכָה	noun	2	נ		ת-מ-כ		support				תמיכה משפחתית = family support	
 tmuna	תמונה	תְּמוּנָה	noun	2	נ	תמונות			picture, image					
 tnua	תנועה	תְּנוּעָה	noun	2	נ	תנועות	נ-ו-ע		movement; traffic					
+tnucha	תנוחה	תְּנוּחָה	noun	3	נ	תנוחות			position; posture				תנוחת שכיבה = supine position	
+toch	תוך	תּוֹךְ	preposition	3					within				תוך שעה = within an hour; תוך-ורידי = intravenous	
+tochna	תוכנה	תּוֹכְנָה	noun	2	נ	תוכנות			software					
 tochnit	תכנית	תָּכְנִית	noun	2	נ	תכניות	ת-כ-ן		plan, program					
 toda	תודה	תּוֹדָה	noun	1	נ	תודות	י-ד-ה		thank you; thanks					
+tofaat-levai	תופעת-לוואי	תּוֹפָעַת-לְוַאי	noun	3	נ	תופעות-לוואי			side effect				תופעות לוואי שכיחות = common side effects	
 tofes	טופס	טוֹפֶס	noun	2	ז	טפסים			form (document)					
 tor	תור	תּוֹר	noun	2	ז	תורים			queue; appointment; turn				medical: appointment	
+toran	תורן	תּוֹרָן	noun	3	ז	תורנים			on-duty staff member				רופא תורן = doctor on call	
+toranut	תורנות	תּוֹרָנוּת	noun	3	נ	תורנויות			duty shift; on-call				תורנות לילה = night shift	
+tosaftan	תוספתן	תּוֹסַפְתָּן	noun	3	ז				appendix (organ)				דלקת התוספתן = appendicitis	
+toshav	תושב	תּוֹשָׁב	noun	2	ז	תושבים	י-שׁ-ב		resident				תושב קבע = permanent resident	
+totav	תותב	תּוֹתָב	noun	3	ז	תותבות			prosthesis				שיניים תותבות = dentures	
 totzaa	תוצאה	תּוֹצָאָה	noun	2	נ	תוצאות	י-צ-א		result, outcome					
 tov	טוב	טוֹב	adjective	1			ט-ו-ב		good					
 tremor	טרמור	טְרֶמוֹר	noun	2	ז			רעד	tremor				loanword; Hebrew רעד	medical_loanword
@@ -1102,55 +1943,103 @@ trufa	תרופה	תְּרוּפָה	noun	1	נ	תרופות	ר-פ-א		medication
 tselulitis	צלוליטיס	צֶלוּלִיטִיס	noun	2	ז			דלקת רקמת עור	cellulitis				loanword	medical_loanword
 tshuva	תשובה	תְּשׁוּבָה	noun	2	נ	תשובות	ש-ו-ב		answer, response					
 tsianozis	ציאנוזיס	צִיאָנוֹזִיס	noun	3	ז			כחלון	cyanosis				loanword; bluish discoloration	medical_loanword
+tvach	טווח	טְוַח	noun	3	ז	טווחים			range				טווח תנועה = range of motion; טווח נורמה = normal range	
 tzaad	צעד	צַעַד	noun	2	ז	צעדים	צ-ע-ד		step				also verb "to step / march"	
 tzaak	צעק	צָעַק	verb	2			צ-ע-ק		to shout / to scream					
 tzachak	צחק	צָחַק	verb	2			צ-ח-ק		to laugh					
+tzad	צד	צַד	noun	1	ז	צדדים			side				שכיבה על הצד = lying on the side	
 tzadak	צדק	צָדַק	verb	2			צ-ד-ק		to be right / to be correct				noun צֶדֶק = justice	
 tzafon	צפון	צָפוֹן	noun	2	ז		צ-פ-ן		north					
+tzafuf	צפוף	צָפוּף	adjective	2					crowded					
+tzafuy	צפוי	צָפוּי	adjective	3			צ-פ-ה		expected				כצפוי = as expected	
 tzahov	צהוב	צָהוֹב	adjective	2			צ-ה-ב		yellow					
+tzaif	צעיף	צָעִיף	noun	2	ז	צעיפים			scarf					
 tzair	צעיר	צָעִיר	adjective	2			צ-ע-ר		young				also noun "young person"	
 tzalachat	צלחת	צַלַּחַת	noun	2	נ	צלחות	צ-ל-ח		plate / dish					
+tzaleket	צלקת	צַלֶּקֶת	noun	3	נ	צלקות			scar				צלקת ניתוחית = surgical scar	
+tzalul	צלול	צָלוּל	adjective	3					clear; lucid				צלול ומתמצא = alert and oriented	
+tzamach	צמח	צָמַח	verb	2			צ-מ-ח		to grow (of plants, hair)					
 tzame	צמא	צָמֵא	adjective	2			צ-מ-א		thirsty				also noun צָמָא = thirst	
+tzamid	צמיד	צָמִיד	noun	2	ז	צמידים	צ-מ-ד		bracelet				צמיד זיהוי = identification wristband	
+tzamud	צמוד	צָמוּד	adjective	3			צ-מ-ד		attached; tight against				השגחה צמודה = close observation	
 tzar	צר	צַר	adjective	2			צ-ר-ר		narrow					
+tzarevet	צרבת	צָרֶבֶת	noun	3	נ		צ-ר-ב		heartburn					
 tzarich	צריך	צָרִיךְ	adjective	1			צ-ר-ך		need to / must				modal; inflects צריכה/צריכים	
+tzav	צב	צָב	noun	2	ז	צבים			turtle					
 tzava	צבא	צָבָא	noun	2	ז	צבאות	צ-ב-א		army / military					
 tzavar	צוואר	צַוָּאר	noun	2	ז	צווארים	צ-ו-ר		neck					
+tzayar	צייר	צַיָּר	noun	2	ז	ציירים	צ-י-ר		painter; artist					
+tzchok	צחוק	צְחוֹק	noun	2	ז		צ-ח-ק		laughter					
+tzefi	צפי	צְפִי	noun	3	ז		צ-פ-ה		forecast; expectation				צפי לשחרור = expected discharge	
+tzemach	צמח	צֶמַח	noun	2	ז	צמחים	צ-מ-ח		plant				תרופות צמחיות = herbal remedies	
+tzeruf	צירוף	צֵרוּף	noun	3	ז	צירופים	צ-ר-פ		combination				צירוף תרופות = drug combination	
 tzeva	צבע	צֶבַע	noun	1	ז	צבעים	צ-ב-ע		color				also verb צָבַע = painted	
 tzevet	צוות	צֶוֶת	noun	2	ז	צוותים			team / staff				clinical: הצוות הרפואי = medical staff	
+tziburi	ציבורי	צִבּוּרִי	adjective	2					public				בריאות הציבור = public health	
+tzichtzuach	צחצוח	צִחְצוּחַ	noun	2	ז				brushing				צחצוח שיניים = tooth brushing	
+tziftzuf	צפצוף	צִפְצוּף	noun	3	ז	צפצופים			wheezing; beeping				צפצופים בהאזנה = wheezes on auscultation	
 tzilum	צילום	צִילּוּם	noun	2	ז	צילומים	צ-ל-ם		photograph / imaging scan				clinical: צילום רנטגן = X-ray	
+tzimchoni	צמחוני	צִמְחוֹנִי	adjective	2			צ-מ-ח		vegetarian					
 tzinor	צינור	צִינּוֹר	noun	2	ז	צינורות	צ-נ-ר		tube / pipe / catheter					
+tzinorit	צינורית	צִנּוֹרִית	noun	3	נ	צינוריות			cannula; small tube				צינורית חמצן = oxygen cannula	
+tzipiya	ציפייה	צִפִּיָּה	noun	2	נ	ציפיות	צ-פ-ה		expectation; waiting					
 tzipor	ציפור	צִיפּוֹר	noun	2	נ	ציפורים	צ-פ-ר		bird					
 tziporen	ציפורן	צִיפּוֹרֶן	noun	2	נ	ציפורניים	צ-פ-ר-ן		fingernail / nail				also "clove" (spice)	
+tzira	צרעה	צִרְעָה	noun	3	נ	צרעות			wasp				עקיצת צרעה = wasp sting	
+tzivoni	צבעוני	צִבְעוֹנִי	adjective	2			צ-ב-ע		colorful					
+tziyen	ציין	צִיֵּן	verb	3			צ-י-נ		to note; to mention				המטופל ציין כי... = the patient noted that	
 tziyur	ציור	צִיּוּר	noun	2	ז	ציורים	צ-י-ר		drawing / painting					
+tzlil	צליל	צְלִיל	noun	3	ז	צלילים			sound; tone				צלילי לב = heart sounds	
+tznicha	צניחה	צְנִיחָה	noun	3	נ		צ-נ-ח		prolapse; drop				צניחת רחם = uterine prolapse; צניחת לחץ דם = BP drop	
 tzoa	צואה	צוֹאָה	noun	2	נ				feces / stool				clinical	
+tzofe	צופה	צוֹפֶה	verb	2			צ-פ-ה		watches; observes					
 tzohorayim	צהריים	צָהֳרַיִם	noun	1	ז		צ-ה-ר		noon / midday				dual form	
 tzomet	צומת	צוֹמֶת	noun	2	ז	צמתים	צ-מ-ת		junction / intersection					
 tzorech	צורך	צוֹרֶךְ	noun	2	ז	צרכים	צ-ר-ך		need				distinct from צריך	
+tzorev	צורב	צָרוּב	adjective	3			צ-ר-ב		burning				כאב צורב = burning pain	
+tzrachim-meyuchadim	צרכים-מיוחדים	צְרָכִים-מְיֻחָדִים	noun	3	ז				special needs				ילד עם צרכים מיוחדים	
+tzricha	צריכה	צְרִיכָה	noun	3	נ		צ-ר-כ		consumption; intake				צריכת מלח = salt intake	
+tzriva	צריבה	צְרִיבָה	noun	3	נ		צ-ר-ב		burning sensation				צריבה במתן שתן = burning on urination	
+tzuna	תזונה	תְּזוּנָה	noun	3	נ				nutrition; diet				תזונה נכונה = proper nutrition	
 tzura	צורה	צוּרָה	noun	2	נ	צורות	צ-ו-ר		shape / form					
+tzuza	תזוזה	תְּזוּזָה	noun	3	נ		ז-ו-ז		movement; shifting				תזוזת השבר = displacement of the fracture	
 ulai	אולי	אוּלַי	adverb	1					maybe, perhaps					
 universita	אוניברסיטה	אוּנִיבֶרְסִיטָה	noun	2	נ	אוניברסיטאות			university				loanword	
 urinari	אורינרי	אוּרִינָרִי	adjective	3				שתני	urinary				loanword; Hebrew שתני	medical_loanword
+uvda	עובדה	עֻבְדָּה	noun	2	נ	עובדות			fact					
+vaad	ועד	וַעַד	noun	3	ז	ועדים			committee; workers' council					
+vaada	ועדה	וַעֲדָה	noun	3	נ	ועדות			committee				ועדה רפואית = medical board	
+vadai	ודאי	וַדַּאי	adjective	3					certain				בוודאי = certainly	
 varid	וריד	וָרִיד	noun	2	ז	ורידים	ו-ר-ד		vein					
 varod	ורוד	וָרֹד	adjective	2			ו-ר-ד		pink					
 vazovagali	ואזווגאלי	וָאזוֹוָגָאלִי	adjective	3					vasovagal				loanword; reflex-fainting mechanism	medical_loanword
 ve	ו	וְ	conjunction	1					and					
 vegetatzyot	וגטציות	וֶגֶטַצְיוֹת	noun	3	נ				vegetations				loanword; on heart valves in endocarditis	medical_loanword
+veilu	ואילו	וְאִלּוּ	conjunction	3					whereas					
 vertigo	ורטיגו	וֶרְטִיגוֹ	noun	2	ז			סחרחורת	vertigo				loanword; Hebrew סחרחורת	medical_loanword
+vikuach	ויכוח	וִכּוּחַ	noun	2	ז	ויכוחים	י-כ-ח		argument; dispute					
 virali	ויראלי	וִירָאלִי	adjective	2				נגיפי	viral				loanword; Hebrew נגיפי	medical_loanword
 virus	וירוס	וִירוּס	noun	2	ז	וירוסים			virus				loanword	medical_loanword
+vizuali	ויזואלי	וִיזוּאָלִי	adjective	3					visual				loanword	
 yaar	יער	יַעַר	noun	2	ז	יערות			forest					
+yachas	יחס	יַחַס	noun	2	ז	יחסים	י-ח-ס		attitude; ratio; relation				יחסי מין = sexual intercourse	
 yachasit	יחסית	יַחֲסִית	adverb	2			י-ח-ס		relatively					
 yachid	יחיד	יָחִיד	adjective	2			י-ח-ד		single, sole, individual					
 yachol	יכל	יָכוֹל	verb	1			י-כ-ל		to be able, can					
 yad	יד	יָד	noun	1	נ	ידיים			hand; arm					
 yada	ידע	יָדַע	verb	2			י-ד-ע		to know				also noun: knowledge (יֶדַע)	
 yadit	ידית	יָדִית	noun	2	נ	ידיות			handle, knob					
+yadua	ידוע	יָדוּעַ	adjective	2			י-ד-ע		known				ידוע כסובל מ... = known to suffer from	
 yafe	יפה	יָפֶה	adjective	1			י-פ-ה		beautiful, nice					
+yail	יעיל	יָעִיל	adjective	2					effective; efficient					
 yakar	יקר	יָקָר	adjective	2			י-ק-ר		expensive; dear					
 yalda	ילדה	יַלְדָּה	noun	1	נ	ילדות	י-ל-ד		girl					
 yalda-verb	ילדה	יָלְדָה	verb	2			י-ל-ד		to give birth				cited in 3fs (past) as input	
+yaldut	ילדות	יַלְדוּת	noun	2	נ		י-ל-ד		childhood				מחלות ילדות = childhood illnesses	
 yalla	יאללה	יַאלְלָה	interjection	2					come on!, let's go!				colloquial, from Arabic	
 yam	ים	יָם	noun	2	ז	ימים			sea					
+yam-hamelach	ים-המלח	יָם-הַמֶּלַח	noun	2	ז				the Dead Sea					
+yam-tichon	ים-תיכון	יָם-תִּיכוֹן	noun	2	ז				Mediterranean Sea				דיאטה ים-תיכונית = Mediterranean diet	
 yamin	ימין	יָמִין	noun	2	ז		י-מ-ן		right (side)				ימינה = to the right	
 yarak	ירק	יָרָק	noun	2	ז	ירקות	י-ר-ק		vegetable				also verb: to spit	
 yareach	ירח	יָרֵחַ	noun	2	ז		י-ר-ח		moon					
@@ -1158,31 +2047,77 @@ yarok	ירוק	יָרוֹק	adjective	2			י-ר-ק		green
 yashan	ישן	יָשָׁן	adjective	2			י-שׁ-ן		old (of objects)				of things, not people	
 yashar	ישר	יָשָׁר	adjective	2			י-שׁ-ר		straight; honest					
 yashav	ישב	יָשַׁב	verb	2			י-שׁ-ב		to sit					
+yashen	ישן	יָשַׁן	verb	1			י-שׁ-נ		to sleep				distinct from the adjective יָשָׁן = old	
+yashvan	ישבן	יַשְׁבָן	noun	3	ז				buttocks				זריקה בישבן = injection in the buttock	
+yatush	יתוש	יַתּוּשׁ	noun	2	ז	יתושים			mosquito				עקיצת יתוש = mosquito bite	
 yatza	יצא	יָצָא	verb	2			י-צ-א		to go out, to exit					
+yatziv	יציב	יַצִּיב	adjective	3			י-צ-ב		stable				מצבו יציב = his condition is stable	
 yavesh	יבש	יָבֵשׁ	adjective	2			י-ב-שׁ		dry				also verb: to dry	
+yayin	יין	יַיִן	noun	2	ז	יינות			wine					
+yechida	יחידה	יְחִידָה	noun	3	נ	יחידות	י-ח-ד		unit				יחידת דם = unit of blood	
+yecholet	יכולת	יְכֹלֶת	noun	2	נ	יכולות	י-כ-ל		ability					
+yedid	ידיד	יָדִיד	noun	2	ז	ידידים			friend					
+yehudi	יהודי	יְהוּדִי	adjective	2					Jewish					
+yeilut	יעילות	יְעִילוּת	noun	3	נ				effectiveness; efficiency					
+yekum	יקום	יְקוּם	noun	3	ז				universe					
 yeled	ילד	יֶלֶד	noun	1	ז	ילדים	י-ל-ד		boy, child					
+yemama	יממה	יְמָמָה	noun	3	נ				24-hour period				פעמיים ביממה = twice per 24 hours	
+yerech	ירך	יָרֵךְ	noun	3	נ	ירכיים			thigh; hip				מפרק הירך = hip joint	
 yeri	ירי	יֶרִי	noun	2	ז		י-ר-ה		shooting, gunfire					
 yeriya	ירייה	יְרִיָּה	noun	2	נ	יריות	י-ר-ה		a shot, gunshot					
 yesh	יש	יֵשׁ	particle	1					there is, there are				existential	
+yesodi	יסודי	יְסוֹדִי	adjective	2					thorough; elementary				בית ספר יסודי = elementary school	
+yeter	יתר	יֶתֶר	noun	3	ז				excess; hyper-				יתר לחץ דם = hypertension; משקל יתר = overweight	
 yetzia	יציאה	יְצִיאָה	noun	2	נ	יציאות	י-צ-א		exit; (medical) bowel movement				medically also = bowel movement/stool	
+yetzira	יצירה	יְצִירָה	noun	2	נ	יצירות	י-צ-ר		creation; artwork					
+yeutz	ייעוץ	יִעוּץ	noun	3	ז		י-ע-צ		consultation; counseling				ייעוץ גנטי = genetic counseling	
+yichudi	ייחודי	יִחוּדִי	adjective	3			י-ח-ד		unique					
+yitachen	ייתכן	יִתָּכֵן	verb	3			ת-כ-נ		it is possible that					
+yokrati	יוקרתי	יֻקְרָתִי	adjective	3					prestigious					
 yom	יום	יוֹם	noun	1	ז	ימים			day					
 yomi	יומי	יוֹמִי	adjective	2			י-ו-ם		daily					
 yomyomi	יומיומי	יוֹמְיוֹמִי	adjective	2			י-ו-ם		everyday, daily					
+yonek	יונק	יוֹנֵק	noun	3	ז	יונקים	י-נ-ק		mammal; nursing infant					
 yoter	יותר	יוֹתֵר	adverb	1					more					
+yotze-dofen	יוצא-דופן	יוֹצֵא-דֹפֶן	adjective	3					unusual; exceptional					
+yotze-min-haklal	יוצא-מן-הכלל	יוֹצֵא-מִן-הַכְּלָל	adjective	3					outstanding; exceptional					
+yotzer	יוצר	יוֹצֵר	noun	3	ז		י-צ-ר		creator; creates					
+yovesh	יובש	יֹבֶשׁ	noun	3	ז		י-ב-שׁ		dryness				יובש בפה = dry mouth	
 yuli	יולי	יוּלִי	noun	2	ז				July				month (loanword)	
 yuni	יוני	יוּנִי	noun	2	ז				June				month (loanword)	
+zaazua	זעזוע	זַעֲזוּעַ	noun	3	ז	זעזועים	ז-ע-ז-ע		concussion; shock				זעזוע מוח = concussion	
 zachar-noun	זכר	זָכָר	noun	2	ז	זכרים	ז-כ-ר		male				homograph: also verb “remembered”	
 zachar-verb	זכר	זָכַר	verb	2			ז-כ-ר		to remember				homograph: also noun “male”	
+zahav	זהב	זָהָב	noun	2	ז				gold					
+zakan	זקן	זָקָן	noun	2	ז	זקנים			beard					
+zaken	זקן	זָקֵן	adjective	2					old (of a person); elderly				a person is זָקֵן; an object is יָשָׁן	
+zakuf	זקוף	זָקוּף	adjective	3					upright; erect				בישיבה זקופה = sitting upright	
+zaniach	זניח	זָנִיחַ	adjective	3					negligible					
 zarak	זרק	זָרַק	verb	2			ז-ר-ק		to throw					
+zariz	זריז	זָרִיז	adjective	2					quick; nimble					
+zavit	זווית	זָוִית	noun	3	נ	זוויות			angle					
 zaz	זז	זָז	verb	2			ז-ו-ז		to move					
+zchila	זחילה	זְחִילָה	noun	3	נ		ז-ח-ל		crawling					
+zchuchit	זכוכית	זְכוּכִית	noun	2	נ				glass					
 zchut	זכות	זְכוּת	noun	2	נ	זכויות	ז-כ-ה		right / privilege					
 ze	זה	זֶה	pronoun	1					this					
+zehe	זהה	זֵהֶה	adjective	3					identical					
+zehirut	זהירות	זְהִירוּת	noun	2	נ		ז-ה-ר		caution; care					
+zeia	זיעה	זֵעָה	noun	2	נ		ז-ו-ע		sweat					
+zera	זרע	זֶרַע	noun	3	ז		ז-ר-ע		semen; sperm; seed				בדיקת זרע = semen analysis	
 zerem	זרם	זֶרֶם	noun	2	ז	זרמים	ז-ר-מ		flow / current					
 zeret	זרת	זֶרֶת	noun	3	נ	זרתות			little finger / pinky					
 zihum	זיהום	זִיהוּם	noun	2	ז	זיהומים	ז-ה-מ		infection					
+zihuy	זיהוי	זִהוּי	noun	3	ז		ז-ה-ה		identification				תעודת זהות = ID card; distinct from זיהום = infection	
+zikaron	זיכרון	זִכָּרוֹן	noun	2	ז	זיכרונות	ז-כ-ר		memory				ירידה בזיכרון = memory decline	
 zman	זמן	זְמַן	noun	1	ז	זמנים	ז-מ-נ		time					
+zmani	זמני	זְמַנִּי	adjective	2			ז-מ-נ		temporary					
+zochel	זוחל	זוֹחֵל	noun	3	ז	זוחלים	ז-ח-ל		reptile; crawling					
 zol	זול	זוֹל	adjective	2			ז-ו-ל		cheap					
 zot	זאת	זֹאת	pronoun	1					this (f.)					
 zricha	זריחה	זְרִיחָה	noun	2	נ	זריחות	ז-ר-ח		sunrise					
 zrika	זריקה	זְרִיקָה	noun	2	נ	זריקות	ז-ר-ק		injection / shot				also means “throw”	
+zrima	זרימה	זְרִימָה	noun	3	נ		ז-ר-מ		flow				זרימת דם = blood flow	
 zug	זוג	זוּג	noun	2	ז	זוגות	ז-ו-ג		pair / couple					
+zugiyut	זוגיות	זוּגִיּוּת	noun	3	נ				relationship (couple)					
+zvuv	זבוב	זְבוּב	noun	2	ז	זבובים			fly (insect)					

@@ -2,6 +2,12 @@
 
 Authoring lives here as TSV spreadsheets (tab-separated, UTF-8, header row).
 Edit in Google Sheets/Excel and export as TSV, or edit in place.
+Adding words to an existing dictionary: append the rows to `dictionary.tsv` and run
+`npm run seed:new-entries` — it inserts only ids the DB does not have yet and leaves
+reviewer-owned rows untouched. Topics live only in the DB (not in this TSV); ship them
+with a manifest such as `topics-second-thousand.tsv` and `npm run apply:topics <file>`,
+which fills `topic` only where it is still null.
+
 Import with `npm run import:content` (validates everything first; writes all-or-nothing; never deletes — retire content by setting a unit's status to draft).
 
 **The current unit-01-intake content is a DEV SAMPLE written for development.
