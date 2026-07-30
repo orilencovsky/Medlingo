@@ -13,6 +13,8 @@
     "lint:css": "stylelint \"src/**/*.css\"",
     "import:content": "tsx scripts/import-content.ts",
     "export:content": "tsx scripts/export-content.ts",
+    "seed:new-entries": "tsx scripts/seed-new-entries.ts",
+    "apply:topics": "tsx scripts/apply-topics.ts",
     "metrics": "tsx scripts/metrics.ts",
     "verify:rls": "tsx scripts/verify-rls.ts",
     "suggest:topics": "tsx scripts/suggest-topics.ts",
