@@ -59,3 +59,48 @@ export async function fetchAnatomyCards(): Promise<AnatomyCard[]> {
   }
   return cards;
 }
+
+export interface AnatomyWord {
+  entry: DictionaryEntry;
+  imageUrl: string | null;
+  imageCredit: string | null;
+}
+
+type WordRow = EntryRow & {
+  anatomy_images: { storage_path: string; is_primary: boolean; credit: string | null }[] | null;
+};
+
+// One anatomy word by id, with its primary image if it has one. Returns null when
+// the entry doesn't exist or isn't readable. The image is optional: the detail card
+// still opens for a word with no primary image (text-only).
+export async function fetchAnatomyWord(entryId: string): Promise<AnatomyWord | null> {
+  const { data, error } = await supabase
+    .from('dictionary_entries')
+    .select('*, anatomy_images(storage_path, is_primary, credit)')
+    .eq('id', entryId)
+    .maybeSingle<WordRow>();
+  if (error) throw error;
+  if (!data) return null;
+  const primary = (data.anatomy_images ?? []).find((img) => img.is_primary);
+  return {
+    entry: mapEntryRow(data),
+    imageUrl: primary ? publicImageUrl(primary.storage_path) : null,
+    imageCredit: primary?.credit ?? null,
+  };
+}
+
+// Lightweight labels (nikud Hebrew + English) for a set of entry ids — used for the
+// hover label + aria-label on figure regions without fetching whole words.
+export async function fetchSceneLabels(entryIds: string[]): Promise<Record<string, { he: string; en: string }>> {
+  if (entryIds.length === 0) return {};
+  const { data, error } = await supabase
+    .from('dictionary_entries')
+    .select('id, hebrew_nikud, translations')
+    .in('id', entryIds);
+  if (error) throw error;
+  const out: Record<string, { he: string; en: string }> = {};
+  for (const r of (data ?? []) as { id: string; hebrew_nikud: string; translations: { en: string } }[]) {
+    out[r.id] = { he: r.hebrew_nikud, en: r.translations.en };
+  }
+  return out;
+}

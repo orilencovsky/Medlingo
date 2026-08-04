@@ -7,7 +7,7 @@ import { ReviewPage } from './pages/ReviewPage';
 import { DrillPage } from './pages/DrillPage';
 import { DictionaryPage } from './pages/DictionaryPage';
 import { TopicPage } from './pages/TopicPage';
-import { AnatomyPage } from './pages/AnatomyPage';
+import { AnatomyView } from './pages/AnatomyView';
 import { AdminDictionaryPage } from './pages/AdminDictionaryPage';
 import { AdminAnatomyPage } from './pages/AdminAnatomyPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/drill" element={<DrillPage />} />
         <Route path="/dictionary" element={<DictionaryPage />} />
         <Route path="/dictionary/:topic" element={<TopicPage />} />
-        <Route path="/anatomy" element={<AnatomyPage />} />
+        <Route path="/anatomy" element={<AnatomyView />} />
         <Route path="/admin/dictionary" element={<AdminRoute><AdminDictionaryPage /></AdminRoute>} />
         <Route path="/admin/anatomy" element={<AdminRoute><AdminAnatomyPage /></AdminRoute>} />
       </Route>

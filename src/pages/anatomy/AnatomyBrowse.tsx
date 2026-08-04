@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { fetchAnatomyCards, type AnatomyCard } from '../data/anatomy';
-import { REGIONS, type Region } from '../lib/anatomyRegions';
-import { PageHeader } from '../components/ui/PageHeader';
-import { He } from '../components/He';
+import { fetchAnatomyCards, type AnatomyCard } from '../../data/anatomy';
+import { REGIONS, type Region } from '../../lib/anatomyRegions';
+import { He } from '../../components/He';
 
 const ALL = 'all' as const;
 type RegionFilter = Region | typeof ALL;
@@ -26,7 +25,7 @@ function CardTile({ card }: { card: AnatomyCard }) {
   );
 }
 
-export function AnatomyPage() {
+export function AnatomyBrowse() {
   const { t } = useTranslation();
   const [cards, setCards] = useState<AnatomyCard[]>([]);
   const [loading, setLoading] = useState(true);
@@ -51,8 +50,7 @@ export function AnatomyPage() {
   }, [shown, t]);
 
   return (
-    <div className="mx-auto max-w-2xl p-4">
-      <PageHeader title={t('anatomy.title')} />
+    <div className="mt-2">
       <div className="sticky top-0 z-10 mt-3 flex flex-wrap gap-2 bg-bg py-2">
         <button type="button" onClick={() => setRegion(ALL)}
           className={`rounded-full px-3 py-1 text-sm font-semibold ${region === ALL ? 'bg-primary text-white' : 'border border-border text-ink-muted'}`}>
