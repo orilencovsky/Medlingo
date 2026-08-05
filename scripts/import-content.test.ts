@@ -14,6 +14,14 @@ describe('content validation', () => {
     expect(content.units[0].items).toHaveLength(12);
     expect(content.units[0].dialogue).toHaveLength(12);
   });
+  it('keeps dictionary levels aligned with the shipped word files', () => {
+    // level = which vocabulary file a word arrived in (content/README.md). A new
+    // batch must land whole at the next level — update the counts in its commit.
+    const { dictionary } = loadContent('content');
+    const byLevel = new Map<number, number>();
+    for (const d of dictionary) byLevel.set(d.level, (byLevel.get(d.level) ?? 0) + 1);
+    expect(Object.fromEntries(byLevel)).toEqual({ 1: 1187, 2: 935 });
+  });
   it('rejects a missing en translation with the row number', () => {
     expect(() => validateDictionary(fixture('missing-en.tsv'), 'missing-en.tsv'))
       .toThrow(/missing-en.tsv row 2.*en/);
