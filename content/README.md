@@ -15,6 +15,22 @@ Replace with professionally authored content before pilot launch.**
 
 Empty cells: leave the cell empty (do not write "null"). `ar`/`ru`/`fr` may be empty during the pilot; `en` is required.
 
+## The `level` column (dictionary.tsv)
+
+`level` records which vocabulary file (batch) a word arrived in — it is the learner-facing
+level division, not a per-word difficulty grade:
+
+- `1` — the first word list (plus the pre-list dev seeds and the medical-loanword batch
+  shipped alongside it)
+- `2` — the second thousand
+- `3` — reserved for the third word list (append its rows with `level` 3 when it lands)
+
+When a new word file arrives, append all of its rows with the next level number. The TSV
+is authoritative for `level` even though reviewers own the other fields in the DB: after
+changing levels, run `npm run apply:levels`, which rewrites only the `level` column and
+leaves reviewer edits to everything else untouched. The per-level counts are asserted in
+`scripts/import-content.test.ts` — update them in the same commit that adds a batch.
+
 ## The `category` column (dictionary.tsv)
 
 Optional tag that groups an entry into a study "area". Leave empty for ordinary
