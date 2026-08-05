@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button } from '../ui/Button';
 import type { EntryPayload, PartOfSpeech } from '../../lib/types';
 
 const POS: PartOfSpeech[] = ['noun', 'verb', 'adjective', 'phrase', 'abbreviation', 'adverb',
@@ -10,9 +11,13 @@ interface Props {
   onSave: (payload: EntryPayload, note: string | null) => void;
   onCancel: () => void;
   isCreate?: boolean;
+  // Approvers apply the edit immediately (save & apply); reviewers save a draft
+  // that waits for approval. The button label tells the user which will happen.
+  applyNow?: boolean;
+  busy?: boolean;
 }
 
-export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
+export function EntryEditForm({ initial, onSave, onCancel, isCreate, applyNow, busy }: Props) {
   const { t } = useTranslation();
   const [p, setP] = useState<EntryPayload>(initial);
   const [note, setNote] = useState('');
@@ -24,7 +29,9 @@ export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
         value={(p[key] as string) ?? ''} onChange={(e) => set(key, e.target.value || null)} />
     </label>
   );
-  const saveBlocked = Boolean(isCreate) && !p.id?.trim();
+  const unchanged = !isCreate && JSON.stringify(p) === JSON.stringify(initial);
+  const saveBlocked = Boolean(busy) || unchanged
+    || (Boolean(isCreate) && (!p.id?.trim() || !(p.hebrew ?? '').trim()));
   return (
     <div className="space-y-3 rounded-md border border-border p-3">
       {isCreate && (
@@ -69,19 +76,20 @@ export function EntryEditForm({ initial, onSave, onCancel, isCreate }: Props) {
           onChange={(e) => set('translations', { ...p.translations, en: e.target.value })} />
       </label>
       {field('notes', 'notes')}
-      <label className="block text-sm">
-        <span className="text-ink-muted">{t('admin.note')}</span>
-        <input className="mt-1 w-full rounded-md border border-border px-2 py-1"
-          value={note} onChange={(e) => setNote(e.target.value)} />
-      </label>
-      <div className="flex gap-2">
-        <button className="rounded-md bg-primary px-3 py-1 text-sm font-semibold text-white disabled:opacity-50"
-          disabled={saveBlocked}
+      {!applyNow && (
+        <label className="block text-sm">
+          <span className="text-ink-muted">{t('admin.note')}</span>
+          <input className="mt-1 w-full rounded-md border border-border px-2 py-1"
+            value={note} onChange={(e) => setNote(e.target.value)} />
+        </label>
+      )}
+      <div className="flex flex-wrap items-center gap-2">
+        <Button size="sm" disabled={saveBlocked}
           onClick={() => onSave(isCreate ? { ...p, id: p.id?.trim() || undefined } : p, note || null)}>
-          {t('admin.saveDraft')}
-        </button>
-        <button className="rounded-md border border-border px-3 py-1 text-sm"
-          onClick={onCancel}>{t('admin.cancel')}</button>
+          {applyNow ? t('admin.saveApply') : t('admin.saveDraft')}
+        </Button>
+        <Button size="sm" variant="ghost" disabled={busy} onClick={onCancel}>{t('admin.cancel')}</Button>
+        {unchanged && <span className="text-xs text-ink-muted">{t('admin.noChangesYet')}</span>}
       </div>
     </div>
   );

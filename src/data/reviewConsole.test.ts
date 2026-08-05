@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 vi.mock('../lib/supabase', () => ({ supabase: {} }));
-import { entryToPayload, setTopic } from './reviewConsole';
+import { entryToPayload, setTopic, markUnreviewed, saveEditDraft } from './reviewConsole';
 import type { AdminEntry } from '../lib/types';
 
 const base: AdminEntry = {
@@ -27,6 +27,41 @@ describe('setTopic', () => {
     (supabase.from as unknown as ReturnType<typeof vi.fn>) = vi.fn(() => ({ update }));
     await setTopic('a', 'cardiology');
     expect(update).toHaveBeenCalledWith({ topic: 'cardiology' });
+    expect(eq).toHaveBeenCalledWith('id', 'a');
+  });
+});
+
+describe('markUnreviewed', () => {
+  it('sets review_state back to unreviewed', async () => {
+    const eq = vi.fn(async () => ({ error: null }));
+    const update = vi.fn(() => ({ eq }));
+    const { supabase } = await import('../lib/supabase');
+    (supabase.from as unknown as ReturnType<typeof vi.fn>) = vi.fn(() => ({ update }));
+    await markUnreviewed('a');
+    expect(update).toHaveBeenCalledWith({ review_state: 'unreviewed' });
+    expect(eq).toHaveBeenCalledWith('id', 'a');
+  });
+});
+
+describe('saveEditDraft', () => {
+  it('inserts the draft, flags the entry pending, and returns the new edit id', async () => {
+    const single = vi.fn(async () => ({ data: { id: 'ed9' }, error: null }));
+    const select = vi.fn(() => ({ single }));
+    const insert = vi.fn(() => ({ select }));
+    const eq = vi.fn(async () => ({ error: null }));
+    const update = vi.fn(() => ({ eq }));
+    const { supabase } = await import('../lib/supabase');
+    (supabase as unknown as { auth: unknown }).auth = {
+      getUser: vi.fn(async () => ({ data: { user: { id: 'u1' } } })),
+    };
+    (supabase.from as unknown as ReturnType<typeof vi.fn>) = vi.fn(
+      (table: string) => (table === 'entry_edits' ? { insert } : { update }));
+    const id = await saveEditDraft('a', entryToPayload(base), 'note');
+    expect(id).toBe('ed9');
+    expect(insert).toHaveBeenCalledWith(expect.objectContaining({
+      entry_id: 'a', change_type: 'update', editor_id: 'u1', editor_note: 'note',
+    }));
+    expect(update).toHaveBeenCalledWith({ review_state: 'edit_pending' });
     expect(eq).toHaveBeenCalledWith('id', 'a');
   });
 });

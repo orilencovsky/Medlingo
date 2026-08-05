@@ -88,6 +88,7 @@ export interface EntryEdit {
   entryId: string | null;
   changeType: 'create' | 'update' | 'delete';
   payload: EntryPayload;
+  editorId: string;
   editorNote: string | null;
   status: 'pending' | 'approved' | 'rejected';
   createdAt: string;
