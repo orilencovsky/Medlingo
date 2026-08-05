@@ -7,7 +7,8 @@ import type { Topic } from '../lib/topics';
 type AdminEntryRow = EntryRow & { review_state: AdminEntry['reviewState']; review_priority: number; is_deprecated: boolean };
 type EditRow = {
   id: string; entry_id: string | null; change_type: EntryEdit['changeType'];
-  payload: EntryPayload; editor_note: string | null; status: EntryEdit['status']; created_at: string;
+  payload: EntryPayload; editor_id: string; editor_note: string | null;
+  status: EntryEdit['status']; created_at: string;
 };
 
 function mapAdminEntry(r: AdminEntryRow): AdminEntry {
@@ -16,7 +17,7 @@ function mapAdminEntry(r: AdminEntryRow): AdminEntry {
 function mapEdit(r: EditRow): EntryEdit {
   return {
     id: r.id, entryId: r.entry_id, changeType: r.change_type, payload: r.payload,
-    editorNote: r.editor_note, status: r.status, createdAt: r.created_at,
+    editorId: r.editor_id, editorNote: r.editor_note, status: r.status, createdAt: r.created_at,
   };
 }
 
@@ -52,37 +53,52 @@ export async function fetchPendingEdits(): Promise<EntryEdit[]> {
   return ((data ?? []) as EditRow[]).map(mapEdit);
 }
 
+// All three draft writers return the new edit's id so an approver can chain
+// decideEdit(id, 'approved') for a one-click "save & apply" flow.
+
 // payload must be the FULL field set (entryToPayload) — apply_entry_edit nulls absent nullable keys.
-export async function saveEditDraft(entryId: string, payload: EntryPayload, note: string | null): Promise<void> {
+export async function saveEditDraft(entryId: string, payload: EntryPayload, note: string | null): Promise<string> {
   const editorId = await currentUserId();
-  const { error } = await supabase.from('entry_edits')
-    .insert({ entry_id: entryId, change_type: 'update', payload, editor_id: editorId, editor_note: note });
+  const { data, error } = await supabase.from('entry_edits')
+    .insert({ entry_id: entryId, change_type: 'update', payload, editor_id: editorId, editor_note: note })
+    .select('id').single();
   if (error) throw error;
   const { error: e2 } = await supabase.from('dictionary_entries')
     .update({ review_state: 'edit_pending' }).eq('id', entryId);
   if (e2) throw e2;
+  return (data as { id: string }).id;
 }
 
-export async function createEntryDraft(payload: EntryPayload, note: string | null): Promise<void> {
+export async function createEntryDraft(payload: EntryPayload, note: string | null): Promise<string> {
   const editorId = await currentUserId();
-  const { error } = await supabase.from('entry_edits')
-    .insert({ entry_id: null, change_type: 'create', payload, editor_id: editorId, editor_note: note });
+  const { data, error } = await supabase.from('entry_edits')
+    .insert({ entry_id: null, change_type: 'create', payload, editor_id: editorId, editor_note: note })
+    .select('id').single();
   if (error) throw error;
+  return (data as { id: string }).id;
 }
 
-export async function flagDelete(entryId: string, note: string | null): Promise<void> {
+export async function flagDelete(entryId: string, note: string | null): Promise<string> {
   const editorId = await currentUserId();
-  const { error } = await supabase.from('entry_edits')
-    .insert({ entry_id: entryId, change_type: 'delete', payload: {} as unknown as EntryPayload, editor_id: editorId, editor_note: note });
+  const { data, error } = await supabase.from('entry_edits')
+    .insert({ entry_id: entryId, change_type: 'delete', payload: {} as unknown as EntryPayload, editor_id: editorId, editor_note: note })
+    .select('id').single();
   if (error) throw error;
   const { error: e2 } = await supabase.from('dictionary_entries')
     .update({ review_state: 'edit_pending' }).eq('id', entryId);
   if (e2) throw e2;
+  return (data as { id: string }).id;
 }
 
 export async function markReviewed(entryId: string): Promise<void> {
   const { error } = await supabase.from('dictionary_entries')
     .update({ review_state: 'reviewed' }).eq('id', entryId);
+  if (error) throw error;
+}
+
+export async function markUnreviewed(entryId: string): Promise<void> {
+  const { error } = await supabase.from('dictionary_entries')
+    .update({ review_state: 'unreviewed' }).eq('id', entryId);
   if (error) throw error;
 }
 

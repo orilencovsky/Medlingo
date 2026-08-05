@@ -16,7 +16,7 @@ export async function fetchDictionary(): Promise<DictionaryEntry[]> {
   return rows.map(mapEntryRow);
 }
 
-export function filterEntries(entries: DictionaryEntry[], query: string): DictionaryEntry[] {
+export function filterEntries<T extends DictionaryEntry>(entries: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
   if (q === '') return entries;
   return entries.filter((e) => {
