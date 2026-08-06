@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { fetchAllRows } from './fetchAll';
+import { anatomyImageUrl } from './anatomyImages';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type { Region } from '../lib/anatomyRegions';
 import type { BodySystem } from '../lib/anatomySystems';
@@ -18,10 +19,6 @@ type AdminRow = EntryRow & {
   anatomy_images: { id: string; storage_path: string; source: 'curated' | 'ai'; is_primary: boolean; credit: string | null }[] | null;
 };
 
-function publicImageUrl(storagePath: string): string {
-  return supabase.storage.from('anatomy').getPublicUrl(storagePath).data.publicUrl;
-}
-
 // Admin view of every anatomy word, including ones still missing region/system/
 // a primary image — unlike fetchAnatomyCards, nothing here is filtered out.
 export async function fetchAnatomyAdmin(): Promise<AnatomyAdminEntry[]> {
@@ -39,7 +36,7 @@ export async function fetchAnatomyAdmin(): Promise<AnatomyAdminEntry[]> {
     region: r.anatomy_terms?.region ?? null,
     system: r.anatomy_terms?.system ?? null,
     images: (r.anatomy_images ?? []).map((img) => ({
-      id: img.id, url: publicImageUrl(img.storage_path), source: img.source,
+      id: img.id, url: anatomyImageUrl(img.storage_path), source: img.source,
       isPrimary: img.is_primary, credit: img.credit,
     })),
   }));

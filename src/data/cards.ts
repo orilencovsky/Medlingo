@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { applyReview, deriveRating, isDue, newCardState } from '../lib/fsrs';
+import { anatomyImageUrl } from './anatomyImages';
 import { currentUserId } from './auth';
 import { fetchAllRows } from './fetchAll';
 import { mapEntryRow, type EntryRow } from './entryMapper';
@@ -49,14 +50,28 @@ async function joinCards(cards: CardState[]): Promise<ReviewCard[]> {
   const { data: itemRows, error: e2 } = await supabase
     .from('unit_items').select('*').in('entry_id', ids);
   if (e2) throw e2;
+  // Primary anatomy image, when one exists — lets the review queue serve the
+  // image_recognition form for anatomy terms (most entries have no row here).
+  const { data: imageRows, error: e3 } = await supabase
+    .from('anatomy_images').select('entry_id, storage_path').in('entry_id', ids).eq('is_primary', true);
+  if (e3) throw e3;
   const entries = new Map(((entryRows ?? []) as EntryRow[]).map((r) => [r.id, mapEntryRow(r)]));
   const contexts = new Map<string, ContextSentence[]>();
   for (const r of (itemRows ?? []) as Array<{ entry_id: string; context_sentences: ContextSentence[] }>) {
     contexts.set(r.entry_id, r.context_sentences);
   }
+  const images = new Map(
+    ((imageRows ?? []) as Array<{ entry_id: string; storage_path: string }>)
+      .map((r) => [r.entry_id, anatomyImageUrl(r.storage_path)]),
+  );
   return cards
     .filter((c) => entries.has(c.entryId))
-    .map((c) => ({ card: c, entry: entries.get(c.entryId)!, contextSentences: contexts.get(c.entryId) ?? [] }));
+    .map((c) => ({
+      card: c,
+      entry: entries.get(c.entryId)!,
+      contextSentences: contexts.get(c.entryId) ?? [],
+      imageUrl: images.get(c.entryId) ?? null,
+    }));
 }
 
 export async function loadDueCards(now: Date = new Date()): Promise<ReviewCard[]> {
