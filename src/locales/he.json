@@ -98,7 +98,8 @@
     "reportPlaceholder": "מה הבעיה במילה או בדוגמה הזו?",
     "reportSubmit": "שלח דיווח",
     "reportSent": "תודה, קיבלנו את הדיווח שלך.",
-    "reportError": "שליחת הדיווח נכשלה. נסה שוב."
+    "reportError": "שליחת הדיווח נכשלה. נסה שוב.",
+    "imagePrompt": "איזה מונח זה?"
   },
   "drill": {
     "title": "תרגול AI",
@@ -134,7 +135,10 @@
   "anatomy": {
     "title": "אנטומיה",
     "regionAll": "הכל",
-    "empty": "עדיין אין מונחי אנטומיה מוכנים."
+    "empty": "עדיין אין מונחי אנטומיה מוכנים.",
+    "addToReview": "הוספה של {{count}} לחזרה היומית",
+    "allInReview": "כל המונחים המוצגים כבר בחזרה",
+    "inReview": "בחזרה"
   },
   "regions": {
     "head_neck": "ראש וצוואר", "chest": "בית חזה", "abdomen": "בטן",

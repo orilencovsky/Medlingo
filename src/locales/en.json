@@ -95,7 +95,8 @@
     "reportPlaceholder": "What's wrong with this word or example?",
     "reportSubmit": "Submit report",
     "reportSent": "Thanks, we got your report.",
-    "reportError": "Couldn't send the report. Try again."
+    "reportError": "Couldn't send the report. Try again.",
+    "imagePrompt": "Which term is this?"
   },
   "drill": {
     "title": "AI practice drill",
@@ -130,7 +131,10 @@
   "anatomy": {
     "title": "Anatomy",
     "regionAll": "All",
-    "empty": "No anatomy terms ready yet."
+    "empty": "No anatomy terms ready yet.",
+    "addToReview": "Add {{count}} to daily review",
+    "allInReview": "All shown terms are in your review",
+    "inReview": "In review"
   },
   "regions": {
     "head_neck": "Head & neck", "chest": "Chest", "abdomen": "Abdomen",
