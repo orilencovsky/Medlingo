@@ -10,6 +10,7 @@ import { pickDistractors } from '../lib/distractors';
 import { Recognition, type ExerciseResult } from '../components/exercises/Recognition';
 import { Cloze } from '../components/exercises/Cloze';
 import { Recall } from '../components/exercises/Recall';
+import { ImageRecognition } from '../components/exercises/ImageRecognition';
 import type { DictionaryEntry, ReviewCard } from '../lib/types';
 import { drillEnabled } from '../lib/flags';
 import { PageHeader } from '../components/ui/PageHeader';
@@ -17,6 +18,12 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 
 const EXTRA_LIMIT = 10;
+
+// Form selection must see what the card can support: anatomy cards carry an
+// image but no context sentences. Must stay identical between render and
+// handleResult so the submitted form matches the exercise that was shown.
+const capsOf = (c: ReviewCard) =>
+  ({ hasImage: c.imageUrl !== null, hasContext: c.contextSentences.length > 0 });
 
 type Phase =
   | { kind: 'loading' }
@@ -67,14 +74,20 @@ export function ReviewPage() {
   }, []);
 
   const current = phase.kind === 'running' ? phase.queue[phase.index] : null;
-  const distractors = useMemo(
-    () => (current ? pickDistractors(current.entry, pool) : []),
-    [current, pool],
-  );
+  const distractors = useMemo(() => {
+    if (!current) return [];
+    // Image options should all be anatomy terms — otherwise the one anatomy
+    // word among general vocabulary gives the answer away by elimination.
+    if (selectForm(current.card, capsOf(current)) === 'image_recognition') {
+      const anatomyPool = pool.filter((e) => e.topic === 'anatomy');
+      if (anatomyPool.length > 3) return pickDistractors(current.entry, anatomyPool);
+    }
+    return pickDistractors(current.entry, pool);
+  }, [current, pool]);
 
   async function handleResult(r: ExerciseResult) {
     if (phase.kind !== 'running' || !current) return;
-    const form = selectForm(current.card);
+    const form = selectForm(current.card, capsOf(current));
     await submitReview({
       entryId: current.entry.id, form, correct: r.correct, latencyMs: r.latencyMs,
       ...(phase.extra ? { countsForScheduling: false } : {}),
@@ -163,17 +176,19 @@ export function ReviewPage() {
     );
   }
 
-  const form = selectForm(current.card);
+  const form = selectForm(current.card, capsOf(current));
   const key = `${current.entry.id}-${phase.index}`;
   const props = {
     entry: current.entry,
     contextSentences: current.contextSentences,
     distractors,
+    imageUrl: current.imageUrl,
     onResult: handleResult,
   };
   return (
     <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-      {form === 'flashcard_recognition' ? <Recognition key={key} {...props} />
+      {form === 'image_recognition' ? <ImageRecognition key={key} {...props} />
+        : form === 'flashcard_recognition' ? <Recognition key={key} {...props} />
         : form === 'cloze' ? <Cloze key={key} {...props} />
         : <Recall key={key} {...props} />}
     </div>

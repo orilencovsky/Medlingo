@@ -20,6 +20,7 @@ function reviewCard(id: string, hebrew: string, en: string): ReviewCard {
     },
     entry: entry(id, hebrew, en),
     contextSentences: [{ he: `משפט עם ${hebrew}.`, translations: { en: `sentence with ${en}` } }],
+    imageUrl: null,
   };
 }
 
@@ -32,14 +33,14 @@ const db = {
     entry('dofek', 'דופק', 'pulse'), entry('bchila', 'בחילה', 'nausea'),
     entry('trufa', 'תרופה', 'medication'),
   ],
-  submitted: [] as Array<{ entryId: string; countsForScheduling?: boolean }>,
+  submitted: [] as Array<{ entryId: string; form?: string; countsForScheduling?: boolean }>,
 };
 
 vi.mock('../data/cards', () => ({
   loadDueCards: () => Promise.resolve(db.due),
   loadUpcomingCards: () => (db.upcomingError ? Promise.reject(db.upcomingError) : Promise.resolve(db.upcoming)),
   loadEntryPool: () => Promise.resolve(db.pool),
-  submitReview: (input: { entryId: string; countsForScheduling?: boolean }) => {
+  submitReview: (input: { entryId: string; form?: string; countsForScheduling?: boolean }) => {
     db.submitted.push(input);
     return Promise.resolve(reviewCard(input.entryId, 'x', 'x').card);
   },
@@ -84,6 +85,17 @@ describe('ReviewPage', () => {
     await answerCurrent(true, 'pain');            // asked again
     expect(await screen.findByTestId('review-summary')).toBeInTheDocument();
     expect(db.submitted).toHaveLength(2);
+  });
+
+  it('serves an image exercise for an image-bearing card without context', async () => {
+    db.due = [{ ...reviewCard('lev', 'לב', 'heart'), contextSentences: [], imageUrl: 'https://cdn.test/lev.webp' }];
+    render(<MemoryRouter><ReviewPage /></MemoryRouter>);
+    expect(await screen.findByTestId('exercise-image')).toHaveAttribute('src', 'https://cdn.test/lev.webp');
+    const options = screen.getAllByTestId(/exercise-option-/);
+    expect(options.some((b) => b.textContent === 'לב')).toBe(true); // Hebrew options, not English
+    await answerCurrent(true, 'לב');
+    expect(await screen.findByTestId('review-summary')).toBeInTheDocument();
+    expect(db.submitted[0].form).toBe('image_recognition');
   });
 
   it('shows caught-up state with extra practice when nothing is due', async () => {
