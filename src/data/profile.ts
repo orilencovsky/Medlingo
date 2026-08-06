@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import { currentUserIdOrNull } from './auth';
 import type { Profile } from '../lib/types';
 
 type ProfileRow = {
@@ -15,34 +16,65 @@ function mapProfileRow(r: ProfileRow): Profile {
   };
 }
 
-export async function getProfile(): Promise<Profile | null> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data, error } = await supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle();
+// The profile is read by SessionProvider, ProtectedRoute, AppShell and the
+// landing page during a single app boot. Caching the in-flight promise per
+// user collapses those into one query. Writes below invalidate; a missing
+// row (mid-onboarding) or a failure is never cached.
+let cache: { userId: string; promise: Promise<Profile | null> } | null = null;
+
+export function invalidateProfileCache(): void {
+  cache = null;
+}
+
+async function fetchProfile(userId: string): Promise<Profile | null> {
+  const { data, error } = await supabase
+    .from('profiles').select('*').eq('user_id', userId).maybeSingle();
   if (error) throw error;
   return data ? mapProfileRow(data as ProfileRow) : null;
 }
 
+export async function getProfile(): Promise<Profile | null> {
+  const userId = await currentUserIdOrNull();
+  if (!userId) {
+    cache = null;
+    return null;
+  }
+  if (cache?.userId !== userId) {
+    const promise = fetchProfile(userId);
+    cache = { userId, promise };
+    promise.then(
+      (profile) => { if (profile === null && cache?.promise === promise) cache = null; },
+      () => { if (cache?.promise === promise) cache = null; },
+    );
+  }
+  return cache.promise;
+}
+
 export async function setUiLanguage(lang: string): Promise<void> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return;
+  const userId = await currentUserIdOrNull();
+  if (!userId) return;
   const { error } = await supabase
     .from('profiles')
     .update({ ui_language: lang })
-    .eq('user_id', user.id);
+    .eq('user_id', userId);
   if (error) throw error;
+  invalidateProfileCache();
 }
 
 export async function completeOnboarding(displayName: string): Promise<Profile> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) throw new Error('not signed in');
+  const userId = await currentUserIdOrNull();
+  if (!userId) throw new Error('not signed in');
   const { data, error } = await supabase
     .from('profiles')
-    .insert({ user_id: user.id, display_name: displayName })
+    .insert({ user_id: userId, display_name: displayName })
     .select()
     .single();
   if (error) throw error;
-  return mapProfileRow(data as ProfileRow);
+  const profile = mapProfileRow(data as ProfileRow);
+  // Prime the cache so the guard's profile check right after onboarding
+  // resolves without waiting on (or racing) a fresh read.
+  cache = { userId: profile.userId, promise: Promise.resolve(profile) };
+  return profile;
 }
 
 export function localDateString(d: Date = new Date()): string {
@@ -80,4 +112,5 @@ export async function touchStreak(): Promise<void> {
     })
     .eq('user_id', profile.userId);
   if (error) throw error;
+  invalidateProfileCache();
 }

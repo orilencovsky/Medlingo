@@ -11,7 +11,7 @@ function resetDb() {
 // insert/upsert append; thrown insertError simulates network failure.
 vi.mock('../lib/supabase', () => ({
   supabase: {
-    auth: { getUser: () => Promise.resolve({ data: { user: { id: 'u1' } } }) },
+    auth: { getSession: () => Promise.resolve({ data: { session: { user: { id: 'u1' } } } }) },
     from: (table: string) => {
       const t = () => tables[table];
       const result = (rows: unknown[]) => Promise.resolve({ data: rows, error: null });
@@ -29,7 +29,7 @@ vi.mock('../lib/supabase', () => ({
         },
         upsert: (row: unknown, _opts?: unknown) => {
           if (t().insertError) return Promise.resolve({ data: null, error: t().insertError });
-          t().rows.push(row);
+          t().rows.push(...(Array.isArray(row) ? row : [row]));
           return Promise.resolve({ data: row, error: null });
         },
       };

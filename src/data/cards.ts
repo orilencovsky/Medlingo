@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { applyReview, deriveRating, isDue, newCardState } from '../lib/fsrs';
+import { currentUserId } from './auth';
 import { fetchAllRows } from './fetchAll';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type {
@@ -31,12 +32,6 @@ function cardStateToRow(userId: string, c: CardState) {
     state: c.state, last_review: c.lastReview ? c.lastReview.toISOString() : null,
     updated_at: new Date().toISOString(),
   };
-}
-
-async function currentUserId(): Promise<string> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) throw new Error('not signed in');
-  return user.id;
 }
 
 export async function loadAllCards(): Promise<CardState[]> {
@@ -86,14 +81,15 @@ export async function loadEntryPool(): Promise<DictionaryEntry[]> {
 }
 
 export async function seedNewCards(entryIds: string[], now: Date = new Date()): Promise<void> {
+  if (entryIds.length === 0) return;
   const userId = await currentUserId();
-  for (const entryId of entryIds) {
-    const { error } = await supabase.from('user_card_state').upsert(
-      cardStateToRow(userId, newCardState(entryId, now)),
-      { onConflict: 'user_id,entry_id', ignoreDuplicates: true },
-    );
-    if (error) throw error;
-  }
+  // One batched upsert instead of a round trip per entry — seeding a unit's
+  // 10–15 cards is on the "start unit" critical path.
+  const { error } = await supabase.from('user_card_state').upsert(
+    entryIds.map((entryId) => cardStateToRow(userId, newCardState(entryId, now))),
+    { onConflict: 'user_id,entry_id', ignoreDuplicates: true },
+  );
+  if (error) throw error;
 }
 
 export interface ReviewInput {
