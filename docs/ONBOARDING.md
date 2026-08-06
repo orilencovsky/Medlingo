@@ -62,6 +62,13 @@ Implementation plans: [docs/superpowers/plans/](superpowers/plans/).
 - **Anatomy tab** (shipped 2026-07-20): learner-facing and admin anatomy browsing with
   dual-source images (`AnatomyPage` / `AdminAnatomyPage`). See
   [docs/superpowers/plans/2026-07-20-anatomy-tab.md](superpowers/plans/2026-07-20-anatomy-tab.md).
+- **Anatomy review integration** (code complete 2026-08-06, not yet learner-visible): the
+  image-based `image_recognition` FSRS practice form, add-to-review seeding on `/anatomy`, a
+  body-figure region highlight, and a manifest-driven zero-cost image pipeline (agent-drawn AI +
+  open-license curated; no image API). Pending ops before it's live: apply migration
+  `0014_anatomy_review.sql`, tag region/system for the ~30 anatomy terms, draw + approve their
+  images. See
+  [docs/superpowers/plans/2026-08-06-anatomy-review-integration.md](superpowers/plans/2026-08-06-anatomy-review-integration.md).
 
 ## Data model (core tables)
 

@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import '../lib/i18n';
 import { AnatomyPage } from './AnatomyPage';
 
-const seedNewCards = vi.fn(async () => {});
+const seedNewCards = vi.fn(async (_ids: string[]) => {});
 vi.mock('../data/cards', () => ({
   // heart is already in the learner's review; femur is not
   loadAllCards: vi.fn(async () => [{ entryId: 'heart' }]),

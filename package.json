@@ -19,7 +19,6 @@
     "metrics": "tsx scripts/metrics.ts",
     "verify:rls": "tsx scripts/verify-rls.ts",
     "suggest:topics": "tsx scripts/suggest-topics.ts",
-    "generate:anatomy-images": "tsx scripts/generate-anatomy-images.ts",
     "seed:anatomy-images": "tsx scripts/seed-anatomy-images.ts"
   },
   "dependencies": {
