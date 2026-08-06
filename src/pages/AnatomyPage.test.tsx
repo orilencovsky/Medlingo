@@ -5,6 +5,13 @@ import { describe, expect, it, vi } from 'vitest';
 import '../lib/i18n';
 import { AnatomyPage } from './AnatomyPage';
 
+const seedNewCards = vi.fn(async () => {});
+vi.mock('../data/cards', () => ({
+  // heart is already in the learner's review; femur is not
+  loadAllCards: vi.fn(async () => [{ entryId: 'heart' }]),
+  seedNewCards: (ids: string[]) => seedNewCards(ids),
+}));
+
 vi.mock('../data/anatomy', () => ({
   fetchAnatomyCards: vi.fn(async () => [
     {
@@ -43,5 +50,25 @@ describe('AnatomyPage', () => {
     await userEvent.click(screen.getByRole('button', { name: /limbs|גפיים/i }));
     expect(screen.getByText('femur')).toBeInTheDocument();
     expect(screen.queryByText('heart')).not.toBeInTheDocument();
+  });
+
+  it('seeds only the not-yet-added shown terms into review', async () => {
+    seedNewCards.mockClear();
+    renderPage();
+    await screen.findByText('heart');
+    await userEvent.click(screen.getByTestId('anatomy-add-to-review'));
+    expect(seedNewCards).toHaveBeenCalledWith(['femur']);
+    // after seeding everything shown, the button flips to the all-in-review state
+    expect(screen.getByTestId('anatomy-add-to-review')).toBeDisabled();
+  });
+
+  it('marks already-added terms and highlights the selected region zone', async () => {
+    renderPage();
+    await screen.findByText('heart');
+    expect(screen.getAllByText(/In review|בחזרה/)).not.toHaveLength(0);
+    expect(screen.queryByTestId('body-zone-chest')).not.toHaveAttribute('data-active');
+    await userEvent.click(screen.getByRole('button', { name: /chest|בית חזה/i }));
+    expect(screen.getByTestId('body-zone-chest')).toHaveAttribute('data-active', 'true');
+    expect(screen.getByTestId('body-zone-limbs')).not.toHaveAttribute('data-active');
   });
 });
