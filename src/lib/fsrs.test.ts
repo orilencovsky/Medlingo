@@ -58,6 +58,8 @@ describe('fsrs module', () => {
     expect(deriveRating(true, EASY_LATENCY_MS.cloze, 'cloze')).toBe('easy');
     expect(deriveRating(true, EASY_LATENCY_MS.cloze + 1, 'cloze')).toBe('good');
     expect(deriveRating(true, EASY_LATENCY_MS.flashcard_recall, 'flashcard_recall')).toBe('easy');
+    expect(deriveRating(true, EASY_LATENCY_MS.image_recognition, 'image_recognition')).toBe('easy');
+    expect(deriveRating(true, EASY_LATENCY_MS.image_recognition + 1, 'image_recognition')).toBe('good');
   });
 
   it('selectForm band edges', () => {
@@ -67,6 +69,20 @@ describe('fsrs module', () => {
     expect(selectForm({ ...base, stability: 9.9 })).toBe('cloze');
     expect(selectForm({ ...base, stability: FORM_BANDS.clozeMaxStabilityDays })).toBe('flashcard_recall');
     expect(selectForm({ ...base, stability: 40 })).toBe('flashcard_recall');
+  });
+
+  it('selectForm capabilities: image cards and context-less cards', () => {
+    const base = newCardState('lev', T0);
+    const at = (stability: number) => ({ ...base, stability });
+    // image available → the recognition band serves the image form
+    expect(selectForm(at(1), { hasImage: true, hasContext: false })).toBe('image_recognition');
+    // no context → the cloze band falls back to the recognition-band form
+    expect(selectForm(at(5), { hasImage: true, hasContext: false })).toBe('image_recognition');
+    expect(selectForm(at(5), { hasImage: false, hasContext: false })).toBe('flashcard_recognition');
+    // context present → cloze band unchanged even with an image
+    expect(selectForm(at(5), { hasImage: true, hasContext: true })).toBe('cloze');
+    // high stability always recalls
+    expect(selectForm(at(20), { hasImage: true, hasContext: false })).toBe('flashcard_recall');
   });
 
   it('isDue boundary', () => {

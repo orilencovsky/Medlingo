@@ -10,6 +10,7 @@ export const EASY_LATENCY_MS: Record<Exclude<PracticeForm, 'drill'>, number> = {
   flashcard_recognition: 4000,
   cloze: 8000,
   flashcard_recall: 8000,
+  image_recognition: 4000, // recognition-speed task: picking from 4 options
 };
 
 export const FORM_BANDS = { recognitionMaxStabilityDays: 3, clozeMaxStabilityDays: 10 };
@@ -86,9 +87,21 @@ export function applyReview(card: CardState, rating: Rating, now: Date): CardSta
   return fromCard(card.entryId, result.card);
 }
 
-export function selectForm(card: CardState): Exclude<PracticeForm, 'drill'> {
-  if (card.stability < FORM_BANDS.recognitionMaxStabilityDays) return 'flashcard_recognition';
-  if (card.stability < FORM_BANDS.clozeMaxStabilityDays) return 'cloze';
+export interface FormCapabilities { hasImage: boolean; hasContext: boolean; }
+
+// Defaults replicate the pre-anatomy behavior (every unit card has contexts,
+// none had images), so legacy callers keep byte-identical form selection.
+export function selectForm(
+  card: CardState,
+  caps: FormCapabilities = { hasImage: false, hasContext: true },
+): Exclude<PracticeForm, 'drill'> {
+  const recognition = caps.hasImage ? 'image_recognition' : 'flashcard_recognition';
+  if (card.stability < FORM_BANDS.recognitionMaxStabilityDays) return recognition;
+  // A card with no context sentence can't cloze — repeat the recognition-band
+  // form in the middle band instead of crashing the Cloze exercise.
+  if (card.stability < FORM_BANDS.clozeMaxStabilityDays) {
+    return caps.hasContext ? 'cloze' : recognition;
+  }
   return 'flashcard_recall';
 }
 

@@ -94,7 +94,8 @@
     "reportPlaceholder": "Quel est le problème avec ce mot ou cet exemple ?",
     "reportSubmit": "Envoyer le signalement",
     "reportSent": "Merci, votre signalement a été reçu.",
-    "reportError": "Impossible d'envoyer le signalement. Réessayez."
+    "reportError": "Impossible d'envoyer le signalement. Réessayez.",
+    "imagePrompt": "Quel est ce terme ?"
   },
   "dictionary": {
     "title": "Dictionnaire",
@@ -116,7 +117,10 @@
   "anatomy": {
     "title": "Anatomie",
     "regionAll": "Tout",
-    "empty": "Aucun terme d'anatomie prêt pour l'instant."
+    "empty": "Aucun terme d'anatomie prêt pour l'instant.",
+    "addToReview": "Ajouter {{count}} à la révision quotidienne",
+    "allInReview": "Tous les termes affichés sont dans votre révision",
+    "inReview": "En révision"
   },
   "regions": {
     "head_neck": "Tête et cou", "chest": "Thorax", "abdomen": "Abdomen",

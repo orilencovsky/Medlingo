@@ -8,6 +8,7 @@ export interface ExerciseProps {
   entry: DictionaryEntry;
   contextSentences: ContextSentence[];
   distractors: DictionaryEntry[];
+  imageUrl?: string | null; // used by ImageRecognition; other forms ignore it
   onResult: (r: ExerciseResult) => void;
 }
 

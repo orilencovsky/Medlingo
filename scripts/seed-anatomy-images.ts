@@ -1,26 +1,27 @@
 // scripts/seed-anatomy-images.ts
-// Seeds CURATED anatomy images from a vetted open-license set (public-domain Gray's
-// Anatomy plates, Wikimedia CC-BY, ...). Reads a manifest TSV mapping each anatomy
-// entry to a local image file + its attribution, uploads the file to the `anatomy`
-// storage bucket, and inserts an `anatomy_images` row with source='curated'.
+// Seeds anatomy images from repo files — both vetted open-license art (public-domain
+// Gray's Anatomy plates, Wikimedia CC-BY, ...) and AI illustrations drawn out-of-band
+// (an agent session with image tools; no runtime provider or API key exists). Reads a
+// manifest TSV mapping each anatomy entry to a local image file, uploads the file to
+// the `anatomy` storage bucket, and inserts an `anatomy_images` row.
 //
-// Contrast with generate-anatomy-images.ts (AI): AI images NEVER auto-publish
-// (is_primary stays false) because generated anatomy may be medically wrong. Curated
-// open-license art is trusted, so this script MAY set a primary — but only when the
-// manifest explicitly marks the row is_primary=true (an operator's deliberate choice,
-// not automatic). Default is false, so the safe default still leaves primary-picking
-// to the expert in /admin/anatomy.
+// Source semantics: an `ai` image NEVER auto-publishes via the default — is_primary
+// starts false and the expert approves it in /admin/anatomy (generated anatomy may be
+// medically wrong). The manifest MAY set is_primary=true on any row, but that is an
+// operator's deliberate per-row choice, never automatic.
 //
 // Manifest: content/anatomy-curated.tsv (override with --manifest <path>), columns:
 //   entry_id   dictionary_entries.id (must exist and be topic='anatomy')
 //   file       path to the local image, relative to the manifest's directory
-//   credit     attribution / license string (REQUIRED — the DB CHECK rejects a
-//              curated image with null credit)
+//              (AI illustrations live in content/anatomy-images/<entry_id>.webp)
+//   credit     attribution / license string. REQUIRED for source=curated (the DB
+//              CHECK rejects an uncredited curated image); optional for source=ai.
 //   is_primary optional "true"/"false" (default false). "true" makes this the
 //              learner-visible image, clearing any existing primary for the entry.
+//   source     optional "curated"/"ai" (default curated).
 //
-// Idempotent: the storage path is derived from entry_id + file basename (no
-// timestamp), so re-running skips a curated image that is already uploaded+inserted,
+// Idempotent: the storage path is derived from source + entry_id + file basename (no
+// timestamp), so re-running skips an image that is already uploaded+inserted,
 // unless --regenerate re-uploads and re-links it.
 //
 // Usage:
@@ -47,10 +48,10 @@ const CONTENT_TYPES: Record<string, string> = {
 
 // Deterministic per (entry_id, file) so re-runs are idempotent, and safe as an
 // object key (strip anything outside [a-z0-9._-], lowercased).
-function storagePathFor(entryId: string, file: string): string {
+function storagePathFor(entryId: string, file: string, source: 'curated' | 'ai'): string {
   const safeEntry = entryId.toLowerCase().replace(/[^a-z0-9._-]/g, '-');
   const safe = basename(file).toLowerCase().replace(/[^a-z0-9._-]/g, '-');
-  return `${safeEntry}/curated-${safe}`;
+  return `${safeEntry}/${source}-${safe}`;
 }
 
 function argValue(flag: string): string | undefined {
@@ -69,7 +70,7 @@ async function main() {
   } catch (err) {
     const e = err as { code?: string };
     if (e.code === 'ENOENT') {
-      console.log(`No manifest at ${manifestPath}. Create one (columns: entry_id, file, credit, is_primary) then re-run. Nothing to do.`);
+      console.log(`No manifest at ${manifestPath}. Create one (columns: entry_id, file, credit, is_primary, source) then re-run. Nothing to do.`);
       return;
     }
     throw err;
@@ -86,11 +87,18 @@ async function main() {
 
   for (const row of rows) {
     const entryId = row.entry_id;
-    const credit = row.credit;
     const wantPrimary = row.is_primary?.toLowerCase() === 'true';
+    const source = (row.source?.toLowerCase() || 'curated') as 'curated' | 'ai';
+    const credit = row.credit?.trim() ? row.credit.trim() : null;
 
-    if (!entryId || !row.file || !credit) {
-      throw new Error(`manifest row for entry_id="${entryId}": entry_id, file, and credit are all required (credit must be non-empty — the DB rejects an uncredited curated image)`);
+    if (source !== 'curated' && source !== 'ai') {
+      throw new Error(`manifest row for entry_id="${entryId}": source must be "curated" or "ai", got "${row.source}"`);
+    }
+    if (!entryId || !row.file) {
+      throw new Error(`manifest row for entry_id="${entryId}": entry_id and file are required`);
+    }
+    if (source === 'curated' && !credit) {
+      throw new Error(`manifest row for entry_id="${entryId}": credit is required for a curated image (the DB rejects an uncredited curated image)`);
     }
 
     // Confirm the entry exists and is actually an anatomy term.
@@ -101,14 +109,14 @@ async function main() {
       console.log(`SKIP  ${entryId} — topic is "${entry.topic ?? 'null'}", not 'anatomy'`); skipped++; continue;
     }
 
-    const storagePath = storagePathFor(entryId, row.file);
+    const storagePath = storagePathFor(entryId, row.file, source);
 
-    // Idempotency: a curated row at this exact storage path already linked?
-    // Scope to source='curated' so we never touch an AI row (defense-in-depth —
-    // storagePathFor already prefixes 'curated-', this makes it explicit).
+    // Idempotency: a row of this source at this exact storage path already linked?
+    // Scope to the row's source so a curated row never collides with an AI row
+    // (defense-in-depth — storagePathFor already prefixes the source).
     const { data: existing } = await admin.from('anatomy_images')
       .select('id, is_primary').eq('entry_id', entryId).eq('storage_path', storagePath)
-      .eq('source', 'curated').limit(1);
+      .eq('source', source).limit(1);
     const already = existing?.[0];
     if (already && !regenerate) {
       // Still honour a primary promotion even when the image itself is unchanged.
@@ -147,7 +155,7 @@ async function main() {
       imageId = updated.id;
     } else {
       const { data: inserted, error: insertErr } = await admin.from('anatomy_images')
-        .insert({ entry_id: entryId, storage_path: storagePath, source: 'curated', credit, is_primary: false })
+        .insert({ entry_id: entryId, storage_path: storagePath, source, credit, is_primary: false })
         .select('id').single();
       if (insertErr) throw insertErr;
       imageId = inserted.id;

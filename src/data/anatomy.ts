@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { fetchAllRows } from './fetchAll';
+import { anatomyImageUrl } from './anatomyImages';
 import { mapEntryRow, type EntryRow } from './entryMapper';
 import type { Region } from '../lib/anatomyRegions';
 import type { BodySystem } from '../lib/anatomySystems';
@@ -23,10 +24,6 @@ type AnatomyTermRow = {
   dictionary_entries: EntryRow | null;
   anatomy_images: AnatomyImageRow[] | null;
 };
-
-function publicImageUrl(storagePath: string): string {
-  return supabase.storage.from('anatomy').getPublicUrl(storagePath).data.publicUrl;
-}
 
 // Only terms with a region, a system, and a primary image are learner-visible —
 // half-built terms (still being tagged/imaged in /admin/anatomy) stay hidden.
@@ -53,7 +50,7 @@ export async function fetchAnatomyCards(): Promise<AnatomyCard[]> {
       entry: mapEntryRow(row.dictionary_entries),
       region: row.region,
       system: row.system,
-      imageUrl: publicImageUrl(primary.storage_path),
+      imageUrl: anatomyImageUrl(primary.storage_path),
       imageCredit: primary.credit,
     });
   }

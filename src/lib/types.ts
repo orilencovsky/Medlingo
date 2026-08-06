@@ -9,7 +9,8 @@ export interface Profile {
   lastActiveDate: string | null; // 'YYYY-MM-DD'
 }
 
-export type PracticeForm = 'flashcard_recognition' | 'flashcard_recall' | 'cloze' | 'drill';
+export type PracticeForm =
+  | 'flashcard_recognition' | 'flashcard_recall' | 'cloze' | 'drill' | 'image_recognition';
 export type Rating = 'again' | 'good' | 'easy';
 export type CardStateName = 'new' | 'learning' | 'review' | 'relearning';
 export type PartOfSpeech =
@@ -65,7 +66,12 @@ export interface CardState {
   lastReview: Date | null;
 }
 
-export interface ReviewCard { card: CardState; entry: DictionaryEntry; contextSentences: ContextSentence[]; }
+export interface ReviewCard {
+  card: CardState;
+  entry: DictionaryEntry;
+  contextSentences: ContextSentence[];
+  imageUrl: string | null; // primary anatomy image, when the entry has one
+}
 
 export type ReviewState = 'unreviewed' | 'reviewed' | 'edit_pending';
 

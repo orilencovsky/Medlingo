@@ -6,6 +6,7 @@ import type { DictionaryEntry } from '../../lib/types';
 import { Recognition } from './Recognition';
 import { Cloze } from './Cloze';
 import { Recall } from './Recall';
+import { ImageRecognition } from './ImageRecognition';
 
 afterEach(() => cleanup());
 
@@ -73,5 +74,25 @@ describe('Recall', () => {
     expect(screen.getByText('pain')).toBeInTheDocument();
     await answerAndContinue('כאב');
     expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ correct: true }));
+  });
+});
+
+describe('ImageRecognition', () => {
+  it('shows the image and grades Hebrew option taps', async () => {
+    const onResult = vi.fn();
+    render(<ImageRecognition entry={answer} imageUrl="https://cdn.test/keev.webp"
+      contextSentences={[]} distractors={distractors} onResult={onResult} />);
+    expect(screen.getByTestId('exercise-image')).toHaveAttribute('src', 'https://cdn.test/keev.webp');
+    await answerAndContinue('כאב');
+    expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ correct: true }));
+    expect(onResult.mock.calls[0][0].latencyMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('reports wrong on tapping a distractor', async () => {
+    const onResult = vi.fn();
+    render(<ImageRecognition entry={answer} imageUrl="https://cdn.test/keev.webp"
+      contextSentences={[]} distractors={distractors} onResult={onResult} />);
+    await answerAndContinue('כאב', true);
+    expect(onResult).toHaveBeenCalledWith(expect.objectContaining({ correct: false }));
   });
 });

@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const tables: Record<string, { rows: unknown[]; insertError: Error | null }> = {};
 function resetDb() {
-  for (const t of ['user_card_state', 'dictionary_entries', 'unit_items', 'review_logs']) {
+  for (const t of ['user_card_state', 'dictionary_entries', 'unit_items', 'review_logs', 'anatomy_images']) {
     tables[t] = { rows: [], insertError: null };
   }
 }
@@ -12,13 +12,25 @@ function resetDb() {
 vi.mock('../lib/supabase', () => ({
   supabase: {
     auth: { getSession: () => Promise.resolve({ data: { session: { user: { id: 'u1' } } } }) },
+    storage: {
+      from: () => ({ getPublicUrl: (p: string) => ({ data: { publicUrl: `https://cdn.test/${p}` } }) }),
+    },
     from: (table: string) => {
       const t = () => tables[table];
       const result = (rows: unknown[]) => Promise.resolve({ data: rows, error: null });
+      // .in() must stay chainable (joinCards appends .eq('is_primary', true) for
+      // anatomy_images) while remaining awaitable directly, like PostgREST builders.
       const chain = {
         select: () => chain,
-        in: (_c: string, ids: string[]) =>
-          result(t().rows.filter((r) => ids.includes((r as { id?: string; entry_id?: string }).id ?? (r as { entry_id: string }).entry_id))),
+        in: (_c: string, ids: string[]) => {
+          const filtered = t().rows.filter((r) =>
+            ids.includes((r as { id?: string; entry_id?: string }).id ?? (r as { entry_id: string }).entry_id));
+          return {
+            eq: (col: string, v: unknown) =>
+              result(filtered.filter((r) => (r as Record<string, unknown>)[col] === v)),
+            then: (res: (v: { data: unknown[]; error: null }) => void) => result(filtered).then(res),
+          };
+        },
         eq: () => chain,
         then: (res: (v: { data: unknown[]; error: null }) => void) =>
           Promise.resolve({ data: t().rows, error: null }).then(res),
@@ -109,6 +121,27 @@ describe('cards data layer', () => {
     expect(due).toHaveLength(1);
     expect(due[0].entry.translations.en).toBe('pain');
     expect(due[0].contextSentences[0].he).toBe('יש לי כאב');
+    expect(due[0].imageUrl).toBeNull();
+  });
+
+  it('loadDueCards attaches the primary anatomy image url when one exists', async () => {
+    tables.user_card_state.rows = [
+      { user_id: 'u1', entry_id: 'lev', due: T0.toISOString(), stability: 1, difficulty: 5,
+        reps: 1, lapses: 0, state: 'learning', last_review: null },
+    ];
+    tables.dictionary_entries.rows = [
+      { id: 'lev', hebrew: 'לב', hebrew_nikud: 'לֵב', part_of_speech: 'noun', level: 1,
+        gender: 'ז', plural: null, root: null, everyday_synonym: null,
+        translations: { en: 'heart' }, notes: null },
+    ];
+    tables.anatomy_images.rows = [
+      { entry_id: 'lev', storage_path: 'lev/ai-1.webp', is_primary: true },
+      { entry_id: 'lev', storage_path: 'lev/ai-2.webp', is_primary: false },
+    ];
+    const due = await loadDueCards(T0);
+    expect(due).toHaveLength(1);
+    expect(due[0].imageUrl).toContain('lev/ai-1.webp');
+    expect(due[0].contextSentences).toEqual([]);
   });
 
   it('drops a queued review after 3 failed flush attempts so it cannot block the queue', async () => {

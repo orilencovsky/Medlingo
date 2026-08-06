@@ -47,3 +47,26 @@ entries. Allowed values (controlled — a typo fails the import):
 
 Add a new value only alongside a migration extending the `category` check
 constraint on `dictionary_entries` and the zod enum in `scripts/import-content.ts`.
+
+## Anatomy images (`anatomy-curated.tsv` + `anatomy-images/`)
+
+Illustrations for the anatomy tab live as files in this repo and are uploaded by
+`npm run seed:anatomy-images`, driven by the `anatomy-curated.tsv` manifest
+(columns: `entry_id`, `file`, `credit`, `is_primary`, `source`). There is no
+image-generation API anywhere in the product — images come from exactly two places:
+
+- **`source=ai`** — illustrations drawn out-of-band in an AI agent session and
+  committed under `anatomy-images/` as `<entry_id>.webp` (1024×1024 source,
+  exported webp, target ≲200 KB). Drawing recipe (keep every batch in the same
+  style): *"flat medical-textbook illustration of the human `<English term>`,
+  anatomically accurate, plain white background, soft muted colors, no text,
+  no labels, no letters, no arrows"*. `credit` may be left empty. An AI image is
+  seeded with `is_primary=false` and only becomes learner-visible after the
+  expert approves it in `/admin/anatomy`.
+- **`source=curated`** (the default) — vetted open-license art (public-domain
+  Gray's Anatomy plates, Wikimedia CC-BY, ...). `credit` is required — the DB
+  rejects an uncredited curated image.
+
+`is_primary=true` in the manifest is an operator's explicit per-row choice; the
+default leaves primary-picking to the expert in `/admin/anatomy`. Re-running the
+seed is idempotent; `--regenerate` re-uploads existing rows.
