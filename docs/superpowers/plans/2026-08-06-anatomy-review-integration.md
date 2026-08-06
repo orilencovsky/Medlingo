@@ -5,14 +5,16 @@
 **Goal:** Turn the browse-only `/anatomy` tab into a learning surface wired into the daily FSRS
 review loop: a new image-based practice form (`image_recognition` — see the illustration → pick
 the Hebrew term), an "add to review" seeding flow on the anatomy tab, a static body-figure
-illustration that highlights the selected region, and a working hybrid image pipeline (AI
-generation wired to a real provider + the existing curated manifest) so the ~30 currently-tagged
-anatomy terms actually ship with images.
+illustration that highlights the selected region, and a zero-cost image pipeline — AI
+illustrations drawn agent-side plus open-license curated art, all flowing through one repo
+manifest — so the ~30 currently-tagged anatomy terms actually ship with images.
 
 **Product decisions (owner, 2026-08-06):**
 - Learning mechanic: **integrate into the daily FSRS review**, not a standalone quiz.
-- Images: **hybrid** — AI candidates at scale with explicit admin approval, curated open-license
-  art for terms AI gets wrong.
+- Images: **hybrid, zero-cost** (revised same day: no paid provider, no API keys) — AI
+  illustrations drawn out-of-band by an agent session with image tools, plus free open-license
+  art (Gray's plates / Wikimedia CC) where AI falls short; every image still needs explicit
+  admin approval before becoming primary.
 - Navigation: **static body illustration with region highlighting** beside the existing chips
   (not a full clickable body-map redesign).
 - Scope: **the ~30 entries already tagged `topic='anatomy'`** (via `content/topics-second-thousand.tsv`).
@@ -26,12 +28,16 @@ cloze band must fall back (today `selectForm` would emit `cloze` for a card whos
 contexts, anatomy cards are the first that don't). The review data layer joins each due card's
 primary anatomy image (`ReviewCard.imageUrl: string | null`); `ImageRecognition` renders when the
 form selects it. Seeding reuses the existing batched `seedNewCards` from an "add to review"
-button on `/anatomy`. The AI script's `generateImage()` stub gets a real provider behind an env
-switch; the never-auto-primary invariant is untouched.
+button on `/anatomy`. Images are produced out-of-band — no runtime provider, no API keys:
+illustration files are committed under `content/anatomy-images/` and imported by
+`seed-anatomy-images.ts`, whose manifest gains an optional `source` column (`curated`|`ai`);
+the provider-less `generate-anatomy-images.ts` stub is retired. The never-auto-primary
+invariant is untouched.
 
 **Tech Stack:** React 19 + react-router 8 + react-i18next, Tailwind 4, Supabase (Postgres +
-Storage), `ts-fsrs` (pinned), Vitest + Testing Library, tsx scripts, OpenAI Images API
-(`gpt-image-1`) as the first `generateImage` provider.
+Storage), `ts-fsrs` (pinned), Vitest + Testing Library, tsx scripts. No image-generation API at
+runtime — illustrations are drawn in an agent session (or sourced open-license) and committed to
+the repo.
 
 ## Global Constraints
 
@@ -41,8 +47,9 @@ Storage), `ts-fsrs` (pinned), Vitest + Testing Library, tsx scripts, OpenAI Imag
   the type system enforces that one).
 - An AI image is **never** auto-published: `is_primary` starts `false`; only the admin RPC flips
   it. This plan does not weaken that.
-- `OPENAI_API_KEY` goes in `.env.content` only (server-side script env). It must never appear in
-  a `VITE_*` var or any client-bundled file.
+- No image-provider API keys anywhere — the owner's constraint is free sources / agent-drawn AI
+  only. Committed illustrations are webp, ≲200 KB each (≈≤6 MB for the 30-term set), named
+  `content/anatomy-images/<entry_id>.webp` so the manifest row is self-evident.
 - Styling uses Tailwind logical properties (`ms-`/`me-`/`ps-`/`pe-`, `text-start`) — RTL must not
   break. The body figure SVG is symmetric, so it needs no RTL mirroring.
 - The exercise learning direction is **image → Hebrew term** (options show `hebrewNikud`), unlike
@@ -527,68 +534,38 @@ New keys — `review.imagePrompt`; `anatomy.addToReview` (with `{{count}}`), `an
 
 ---
 
-### Task 8: Wire a real provider into `generate-anatomy-images.ts`
+### Task 8: Manifest-driven images for both sources — extend the seed script, retire the stub
 
 **Files:**
-- Modify: `scripts/generate-anatomy-images.ts`
-- Modify: `.env.content.example` (document `OPENAI_API_KEY`)
+- Modify: `scripts/seed-anatomy-images.ts`
+- Delete: `scripts/generate-anatomy-images.ts`
+- Modify: `package.json` (drop the `generate:anatomy-images` script)
+- Modify: `content/README.md` (document the image folder, manifest columns, drawing recipe)
 
-**Behavior (existing invariants kept):** stages `source='ai', is_primary=false` candidates;
-`--regenerate` re-runs existing; never touches primaries.
+**Why:** the owner's constraint is free/agent-drawn only, so there is no server-side generation
+call to wire. Both image sources become files in the repo imported by the one seed script — AI
+illustrations are drawn out-of-band (an agent session with image tools), reviewed as files in the
+PR, then seeded as `source='ai', is_primary=false` and approved in `/admin/anatomy`. The
+provider stub (which throws "not wired up yet") and its npm script go away instead of rotting.
 
-- [ ] **Step 1: Replace the hardcoded trial list with DB discovery.** Default: the trial ids if
-  present; with `--all`, every `dictionary_entries` row where `topic='anatomy'` and
-  `is_deprecated=false` that has no `anatomy_images` row with `source='ai'` yet:
-
-```ts
-async function targetEntryIds(all: boolean): Promise<string[]> {
-  if (!all && TRIAL_ENTRY_IDS.length > 0) return TRIAL_ENTRY_IDS;
-  const { data, error } = await admin
-    .from('dictionary_entries')
-    .select('id, anatomy_images(id, source)')
-    .eq('topic', 'anatomy')
-    .eq('is_deprecated', false);
-  if (error) throw error;
-  return (data ?? [])
-    .filter((r) => !(r.anatomy_images ?? []).some((i: { source: string }) => i.source === 'ai'))
-    .map((r) => r.id);
-}
-```
-
-- [ ] **Step 2: Implement `generateImage` with OpenAI images, behind an env switch** (the stub's
-  "pluggable" intent — the switch is where a second provider slots in later):
-
-```ts
-// Provider selection: ANATOMY_IMAGE_PROVIDER=openai (default). The prompt bans
-// text/labels — learners see the Hebrew separately, and in-image text is where
-// generation goes wrong most.
-async function generateImage(termEnglish: string): Promise<Buffer> {
-  const provider = process.env.ANATOMY_IMAGE_PROVIDER ?? 'openai';
-  if (provider !== 'openai') throw new Error(`unknown ANATOMY_IMAGE_PROVIDER "${provider}"`);
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error('OPENAI_API_KEY missing from .env.content');
-  const res = await fetch('https://api.openai.com/v1/images/generations', {
-    method: 'POST',
-    headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-    body: JSON.stringify({
-      model: 'gpt-image-1', size: '1024x1024', n: 1,
-      prompt: `Clean medical textbook illustration of the human ${termEnglish}, ` +
-        'anatomically accurate, isolated on a plain white background, flat vector style, ' +
-        'no text, no labels, no letters, no arrows',
-    }),
-  });
-  if (!res.ok) throw new Error(`openai image generation failed (${res.status}): ${await res.text()}`);
-  const json = await res.json() as { data: Array<{ b64_json: string }> };
-  return Buffer.from(json.data[0].b64_json, 'base64');
-}
-```
-
-- [ ] **Step 3:** Add to `.env.content.example`:
-  `OPENAI_API_KEY=` with a comment `# anatomy image generation (scripts/generate-anatomy-images.ts) — never expose as VITE_*`.
-- [ ] **Step 4: Dry-run against one term** (`npm run generate:anatomy-images` with a single-id
-  trial list) — confirm an `anatomy_images` row lands with `source='ai', is_primary=false` and
-  the file is visible in the `anatomy` bucket.
-- [ ] **Step 5: Commit** — `feat: wire OpenAI provider + --all discovery into anatomy image generation`
+- [ ] **Step 1: Extend the manifest schema in `seed-anatomy-images.ts`.** Add an optional
+  `source` column: `'curated' | 'ai'`, default `'curated'`. Validation before any write:
+  `curated` requires a non-empty `credit` (friendly error ahead of the DB
+  `anatomy_images_curated_has_credit` check); `ai` stores `credit` as null when empty. The
+  insert uses the manifest's `source` instead of the hardcoded `'curated'`; the `is_primary`
+  behavior (explicit `true` only, default `false`) and idempotent storage paths are unchanged.
+- [ ] **Step 2: Delete `scripts/generate-anatomy-images.ts`** and its `package.json` entry.
+- [ ] **Step 3: Document in `content/README.md`:** illustrations live in
+  `content/anatomy-images/` (webp, ≲200 KB, named `<entry_id>.webp`); manifest columns
+  `entry_id / file / credit / is_primary / source`; the drawing recipe for agent sessions —
+  prompt style "flat medical-textbook illustration of the human <term>, anatomically accurate,
+  plain white background, soft muted colors, **no text, no labels, no letters, no arrows**",
+  1024×1024, export webp; and the rule that `ai` rows always ship `is_primary=false` and are
+  approved (or rejected) by the expert in `/admin/anatomy`.
+- [ ] **Step 4: Verify** — seed a one-row `source='ai'` manifest against the dev project;
+  confirm the row lands `is_primary=false` with the file in the `anatomy` bucket. Run the
+  existing curated path once to confirm no regression.
+- [ ] **Step 5: Commit** — `feat: manifest source column for ai/curated anatomy images; retire provider stub`
 
 ---
 
@@ -597,17 +574,23 @@ async function generateImage(termEnglish: string): Promise<Buffer> {
 - [ ] Apply migration `0014` to production; redeploy the app from `main`.
 - [ ] In `/admin/anatomy`: tag region + system for the ~30 anatomy-tagged entries (the admin UI
   and coverage counter already exist).
-- [ ] Run `npm run generate:anatomy-images -- --all` to stage AI candidates for all 30.
-- [ ] Expert pass in `/admin/anatomy`: set a primary per term where an AI candidate is medically
-  acceptable; list the rejects.
-- [ ] For the rejects: source open-license art (Gray's plates / Wikimedia CC), fill
-  `content/anatomy-curated.tsv`, run `npm run seed:anatomy-images`, set primaries.
+- [ ] Lock the illustration style on 2–3 sample terms first (owner approves the look), then draw
+  the full ~30-term set in an agent session; commit the webp files under
+  `content/anatomy-images/` with `source='ai'` manifest rows and run
+  `npm run seed:anatomy-images`.
+- [ ] Expert pass in `/admin/anatomy`: set a primary per term where an AI illustration is
+  medically acceptable; list the rejects.
+- [ ] For the rejects: source open-license art (Gray's plates / Wikimedia CC), add
+  `source='curated'` manifest rows with credits, re-run `npm run seed:anatomy-images`, set
+  primaries.
 - [ ] Verify `/anatomy` shows all 30 with images; press "add to review"; run a `/review` session
   and confirm `image_recognition` exercises appear and log `review_logs.practice_form='image_recognition'`.
 - [ ] Update `docs/ONBOARDING.md` status (anatomy review integration shipped) in the shipping PR.
 
 ## Explicitly out of scope (this iteration)
 
+- A paid or runtime image-generation provider (OpenAI images etc.) — explicitly rejected by the
+  owner: free sources or agent-drawn AI only.
 - A second image form (Hebrew term → pick the image) — natural v2 of the same machinery.
 - Full clickable body-map as primary navigation (owner chose the light highlight variant).
 - Anatomy audio/pronunciation — belongs to the audio plan from the 2026-07-17 vision update.
