@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Clock, Stethoscope, CheckCircle2, Circle, CircleDashed } from 'lucide-react';
-import { loadUnits, loadUnitProgress, loadUnitEntryIds } from '../data/units';
-import { loadDueCards, loadUpcomingCards, loadAllCards } from '../data/cards';
+import { loadUnits, loadAllUnitProgress, loadUnitEntryIds } from '../data/units';
+import { loadAllCards } from '../data/cards';
 import { getProfile, touchStreak } from '../data/profile';
+import { isDue } from '../lib/fsrs';
 import { StatsStrip } from '../components/StatsStrip';
 import { PageHeader } from '../components/ui/PageHeader';
 import { SectionTitle } from '../components/ui/SectionTitle';
@@ -42,26 +43,25 @@ export function HomePage() {
 
   useEffect(() => {
     (async () => {
-      const [units, profile, due, cards, entryIds] = await Promise.all([
-        loadUnits(), getProfile(), loadDueCards(), loadAllCards(), loadUnitEntryIds(),
+      // One flat batch: due/upcoming are derived locally from the full card
+      // list instead of re-querying (and re-joining) card state per view.
+      const [units, profile, cards, entryIds, progress] = await Promise.all([
+        loadUnits(), getProfile(), loadAllCards(), loadUnitEntryIds(), loadAllUnitProgress(),
       ]);
       if (profile?.uiLanguage && profile.uiLanguage !== i18n.language) {
         await applyLanguage(profile.uiLanguage);
       }
-      const progressEntries = await Promise.all(
-        units.map(async (u) => [u.slug, await loadUnitProgress(u.slug)] as const),
-      );
-      const progress = Object.fromEntries(progressEntries);
+      const now = new Date();
+      const dueCount = cards.filter((c) => isDue(c, now)).length;
       let nextDue: Date | null = null;
-      if (due.length === 0 && cards.length > 0) {
+      if (dueCount === 0 && cards.length > 0) {
         if (!touched.current) {
           touched.current = true;
           await touchStreak(); // caught-up visit maintains the streak
         }
-        const upcoming = await loadUpcomingCards(1);
-        nextDue = upcoming[0]?.card.due ?? null;
+        nextDue = cards.reduce((min, c) => (c.due < min ? c.due : min), cards[0].due);
       }
-      setState({ units, progress, dueCount: due.length, nextDue, cards, profile, entryIds });
+      setState({ units, progress, dueCount, nextDue, cards, profile, entryIds });
     })();
   }, []);
 

@@ -11,8 +11,6 @@ const intakeUnit = {
 };
 const db = {
   progress: 'not_started' as 'not_started' | 'in_progress' | 'completed',
-  due: [] as unknown[],
-  upcoming: [] as Array<{ card: CardState }>,
   cards: [] as CardState[],
   units: [intakeUnit] as unknown[],
   entryIds: {} as Record<string, string[]>,
@@ -26,12 +24,11 @@ const profile = {
 
 vi.mock('../data/units', () => ({
   loadUnits: () => Promise.resolve(db.units),
-  loadUnitProgress: () => Promise.resolve(db.progress),
+  loadAllUnitProgress: () =>
+    Promise.resolve(Object.fromEntries((db.units as Array<{ slug: string }>).map((u) => [u.slug, db.progress]))),
   loadUnitEntryIds: () => Promise.resolve(db.entryIds),
 }));
 vi.mock('../data/cards', () => ({
-  loadDueCards: () => Promise.resolve(db.due),
-  loadUpcomingCards: () => Promise.resolve(db.upcoming),
   loadAllCards: () => Promise.resolve(db.cards),
 }));
 vi.mock('../data/profile', () => ({
@@ -42,16 +39,22 @@ vi.mock('../data/profile', () => ({
 
 import { HomePage } from './HomePage';
 
-function card(entryId: string, state: CardState['state'], stability: number, reps: number): CardState {
+// Cards default to due-now; pass a future `due` to model a caught-up state.
+const FUTURE_DUE = new Date(Date.now() + 86_400_000);
+
+function card(
+  entryId: string, state: CardState['state'], stability: number, reps: number,
+  due: Date = new Date(),
+): CardState {
   return {
-    entryId, due: new Date(), stability, difficulty: 5, reps, lapses: 0,
+    entryId, due, stability, difficulty: 5, reps, lapses: 0,
     learningSteps: 0, state, lastReview: null,
   };
 }
 
 describe('HomePage', () => {
   beforeEach(() => {
-    db.progress = 'not_started'; db.due = []; db.upcoming = []; db.cards = [];
+    db.progress = 'not_started'; db.cards = [];
     db.units = [intakeUnit];
     db.entryIds = {};
     touchStreak.mockClear();
@@ -78,7 +81,6 @@ describe('HomePage', () => {
 
   it('shows due count and progress counts', async () => {
     db.progress = 'completed';
-    db.due = [1, 2, 3];
     db.cards = [
       card('a', 'review', 8, 5),   // known + learned
       card('b', 'learning', 1, 2), // learned
@@ -97,9 +99,7 @@ describe('HomePage', () => {
 
   it('caught-up state touches the streak and offers extra practice', async () => {
     db.progress = 'completed';
-    db.due = [];
-    db.cards = [card('a', 'review', 8, 5)];
-    db.upcoming = [{ card: card('a', 'review', 8, 5) }];
+    db.cards = [card('a', 'review', 8, 5, FUTURE_DUE)];
     render(<MemoryRouter><HomePage /></MemoryRouter>);
     expect(await screen.findByTestId('home-review-card')).toHaveTextContent('All caught up');
     expect(touchStreak).toHaveBeenCalledOnce();
@@ -108,9 +108,7 @@ describe('HomePage', () => {
 
   it('hides the drill link by default and shows it when VITE_ENABLE_DRILL is set', async () => {
     db.progress = 'completed';
-    db.due = [];
-    db.cards = [card('a', 'review', 8, 5)];
-    db.upcoming = [{ card: card('a', 'review', 8, 5) }];
+    db.cards = [card('a', 'review', 8, 5, FUTURE_DUE)];
     const { unmount } = render(<MemoryRouter><HomePage /></MemoryRouter>);
     await screen.findByText('Extra practice');
     expect(screen.queryByText('AI practice drill')).not.toBeInTheDocument();
@@ -141,9 +139,7 @@ describe('HomePage', () => {
 
   it('caught-up visit touches the streak exactly once under StrictMode', async () => {
     db.progress = 'completed';
-    db.due = [];
-    db.cards = [card('a', 'review', 8, 5)];
-    db.upcoming = [{ card: card('a', 'review', 8, 5) }];
+    db.cards = [card('a', 'review', 8, 5, FUTURE_DUE)];
     render(
       <StrictMode>
         <MemoryRouter><HomePage /></MemoryRouter>
@@ -156,7 +152,7 @@ describe('HomePage', () => {
 
 describe('dashboard', () => {
   beforeEach(() => {
-    db.progress = 'not_started'; db.due = []; db.upcoming = []; db.cards = [];
+    db.progress = 'not_started'; db.cards = [];
     db.units = [intakeUnit];
     db.entryIds = {};
     touchStreak.mockClear();
@@ -164,11 +160,10 @@ describe('dashboard', () => {
 
   it('renders the stats strip with due, mastered, and learned counts', async () => {
     db.cards = [
-      card('a', 'review', 10, 3),  // mastered + learned
-      card('b', 'learning', 1, 1), // learned only
-      card('c', 'new', 0, 0),      // neither
+      card('a', 'review', 10, 3),             // mastered + learned, due
+      card('b', 'learning', 1, 1),            // learned only, due
+      card('c', 'new', 0, 0, FUTURE_DUE),     // neither, not yet due
     ];
-    db.due = [{}, {}];
     render(<MemoryRouter><HomePage /></MemoryRouter>);
     const strip = await screen.findByTestId('stats-strip');
     expect(strip).toHaveTextContent('Day streak');

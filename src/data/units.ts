@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import { currentUserId } from './auth';
 import type { DictionaryEntry, Unit, UnitItem } from '../lib/types';
 
 type UnitRow = {
@@ -30,12 +31,6 @@ function mapEntry(r: {
     everydaySynonym: r.everyday_synonym, translations: r.translations, notes: r.notes,
     category: r.category ?? null, topic: r.topic ?? null,
   };
-}
-
-async function currentUserId(): Promise<string> {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) throw new Error('not signed in');
-  return user.id;
 }
 
 export async function loadUnits(): Promise<Unit[]> {
@@ -73,6 +68,19 @@ export async function loadUnitProgress(slug: string) {
     .from('unit_progress').select('status').eq('unit_slug', slug).maybeSingle();
   if (error) throw error;
   return (data?.status ?? 'not_started') as 'not_started' | 'in_progress' | 'completed';
+}
+
+// All of the user's unit progress in one query (RLS scopes the rows), for
+// screens that show every unit — a per-unit loadUnitProgress there costs one
+// round trip per unit. Units without a row are simply absent.
+export async function loadAllUnitProgress(): Promise<Record<string, 'not_started' | 'in_progress' | 'completed'>> {
+  const { data, error } = await supabase.from('unit_progress').select('unit_slug, status');
+  if (error) throw error;
+  const map: Record<string, 'not_started' | 'in_progress' | 'completed'> = {};
+  for (const row of (data ?? []) as Array<{ unit_slug: string; status: 'in_progress' | 'completed' }>) {
+    map[row.unit_slug] = row.status;
+  }
+  return map;
 }
 
 export async function startUnit(slug: string): Promise<void> {

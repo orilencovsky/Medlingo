@@ -5,7 +5,7 @@ const responses: Record<string, unknown[]> = {};
 
 vi.mock('../lib/supabase', () => ({
   supabase: {
-    auth: { getUser: () => Promise.resolve({ data: { user: { id: 'u1' } } }) },
+    auth: { getSession: () => Promise.resolve({ data: { session: { user: { id: 'u1' } } } }) },
     from: (table: string) => {
       const chain = {
         select: () => chain,
@@ -25,7 +25,7 @@ vi.mock('../lib/supabase', () => ({
   },
 }));
 
-import { loadUnitProgress, startUnit, completeUnit, loadUnitEntryIds } from './units';
+import { loadUnitProgress, loadAllUnitProgress, startUnit, completeUnit, loadUnitEntryIds } from './units';
 
 describe('units data layer', () => {
   beforeEach(() => {
@@ -35,6 +35,22 @@ describe('units data layer', () => {
 
   it('loadUnitProgress defaults to not_started', async () => {
     expect(await loadUnitProgress('unit-01-intake')).toBe('not_started');
+  });
+
+  it('loadAllUnitProgress maps unit slugs to statuses', async () => {
+    responses['unit_progress'] = [
+      { unit_slug: 'unit-01-intake', status: 'completed' },
+      { unit_slug: 'unit-02-vitals', status: 'in_progress' },
+    ];
+    expect(await loadAllUnitProgress()).toEqual({
+      'unit-01-intake': 'completed',
+      'unit-02-vitals': 'in_progress',
+    });
+  });
+
+  it('loadAllUnitProgress returns an empty map with no rows', async () => {
+    responses['unit_progress'] = [];
+    expect(await loadAllUnitProgress()).toEqual({});
   });
 
   it('startUnit upserts in_progress', async () => {
