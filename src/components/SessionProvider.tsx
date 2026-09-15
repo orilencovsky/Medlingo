@@ -26,12 +26,22 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Supabase re-checks the session every time the browser tab regains
+    // visibility and re-emits SIGNED_IN with the *same* (unrefreshed) token
+    // when nothing actually changed. Without this guard that redundant event
+    // re-triggered a profile fetch + full i18next language reload (which
+    // re-renders every translated component and flips the document `dir`)
+    // on every tab switch, which is what made the app feel stuck.
+    let lastToken: string | null = null;
     supabase.auth.getSession().then(({ data }) => {
+      lastToken = data.session?.access_token ?? null;
       setSession(data.session);
       setLoading(false);
       if (data.session) applySavedLanguage();
     });
     const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => {
+      if (s?.access_token === lastToken) return;
+      lastToken = s?.access_token ?? null;
       setSession(s);
       if (s) applySavedLanguage();
     });
