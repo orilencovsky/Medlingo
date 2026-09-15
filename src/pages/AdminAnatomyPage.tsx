@@ -6,6 +6,7 @@ import {
 } from '../data/anatomyAdmin';
 import { REGIONS, type Region } from '../lib/anatomyRegions';
 import { SYSTEMS, type BodySystem } from '../lib/anatomySystems';
+import { anatomyThumbUrl } from '../lib/anatomyThumb';
 
 export function AdminAnatomyPage() {
   const { t } = useTranslation();
@@ -93,7 +94,14 @@ export function AdminAnatomyPage() {
               <ul className="mt-2 flex flex-wrap gap-2">
                 {r.images.map((img) => (
                   <li key={img.id} className="w-28 rounded-md border border-border p-1">
-                    <img src={img.url} alt="" className="aspect-square w-full rounded object-cover" />
+                    <img
+                      src={anatomyThumbUrl(img.url, 240)}
+                      alt=""
+                      className="aspect-square w-full rounded object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => { if (e.currentTarget.src !== img.url) e.currentTarget.src = img.url; }}
+                    />
                     <div className="mt-1 flex items-center justify-between text-[10px]">
                       <span className="rounded bg-primary-tint px-1 text-primary">
                         {img.source === 'curated' ? t('admin.anatomyCurated') : t('admin.anatomyAi')}

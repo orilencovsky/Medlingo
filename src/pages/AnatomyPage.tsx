@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { fetchAnatomyCards, type AnatomyCard } from '../data/anatomy';
 import { loadAllCards, seedNewCards } from '../data/cards';
 import { REGIONS, type Region } from '../lib/anatomyRegions';
+import { anatomyThumbUrl } from '../lib/anatomyThumb';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Button } from '../components/ui/Button';
 import { BodyFigure } from '../components/BodyFigure';
@@ -17,8 +18,14 @@ function CardTile({ card, inReview }: { card: AnatomyCard; inReview: boolean }) 
   const { t } = useTranslation();
   return (
     <li className="overflow-hidden rounded-md border border-border bg-surface">
-      <img src={card.imageUrl} alt={card.entry.translations.en}
-        className="aspect-square w-full object-cover" loading="lazy" />
+      <img
+        src={anatomyThumbUrl(card.imageUrl, 480)}
+        alt={card.entry.translations.en}
+        className="aspect-square w-full object-cover"
+        loading="lazy"
+        decoding="async"
+        onError={(e) => { if (e.currentTarget.src !== card.imageUrl) e.currentTarget.src = card.imageUrl; }}
+      />
       <div className="p-2">
         <He className="block text-base font-bold text-ink">{card.entry.hebrewNikud}</He>
         <div className="text-sm text-ink-muted">{card.entry.translations.en}</div>

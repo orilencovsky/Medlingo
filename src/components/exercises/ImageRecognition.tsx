@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { He } from '../He';
+import { anatomyThumbUrl } from '../../lib/anatomyThumb';
 import { Feedback } from './Feedback';
 import { useExercise, shuffledOnce, type ExerciseProps } from './Recognition';
 
@@ -15,10 +16,12 @@ export function ImageRecognition({ entry, imageUrl, distractors, onResult }: Exe
   return (
     <div className="p-4">
       <img
-        src={imageUrl ?? undefined}
+        src={imageUrl ? anatomyThumbUrl(imageUrl, 400) : undefined}
         alt=""
         data-testid="exercise-image"
         className="mx-auto aspect-square w-48 rounded-md border border-border bg-surface object-cover"
+        decoding="async"
+        onError={(e) => { if (imageUrl && e.currentTarget.src !== imageUrl) e.currentTarget.src = imageUrl; }}
       />
       <p className="mt-3 text-center text-sm text-ink-muted">{t('review.imagePrompt')}</p>
       <div className="mt-4 flex flex-col gap-2">
